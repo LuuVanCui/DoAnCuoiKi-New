@@ -221,6 +221,28 @@ namespace QuanLyNhaXe01
             return table;
         }
 
+        public DataTable getShapeByID(string id)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT HinhThucGui FROM Xe WHERE MaTheXe = @id");
+            cmd.Connection = mydb.getConnection;
+            cmd.Parameters.Add("@id", SqlDbType.Char).Value = id;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        public DataTable getStatusByID(string id)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT TrangThaiGui FROM Xe WHERE MaTheXe = @id");
+            cmd.Connection = mydb.getConnection;
+            cmd.Parameters.Add("@id", SqlDbType.Char).Value = id;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
         public bool deleteVehicle(string ma)
         {
             SqlCommand command = new SqlCommand("DELETE FROM Xe WHERE MaTheXe=@ma", mydb.getConnection);

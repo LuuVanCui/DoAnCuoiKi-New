@@ -66,10 +66,10 @@ namespace QuanLyNhaXe01
 
         private void editVehiclesForm_Load(object sender, EventArgs e)
         {
-            //Detach event
-            comboBoxCardID.SelectedIndexChanged -= comboBoxCardID_SelectionChangeCommitted;
+            //  Detach event
+            comboBoxCardID.SelectedIndexChanged -= comboBoxCardID_SelectedIndexChanged;
 
-            //Populate Combobox1
+         //   Populate Combobox1
             SqlDataAdapter da = new SqlDataAdapter("SELECT MaTheXe FROM Xe", mydb.getConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -78,7 +78,20 @@ namespace QuanLyNhaXe01
             comboBoxCardID.ValueMember = "MaTheXe";
 
             //Attach event again
-            comboBoxCardID.SelectedIndexChanged += comboBoxCardID_SelectionChangeCommitted;
+            comboBoxCardID.SelectedIndexChanged += comboBoxCardID_SelectedIndexChanged;
+
+            DataTable tableShape = vehicle.getShapeByID(comboBoxCardID.Text);
+            comboBoxShape.Text = tableShape.Rows[0][0].ToString();
+
+            DataTable tableStatus = vehicle.getStatusByID(comboBoxCardID.Text);
+            if (tableStatus.Rows[0][0].ToString() == "Dang Gui")
+            {
+                checkBoxStatus.Checked = true;
+            }    
+            else
+            {
+                checkBoxStatus.Checked = false;
+            }    
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -88,6 +101,12 @@ namespace QuanLyNhaXe01
             {
                 string id = comboBoxCardID.Text;
                 string type = "Xe May";
+                string shape = comboBoxShape.Text;
+                string status = "Dang Gui";
+                if (checkBoxStatus.Checked == false)
+                {
+                    status = "Da Lay Xe";
+                }    
 
                 if (radioButtonMoto.Checked && verifMoto())
                 {
@@ -100,7 +119,7 @@ namespace QuanLyNhaXe01
                     pictureBoxLicensePlate.Image.Save(license_pic, pictureBoxLicensePlate.Image.RawFormat);
 
                     DateTime inTime = dateTimePickerInTime.Value;
-                   // vehicle.updateMoto(id, type, license_pic, user_pic, inTime, model_pic, vehicle_pic);
+                    vehicle.updateMoto(id, type, license_pic, user_pic, inTime, model_pic, vehicle_pic, shape, status);
 
                 }
                 else if (radioButtonCar.Checked && verifCar())
@@ -113,7 +132,7 @@ namespace QuanLyNhaXe01
                     pictureBoxLicensePlate.Image.Save(license_pic, pictureBoxLicensePlate.Image.RawFormat);
                     pictureBoxModel.Image.Save(model_pic, pictureBoxModel.Image.RawFormat);
                     DateTime inTime = dateTimePickerInTime.Value;
-                    //vehicle.updateCar(id, type, license_pic, model_pic, inTime, vehicle_pic, user_pic);
+                    vehicle.updateCar(id, type, license_pic, model_pic, inTime, vehicle_pic, user_pic, shape, status);
                 }
                 else if (radioButtonBike.Checked && verifBike())
                 {
@@ -125,7 +144,7 @@ namespace QuanLyNhaXe01
                     pictureBoxUser.Image.Save(user_pic, pictureBoxUser.Image.RawFormat);
                     pictureBoxVehiclePicture.Image.Save(vehicle_pic, pictureBoxVehiclePicture.Image.RawFormat);
                     DateTime inTime = dateTimePickerInTime.Value;
-                   // vehicle.updateBike(id, type, user_pic, vehicle_pic, inTime, license_pic, model_pic);
+                    vehicle.updateBike(id, type, user_pic, vehicle_pic, inTime, license_pic, model_pic, shape, status);
                 }
                 else
                 {
@@ -213,13 +232,22 @@ namespace QuanLyNhaXe01
             #endregion
 
             dateTimePickerInTime.Value = (DateTime)table.Rows[0]["ThoiGianVao"];
+            DataTable tableShape = vehicle.getShapeByID(comboBoxCardID.Text);
+
+            comboBoxShape.Text = tableShape.Rows[0][0].ToString();
+
+            DataTable tableStatus = vehicle.getStatusByID(comboBoxCardID.Text);
+            if (tableStatus.Rows[0][0].ToString() == "Dang Gui")
+            {
+                checkBoxStatus.Checked = true;
+            }
+            else
+            {
+                checkBoxStatus.Checked = false;
+            }
         }
 
-        private void comboBoxCardID_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            showData();
-        }
-
+        
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -327,6 +355,11 @@ namespace QuanLyNhaXe01
             pictureBoxLicensePlate.Image = null;
 
             dateTimePickerInTime.Value = DateTime.Now;
+        }
+
+        private void comboBoxCardID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            showData();
         }
     }
 }
