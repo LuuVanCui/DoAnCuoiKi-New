@@ -27,21 +27,24 @@ namespace QuanLyNhaXe01
         {
             radioButtonCar.Checked = true;
             dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT *FROM Xe  WHERE LoaiXe = 'Xe Hoi'"));
+
+            // makeUpGridForXeMayAndXeDap();
+            makeUpGridForAllAndXeHoi();
         }
 
         private void radioButtonCar_CheckedChanged(object sender, EventArgs e)
         {
-            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT *FROM Xe  WHERE LoaiXe = 'Xe Hoi'"));
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, BienSo, HieuXe, ThoiGianVao, HinhThucGui,TrangThaiGui FROM Xe  WHERE LoaiXe = 'Xe Hoi'"));
         }
 
         private void radioButtonMoto_CheckedChanged(object sender, EventArgs e)
         {
-            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, Slot FROM dbo.Xe WHERE LoaiXe = 'Xe May'"));
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, BienSo, ThoiGianVao,HinhThucGui,TrangThaiGui  FROM dbo.Xe WHERE LoaiXe = 'Xe May'"));
         }
 
         private void radioButtonBike_CheckedChanged(object sender, EventArgs e)
         {
-            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, Slot FROM dbo.Xe WHERE LoaiXe = 'Xe Dap'"));
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, HinhThucGui,TrangThaiGui  FROM dbo.Xe WHERE LoaiXe = 'Xe Dap'"));
         }
 
         private void radioButtonAll_CheckedChanged(object sender, EventArgs e)
@@ -190,5 +193,63 @@ namespace QuanLyNhaXe01
             }
         }
 
+
+        void makeUpGridForAllAndXeHoi()
+        {
+
+            try
+            {
+                dataGridViewVehicle.ReadOnly = true;
+
+                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
+
+
+                dataGridViewVehicle.RowTemplate.Height = 80;
+
+                picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
+                picCol3 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[3];
+                picCol4 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[4];
+                picCol5 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[5];
+
+                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol4.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol5.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                dataGridViewVehicle.AllowUserToAddRows = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        void makeUpGridForXeMayAndXeDap()
+        {
+            try
+            {
+                dataGridViewVehicle.ReadOnly = true;
+
+                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
+
+                dataGridViewVehicle.RowTemplate.Height = 80;
+
+                picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
+                picCol3 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[3];
+
+                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                dataGridViewVehicle.AllowUserToAddRows = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
