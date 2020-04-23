@@ -54,6 +54,8 @@
             this.pictureBoxLicensePlate = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBoxShape = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVehiclePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModel)).BeginInit();
@@ -246,11 +248,30 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.ForeColor = System.Drawing.Color.Lime;
+            this.label9.Name = "label9";
+            // 
+            // comboBoxShape
+            // 
+            this.comboBoxShape.FormattingEnabled = true;
+            this.comboBoxShape.Items.AddRange(new object[] {
+            resources.GetString("comboBoxShape.Items"),
+            resources.GetString("comboBoxShape.Items1"),
+            resources.GetString("comboBoxShape.Items2"),
+            resources.GetString("comboBoxShape.Items3")});
+            resources.ApplyResources(this.comboBoxShape, "comboBoxShape");
+            this.comboBoxShape.Name = "comboBoxShape";
+            // 
             // addVehicleForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Controls.Add(this.comboBoxShape);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonCancel);
@@ -266,6 +287,7 @@
             this.Controls.Add(this.textBoxCardID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.labelInTime);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -312,5 +334,7 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBoxShape;
     }
 }

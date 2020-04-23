@@ -164,7 +164,7 @@
             this.buttonExit.TabIndex = 35;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
-            this.buttonExit.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // deleteVehicleByID
             // 

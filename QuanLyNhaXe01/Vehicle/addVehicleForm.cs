@@ -118,7 +118,7 @@ namespace QuanLyNhaXe01
             {
                 string id = textBoxCardID.Text;
                 string type = "Xe May";
-
+                string shape = comboBoxShape.Text;
                 if (radioButtonMoto.Checked && verifMoto())
                 {
                     MemoryStream user_pic = new MemoryStream();
@@ -126,7 +126,7 @@ namespace QuanLyNhaXe01
                     pictureBoxUser.Image.Save(user_pic, pictureBoxUser.Image.RawFormat);
                     pictureBoxLicensePlate.Image.Save(license_pic, pictureBoxLicensePlate.Image.RawFormat);
                     DateTime inTime = dateTimePickerInTime.Value;
-                    vehicle.insertMoto(id, type, license_pic, user_pic, inTime);
+                    vehicle.insertMoto(id, type, license_pic, user_pic, inTime, shape);
 
                 }
                 else if (radioButtonCar.Checked && verifCar())
@@ -137,7 +137,7 @@ namespace QuanLyNhaXe01
                     pictureBoxLicensePlate.Image.Save(license_pic, pictureBoxLicensePlate.Image.RawFormat);
                     pictureBoxModel.Image.Save(model_pic, pictureBoxModel.Image.RawFormat);
                     DateTime inTime = dateTimePickerInTime.Value;
-                    vehicle.insertCar(id, type, license_pic, model_pic, inTime);
+                    vehicle.insertCar(id, type, license_pic, model_pic, inTime, shape);
                 }
                 else if (radioButtonBike.Checked && verifBike())
                 {
@@ -147,7 +147,7 @@ namespace QuanLyNhaXe01
                     pictureBoxUser.Image.Save(user_pic, pictureBoxUser.Image.RawFormat);
                     pictureBoxVehiclePicture.Image.Save(vehicle_pic, pictureBoxVehiclePicture.Image.RawFormat);
                     DateTime inTime = dateTimePickerInTime.Value;
-                    vehicle.insertBike(id, type, user_pic, vehicle_pic, inTime);
+                    vehicle.insertBike(id, type, user_pic, vehicle_pic, inTime, shape);
                 }
                 else
                 {

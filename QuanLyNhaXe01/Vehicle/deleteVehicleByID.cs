@@ -45,7 +45,24 @@ namespace QuanLyNhaXe01
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                string id = comboBoxID.Text;
+                if (MessageBox.Show("Do you want to detele this vehicle", "Delete Vehicle", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    vehicle.deleteVehicle(id);
+                    deleteVehicleByID_Load(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
