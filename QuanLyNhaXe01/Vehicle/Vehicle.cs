@@ -15,16 +15,19 @@ namespace QuanLyNhaXe01
 
         //MaTheXe, LoaiXe,BienSo,NguoiGui,HieuXe,AnhXe,ThoiGianVao,Slot
         public bool insertCar(string MaTheXe, string LoaiXe, MemoryStream BienSo, MemoryStream HieuXe,
-                                     DateTime ThoiGianVao)
+                                     DateTime ThoiGianVao, string HinhThucGui)
         {
-            SqlCommand command = new SqlCommand("Insert INTO Xe(MaTheXe, LoaiXe,BienSo,HieuXe,ThoiGianVao)" +
-                "Values(@ma,@loai,@bienso,@hieuxe,@time)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("Insert INTO Xe(MaTheXe, LoaiXe,BienSo,HieuXe,ThoiGianVao, HinhThucGui, TrangThaiGui)" +
+                "Values(@ma,@loai,@bienso,@hieuxe,@time,@hinhThuc,'Dang Gui')", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.Char).Value = MaTheXe;
             command.Parameters.Add("@loai", System.Data.SqlDbType.NVarChar).Value = LoaiXe;
             command.Parameters.Add("@bienso", System.Data.SqlDbType.Image).Value = BienSo.ToArray();
             command.Parameters.Add("@hieuxe", System.Data.SqlDbType.Image).Value = HieuXe.ToArray();
             command.Parameters.Add("@time", SqlDbType.DateTime).Value = ThoiGianVao;
+
+            command.Parameters.Add("@hinhThuc", SqlDbType.NVarChar).Value = HinhThucGui;
+
 
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -40,17 +43,20 @@ namespace QuanLyNhaXe01
         }
 
 
-        public bool insertMoto(string MaTheXe, string LoaiXe, MemoryStream BienSo, MemoryStream NguoiGui, DateTime ThoiGianVao)
+        public bool insertMoto(string MaTheXe, string LoaiXe, MemoryStream BienSo, MemoryStream NguoiGui, DateTime ThoiGianVao, string HinhThucGui)
         {
-            
-            SqlCommand command = new SqlCommand("Insert INTO Xe(MaTheXe, LoaiXe,BienSo,NguoiGui,ThoiGianVao)" +
-                "Values(@ma,@loai,@bienso,@nguoigui,@time)", mydb.getConnection);
+
+            SqlCommand command = new SqlCommand("Insert INTO Xe(MaTheXe, LoaiXe,BienSo,NguoiGui,ThoiGianVao, HinhThucGui, TrangThaiGui)" +
+                "Values(@ma,@loai,@bienso,@nguoigui,@time,@hinhThuc, 'Dang Gui')", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.Char).Value = MaTheXe;
             command.Parameters.Add("@loai", System.Data.SqlDbType.NVarChar).Value = LoaiXe;
             command.Parameters.Add("@bienso", System.Data.SqlDbType.Image).Value = BienSo.ToArray();
             command.Parameters.Add("@nguoigui", System.Data.SqlDbType.Image).Value = NguoiGui.ToArray();
             command.Parameters.Add("@time", SqlDbType.DateTime).Value = ThoiGianVao;
+
+            command.Parameters.Add("@hinhThuc", SqlDbType.NVarChar).Value = HinhThucGui;
+
 
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -66,11 +72,11 @@ namespace QuanLyNhaXe01
         }
 
         public bool insertBike(string MaTheXe, string LoaiXe, MemoryStream NguoiGui,
-                                    MemoryStream AnhXe, DateTime ThoiGianVao)
+                                    MemoryStream AnhXe, DateTime ThoiGianVao, string HinhThucGui)
         {
 
-            SqlCommand command = new SqlCommand("Insert INTO Xe(MaTheXe, LoaiXe,NguoiGui,AnhXe,ThoiGianVao)" +
-                "Values(@ma,@loai,@nguoigui,@anhxe,@time)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("Insert INTO Xe(MaTheXe, LoaiXe,NguoiGui,AnhXe,ThoiGianVao, HinhThucGui, TrangThaiGui)" +
+                "Values(@ma,@loai,@nguoigui,@anhxe,@time,@hinhThuc,'Dang Gui')", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.Char).Value = MaTheXe;
             command.Parameters.Add("@loai", System.Data.SqlDbType.NVarChar).Value = LoaiXe;
@@ -79,6 +85,8 @@ namespace QuanLyNhaXe01
 
             command.Parameters.Add("@anhXe", System.Data.SqlDbType.Image).Value = AnhXe.ToArray();
             command.Parameters.Add("@time", SqlDbType.DateTime).Value = ThoiGianVao;
+
+            command.Parameters.Add("@hinhThuc", SqlDbType.NVarChar).Value = HinhThucGui;
 
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -95,9 +103,10 @@ namespace QuanLyNhaXe01
 
 
         public bool updateCar(string MaTheXe, string LoaiXe, MemoryStream BienSo, MemoryStream HieuXe,
-                                    DateTime ThoiGianVao, MemoryStream AnhXe, MemoryStream NguoiGui)
+                                    DateTime ThoiGianVao, MemoryStream AnhXe, MemoryStream NguoiGui, string HinhThucGui, string TrangThai)
         {
-            SqlCommand command = new SqlCommand("UPDATE Xe SET  LoaiXe=@loai, BienSo= @bienso, HieuXe= @hieuxe,ThoiGianVao=@time, AnhXe=@anhxe, NguoiGui=@nguoigui " +
+            SqlCommand command = new SqlCommand("UPDATE Xe SET  LoaiXe=@loai, BienSo= @bienso, HieuXe= @hieuxe,ThoiGianVao=@time, AnhXe=@anhxe, NguoiGui=@nguoigui, " +
+                "HinhThucGui=@hinhThuc, TrangThaiGui =@trangThai" +
                 "WHERE MaTheXe=@ma", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.Char).Value = MaTheXe;
@@ -109,6 +118,9 @@ namespace QuanLyNhaXe01
             command.Parameters.Add("@time", SqlDbType.DateTime).Value = ThoiGianVao;
             command.Parameters.Add("@anhxe", SqlDbType.Image).Value = AnhXe.ToArray();
             command.Parameters.Add("@nguoigui", SqlDbType.Image).Value = NguoiGui.ToArray();
+
+            command.Parameters.Add("@hinhThuc", SqlDbType.NVarChar).Value = HinhThucGui;
+            command.Parameters.Add("@trangThai", SqlDbType.NVarChar).Value = TrangThai;
 
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -123,10 +135,10 @@ namespace QuanLyNhaXe01
             }
         }
 
-        public bool updateMoto(string MaTheXe, string LoaiXe, MemoryStream BienSo, MemoryStream NguoiGui, DateTime ThoiGianVao, MemoryStream HieuXe, MemoryStream AnhXe)
+        public bool updateMoto(string MaTheXe, string LoaiXe, MemoryStream BienSo, MemoryStream NguoiGui, DateTime ThoiGianVao, MemoryStream HieuXe, MemoryStream AnhXe, string HinhThucGui, string TrangThai)
         {
 
-            SqlCommand command = new SqlCommand("UPDATE Xe SET LoaiXe=@loai, BienSo= @bienso,NguoiGui= @nguoigui,ThoiGianVao=@time, HieuXe=@hieuxe, AnhXe=@anhxe " +
+            SqlCommand command = new SqlCommand("UPDATE Xe SET LoaiXe=@loai, BienSo= @bienso,NguoiGui= @nguoigui,ThoiGianVao=@time, HieuXe=@hieuxe, AnhXe=@anhxe, HinhThucGui=@hinhThuc, TrangThaiGui=@trangThai " +
                 "WHERE MaTheXe=@ma", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.Char).Value = MaTheXe;
@@ -136,6 +148,9 @@ namespace QuanLyNhaXe01
             command.Parameters.Add("@time", SqlDbType.DateTime).Value = ThoiGianVao;
             command.Parameters.Add("@hieuxe", SqlDbType.Image).Value = HieuXe.ToArray();
             command.Parameters.Add("@anhxe", SqlDbType.Image).Value = AnhXe.ToArray();
+
+            command.Parameters.Add("@hinhThuc", SqlDbType.NVarChar).Value = HinhThucGui;
+            command.Parameters.Add("@trangThai", SqlDbType.NVarChar).Value = TrangThai;
 
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -152,10 +167,10 @@ namespace QuanLyNhaXe01
         }
 
         public bool updateBike(string MaTheXe, string LoaiXe, MemoryStream NguoiGui,
-                                   MemoryStream AnhXe, DateTime ThoiGianVao, MemoryStream BienSo, MemoryStream HieuXe)
+                                   MemoryStream AnhXe, DateTime ThoiGianVao, MemoryStream BienSo, MemoryStream HieuXe, string HinhThucGui, string TrangThai)
         {
 
-            SqlCommand command = new SqlCommand("UPDATE Xe SET  LoaiXe=@loai, NguoiGui= @nguoigui, AnhXe= @anhxe,ThoiGianVao=@time, BienSo=@bienso, HieuXe=@hieuxe " +
+            SqlCommand command = new SqlCommand("UPDATE Xe SET  LoaiXe=@loai, NguoiGui= @nguoigui, AnhXe= @anhxe,ThoiGianVao=@time, BienSo=@bienso, HieuXe=@hieuxe, TrangThaiGui=@trangThai,HinhThucGui=@hinhThuc " +
                 "WHERE MaTheXe=@ma", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.Char).Value = MaTheXe;
@@ -168,6 +183,9 @@ namespace QuanLyNhaXe01
 
             command.Parameters.Add("@bienso", SqlDbType.Image).Value = BienSo.ToArray();
             command.Parameters.Add("@hieuxe", SqlDbType.Image).Value = HieuXe.ToArray();
+
+            command.Parameters.Add("@hinhThuc", SqlDbType.NVarChar).Value = HinhThucGui;
+            command.Parameters.Add("@trangThai", SqlDbType.NVarChar).Value = TrangThai;
 
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -195,7 +213,7 @@ namespace QuanLyNhaXe01
 
         public DataTable getTypeVehicle()
         {
-            SqlCommand cmd = new SqlCommand("SELECT LoaiXe FROM Slot");
+            SqlCommand cmd = new SqlCommand("SELECT LoaiXe FROM Xe");
             cmd.Connection = mydb.getConnection;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();

@@ -24,6 +24,11 @@ namespace QuanLyNhaXe01
             buttonLoadVehiclePictrue.Enabled = false;
             buttonLoadModel.Enabled = true;
             buttonLoadLicensePlate.Enabled = true;
+
+            buttonLoadModel.BackColor = Color.Aqua;
+            buttonLoadLicensePlate.BackColor = Color.Aqua;
+            buttonLoadUser.BackColor = Color.White;
+            buttonLoadVehiclePictrue.BackColor = Color.White;
         }
 
         private void radioButtonMoto_CheckedChanged(object sender, EventArgs e)
@@ -32,6 +37,11 @@ namespace QuanLyNhaXe01
             buttonLoadVehiclePictrue.Enabled = false;
             buttonLoadUser.Enabled = true;
             buttonLoadLicensePlate.Enabled = true;
+
+            buttonLoadUser.BackColor = Color.Aqua;
+            buttonLoadLicensePlate.BackColor = Color.Aqua;
+            buttonLoadModel.BackColor = Color.White;
+            buttonLoadVehiclePictrue.BackColor = Color.White;
         }
 
         private void radioButtonBike_CheckedChanged(object sender, EventArgs e)
@@ -40,6 +50,11 @@ namespace QuanLyNhaXe01
             buttonLoadModel.Enabled = false;
             buttonLoadVehiclePictrue.Enabled = true;
             buttonLoadUser.Enabled = true;
+
+            buttonLoadVehiclePictrue.BackColor = Color.Aqua;
+            buttonLoadUser.BackColor = Color.Aqua;
+            buttonLoadModel.BackColor = Color.White;
+            buttonLoadLicensePlate.BackColor = Color.White;
         }
 
         private void buttonLoadModel_Click(object sender, EventArgs e)

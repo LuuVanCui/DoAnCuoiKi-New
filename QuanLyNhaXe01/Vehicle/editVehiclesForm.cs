@@ -100,7 +100,7 @@ namespace QuanLyNhaXe01
                     pictureBoxLicensePlate.Image.Save(license_pic, pictureBoxLicensePlate.Image.RawFormat);
 
                     DateTime inTime = dateTimePickerInTime.Value;
-                    vehicle.updateMoto(id, type, license_pic, user_pic, inTime, model_pic, vehicle_pic);
+                   // vehicle.updateMoto(id, type, license_pic, user_pic, inTime, model_pic, vehicle_pic);
 
                 }
                 else if (radioButtonCar.Checked && verifCar())
@@ -113,7 +113,7 @@ namespace QuanLyNhaXe01
                     pictureBoxLicensePlate.Image.Save(license_pic, pictureBoxLicensePlate.Image.RawFormat);
                     pictureBoxModel.Image.Save(model_pic, pictureBoxModel.Image.RawFormat);
                     DateTime inTime = dateTimePickerInTime.Value;
-                    vehicle.updateCar(id, type, license_pic, model_pic, inTime, vehicle_pic, user_pic);
+                    //vehicle.updateCar(id, type, license_pic, model_pic, inTime, vehicle_pic, user_pic);
                 }
                 else if (radioButtonBike.Checked && verifBike())
                 {
@@ -125,7 +125,7 @@ namespace QuanLyNhaXe01
                     pictureBoxUser.Image.Save(user_pic, pictureBoxUser.Image.RawFormat);
                     pictureBoxVehiclePicture.Image.Save(vehicle_pic, pictureBoxVehiclePicture.Image.RawFormat);
                     DateTime inTime = dateTimePickerInTime.Value;
-                    vehicle.updateBike(id, type, user_pic, vehicle_pic, inTime, license_pic, model_pic);
+                   // vehicle.updateBike(id, type, user_pic, vehicle_pic, inTime, license_pic, model_pic);
                 }
                 else
                 {
