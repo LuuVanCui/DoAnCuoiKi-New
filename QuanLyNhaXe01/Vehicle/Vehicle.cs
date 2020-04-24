@@ -277,6 +277,15 @@ namespace QuanLyNhaXe01
             return execCount("SELECT COUNT(*) FROM Xe");
         }
 
+        public string totalVehicle_out()
+        {
+            return execCount("SELECT COUNT(*) FROM Xe where TrangThaiGui='Da Lay Xe'");
+        }
+        public string totalVehicle_in()
+        {
+            return execCount("SELECT COUNT(*) FROM Xe where TrangThaiGui='Dang Gui'");
+        }
+
         public string totalMotorcycle()
         {
             return execCount("SELECT COUNT(*) FROM Xe WHERE LoaiXe = 'Xe May' ");
@@ -315,7 +324,7 @@ namespace QuanLyNhaXe01
         public bool updateVehicleOut_DoanhThu(string maTheXe, float total)
         {
             
-            SqlCommand command = new SqlCommand("INSERT INTO dbo.DoanhThu(MaTheXe, Total) VALUES (@ma, @total)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("insert INTO DoanhThu(MaTheXe, Total) values (@ma, @total)", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = maTheXe;
             command.Parameters.Add("@total", SqlDbType.Float).Value = total;

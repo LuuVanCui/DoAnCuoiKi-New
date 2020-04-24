@@ -167,7 +167,7 @@ namespace QuanLyNhaXe01
         {
             string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
-            string query = "SELECT * FROM Xe WHERE ThoiGianRa BETWEEN '" + dateFrom + "' AND '" + dateTo + "'";
+            string query = "SELECT * FROM Xe WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "'";
             dataGridViewShowData.DataSource = vehicle.getVehicle(new SqlCommand(query));
             makeUpGridForAll();
         }
@@ -178,7 +178,7 @@ namespace QuanLyNhaXe01
             string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
             string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
                 "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
-                "WHERE ThoiGianRa BETWEEN '" + dateFrom + "' AND '" + dateTo + "' " +
+                "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' " +
                 "GROUP BY LoaiXe";
             DataTable table = vehicle.getVehicle(new SqlCommand(query));
             int tatCaXe = 0;

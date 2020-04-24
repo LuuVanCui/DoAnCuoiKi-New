@@ -39,6 +39,8 @@
             this.textBoxSearchLicenPlate = new System.Windows.Forms.TextBox();
             this.labelStatus = new System.Windows.Forms.Label();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.labelDaRa = new System.Windows.Forms.Label();
+            this.labelDangGui = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVManageVehicle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +105,7 @@
             this.buttonDelete.BackColor = System.Drawing.Color.Crimson;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonDelete.Location = new System.Drawing.Point(788, 652);
+            this.buttonDelete.Location = new System.Drawing.Point(762, 692);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(217, 66);
             this.buttonDelete.TabIndex = 7;
@@ -116,7 +118,7 @@
             this.buttonEdit.BackColor = System.Drawing.Color.DarkCyan;
             this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEdit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonEdit.Location = new System.Drawing.Point(523, 652);
+            this.buttonEdit.Location = new System.Drawing.Point(452, 692);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(216, 66);
             this.buttonEdit.TabIndex = 0;
@@ -129,7 +131,7 @@
             this.buttonAdd.BackColor = System.Drawing.Color.Green;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonAdd.Location = new System.Drawing.Point(257, 652);
+            this.buttonAdd.Location = new System.Drawing.Point(146, 692);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(216, 66);
             this.buttonAdd.TabIndex = 0;
@@ -150,12 +152,13 @@
             this.labelStatus.BackColor = System.Drawing.Color.Purple;
             this.labelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelStatus.Location = new System.Drawing.Point(1095, 606);
+            this.labelStatus.Location = new System.Drawing.Point(1189, 606);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(369, 60);
+            this.labelStatus.Size = new System.Drawing.Size(275, 60);
             this.labelStatus.TabIndex = 2;
             this.labelStatus.Text = "Status";
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelStatus.Click += new System.EventHandler(this.labelStatus_Click);
             // 
             // buttonRefresh
             // 
@@ -170,13 +173,39 @@
             this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // labelDaRa
+            // 
+            this.labelDaRa.BackColor = System.Drawing.Color.Purple;
+            this.labelDaRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDaRa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelDaRa.Location = new System.Drawing.Point(908, 606);
+            this.labelDaRa.Name = "labelDaRa";
+            this.labelDaRa.Size = new System.Drawing.Size(275, 60);
+            this.labelDaRa.TabIndex = 10;
+            this.labelDaRa.Text = "Status";
+            this.labelDaRa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelDangGui
+            // 
+            this.labelDangGui.BackColor = System.Drawing.Color.Purple;
+            this.labelDangGui.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDangGui.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelDangGui.Location = new System.Drawing.Point(627, 606);
+            this.labelDangGui.Name = "labelDangGui";
+            this.labelDangGui.Size = new System.Drawing.Size(275, 60);
+            this.labelDangGui.TabIndex = 11;
+            this.labelDangGui.Text = "Status";
+            this.labelDangGui.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // manageVehiclesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1476, 732);
+            this.ClientSize = new System.Drawing.Size(1476, 787);
+            this.Controls.Add(this.labelDangGui);
+            this.Controls.Add(this.labelDaRa);
             this.Controls.Add(this.buttonPay);
             this.Controls.Add(this.dataGridVManageVehicle);
             this.Controls.Add(this.comboBoxTypeVehicle);
@@ -210,5 +239,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonPay;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Label labelDaRa;
+        private System.Windows.Forms.Label labelDangGui;
     }
 }

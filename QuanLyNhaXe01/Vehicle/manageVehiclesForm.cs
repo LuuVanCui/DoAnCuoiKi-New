@@ -44,6 +44,9 @@ namespace QuanLyNhaXe01
             comboBoxTypeVehicle.DisplayMember = "LoaiXe";
             fillGrid();
             makeUpGridForXeMayAndXeDap();
+
+            labelDangGui.Text = "Dang Gui: " +vehicle.totalVehicle_in();
+            labelDaRa.Text = "Da Ra: " + vehicle.totalVehicle_out();
         }
 
         void fillGrid()
@@ -185,6 +188,11 @@ namespace QuanLyNhaXe01
         private void dataGridVManageVehicle_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        private void labelStatus_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
