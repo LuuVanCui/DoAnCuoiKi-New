@@ -23,12 +23,22 @@ namespace QuanLyNhaXe01
         {
             DataTable table = calculate.getData(new SqlCommand("SELECT * FROM PhiGuiXe"));
            textBoxFeeBike.Text = table.Rows[0][1].ToString();
-            textBoxFeeMoto.Text = table.Rows[1][2].ToString();
-            textBoxFeeCar.Text = table.Rows[2][2].ToString();
+            textBoxFeeMoto.Text = table.Rows[2][2].ToString();
+            textBoxFeeCar.Text = table.Rows[1][2].ToString();
             // bike
            
 
            
+        }
+
+        private void buttonApplyFee_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
