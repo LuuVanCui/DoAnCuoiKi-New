@@ -166,5 +166,25 @@ namespace QuanLyNhaXe01
             dataGridViewShowData.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
             makeUpGridForAll();
         }
+
+
+
+        private void buttonShowRevenue_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
+                "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
+                "GROUP BY LoaiXe";
+            DataTable table = vehicle.getVehicle(new SqlCommand(query));
+            int tatCaXe = 0;
+            float tongDoanhThu = 0;
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                tatCaXe += int.Parse(table.Rows[i][1].ToString());
+                tongDoanhThu += float.Parse(table.Rows[i][2].ToString());
+            }
+            table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
+            dataGridViewShowData.DataSource = table;
+            makeUpGridForAll();
+        }
     }
 }

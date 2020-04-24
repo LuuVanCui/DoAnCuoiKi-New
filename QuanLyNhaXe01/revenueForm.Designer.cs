@@ -68,6 +68,7 @@
             this.buttonShowRevenue.TabIndex = 1;
             this.buttonShowRevenue.Text = "Show Revenue";
             this.buttonShowRevenue.UseVisualStyleBackColor = true;
+            this.buttonShowRevenue.Click += new System.EventHandler(this.buttonShowRevenue_Click);
             // 
             // buttonExport
             // 
