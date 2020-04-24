@@ -54,9 +54,18 @@ namespace QuanLyNhaXe01
                 }
                 else
                 {
+<<<<<<< HEAD
+                    return ();
+                }    
+=======
                     TienPhat = (cost * 8 * ThoiGianGui.Days) * 2;
                 }
+<<<<<<< HEAD
             }
+=======
+>>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
+            }    
+>>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
             else if (HinhThucGui == "For Day")
             {
                 PhiGuiXe = cost * 8;
