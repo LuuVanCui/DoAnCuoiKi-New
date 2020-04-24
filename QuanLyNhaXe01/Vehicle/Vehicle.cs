@@ -289,5 +289,26 @@ namespace QuanLyNhaXe01
         {
             return execCount("SELECT COUNT(*) FROM Xe WHERE LoaiXe = 'Xe Dap' ");
         }
+
+        public bool updateVehicleOut(string MaTheXe)
+        {
+
+            SqlCommand command = new SqlCommand("UPDATE Xe SET ThoiGianRa=GETDATE(), TrangThaiGui='Da Lay Xe' WHERE MaTheXe = @ma", mydb.getConnection);
+
+            command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = MaTheXe;
+
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+
+        }
     }
 }
