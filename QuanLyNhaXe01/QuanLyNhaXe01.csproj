@@ -136,6 +136,9 @@
     <Compile Include="Vehicle\vehiclesListForm.Designer.cs">
       <DependentUpon>vehiclesListForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>

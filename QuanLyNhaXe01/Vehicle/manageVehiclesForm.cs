@@ -50,17 +50,17 @@ namespace QuanLyNhaXe01
         {
             if (comboBoxTypeVehicle.Text == "Xe May")
             {
-                dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, BienSo, ThoiGianVao FROM dbo.Xe WHERE LoaiXe = 'Xe May'"));
+                dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, BienSo, ThoiGianVao, HinhThucGui, TrangThaiGui FROM dbo.Xe WHERE LoaiXe = 'Xe May'"));
                 makeUpGridForXeMayAndXeDap();
             }
             else if (comboBoxTypeVehicle.Text == "Xe Dap")
             {
-                dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao FROM dbo.Xe WHERE LoaiXe = 'Xe Dap'"));
+                dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, HinhThucGui,TrangTraiGui FROM dbo.Xe WHERE LoaiXe = 'Xe Dap'"));
                 makeUpGridForXeMayAndXeDap();
             }
             else if (comboBoxTypeVehicle.Text == "Xe Hoi")
             {
-                dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, HieuXe, BienSo, ThoiGianVao FROM Xe  WHERE LoaiXe = 'Xe Hoi'"));
+                dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, HieuXe, BienSo, ThoiGianVao, HinhThucGui,TrangThaiGui FROM Xe  WHERE LoaiXe = 'Xe Hoi'"));
                 makeUpGridForXeMayAndXeDap();
             }
             else if (comboBoxTypeVehicle.Text == "Tat Ca")

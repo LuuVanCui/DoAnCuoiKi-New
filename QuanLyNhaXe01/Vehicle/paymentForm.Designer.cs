@@ -49,8 +49,12 @@
             this.labelFine = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
+            this.labelShape = new System.Windows.Forms.Label();
+=======
             this.labelHours = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+>>>>>>> ce3e9194c6918f701bd5d8766c7d61c1bc247226
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVehiclePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +73,7 @@
             this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCancel.Location = new System.Drawing.Point(389, 606);
+            this.buttonCancel.Location = new System.Drawing.Point(389, 630);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(200, 55);
             this.buttonCancel.TabIndex = 2;
@@ -192,7 +196,7 @@
             this.buttonPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.buttonPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.buttonPay.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonPay.Location = new System.Drawing.Point(103, 606);
+            this.buttonPay.Location = new System.Drawing.Point(103, 630);
             this.buttonPay.Name = "buttonPay";
             this.buttonPay.Size = new System.Drawing.Size(200, 55);
             this.buttonPay.TabIndex = 32;
@@ -262,6 +266,24 @@
             // label10
             // 
             this.label10.AutoSize = true;
+<<<<<<< HEAD
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(109, 586);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 29);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "Shape:";
+            // 
+            // labelShape
+            // 
+            this.labelShape.AutoSize = true;
+            this.labelShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShape.Location = new System.Drawing.Point(216, 586);
+            this.labelShape.Name = "labelShape";
+            this.labelShape.Size = new System.Drawing.Size(71, 29);
+            this.labelShape.TabIndex = 35;
+            this.labelShape.Text = "label";
+=======
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label10.Location = new System.Drawing.Point(217, 424);
             this.label10.Name = "label10";
@@ -288,12 +310,15 @@
             this.label12.Size = new System.Drawing.Size(83, 29);
             this.label12.TabIndex = 29;
             this.label12.Text = "Hours:";
+>>>>>>> ce3e9194c6918f701bd5d8766c7d61c1bc247226
             // 
             // paymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 707);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.labelShape);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonPay);
@@ -351,7 +376,11 @@
         private System.Windows.Forms.Label labelFine;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label label10;
+<<<<<<< HEAD
+        private System.Windows.Forms.Label labelShape;
+=======
         private System.Windows.Forms.Label labelHours;
         private System.Windows.Forms.Label label12;
+>>>>>>> ce3e9194c6918f701bd5d8766c7d61c1bc247226
     }
 }
