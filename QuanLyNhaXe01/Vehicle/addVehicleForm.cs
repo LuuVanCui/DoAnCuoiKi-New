@@ -201,5 +201,18 @@ namespace QuanLyNhaXe01
         {
             this.Close();
         }
+
+        private void buttonResetData_Click(object sender, EventArgs e)
+        {
+            textBoxCardID.Text = "";
+            radioButtonBike.Checked = false;
+            radioButtonCar.Checked = false;
+            radioButtonMoto.Checked = false;
+
+            pictureBoxModel.Image = null;
+            pictureBoxUser.Image = null;
+            pictureBoxVehiclePicture.Image = null;
+            pictureBoxLicensePlate.Image = null;
+        }
     }
 }

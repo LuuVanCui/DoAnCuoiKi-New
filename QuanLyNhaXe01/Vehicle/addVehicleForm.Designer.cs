@@ -273,7 +273,7 @@
             resources.ApplyResources(this.buttonResetData, "buttonResetData");
             this.buttonResetData.Name = "buttonResetData";
             this.buttonResetData.UseVisualStyleBackColor = false;
-            this.buttonResetData.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonResetData.Click += new System.EventHandler(this.buttonResetData_Click);
             // 
             // addVehicleForm
             // 
