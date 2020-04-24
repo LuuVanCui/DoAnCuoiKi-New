@@ -32,7 +32,7 @@ namespace QuanLyNhaXe01
         {
 
             paymentForm pay = new paymentForm();
-            SqlCommand command = new SqlCommand("SELECT MaTheXe, LoaiXe, ThoiGianVao, AnhXe, BienSo FROM Xe WHERE MaTheXe = " + id);
+            SqlCommand command = new SqlCommand("SELECT MaTheXe, LoaiXe, ThoiGianVao, AnhXe, BienSo, HinhThucGui FROM Xe WHERE MaTheXe = " + id);
             DataTable table = vehicle.getVehicle(command);
 
             if (table.Rows.Count > 0)
@@ -57,7 +57,7 @@ namespace QuanLyNhaXe01
                 }    
             }
 
-           // DateTime time = DateTime.Parse(labelInTime.Text);
+            labelShape.Text = table.Rows[0]["HinhThucGui"].ToString();
            
         }
 

@@ -48,6 +48,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.labelShape = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVehiclePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +68,7 @@
             this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCancel.Location = new System.Drawing.Point(389, 606);
+            this.buttonCancel.Location = new System.Drawing.Point(389, 630);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(200, 55);
             this.buttonCancel.TabIndex = 2;
@@ -189,7 +191,7 @@
             this.buttonPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.buttonPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.buttonPay.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonPay.Location = new System.Drawing.Point(103, 606);
+            this.buttonPay.Location = new System.Drawing.Point(103, 630);
             this.buttonPay.Name = "buttonPay";
             this.buttonPay.Size = new System.Drawing.Size(200, 55);
             this.buttonPay.TabIndex = 32;
@@ -256,11 +258,33 @@
             this.label8.TabIndex = 29;
             this.label8.Text = "label";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(109, 586);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 29);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "Shape:";
+            // 
+            // labelShape
+            // 
+            this.labelShape.AutoSize = true;
+            this.labelShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShape.Location = new System.Drawing.Point(216, 586);
+            this.labelShape.Name = "labelShape";
+            this.labelShape.Size = new System.Drawing.Size(71, 29);
+            this.labelShape.TabIndex = 35;
+            this.labelShape.Text = "label";
+            // 
             // paymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 707);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.labelShape);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonPay);
@@ -314,5 +338,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelShape;
     }
 }
