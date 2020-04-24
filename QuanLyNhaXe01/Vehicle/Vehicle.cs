@@ -290,12 +290,14 @@ namespace QuanLyNhaXe01
             return execCount("SELECT COUNT(*) FROM Xe WHERE LoaiXe = 'Xe Dap' ");
         }
 
-        public bool updateVehicleOut(string MaTheXe)
+        public bool updateVehicleOut_Xe(string MaTheXe, DateTime ThoiGianRa)
         {
 
-            SqlCommand command = new SqlCommand("UPDATE Xe SET ThoiGianRa=GETDATE(), TrangThaiGui='Da Lay Xe' WHERE MaTheXe = @ma", mydb.getConnection);
+            SqlCommand command = new SqlCommand("UPDATE Xe SET ThoiGianRa=@time, TrangThaiGui='Da Lay Xe' WHERE MaTheXe = @ma", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = MaTheXe;
+            command.Parameters.Add("@time", SqlDbType.DateTime).Value = ThoiGianRa;
+
 
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -308,7 +310,28 @@ namespace QuanLyNhaXe01
                 mydb.closeConnection();
                 return false;
             }
+            
 
+        }
+        public bool updateVehicleOut_DoanhThu(string MaTheXe, float tien)
+        {
+
+            SqlCommand command = new SqlCommand("insert  Xe(MaTheXe, Total) values (@ma, @total)", mydb.getConnection);
+
+            command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = MaTheXe;
+            command.Parameters.Add("@total", SqlDbType.Float).Value = tien;
+
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
         }
     }
 }
