@@ -173,7 +173,7 @@ namespace QuanLyNhaXe01
                 }
                 else
                 {
-                    MessageBox.Show("This vehicle paid!");
+                    MessageBox.Show("This vehicle paid!", "Pay", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch(Exception ex)

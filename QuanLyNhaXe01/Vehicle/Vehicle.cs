@@ -315,7 +315,7 @@ namespace QuanLyNhaXe01
         public bool updateVehicleOut_DoanhThu(string maTheXe, float total)
         {
             
-            SqlCommand command = new SqlCommand("insert INTO Xe(MaTheXe, Total) values (@ma, @total)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("INSERT INTO dbo.DoanhThu(MaTheXe, Total) VALUES (@ma, @total)", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = maTheXe;
             command.Parameters.Add("@total", SqlDbType.Float).Value = total;

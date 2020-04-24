@@ -23,6 +23,7 @@ namespace QuanLyNhaXe01
         }
 
         Vehicle vehicle = new Vehicle();
+        
 
         void makeUpGridForAll()
         {
@@ -154,6 +155,7 @@ namespace QuanLyNhaXe01
         private void revenueForm_Load(object sender, EventArgs e)
         {
             makeUpGridForAll();
+            buttonShowRevenue_Click(sender, e);
         }
 
         private void dataGridViewShowData_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -163,14 +165,20 @@ namespace QuanLyNhaXe01
 
         private void buttonShowVehicles_Click(object sender, EventArgs e)
         {
-            dataGridViewShowData.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
+            string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
+            string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
+            string query = "SELECT * FROM Xe WHERE ThoiGianRa BETWEEN '" + dateFrom + "' AND '" + dateTo + "'";
+            dataGridViewShowData.DataSource = vehicle.getVehicle(new SqlCommand(query));
             makeUpGridForAll();
         }
 
         private void buttonShowRevenue_Click(object sender, EventArgs e)
         {
+            string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
+            string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
             string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
                 "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
+                "WHERE ThoiGianRa BETWEEN '" + dateFrom + "' AND '" + dateTo + "' " +
                 "GROUP BY LoaiXe";
             DataTable table = vehicle.getVehicle(new SqlCommand(query));
             int tatCaXe = 0;
