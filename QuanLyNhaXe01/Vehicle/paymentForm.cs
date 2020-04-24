@@ -33,6 +33,7 @@ namespace QuanLyNhaXe01
             paymentForm pay = new paymentForm();
             SqlCommand command = new SqlCommand("SELECT MaTheXe, LoaiXe, ThoiGianVao, AnhXe, BienSo FROM Xe WHERE MaTheXe = " + id);
             DataTable table = vehicle.getVehicle(command);
+            Calculate calculate = new Calculate();
 
             if (table.Rows.Count > 0)
             {
@@ -59,13 +60,10 @@ namespace QuanLyNhaXe01
 
                 labelDays.Text = parkingTime.Days.ToString();
                 labelHours.Text = parkingTime.Hours.ToString();
+
+                labelParkingFee.Text = calculate.parkingFeeAndFine()
             }
-
-           // DateTime time = DateTime.Parse(labelInTime.Text);
-           
         }
-
-       
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
