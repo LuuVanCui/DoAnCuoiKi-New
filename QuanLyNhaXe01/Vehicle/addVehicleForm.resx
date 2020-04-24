@@ -147,7 +147,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="buttonLoadLicensePlate.Location" type="System.Drawing.Point, System.Drawing">
     <value>194, 446</value>
@@ -171,7 +171,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonLoadLicensePlate.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="radioButtonMoto.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -231,7 +231,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -261,7 +261,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -291,7 +291,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -321,7 +321,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="labelInTime.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -330,7 +330,7 @@
     <value>Microsoft Sans Serif, 10pt, style=Bold</value>
   </data>
   <data name="labelInTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 555</value>
+    <value>83, 556</value>
   </data>
   <data name="labelInTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 25</value>
@@ -351,7 +351,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelInTime.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -375,7 +375,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -405,7 +405,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="radioButtonBike.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -486,7 +486,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxCardID.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="buttonLoadModel.Location" type="System.Drawing.Point, System.Drawing">
     <value>194, 299</value>
@@ -510,7 +510,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonLoadModel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="buttonLoadUser.Location" type="System.Drawing.Point, System.Drawing">
     <value>549, 299</value>
@@ -534,7 +534,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonLoadUser.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="buttonLoadVehiclePictrue.Location" type="System.Drawing.Point, System.Drawing">
     <value>549, 446</value>
@@ -558,13 +558,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonLoadVehiclePictrue.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="dateTimePickerInTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 555</value>
+    <value>195, 555</value>
   </data>
   <data name="dateTimePickerInTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>344, 26</value>
+    <value>303, 26</value>
   </data>
   <data name="dateTimePickerInTime.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -579,7 +579,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dateTimePickerInTime.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="buttonAddVehicle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11pt, style=Bold</value>
@@ -606,7 +606,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonAddVehicle.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="buttonCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11pt, style=Bold</value>
@@ -633,7 +633,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="pictureBoxUser.Location" type="System.Drawing.Point, System.Drawing">
     <value>549, 217</value>
@@ -658,7 +658,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxUser.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="pictureBoxVehiclePicture.Location" type="System.Drawing.Point, System.Drawing">
     <value>549, 364</value>
@@ -682,7 +682,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxVehiclePicture.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="pictureBoxModel.Location" type="System.Drawing.Point, System.Drawing">
     <value>194, 217</value>
@@ -706,7 +706,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxModel.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="pictureBoxLicensePlate.Location" type="System.Drawing.Point, System.Drawing">
     <value>194, 364</value>
@@ -730,7 +730,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxLicensePlate.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
     <value>Monotype Corsiva, 26pt, style=Bold, Italic, Underline</value>
@@ -790,7 +790,7 @@
     <value>NoControl</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 512</value>
+    <value>92, 512</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 25</value>
@@ -811,25 +811,25 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="comboBoxShape.Items" xml:space="preserve">
-    <value>For Hour</value>
+    <value>By Hour</value>
   </data>
   <data name="comboBoxShape.Items1" xml:space="preserve">
-    <value>For Day</value>
+    <value>By Day</value>
   </data>
   <data name="comboBoxShape.Items2" xml:space="preserve">
-    <value>For Week</value>
+    <value>By Week</value>
   </data>
   <data name="comboBoxShape.Items3" xml:space="preserve">
-    <value>For Month</value>
+    <value>By Month</value>
   </data>
   <data name="comboBoxShape.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 512</value>
+    <value>195, 512</value>
   </data>
   <data name="comboBoxShape.Size" type="System.Drawing.Size, System.Drawing">
-    <value>344, 28</value>
+    <value>303, 28</value>
   </data>
   <data name="comboBoxShape.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -845,6 +845,36 @@
   </data>
   <data name="&gt;&gt;comboBoxShape.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="buttonResetData.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11pt</value>
+  </data>
+  <data name="buttonResetData.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonResetData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>524, 521</value>
+  </data>
+  <data name="buttonResetData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 50</value>
+  </data>
+  <data name="buttonResetData.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="buttonResetData.Text" xml:space="preserve">
+    <value>Reset Data</value>
+  </data>
+  <data name="&gt;&gt;buttonResetData.Name" xml:space="preserve">
+    <value>buttonResetData</value>
+  </data>
+  <data name="&gt;&gt;buttonResetData.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonResetData.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonResetData.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

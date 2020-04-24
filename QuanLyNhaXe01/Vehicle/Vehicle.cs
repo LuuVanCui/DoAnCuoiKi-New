@@ -213,7 +213,7 @@ namespace QuanLyNhaXe01
 
         public DataTable getTypeVehicle()
         {
-            SqlCommand cmd = new SqlCommand("SELECT LoaiXe FROM Xe");
+            SqlCommand cmd = new SqlCommand("SELECT DISTINCT LoaiXe FROM Xe");
             cmd.Connection = mydb.getConnection;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();
@@ -290,13 +290,12 @@ namespace QuanLyNhaXe01
             return execCount("SELECT COUNT(*) FROM Xe WHERE LoaiXe = 'Xe Dap' ");
         }
 
-        public bool updateVehicleOut_Xe(string MaTheXe, DateTime ThoiGianRa)
+        public bool updateVehicleOut_Xe(string MaTheXe)
         {
 
-            SqlCommand command = new SqlCommand("UPDATE Xe SET ThoiGianRa=@time, TrangThaiGui='Da Lay Xe' WHERE MaTheXe = @ma", mydb.getConnection);
+            SqlCommand command = new SqlCommand("UPDATE Xe SET ThoiGianRa=GETDATE(), TrangThaiGui='Da Lay Xe' WHERE MaTheXe = @ma", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = MaTheXe;
-            command.Parameters.Add("@time", SqlDbType.DateTime).Value = ThoiGianRa;
 
 
             mydb.openConnection();
@@ -313,13 +312,13 @@ namespace QuanLyNhaXe01
             
 
         }
-        public bool updateVehicleOut_DoanhThu(string MaTheXe, float tien)
+        public bool updateVehicleOut_DoanhThu(string maTheXe, float total)
         {
+            
+            SqlCommand command = new SqlCommand("insert INTO Xe(MaTheXe, Total) values (@ma, @total)", mydb.getConnection);
 
-            SqlCommand command = new SqlCommand("insert  Xe(MaTheXe, Total) values (@ma, @total)", mydb.getConnection);
-
-            command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = MaTheXe;
-            command.Parameters.Add("@total", SqlDbType.Float).Value = tien;
+            command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = maTheXe;
+            command.Parameters.Add("@total", SqlDbType.Float).Value = total;
 
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
