@@ -30,7 +30,6 @@ namespace QuanLyNhaXe01
 
         private void paymentForm_Load(object sender, EventArgs e)
         {
-
             paymentForm pay = new paymentForm();
             SqlCommand command = new SqlCommand("SELECT MaTheXe, LoaiXe, ThoiGianVao, AnhXe, BienSo FROM Xe WHERE MaTheXe = " + id);
             DataTable table = vehicle.getVehicle(command);
@@ -54,7 +53,12 @@ namespace QuanLyNhaXe01
                     byte[] pic = (byte[])table.Rows[0]["BienSo"];
                     MemoryStream BienSo = new MemoryStream(pic);
                     pictureBoxVehiclePicture.Image = Image.FromStream(BienSo);
-                }    
+                }
+
+                TimeSpan parkingTime = DateTime.Now.Subtract((DateTime)table.Rows[0]["ThoiGianVao"]);
+
+                labelDays.Text = parkingTime.Days.ToString();
+                labelHours.Text = parkingTime.Hours.ToString();
             }
 
            // DateTime time = DateTime.Parse(labelInTime.Text);
