@@ -62,8 +62,6 @@ namespace QuanLyNhaXe01
                 labelDays.Text = parkingTime.Days.ToString();
                 labelHours.Text = parkingTime.Hours.ToString();
 
-                MessageBox.Show(labelTypeOfVehicle.Text + labelShape.Text + parkingTime.ToString());
-
                 var Fee = calculate.parkingFeeAndFine(labelTypeOfVehicle.Text, labelShape.Text, parkingTime);
                 
                 labelParkingFee.Text = Fee.Item1.ToString();
