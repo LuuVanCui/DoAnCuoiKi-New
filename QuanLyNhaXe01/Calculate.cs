@@ -26,20 +26,67 @@ namespace QuanLyNhaXe01
         {
             Calculate calculate = new Calculate();
             DataTable table = calculate.getData(new SqlCommand("SELECT * FROM PhiGuiXe"));
+            float PhiGuiXe = 0;
+            float TienPhat = 0;
             float cost;
 
+            // Lấy phí gửi xe theo giờ của từng loại xe trong database
             if (LoaiXe == "Xe Dap")
             {
-                if (HinhThucGui == "For Hour")
+                cost = float.Parse(table.Rows[0][1].ToString());
+            }    
+            else if (LoaiXe == "Xe May")
+            {
+                cost = float.Parse(table.Rows[2][1].ToString());
+            }   
+            else
+            {
+                cost = float.Parse(table.Rows[1][1].ToString());
+            }
+
+            // Tính mức phí của tất cả loại xe
+            if (HinhThucGui == "For Hour")
+            {
+                PhiGuiXe = cost * ThoiGianGui.Hours;
+                if (ThoiGianGui.Days < 1)
                 {
-                    cost = float.Parse(table.Rows[1][2].ToString());
-                }    
-                
-                if (ThoiGianGui.Hours <= 24)
+                    TienPhat = 0;
+                }
+                else
                 {
+<<<<<<< HEAD
                     return ();
                 }    
+=======
+                    TienPhat = (cost * 8 * ThoiGianGui.Days) * 2;
+                }
+>>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
             }    
+            else if (HinhThucGui == "For Day")
+            {
+                PhiGuiXe = cost * 8;
+                if (ThoiGianGui.Days <= 1)
+                {
+                    TienPhat = 0;
+                }
+                else
+                {
+                    TienPhat = cost * 8 * 3;
+                }
+            }
+            else if (HinhThucGui == "For Week")
+            {
+                PhiGuiXe = cost * 8 * 3;
+                if (ThoiGianGui.Days <= 10)
+                {
+                    TienPhat = 0;
+                }
+                else
+                {
+                    TienPhat = cost * 8 * 3 * 2;
+                }
+            }
+            return (PhiGuiXe, TienPhat);
         }
     }
 }
