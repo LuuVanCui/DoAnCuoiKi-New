@@ -165,12 +165,16 @@ namespace QuanLyNhaXe01
         {
             try
             {
-                string id = dataGridVManageVehicle.CurrentRow.Cells[0].Value.ToString();
-                paymentForm pay = new paymentForm(id);
-                // pay.ID = id;
-                //string c = pay.ID;
-                //MessageBox.Show(c);
-                pay.ShowDialog();
+                if (dataGridVManageVehicle.CurrentRow.Cells["TrangThaiGui"].Value.ToString() == "Dang Gui")
+                {
+                    string id = dataGridVManageVehicle.CurrentRow.Cells[0].Value.ToString();
+                    paymentForm pay = new paymentForm(id);
+                    pay.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("This vehicle paid!");
+                }
             }
             catch(Exception ex)
             {

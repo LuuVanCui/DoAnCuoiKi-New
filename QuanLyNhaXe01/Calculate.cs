@@ -21,5 +21,25 @@ namespace QuanLyNhaXe01
             adapter.Fill(table);
             return table;
         }
+
+        public (float, float) parkingFeeAndFine(string LoaiXe, string HinhThucGui, TimeSpan ThoiGianGui)
+        {
+            Calculate calculate = new Calculate();
+            DataTable table = calculate.getData(new SqlCommand("SELECT * FROM PhiGuiXe"));
+            float cost;
+
+            if (LoaiXe == "Xe Dap")
+            {
+                if (HinhThucGui == "For Hour")
+                {
+                    cost = float.Parse(table.Rows[1][2].ToString());
+                }    
+                
+                if (ThoiGianGui.Hours <= 24)
+                {
+                    return ()
+                }    
+            }    
+        }
     }
 }
