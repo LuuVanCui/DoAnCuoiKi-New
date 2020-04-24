@@ -40,6 +40,7 @@ namespace QuanLyNhaXe01
                 labelCardID.Text = table.Rows[0]["MaTheXe"].ToString();
                 labelTypeOfVehicle.Text = table.Rows[0]["LoaiXe"].ToString();
                 labelInTime.Text = table.Rows[0]["ThoiGianVao"].ToString();
+                labelShape.Text = table.Rows[0]["HinhThucGui"].ToString();
 
                 if (table.Rows[0][1].ToString() == "Xe Dap")
                 {
@@ -61,13 +62,11 @@ namespace QuanLyNhaXe01
                 labelDays.Text = parkingTime.Days.ToString();
                 labelHours.Text = parkingTime.Hours.ToString();
 
-<<<<<<< HEAD
-                labelParkingFee.Text = calculate.parkingFeeAndFine()
+                var Fee = calculate.parkingFeeAndFine(labelTypeOfVehicle.Text, labelShape.Text, parkingTime);
+                labelParkingFee.Text = calculate.parkingFeeAndFine(labelTypeOfVehicle.Text, labelShape.Text, parkingTime).Item1.ToString();
+                labelFine.Text = Fee.Item2.ToString();
             }
-=======
-            labelShape.Text = table.Rows[0]["HinhThucGui"].ToString();
-           
->>>>>>> c038316cfc34660734ed309c12978944ad130d84
+            
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

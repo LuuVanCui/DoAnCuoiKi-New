@@ -34,11 +34,11 @@ namespace QuanLyNhaXe01
             if (LoaiXe == "Xe Dap")
             {
                 cost = float.Parse(table.Rows[0][1].ToString());
-            }    
+            }
             else if (LoaiXe == "Xe May")
             {
                 cost = float.Parse(table.Rows[2][1].ToString());
-            }   
+            }
             else
             {
                 cost = float.Parse(table.Rows[1][1].ToString());
@@ -56,7 +56,7 @@ namespace QuanLyNhaXe01
                 {
                     TienPhat = (cost * 8 * ThoiGianGui.Days) * 2;
                 }
-            }    
+            }
             else if (HinhThucGui == "For Day")
             {
                 PhiGuiXe = cost * 8;
