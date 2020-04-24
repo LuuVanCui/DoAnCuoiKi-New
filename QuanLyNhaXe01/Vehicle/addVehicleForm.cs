@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace QuanLyNhaXe01
 {
@@ -111,16 +112,42 @@ namespace QuanLyNhaXe01
             }
         }
 
+        // Nếu còn slot thì trả về true
+        bool slot(string loaiXe)
+        {
+            Vehicle vehicle = new Vehicle();
+            DataTable table = vehicle.getVehicle(new SqlCommand("SELECT * FROM Slot"));
+            int soXeDangGui = int.Parse(vehicle.execCount("SELECT COUNT(*) FROM Xe WHERE TrangThaiGui = 'Dang Gui'"));
+            if (loaiXe == "Xe Dap" && soXeDangGui < int.Parse(table.Rows[0][1].ToString()))
+            {
+                return true;
+            }   
+            else if (loaiXe == "Xe Hoi" && soXeDangGui < int.Parse(table.Rows[1][1].ToString()))
+            {
+                return true;
+            }    
+            else if (loaiXe == "Xe May" && soXeDangGui < int.Parse(table.Rows[2][1].ToString()))
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void buttonAddVehicle_Click(object sender, EventArgs e)
         {
             Vehicle vehicle = new Vehicle();
             try
-            {
+            { 
                 string id = textBoxCardID.Text;
                 string type = "Xe May";
                 string shape = comboBoxShape.Text;
                 if (radioButtonMoto.Checked && verifMoto())
                 {
+                    if (slot(type) == false)
+                    {
+                        MessageBox.Show("Out of Slot", "Add Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }    
                     MemoryStream user_pic = new MemoryStream();
                     MemoryStream license_pic = new MemoryStream();
                     pictureBoxUser.Image.Save(user_pic, pictureBoxUser.Image.RawFormat);
@@ -132,6 +159,11 @@ namespace QuanLyNhaXe01
                 else if (radioButtonCar.Checked && verifCar())
                 {
                     type = "Xe Hoi";
+                    if (slot(type) == false)
+                    {
+                        MessageBox.Show("Out of Slot", "Add Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                     MemoryStream license_pic = new MemoryStream();
                     MemoryStream model_pic = new MemoryStream();
                     pictureBoxLicensePlate.Image.Save(license_pic, pictureBoxLicensePlate.Image.RawFormat);
@@ -142,6 +174,11 @@ namespace QuanLyNhaXe01
                 else if (radioButtonBike.Checked && verifBike())
                 {
                     type = "Xe Dap";
+                    if (slot(type) == false)
+                    {
+                        MessageBox.Show("Out of Slot", "Add Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                     MemoryStream user_pic = new MemoryStream();
                     MemoryStream vehicle_pic = new MemoryStream();
                     pictureBoxUser.Image.Save(user_pic, pictureBoxUser.Image.RawFormat);
@@ -157,7 +194,7 @@ namespace QuanLyNhaXe01
 
                 MessageBox.Show("New Vehicle Added", "Add Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Card ID is already exists.", "Add Vehice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

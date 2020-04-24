@@ -261,7 +261,7 @@ namespace QuanLyNhaXe01
             }
         }
 
-        string execCount(string query)
+        public string execCount(string query)
         {
             SqlCommand command = new SqlCommand(query, mydb.getConnection);
             mydb.openConnection();
