@@ -56,6 +56,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxShape = new System.Windows.Forms.ComboBox();
+            this.buttonResetData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVehiclePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModel)).BeginInit();
@@ -266,6 +267,14 @@
             resources.ApplyResources(this.comboBoxShape, "comboBoxShape");
             this.comboBoxShape.Name = "comboBoxShape";
             // 
+            // buttonResetData
+            // 
+            this.buttonResetData.BackColor = System.Drawing.Color.LightCoral;
+            resources.ApplyResources(this.buttonResetData, "buttonResetData");
+            this.buttonResetData.Name = "buttonResetData";
+            this.buttonResetData.UseVisualStyleBackColor = false;
+            this.buttonResetData.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // addVehicleForm
             // 
             resources.ApplyResources(this, "$this");
@@ -274,6 +283,7 @@
             this.Controls.Add(this.comboBoxShape);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.buttonResetData);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAddVehicle);
             this.Controls.Add(this.dateTimePickerInTime);
@@ -336,5 +346,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxShape;
+        private System.Windows.Forms.Button buttonResetData;
     }
 }

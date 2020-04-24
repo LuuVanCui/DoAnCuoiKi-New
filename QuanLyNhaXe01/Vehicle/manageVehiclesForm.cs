@@ -55,7 +55,7 @@ namespace QuanLyNhaXe01
             }
             else if (comboBoxTypeVehicle.Text == "Xe Dap")
             {
-                dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, HinhThucGui,TrangTraiGui FROM dbo.Xe WHERE LoaiXe = 'Xe Dap'"));
+                dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, HinhThucGui,TrangThaiGui FROM dbo.Xe WHERE LoaiXe = 'Xe Dap'"));
                 makeUpGridForXeMayAndXeDap();
             }
             else if (comboBoxTypeVehicle.Text == "Xe Hoi")
