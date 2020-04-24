@@ -16,8 +16,17 @@ namespace QuanLyNhaXe01
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new loginForm());
-            Application.Run(new mainForm());
+            
+            loginForm fLogin = new loginForm();
+
+            if (fLogin.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new mainForm());
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }

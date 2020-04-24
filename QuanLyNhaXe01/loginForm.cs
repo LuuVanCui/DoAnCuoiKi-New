@@ -24,7 +24,7 @@ namespace QuanLyNhaXe01
             SqlDataAdapter adapter = new SqlDataAdapter();
 
             DataTable table = new DataTable();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Login WHERE user=@User AND password=@Pass", db.getConnection);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Login WHERE username=@User AND password=@Pass", db.getConnection);
             cmd.Parameters.Add("@User", SqlDbType.VarChar).Value = textBoxUser.Text;
             cmd.Parameters.Add("@Pass", SqlDbType.VarChar).Value = textBoxPassword.Text;
 

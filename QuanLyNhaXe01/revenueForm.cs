@@ -167,8 +167,6 @@ namespace QuanLyNhaXe01
             makeUpGridForAll();
         }
 
-
-
         private void buttonShowRevenue_Click(object sender, EventArgs e)
         {
             string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
