@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBoxVehiclePicture = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelPicture = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.labelCardID = new System.Windows.Forms.Label();
             this.labelTypeOfVehicle = new System.Windows.Forms.Label();
@@ -99,15 +99,15 @@
             this.pictureBoxVehiclePicture.TabIndex = 18;
             this.pictureBoxVehiclePicture.TabStop = false;
             // 
-            // label8
+            // labelPicture
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(98, 252);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(180, 29);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Vehicle Picture:";
+            this.labelPicture.AutoSize = true;
+            this.labelPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelPicture.Location = new System.Drawing.Point(116, 240);
+            this.labelPicture.Name = "labelPicture";
+            this.labelPicture.Size = new System.Drawing.Size(94, 29);
+            this.labelPicture.TabIndex = 17;
+            this.labelPicture.Text = "Picture:";
             // 
             // label
             // 
@@ -226,7 +226,7 @@
             this.Controls.Add(this.labelCardID);
             this.Controls.Add(this.label);
             this.Controls.Add(this.pictureBoxVehiclePicture);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelPicture);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCancel);
@@ -249,7 +249,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBoxVehiclePicture;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelPicture;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label labelCardID;
         private System.Windows.Forms.Label labelTypeOfVehicle;

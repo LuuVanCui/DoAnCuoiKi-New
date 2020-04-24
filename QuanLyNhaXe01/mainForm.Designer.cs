@@ -37,13 +37,14 @@
             this.staToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehicleListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.workListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageWorkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thợToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAllWorkerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hợpĐồngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageContractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,9 +58,9 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xeToolStripMenuItem,
+            this.chuyênMônToolStripMenuItem,
             this.toolStripMenuItem2,
             this.thợToolStripMenuItem,
-            this.chuyênMônToolStripMenuItem,
             this.hợpĐồngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -124,6 +125,22 @@
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
+            // chuyênMônToolStripMenuItem
+            // 
+            this.chuyênMônToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.chuyênMônToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.revenueToolStripMenuItem});
+            this.chuyênMônToolStripMenuItem.Name = "chuyênMônToolStripMenuItem";
+            this.chuyênMônToolStripMenuItem.Size = new System.Drawing.Size(182, 55);
+            this.chuyênMônToolStripMenuItem.Text = "Revenue";
+            // 
+            // revenueToolStripMenuItem
+            // 
+            this.revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
+            this.revenueToolStripMenuItem.Size = new System.Drawing.Size(412, 60);
+            this.revenueToolStripMenuItem.Text = "Parking Revenue";
+            this.revenueToolStripMenuItem.Click += new System.EventHandler(this.revenueToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.BackColor = System.Drawing.Color.Brown;
@@ -167,13 +184,6 @@
             this.manageAllWorkerToolStripMenuItem.Name = "manageAllWorkerToolStripMenuItem";
             this.manageAllWorkerToolStripMenuItem.Size = new System.Drawing.Size(455, 60);
             this.manageAllWorkerToolStripMenuItem.Text = "Manage All Worker";
-            // 
-            // chuyênMônToolStripMenuItem
-            // 
-            this.chuyênMônToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.chuyênMônToolStripMenuItem.Name = "chuyênMônToolStripMenuItem";
-            this.chuyênMônToolStripMenuItem.Size = new System.Drawing.Size(201, 55);
-            this.chuyênMônToolStripMenuItem.Text = "Specialize";
             // 
             // hợpĐồngToolStripMenuItem
             // 
@@ -246,5 +256,6 @@
         private System.Windows.Forms.ToolStripMenuItem contractDetailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addVehicleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteVehicleByIDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
     }
 }
