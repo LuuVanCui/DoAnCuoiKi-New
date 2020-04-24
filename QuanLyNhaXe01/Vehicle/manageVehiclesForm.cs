@@ -45,9 +45,11 @@ namespace QuanLyNhaXe01
             fillGrid();
             makeUpGridForXeMayAndXeDap();
 
-            labelDangGui.Text = "Dang Gui: " +vehicle.totalVehicle_in();
-            labelDaRa.Text = "Da Ra: " + vehicle.totalVehicle_out();
+            labelDangGui.Text = "Existing: " + vehicle.totalVehicle_in();
+            labelDaRa.Text = "Leave: " + vehicle.totalVehicle_out();
+            labelStatus.Text = "Total Vehicle: " + vehicle.totalVehicle();
         }
+
 
         void fillGrid()
         {
@@ -71,7 +73,11 @@ namespace QuanLyNhaXe01
                 dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
                 makeUpGridForAllAndXeHoi();
             }
-            labelStatus.Text = "Total Vehicle: " + dataGridVManageVehicle.Rows.Count.ToString();
+
+            labelDangGui.Text = "Existing: " + vehicle.totalVehicle_in();
+            labelDaRa.Text = "Leave: " + vehicle.totalVehicle_out();
+            labelStatus.Text = "Total Vehicle: " + vehicle.totalVehicle();
+
         }
 
         private void comboBoxTypeVehicle_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,6 +151,7 @@ namespace QuanLyNhaXe01
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
             fillGrid();
+            
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
