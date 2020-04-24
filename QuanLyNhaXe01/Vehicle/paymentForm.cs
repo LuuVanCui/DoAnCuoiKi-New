@@ -67,5 +67,10 @@ namespace QuanLyNhaXe01
         {
             Close();
         }
+
+        private void buttonPay_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
