@@ -29,7 +29,7 @@ namespace QuanLyNhaXe01
 
         private void textBoxSearchLicenPlate_TextChanged(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("SELECT *FROM Xe WHERE CONCAT(MaTheXe, LoaiXe, BienSo, ThoiGianVao) LIKE '%" + textBoxSearchLicenPlate.Text + "%'");
+            SqlCommand command = new SqlCommand("SELECT *FROM Xe WHERE CONCAT(MaTheXe, LoaiXe, ThoiGianVao) LIKE '%" + textBoxSearchLicenPlate.Text + "%'");
             dataGridVManageVehicle.DataSource = vehicle.getVehicle(command);
         }
 
