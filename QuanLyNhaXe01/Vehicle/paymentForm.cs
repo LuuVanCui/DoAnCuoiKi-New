@@ -34,7 +34,7 @@ namespace QuanLyNhaXe01
             SqlCommand command = new SqlCommand("SELECT MaTheXe, LoaiXe, ThoiGianVao, AnhXe, BienSo, HinhThucGui FROM Xe WHERE MaTheXe = " + id);
             DataTable table = vehicle.getVehicle(command);
             Calculate calculate = new Calculate();
-
+            
             if (table.Rows.Count > 0)
             {
                 labelCardID.Text = table.Rows[0]["MaTheXe"].ToString();
@@ -62,9 +62,13 @@ namespace QuanLyNhaXe01
                 labelDays.Text = parkingTime.Days.ToString();
                 labelHours.Text = parkingTime.Hours.ToString();
 
+                MessageBox.Show(labelTypeOfVehicle.Text + labelShape.Text + parkingTime.ToString());
+
                 var Fee = calculate.parkingFeeAndFine(labelTypeOfVehicle.Text, labelShape.Text, parkingTime);
-                labelParkingFee.Text = calculate.parkingFeeAndFine(labelTypeOfVehicle.Text, labelShape.Text, parkingTime).Item1.ToString();
+                
+                labelParkingFee.Text = Fee.Item1.ToString();
                 labelFine.Text = Fee.Item2.ToString();
+                labelTotal.Text = (Fee.Item1 + Fee.Item2).ToString();
             }
             
         }

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyNhaXe01
 {
@@ -29,7 +30,7 @@ namespace QuanLyNhaXe01
             float PhiGuiXe = 0;
             float TienPhat = 0;
             float cost;
-
+           
             // Lấy phí gửi xe theo giờ của từng loại xe trong database
             if (LoaiXe == "Xe Dap")
             {
@@ -45,7 +46,7 @@ namespace QuanLyNhaXe01
             }
 
             // Tính mức phí của tất cả loại xe
-            if (HinhThucGui == "For Hour")
+            if (HinhThucGui == "By Hour")
             {
                 PhiGuiXe = cost * ThoiGianGui.Hours;
                 if (ThoiGianGui.Days < 1)
@@ -54,19 +55,10 @@ namespace QuanLyNhaXe01
                 }
                 else
                 {
-<<<<<<< HEAD
-                    return ();
-                }    
-=======
                     TienPhat = (cost * 8 * ThoiGianGui.Days) * 2;
                 }
-<<<<<<< HEAD
             }
-=======
->>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
-            }    
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
-            else if (HinhThucGui == "For Day")
+            else if (HinhThucGui == "By Day")
             {
                 PhiGuiXe = cost * 8;
                 if (ThoiGianGui.Days <= 1)
@@ -78,7 +70,7 @@ namespace QuanLyNhaXe01
                     TienPhat = cost * 8 * 3;
                 }
             }
-            else if (HinhThucGui == "For Week")
+            else if (HinhThucGui == "By Week")
             {
                 PhiGuiXe = cost * 8 * 3;
                 if (ThoiGianGui.Days <= 10)
@@ -91,6 +83,7 @@ namespace QuanLyNhaXe01
                 }
             }
             return (PhiGuiXe, TienPhat);
+        
         }
     }
 }

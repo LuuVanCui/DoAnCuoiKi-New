@@ -38,7 +38,7 @@
             this.labelCardID = new System.Windows.Forms.Label();
             this.labelTypeOfVehicle = new System.Windows.Forms.Label();
             this.labelInTime = new System.Windows.Forms.Label();
-            this.labelParkingTimes = new System.Windows.Forms.Label();
+            this.labelDays = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.labelPayment = new System.Windows.Forms.Label();
             this.buttonPay = new System.Windows.Forms.Button();
@@ -49,14 +49,10 @@
             this.labelFine = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.labelShape = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-            this.label7 = new System.Windows.Forms.Label();
-            this.labelDays = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.labelHours = new System.Windows.Forms.Label();
-=======
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
+            this.label12 = new System.Windows.Forms.Label();
+            this.labelShape = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVehiclePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +71,7 @@
             this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCancel.Location = new System.Drawing.Point(389, 630);
+            this.buttonCancel.Location = new System.Drawing.Point(389, 606);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(200, 55);
             this.buttonCancel.TabIndex = 2;
@@ -97,11 +93,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-<<<<<<< HEAD
-            this.label5.Location = new System.Drawing.Point(368, 363);
-=======
             this.label5.Location = new System.Drawing.Point(25, 424);
->>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(165, 29);
             this.label5.TabIndex = 7;
@@ -109,7 +101,7 @@
             // 
             // pictureBoxVehiclePicture
             // 
-            this.pictureBoxVehiclePicture.Location = new System.Drawing.Point(221, 190);
+            this.pictureBoxVehiclePicture.Location = new System.Drawing.Point(251, 189);
             this.pictureBoxVehiclePicture.Name = "pictureBoxVehiclePicture";
             this.pictureBoxVehiclePicture.Size = new System.Drawing.Size(265, 137);
             this.pictureBoxVehiclePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,7 +112,7 @@
             // 
             this.labelPicture.AutoSize = true;
             this.labelPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelPicture.Location = new System.Drawing.Point(95, 251);
+            this.labelPicture.Location = new System.Drawing.Point(25, 251);
             this.labelPicture.Name = "labelPicture";
             this.labelPicture.Size = new System.Drawing.Size(94, 29);
             this.labelPicture.TabIndex = 17;
@@ -167,22 +159,8 @@
             this.labelInTime.TabIndex = 28;
             this.labelInTime.Text = "label";
             // 
-            // labelParkingTimes
+            // labelDays
             // 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
-            this.labelParkingTimes.AutoSize = true;
-            this.labelParkingTimes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelParkingTimes.Location = new System.Drawing.Point(569, 363);
-            this.labelParkingTimes.Name = "labelParkingTimes";
-            this.labelParkingTimes.Size = new System.Drawing.Size(66, 29);
-            this.labelParkingTimes.TabIndex = 29;
-            this.labelParkingTimes.Text = "label";
-<<<<<<< HEAD
-=======
-=======
             this.labelDays.AutoSize = true;
             this.labelDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelDays.Location = new System.Drawing.Point(295, 424);
@@ -190,18 +168,12 @@
             this.labelDays.Size = new System.Drawing.Size(66, 29);
             this.labelDays.TabIndex = 29;
             this.labelDays.Text = "label";
->>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-<<<<<<< HEAD
-            this.label9.Location = new System.Drawing.Point(40, 488);
-=======
-            this.label9.Location = new System.Drawing.Point(39, 447);
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
+            this.label9.Location = new System.Drawing.Point(39, 488);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(150, 29);
             this.label9.TabIndex = 30;
@@ -211,11 +183,7 @@
             // 
             this.labelPayment.AutoSize = true;
             this.labelPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-<<<<<<< HEAD
-            this.labelPayment.Location = new System.Drawing.Point(458, 488);
-=======
-            this.labelPayment.Location = new System.Drawing.Point(466, 447);
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
+            this.labelPayment.Location = new System.Drawing.Point(466, 488);
             this.labelPayment.Name = "labelPayment";
             this.labelPayment.Size = new System.Drawing.Size(67, 29);
             this.labelPayment.TabIndex = 31;
@@ -226,7 +194,7 @@
             this.buttonPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.buttonPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.buttonPay.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonPay.Location = new System.Drawing.Point(103, 630);
+            this.buttonPay.Location = new System.Drawing.Point(103, 606);
             this.buttonPay.Name = "buttonPay";
             this.buttonPay.Size = new System.Drawing.Size(200, 55);
             this.buttonPay.TabIndex = 32;
@@ -255,15 +223,6 @@
             // 
             // labelParkingFee
             // 
-<<<<<<< HEAD
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(216, 447);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 29);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "label";
-=======
             this.labelParkingFee.AutoSize = true;
             this.labelParkingFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelParkingFee.Location = new System.Drawing.Point(216, 488);
@@ -271,17 +230,12 @@
             this.labelParkingFee.Size = new System.Drawing.Size(66, 29);
             this.labelParkingFee.TabIndex = 29;
             this.labelParkingFee.Text = "label";
->>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.label6.Location = new System.Drawing.Point(104, 559);
-=======
-            this.label6.Location = new System.Drawing.Point(109, 529);
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
+            this.label6.Location = new System.Drawing.Point(109, 559);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 29);
             this.label6.TabIndex = 30;
@@ -289,15 +243,6 @@
             // 
             // labelFine
             // 
-<<<<<<< HEAD
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(569, 447);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 29);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "label";
-=======
             this.labelFine.AutoSize = true;
             this.labelFine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelFine.Location = new System.Drawing.Point(551, 488);
@@ -305,19 +250,9 @@
             this.labelFine.Size = new System.Drawing.Size(66, 29);
             this.labelFine.TabIndex = 29;
             this.labelFine.Text = "label";
->>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
             // 
             // labelTotal
             // 
-<<<<<<< HEAD
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(216, 529);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 29);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "label";
-=======
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotal.Location = new System.Drawing.Point(216, 559);
@@ -325,86 +260,25 @@
             this.labelTotal.Size = new System.Drawing.Size(71, 29);
             this.labelTotal.TabIndex = 29;
             this.labelTotal.Text = "label";
->>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-<<<<<<< HEAD
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label10.Location = new System.Drawing.Point(217, 424);
-=======
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(109, 586);
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 29);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "Days:";
-            // 
-            // labelShape
-            // 
-            this.labelShape.AutoSize = true;
-            this.labelShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelShape.Location = new System.Drawing.Point(618, 241);
-            this.labelShape.Name = "labelShape";
-            this.labelShape.Size = new System.Drawing.Size(66, 29);
-            this.labelShape.TabIndex = 29;
-            this.labelShape.Text = "label";
-<<<<<<< HEAD
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(525, 241);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 29);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "Fine:";
-            // 
-            // labelDays
-            // 
-            this.labelDays.AutoSize = true;
-            this.labelDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelDays.Location = new System.Drawing.Point(295, 424);
-            this.labelDays.Name = "labelDays";
-            this.labelDays.Size = new System.Drawing.Size(72, 29);
-            this.labelDays.TabIndex = 29;
-            this.labelDays.Text = "Days:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(380, 424);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 29);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "Hours:";
-=======
-<<<<<<< HEAD
-=======
-=======
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label10.Location = new System.Drawing.Point(217, 424);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 29);
             this.label10.TabIndex = 29;
             this.label10.Text = "Days:";
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
             // 
             // labelHours
             // 
             this.labelHours.AutoSize = true;
             this.labelHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelHours.Location = new System.Drawing.Point(458, 424);
+            this.labelHours.Location = new System.Drawing.Point(467, 424);
             this.labelHours.Name = "labelHours";
-            this.labelHours.Size = new System.Drawing.Size(72, 29);
+            this.labelHours.Size = new System.Drawing.Size(66, 29);
             this.labelHours.TabIndex = 29;
-<<<<<<< HEAD
-            this.labelHours.Text = "Days:";
-=======
             this.labelHours.Text = "label";
             // 
             // label12
@@ -416,9 +290,26 @@
             this.label12.Size = new System.Drawing.Size(83, 29);
             this.label12.TabIndex = 29;
             this.label12.Text = "Hours:";
->>>>>>> ce3e9194c6918f701bd5d8766c7d61c1bc247226
->>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
+            // 
+            // labelShape
+            // 
+            this.labelShape.AutoSize = true;
+            this.labelShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelShape.Location = new System.Drawing.Point(618, 251);
+            this.labelShape.Name = "labelShape";
+            this.labelShape.Size = new System.Drawing.Size(66, 29);
+            this.labelShape.TabIndex = 29;
+            this.labelShape.Text = "label";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(533, 251);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 29);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Shape:";
             // 
             // paymentForm
             // 
@@ -432,28 +323,14 @@
             this.Controls.Add(this.labelPayment);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
-<<<<<<< HEAD
-            this.Controls.Add(this.labelParkingTimes);
             this.Controls.Add(this.labelShape);
-=======
-<<<<<<< HEAD
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.labelParkingTimes);
-=======
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
             this.Controls.Add(this.labelFine);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.labelParkingFee);
-            this.Controls.Add(this.labelHours);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.labelDays);
-<<<<<<< HEAD
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
-=======
->>>>>>> cf919ff0c13d1f64041530eec04b9e6b60105b04
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
+            this.Controls.Add(this.labelHours);
+            this.Controls.Add(this.labelDays);
             this.Controls.Add(this.labelInTime);
             this.Controls.Add(this.labelTypeOfVehicle);
             this.Controls.Add(this.labelCardID);
@@ -487,7 +364,7 @@
         private System.Windows.Forms.Label labelCardID;
         private System.Windows.Forms.Label labelTypeOfVehicle;
         private System.Windows.Forms.Label labelInTime;
-        private System.Windows.Forms.Label labelParkingTimes;
+        private System.Windows.Forms.Label labelDays;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label labelPayment;
         private System.Windows.Forms.Button buttonPay;
@@ -498,13 +375,9 @@
         private System.Windows.Forms.Label labelFine;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label labelShape;
-<<<<<<< HEAD
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label labelDays;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label labelHours;
-=======
->>>>>>> 0e55a7eb401dcfdd79a70763a792b5479b5155d9
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelShape;
+        private System.Windows.Forms.Label label7;
     }
 }
