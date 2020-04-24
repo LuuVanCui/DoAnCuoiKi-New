@@ -83,6 +83,9 @@ namespace QuanLyNhaXe01
             DataTable tableShape = vehicle.getShapeByID(comboBoxCardID.Text);
             comboBoxShape.Text = tableShape.Rows[0][0].ToString();
 
+            // checkBox Status
+            checkBoxStatus.Enabled = false;
+
             DataTable tableStatus = vehicle.getStatusByID(comboBoxCardID.Text);
             if (tableStatus.Rows[0][0].ToString() == "Dang Gui")
             {
