@@ -78,10 +78,10 @@ namespace QuanLyNhaXe01
 
         private void buttonPay_Click(object sender, EventArgs e)
         {
-            /*try
-            {*/
-                string CardID = labelCardID.Text.Trim();
-                float total = float.Parse(labelTotal.Text); 
+            try
+            {
+                   string CardID = labelCardID.Text.Trim();
+                float total = float.Parse(labelTotal.Text);
                 if (MessageBox.Show("Do you want to pay this vehicle?", "Pay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (vehicle.updateVehicleOut_Xe(CardID) && vehicle.updateVehicleOut_DoanhThu(CardID, total))
@@ -93,11 +93,11 @@ namespace QuanLyNhaXe01
                         MessageBox.Show("Can't Pay", "Pay", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-           /* }*//*
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Pay", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
-        }
+                }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show(ex.Message, "Pay", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 }
+            }
     }
 }

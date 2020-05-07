@@ -65,5 +65,11 @@ namespace QuanLyNhaXe01
             revenueForm revenue = new revenueForm();
             revenue.Show(this);
         }
+
+        private void settingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            settingForm setting = new settingForm();
+            setting.Show(this);
+        }
     }
 }
