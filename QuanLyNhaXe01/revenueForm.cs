@@ -23,8 +23,7 @@ namespace QuanLyNhaXe01
         }
 
         Vehicle vehicle = new Vehicle();
-        
-
+       
         void makeUpGridForAll()
         {
             try
