@@ -17,9 +17,28 @@ namespace QuanLyNhaXe01
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonEdit_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // chức năng kiểm tra dữ liệu input
+        bool verif()
+        {
+            if (textBoxContractID.Text.Trim() == ""
+                || textBoxCustomerID.Text.Trim() == ""
+                || comboBoxVehicleType.Text.Trim() == ""
+                || textBoxContractValue.Text.Trim() == ""
+                || textBoxDescibe.Text.Trim() == ""
+                || textBoxContractValue.Text.Trim() == ""
+                || comboBoxContractType.Text.Trim() == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

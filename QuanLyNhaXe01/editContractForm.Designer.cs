@@ -155,6 +155,7 @@
             this.buttonEdit.TabIndex = 1;
             this.buttonEdit.Text = "Edit";
             this.buttonEdit.UseVisualStyleBackColor = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonCancel
             // 
@@ -274,7 +275,7 @@
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel2.Location = new System.Drawing.Point(15, 600);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(816, 100);
+            this.panel2.Size = new System.Drawing.Size(816, 113);
             this.panel2.TabIndex = 3;
             // 
             // label9
@@ -301,8 +302,7 @@
             this.buttonSelectContact.TabIndex = 1;
             this.buttonSelectContact.Text = "Select Contract";
             this.buttonSelectContact.UseVisualStyleBackColor = false;
-            this.buttonSelectContact.Click += new System.EventHandler(this.button1_Click);
-            // 
+           // 
             // editContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
