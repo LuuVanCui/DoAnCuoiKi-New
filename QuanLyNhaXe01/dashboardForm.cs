@@ -17,9 +17,9 @@ namespace QuanLyNhaXe01
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void tabPageVehicles_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
