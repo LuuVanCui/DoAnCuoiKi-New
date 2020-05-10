@@ -54,7 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addContractForm.Designer.cs">
+      <DependentUpon>addContractForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calculate.cs" />
+    <Compile Include="dashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dashboardForm.Designer.cs">
+      <DependentUpon>dashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSetQuanLyNhaXe.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -65,6 +77,12 @@
     </Compile>
     <Compile Include="Account\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editContractForm.Designer.cs">
+      <DependentUpon>editContractForm.cs</DependentUpon>
     </Compile>
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
@@ -138,6 +156,15 @@
     </Compile>
     <EmbeddedResource Include="Account\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addContractForm.resx">
+      <DependentUpon>addContractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dashboardForm.resx">
+      <DependentUpon>dashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editContractForm.resx">
+      <DependentUpon>editContractForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
