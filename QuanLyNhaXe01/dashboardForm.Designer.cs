@@ -52,9 +52,6 @@
             this.buttonAddContract = new System.Windows.Forms.Button();
             this.tabPageRevenue = new System.Windows.Forms.TabPage();
             this.dataGridViewRevenue = new System.Windows.Forms.DataGridView();
-            this.buttonRevenueRental = new System.Windows.Forms.Button();
-            this.buttonRevenueTakeCare = new System.Windows.Forms.Button();
-            this.buttonRevenueParking = new System.Windows.Forms.Button();
             this.buttonRevenueStatistics = new System.Windows.Forms.Button();
             this.tabPageWork = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
@@ -148,6 +145,17 @@
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
+            this.label35 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -322,7 +330,11 @@
             // 
             // tabPageContract
             // 
+            this.tabPageContract.Controls.Add(this.checkBox3);
+            this.tabPageContract.Controls.Add(this.checkBox2);
+            this.tabPageContract.Controls.Add(this.checkBox1);
             this.tabPageContract.Controls.Add(this.textBoxSearchContract);
+            this.tabPageContract.Controls.Add(this.label35);
             this.tabPageContract.Controls.Add(this.label6);
             this.tabPageContract.Controls.Add(this.labelTotalContract);
             this.tabPageContract.Controls.Add(this.dataGridViewContract);
@@ -342,7 +354,7 @@
             // 
             // textBoxSearchContract
             // 
-            this.textBoxSearchContract.Location = new System.Drawing.Point(167, 28);
+            this.textBoxSearchContract.Location = new System.Drawing.Point(179, 52);
             this.textBoxSearchContract.Name = "textBoxSearchContract";
             this.textBoxSearchContract.Size = new System.Drawing.Size(529, 41);
             this.textBoxSearchContract.TabIndex = 5;
@@ -350,7 +362,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 31);
+            this.label6.Location = new System.Drawing.Point(41, 55);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 33);
             this.label6.TabIndex = 4;
@@ -359,7 +371,7 @@
             // labelTotalContract
             // 
             this.labelTotalContract.AutoSize = true;
-            this.labelTotalContract.Location = new System.Drawing.Point(987, 546);
+            this.labelTotalContract.Location = new System.Drawing.Point(995, 630);
             this.labelTotalContract.Name = "labelTotalContract";
             this.labelTotalContract.Size = new System.Drawing.Size(73, 33);
             this.labelTotalContract.TabIndex = 4;
@@ -368,16 +380,16 @@
             // dataGridViewContract
             // 
             this.dataGridViewContract.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewContract.Location = new System.Drawing.Point(15, 92);
+            this.dataGridViewContract.Location = new System.Drawing.Point(15, 185);
             this.dataGridViewContract.Name = "dataGridViewContract";
             this.dataGridViewContract.RowHeadersWidth = 62;
             this.dataGridViewContract.RowTemplate.Height = 28;
-            this.dataGridViewContract.Size = new System.Drawing.Size(1117, 451);
+            this.dataGridViewContract.Size = new System.Drawing.Size(1117, 428);
             this.dataGridViewContract.TabIndex = 3;
             // 
             // buttonExportContract
             // 
-            this.buttonExportContract.Location = new System.Drawing.Point(979, 15);
+            this.buttonExportContract.Location = new System.Drawing.Point(991, 39);
             this.buttonExportContract.Name = "buttonExportContract";
             this.buttonExportContract.Size = new System.Drawing.Size(142, 54);
             this.buttonExportContract.TabIndex = 2;
@@ -386,7 +398,7 @@
             // 
             // buttonPrintContract
             // 
-            this.buttonPrintContract.Location = new System.Drawing.Point(770, 13);
+            this.buttonPrintContract.Location = new System.Drawing.Point(782, 37);
             this.buttonPrintContract.Name = "buttonPrintContract";
             this.buttonPrintContract.Size = new System.Drawing.Size(148, 51);
             this.buttonPrintContract.TabIndex = 2;
@@ -395,7 +407,7 @@
             // 
             // buttonStatisticsContract
             // 
-            this.buttonStatisticsContract.Location = new System.Drawing.Point(786, 583);
+            this.buttonStatisticsContract.Location = new System.Drawing.Point(816, 691);
             this.buttonStatisticsContract.Name = "buttonStatisticsContract";
             this.buttonStatisticsContract.Size = new System.Drawing.Size(176, 68);
             this.buttonStatisticsContract.TabIndex = 2;
@@ -404,7 +416,7 @@
             // 
             // buttonDeleteContract
             // 
-            this.buttonDeleteContract.Location = new System.Drawing.Point(546, 583);
+            this.buttonDeleteContract.Location = new System.Drawing.Point(576, 691);
             this.buttonDeleteContract.Name = "buttonDeleteContract";
             this.buttonDeleteContract.Size = new System.Drawing.Size(176, 68);
             this.buttonDeleteContract.TabIndex = 2;
@@ -413,7 +425,7 @@
             // 
             // buttonEditContract
             // 
-            this.buttonEditContract.Location = new System.Drawing.Point(314, 583);
+            this.buttonEditContract.Location = new System.Drawing.Point(344, 691);
             this.buttonEditContract.Name = "buttonEditContract";
             this.buttonEditContract.Size = new System.Drawing.Size(176, 68);
             this.buttonEditContract.TabIndex = 2;
@@ -422,7 +434,7 @@
             // 
             // buttonAddContract
             // 
-            this.buttonAddContract.Location = new System.Drawing.Point(74, 583);
+            this.buttonAddContract.Location = new System.Drawing.Point(104, 691);
             this.buttonAddContract.Name = "buttonAddContract";
             this.buttonAddContract.Size = new System.Drawing.Size(176, 68);
             this.buttonAddContract.TabIndex = 2;
@@ -431,10 +443,14 @@
             // 
             // tabPageRevenue
             // 
+            this.tabPageRevenue.Controls.Add(this.comboBox3);
+            this.tabPageRevenue.Controls.Add(this.label37);
+            this.tabPageRevenue.Controls.Add(this.label38);
+            this.tabPageRevenue.Controls.Add(this.label36);
+            this.tabPageRevenue.Controls.Add(this.textBox21);
             this.tabPageRevenue.Controls.Add(this.dataGridViewRevenue);
-            this.tabPageRevenue.Controls.Add(this.buttonRevenueRental);
-            this.tabPageRevenue.Controls.Add(this.buttonRevenueTakeCare);
-            this.tabPageRevenue.Controls.Add(this.buttonRevenueParking);
+            this.tabPageRevenue.Controls.Add(this.button19);
+            this.tabPageRevenue.Controls.Add(this.button20);
             this.tabPageRevenue.Controls.Add(this.buttonRevenueStatistics);
             this.tabPageRevenue.Location = new System.Drawing.Point(4, 42);
             this.tabPageRevenue.Name = "tabPageRevenue";
@@ -447,43 +463,16 @@
             // dataGridViewRevenue
             // 
             this.dataGridViewRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRevenue.Location = new System.Drawing.Point(23, 24);
+            this.dataGridViewRevenue.Location = new System.Drawing.Point(36, 119);
             this.dataGridViewRevenue.Name = "dataGridViewRevenue";
             this.dataGridViewRevenue.RowHeadersWidth = 62;
             this.dataGridViewRevenue.RowTemplate.Height = 28;
-            this.dataGridViewRevenue.Size = new System.Drawing.Size(1155, 470);
+            this.dataGridViewRevenue.Size = new System.Drawing.Size(1092, 496);
             this.dataGridViewRevenue.TabIndex = 1;
-            // 
-            // buttonRevenueRental
-            // 
-            this.buttonRevenueRental.Location = new System.Drawing.Point(645, 554);
-            this.buttonRevenueRental.Name = "buttonRevenueRental";
-            this.buttonRevenueRental.Size = new System.Drawing.Size(251, 70);
-            this.buttonRevenueRental.TabIndex = 0;
-            this.buttonRevenueRental.Text = "Vehicle Rental";
-            this.buttonRevenueRental.UseVisualStyleBackColor = true;
-            // 
-            // buttonRevenueTakeCare
-            // 
-            this.buttonRevenueTakeCare.Location = new System.Drawing.Point(342, 554);
-            this.buttonRevenueTakeCare.Name = "buttonRevenueTakeCare";
-            this.buttonRevenueTakeCare.Size = new System.Drawing.Size(251, 70);
-            this.buttonRevenueTakeCare.TabIndex = 0;
-            this.buttonRevenueTakeCare.Text = "Take Care";
-            this.buttonRevenueTakeCare.UseVisualStyleBackColor = true;
-            // 
-            // buttonRevenueParking
-            // 
-            this.buttonRevenueParking.Location = new System.Drawing.Point(40, 554);
-            this.buttonRevenueParking.Name = "buttonRevenueParking";
-            this.buttonRevenueParking.Size = new System.Drawing.Size(251, 70);
-            this.buttonRevenueParking.TabIndex = 0;
-            this.buttonRevenueParking.Text = "Parking";
-            this.buttonRevenueParking.UseVisualStyleBackColor = true;
             // 
             // buttonRevenueStatistics
             // 
-            this.buttonRevenueStatistics.Location = new System.Drawing.Point(927, 554);
+            this.buttonRevenueStatistics.Location = new System.Drawing.Point(794, 694);
             this.buttonRevenueStatistics.Name = "buttonRevenueStatistics";
             this.buttonRevenueStatistics.Size = new System.Drawing.Size(251, 70);
             this.buttonRevenueStatistics.TabIndex = 0;
@@ -1381,6 +1370,107 @@
             this.button18.Text = "Statistics";
             this.button18.UseVisualStyleBackColor = true;
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(41, 125);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(211, 33);
+            this.label35.TabIndex = 4;
+            this.label35.Text = "Type of Contract:";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(258, 125);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(159, 37);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(423, 125);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(159, 37);
+            this.checkBox2.TabIndex = 6;
+            this.checkBox2.Text = "checkBox1";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(593, 125);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(159, 37);
+            this.checkBox3.TabIndex = 6;
+            this.checkBox3.Text = "checkBox1";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // textBox21
+            // 
+            this.textBox21.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox21.Location = new System.Drawing.Point(586, 54);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(511, 35);
+            this.textBox21.TabIndex = 2;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(923, 633);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(73, 33);
+            this.label36.TabIndex = 3;
+            this.label36.Text = "Total";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(247, 57);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 36);
+            this.comboBox3.TabIndex = 4;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(34, 56);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(207, 33);
+            this.label37.TabIndex = 3;
+            this.label37.Text = "Type of Revenue:";
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(158, 694);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(251, 70);
+            this.button19.TabIndex = 0;
+            this.button19.Text = "Print";
+            this.button19.UseVisualStyleBackColor = true;
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(471, 694);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(251, 70);
+            this.button20.TabIndex = 0;
+            this.button20.Text = "Export";
+            this.button20.UseVisualStyleBackColor = true;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(465, 56);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(101, 33);
+            this.label38.TabIndex = 3;
+            this.label38.Text = "Search:";
+            // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1404,6 +1494,7 @@
             this.tabPageContract.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContract)).EndInit();
             this.tabPageRevenue.ResumeLayout(false);
+            this.tabPageRevenue.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).EndInit();
             this.tabPageWork.ResumeLayout(false);
             this.tabPageWork.PerformLayout();
@@ -1454,9 +1545,6 @@
         private System.Windows.Forms.Button buttonAddContract;
         private System.Windows.Forms.TabPage tabPageRevenue;
         private System.Windows.Forms.DataGridView dataGridViewRevenue;
-        private System.Windows.Forms.Button buttonRevenueRental;
-        private System.Windows.Forms.Button buttonRevenueTakeCare;
-        private System.Windows.Forms.Button buttonRevenueParking;
         private System.Windows.Forms.Button buttonRevenueStatistics;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabPageWork;
@@ -1551,5 +1639,16 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button20;
     }
 }

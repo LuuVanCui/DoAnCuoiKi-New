@@ -39,15 +39,15 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBoxContractID = new System.Windows.Forms.TextBox();
-            this.comboBoxContractType = new System.Windows.Forms.ComboBox();
-            this.dateTimePickerSign = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerReceive = new System.Windows.Forms.DateTimePicker();
-            this.textBoxCustomerID = new System.Windows.Forms.TextBox();
+            this.dateTimePickerSign = new System.Windows.Forms.DateTimePicker();
             this.comboBoxVehicleType = new System.Windows.Forms.ComboBox();
+            this.comboBoxContractType = new System.Windows.Forms.ComboBox();
+            this.textBoxCustomerID = new System.Windows.Forms.TextBox();
             this.textBoxDescibe = new System.Windows.Forms.TextBox();
             this.textBoxContractValue = new System.Windows.Forms.TextBox();
+            this.textBoxContractID = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -186,32 +186,14 @@
             this.panel1.Size = new System.Drawing.Size(819, 497);
             this.panel1.TabIndex = 2;
             // 
-            // panel2
+            // dateTimePickerReceive
             // 
-            this.panel2.Controls.Add(this.buttonAdd);
-            this.panel2.Controls.Add(this.buttonCancel);
-            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.Location = new System.Drawing.Point(12, 599);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(816, 111);
-            this.panel2.TabIndex = 3;
-            // 
-            // textBoxContractID
-            // 
-            this.textBoxContractID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxContractID.Location = new System.Drawing.Point(194, 29);
-            this.textBoxContractID.Name = "textBoxContractID";
-            this.textBoxContractID.Size = new System.Drawing.Size(189, 30);
-            this.textBoxContractID.TabIndex = 1;
-            // 
-            // comboBoxContractType
-            // 
-            this.comboBoxContractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxContractType.FormattingEnabled = true;
-            this.comboBoxContractType.Location = new System.Drawing.Point(194, 115);
-            this.comboBoxContractType.Name = "comboBoxContractType";
-            this.comboBoxContractType.Size = new System.Drawing.Size(189, 33);
-            this.comboBoxContractType.TabIndex = 2;
+            this.dateTimePickerReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerReceive.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerReceive.Location = new System.Drawing.Point(595, 198);
+            this.dateTimePickerReceive.Name = "dateTimePickerReceive";
+            this.dateTimePickerReceive.Size = new System.Drawing.Size(189, 30);
+            this.dateTimePickerReceive.TabIndex = 3;
             // 
             // dateTimePickerSign
             // 
@@ -222,23 +204,6 @@
             this.dateTimePickerSign.Size = new System.Drawing.Size(189, 30);
             this.dateTimePickerSign.TabIndex = 3;
             // 
-            // dateTimePickerReceive
-            // 
-            this.dateTimePickerReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerReceive.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerReceive.Location = new System.Drawing.Point(595, 198);
-            this.dateTimePickerReceive.Name = "dateTimePickerReceive";
-            this.dateTimePickerReceive.Size = new System.Drawing.Size(189, 30);
-            this.dateTimePickerReceive.TabIndex = 3;
-            // 
-            // textBoxCustomerID
-            // 
-            this.textBoxCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCustomerID.Location = new System.Drawing.Point(595, 29);
-            this.textBoxCustomerID.Name = "textBoxCustomerID";
-            this.textBoxCustomerID.Size = new System.Drawing.Size(189, 30);
-            this.textBoxCustomerID.TabIndex = 1;
-            // 
             // comboBoxVehicleType
             // 
             this.comboBoxVehicleType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,6 +212,23 @@
             this.comboBoxVehicleType.Name = "comboBoxVehicleType";
             this.comboBoxVehicleType.Size = new System.Drawing.Size(189, 33);
             this.comboBoxVehicleType.TabIndex = 2;
+            // 
+            // comboBoxContractType
+            // 
+            this.comboBoxContractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxContractType.FormattingEnabled = true;
+            this.comboBoxContractType.Location = new System.Drawing.Point(194, 115);
+            this.comboBoxContractType.Name = "comboBoxContractType";
+            this.comboBoxContractType.Size = new System.Drawing.Size(189, 33);
+            this.comboBoxContractType.TabIndex = 2;
+            // 
+            // textBoxCustomerID
+            // 
+            this.textBoxCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCustomerID.Location = new System.Drawing.Point(595, 29);
+            this.textBoxCustomerID.Name = "textBoxCustomerID";
+            this.textBoxCustomerID.Size = new System.Drawing.Size(189, 30);
+            this.textBoxCustomerID.TabIndex = 1;
             // 
             // textBoxDescibe
             // 
@@ -265,6 +247,24 @@
             this.textBoxContractValue.Size = new System.Drawing.Size(189, 30);
             this.textBoxContractValue.TabIndex = 1;
             // 
+            // textBoxContractID
+            // 
+            this.textBoxContractID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxContractID.Location = new System.Drawing.Point(194, 29);
+            this.textBoxContractID.Name = "textBoxContractID";
+            this.textBoxContractID.Size = new System.Drawing.Size(189, 30);
+            this.textBoxContractID.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.buttonAdd);
+            this.panel2.Controls.Add(this.buttonCancel);
+            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel2.Location = new System.Drawing.Point(12, 599);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(816, 111);
+            this.panel2.TabIndex = 3;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -281,7 +281,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(840, 711);
+            this.ClientSize = new System.Drawing.Size(1240, 711);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label9);
