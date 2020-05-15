@@ -21,7 +21,7 @@ namespace QuanLyNhaXe01
 
             if (fLogin.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new mainForm());
+                Application.Run(new dashboardForm());
             }
             else
             {

@@ -17,9 +17,45 @@ namespace QuanLyNhaXe01
             InitializeComponent();
         }
 
-        private void tabPageVehicles_Click(object sender, EventArgs e)
+        private void buttonAddVehicle_Click(object sender, EventArgs e)
         {
-            
+            addVehicleForm addVehicle = new addVehicleForm();
+            addVehicle.Show(this);
+        }
+
+        private void buttonEditVehicle_Click(object sender, EventArgs e)
+        {
+            editVehiclesForm editVehicle = new editVehiclesForm();
+            editVehicle.Show(this);
+        }
+
+        private void buttonRemoveVehicle_Click(object sender, EventArgs e)
+        {
+            deleteVehicleByID deleteVehicle = new deleteVehicleByID();
+            deleteVehicle.Show(this);
+        }
+
+        private void buttonShowAllVehicle_Click(object sender, EventArgs e)
+        {
+            manageVehiclesForm manageVehicle = new manageVehiclesForm();
+            manageVehicle.Show(this);
+        }
+
+        private void buttonPay_Click(object sender, EventArgs e)
+        {
+            paymentForm payment = new paymentForm();
+            payment.Show(this); 
+        }
+
+        private void buttonStatistics_Click(object sender, EventArgs e)
+        {
+            staticsForm statics = new staticsForm();
+            statics.Show(this);
+        }
+
+        private void buttonSlot_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
