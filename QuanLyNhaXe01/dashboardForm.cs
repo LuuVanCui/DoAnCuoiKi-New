@@ -57,5 +57,12 @@ namespace QuanLyNhaXe01
         {
 
         }
+
+        
+
+        private void tabPageVehicles_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
