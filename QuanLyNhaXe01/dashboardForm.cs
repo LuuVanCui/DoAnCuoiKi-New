@@ -64,5 +64,15 @@ namespace QuanLyNhaXe01
         {
             
         }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonAddWorker_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

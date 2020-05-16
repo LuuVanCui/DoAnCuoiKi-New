@@ -212,9 +212,9 @@
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(0, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1166, 117);
+            this.panel1.Size = new System.Drawing.Size(1194, 130);
             this.panel1.TabIndex = 1;
             // 
             // label7
@@ -242,7 +242,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 108);
+            this.pictureBox1.Size = new System.Drawing.Size(171, 130);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -276,7 +276,7 @@
             this.buttonExit.TabIndex = 0;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.buttonEditVehicle_Click);
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // tabControl
             // 
@@ -302,7 +302,7 @@
             this.tabPageVehicles.Location = new System.Drawing.Point(4, 42);
             this.tabPageVehicles.Name = "tabPageVehicles";
             this.tabPageVehicles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVehicles.Size = new System.Drawing.Size(1162, 795);
+            this.tabPageVehicles.Size = new System.Drawing.Size(1162, 789);
             this.tabPageVehicles.TabIndex = 0;
             this.tabPageVehicles.Text = "Vehicles";
             this.tabPageVehicles.Click += new System.EventHandler(this.tabPageVehicles_Click);
@@ -694,7 +694,7 @@
             this.tabPageWorker.Location = new System.Drawing.Point(4, 42);
             this.tabPageWorker.Name = "tabPageWorker";
             this.tabPageWorker.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWorker.Size = new System.Drawing.Size(1162, 795);
+            this.tabPageWorker.Size = new System.Drawing.Size(1162, 789);
             this.tabPageWorker.TabIndex = 1;
             this.tabPageWorker.Text = "Worker";
             this.tabPageWorker.UseVisualStyleBackColor = true;
@@ -833,6 +833,7 @@
             this.buttonAddWorker.TabIndex = 0;
             this.buttonAddWorker.Text = "Add";
             this.buttonAddWorker.UseVisualStyleBackColor = true;
+            this.buttonAddWorker.Click += new System.EventHandler(this.buttonAddWorker_Click);
             // 
             // comboBoxWork_Worker
             // 
@@ -1034,7 +1035,7 @@
             this.tabPageWork.Location = new System.Drawing.Point(4, 42);
             this.tabPageWork.Name = "tabPageWork";
             this.tabPageWork.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWork.Size = new System.Drawing.Size(1162, 795);
+            this.tabPageWork.Size = new System.Drawing.Size(1162, 789);
             this.tabPageWork.TabIndex = 4;
             this.tabPageWork.Text = "Work";
             this.tabPageWork.UseVisualStyleBackColor = true;
@@ -1684,10 +1685,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1195, 975);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "dashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
