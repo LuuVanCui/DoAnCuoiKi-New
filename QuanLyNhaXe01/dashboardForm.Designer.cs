@@ -38,6 +38,8 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageVehicles = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.dataGridViewVehicle = new System.Windows.Forms.DataGridView();
             this.panel9 = new System.Windows.Forms.Panel();
             this.radioButtonAllVehicle = new System.Windows.Forms.RadioButton();
             this.radioButtonCar = new System.Windows.Forms.RadioButton();
@@ -45,7 +47,6 @@
             this.radioButtonMoto = new System.Windows.Forms.RadioButton();
             this.buttonExportVehicle = new System.Windows.Forms.Button();
             this.buttonPrintVehicle = new System.Windows.Forms.Button();
-            this.dataGridViewVehicle = new System.Windows.Forms.DataGridView();
             this.label36 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -179,8 +180,9 @@
             this.tabControl.SuspendLayout();
             this.tabPageVehicles.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
+            this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicle)).BeginInit();
+            this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -293,7 +295,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1170, 835);
             this.tabControl.TabIndex = 0;
-             // 
+            // 
             // tabPageVehicles
             // 
             this.tabPageVehicles.BackColor = System.Drawing.SystemColors.Window;
@@ -311,10 +313,10 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel8.Controls.Add(this.panel16);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.buttonExportVehicle);
             this.panel8.Controls.Add(this.buttonPrintVehicle);
-            this.panel8.Controls.Add(this.dataGridViewVehicle);
             this.panel8.Controls.Add(this.label36);
             this.panel8.Controls.Add(this.label15);
             this.panel8.Controls.Add(this.label8);
@@ -328,6 +330,27 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1127, 526);
             this.panel8.TabIndex = 3;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.dataGridViewVehicle);
+            this.panel16.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel16.Location = new System.Drawing.Point(8, 66);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(1116, 354);
+            this.panel16.TabIndex = 5;
+            // 
+            // dataGridViewVehicle
+            // 
+            this.dataGridViewVehicle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewVehicle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVehicle.Location = new System.Drawing.Point(4, 3);
+            this.dataGridViewVehicle.Name = "dataGridViewVehicle";
+            this.dataGridViewVehicle.RowHeadersWidth = 62;
+            this.dataGridViewVehicle.RowTemplate.Height = 28;
+            this.dataGridViewVehicle.Size = new System.Drawing.Size(1109, 348);
+            this.dataGridViewVehicle.TabIndex = 2;
+            this.dataGridViewVehicle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewVehicle_DataError);
             // 
             // panel9
             // 
@@ -353,6 +376,7 @@
             this.radioButtonAllVehicle.TabStop = true;
             this.radioButtonAllVehicle.Text = "All";
             this.radioButtonAllVehicle.UseVisualStyleBackColor = true;
+            this.radioButtonAllVehicle.CheckedChanged += new System.EventHandler(this.radioButtonAllVehicle_CheckedChanged);
             // 
             // radioButtonCar
             // 
@@ -366,6 +390,7 @@
             this.radioButtonCar.TabStop = true;
             this.radioButtonCar.Text = "Car";
             this.radioButtonCar.UseVisualStyleBackColor = true;
+            this.radioButtonCar.CheckedChanged += new System.EventHandler(this.radioButtonCar_CheckedChanged);
             // 
             // radioButtonBike
             // 
@@ -379,6 +404,7 @@
             this.radioButtonBike.TabStop = true;
             this.radioButtonBike.Text = "Bike";
             this.radioButtonBike.UseVisualStyleBackColor = true;
+            this.radioButtonBike.CheckedChanged += new System.EventHandler(this.radioButtonBike_CheckedChanged);
             // 
             // radioButtonMoto
             // 
@@ -392,6 +418,7 @@
             this.radioButtonMoto.TabStop = true;
             this.radioButtonMoto.Text = "Moto";
             this.radioButtonMoto.UseVisualStyleBackColor = true;
+            this.radioButtonMoto.CheckedChanged += new System.EventHandler(this.radioButtonMoto_CheckedChanged);
             // 
             // buttonExportVehicle
             // 
@@ -418,16 +445,6 @@
             this.buttonPrintVehicle.Text = "Print";
             this.buttonPrintVehicle.UseVisualStyleBackColor = false;
             this.buttonPrintVehicle.Click += new System.EventHandler(this.buttonPrintVehicle_Click);
-            // 
-            // dataGridViewVehicle
-            // 
-            this.dataGridViewVehicle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVehicle.Location = new System.Drawing.Point(8, 78);
-            this.dataGridViewVehicle.Name = "dataGridViewVehicle";
-            this.dataGridViewVehicle.RowHeadersWidth = 62;
-            this.dataGridViewVehicle.RowTemplate.Height = 28;
-            this.dataGridViewVehicle.Size = new System.Drawing.Size(1106, 342);
-            this.dataGridViewVehicle.TabIndex = 2;
             // 
             // label36
             // 
@@ -481,10 +498,11 @@
             // textBoxSearchVehicle
             // 
             this.textBoxSearchVehicle.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchVehicle.Location = new System.Drawing.Point(750, 25);
+            this.textBoxSearchVehicle.Location = new System.Drawing.Point(718, 25);
             this.textBoxSearchVehicle.Name = "textBoxSearchVehicle";
-            this.textBoxSearchVehicle.Size = new System.Drawing.Size(346, 35);
+            this.textBoxSearchVehicle.Size = new System.Drawing.Size(378, 35);
             this.textBoxSearchVehicle.TabIndex = 1;
+            this.textBoxSearchVehicle.TextChanged += new System.EventHandler(this.textBoxSearchVehicle_TextChanged);
             // 
             // label29
             // 
@@ -1726,9 +1744,10 @@
             this.tabPageVehicles.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicle)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicle)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1913,5 +1932,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel16;
     }
 }

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Drawing.Printing;
 using Word = Microsoft.Office.Interop.Word;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace QuanLyNhaXe01
 {
@@ -18,6 +20,7 @@ namespace QuanLyNhaXe01
         public dashboardForm()
         {
             InitializeComponent();
+            this.dataGridViewVehicle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewVehicle_DataError);
         }
 
         #region Tabar-----------------------------------------------------------------------------
@@ -426,10 +429,100 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Vehicles
+        #region Vehicles--------------------------------------------------------------------
+
+        Vehicle vehicle = new Vehicle();
+
+        void makeUpGridForAllAndXeHoi()
+        {
+            try
+            {
+                dataGridViewVehicle.ReadOnly = true;
+
+                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
+
+
+                dataGridViewVehicle.RowTemplate.Height = 80;
+
+                picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
+                picCol3 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[3];
+                picCol4 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[4];
+                picCol5 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[5];
+
+                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol4.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol5.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                dataGridViewVehicle.AllowUserToAddRows = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        void makeUpGridForXeMayAndXeDap()
+        {
+            try
+            {
+                dataGridViewVehicle.ReadOnly = true;
+
+                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
+
+                dataGridViewVehicle.RowTemplate.Height = 80;
+
+                picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
+                picCol3 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[3];
+
+                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                dataGridViewVehicle.AllowUserToAddRows = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textBoxSearchVehicle_TextChanged(object sender, EventArgs e)
+        {
+            SqlCommand command = new SqlCommand("SELECT *FROM Xe WHERE CONCAT(MaTheXe, LoaiXe, ThoiGianVao, ThoiGianRa, HinhThucGui, TrangThaiGui) LIKE '%" + textBoxSearchVehicle.Text + "%'");
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(command);
+        }
+
+        private void radioButtonBike_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, HinhThucGui,TrangThaiGui FROM dbo.Xe WHERE LoaiXe = 'Xe Dap'"));
+            makeUpGridForXeMayAndXeDap();
+        }
+
+        private void radioButtonMoto_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, BienSo, ThoiGianVao, HinhThucGui, TrangThaiGui FROM dbo.Xe WHERE LoaiXe = 'Xe May'"));
+            makeUpGridForXeMayAndXeDap();
+        }
+
+        private void radioButtonCar_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, HieuXe, BienSo, ThoiGianVao, HinhThucGui,TrangThaiGui FROM Xe  WHERE LoaiXe = 'Xe Hoi'"));
+            makeUpGridForXeMayAndXeDap();
+        }
+
+        private void radioButtonAllVehicle_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
+            makeUpGridForAllAndXeHoi();
+        }
+
         void vehicleControls()
         {
-            Vehicle vehicle = new Vehicle();
+            radioButtonAllVehicle.Checked = true;
             dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
         }
 
@@ -456,25 +549,126 @@ namespace QuanLyNhaXe01
 
         private void buttonExportVehicle_Click(object sender, EventArgs e)
         {
+            // Tham khảo link: https://stackoverflow.com/questions/18182029/how-to-export-datagridview-data-instantly-to-excel-on-button-click
 
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "Inventory_Adjustment_Export.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Copy DataGridView results to clipboard
+                copyAlltoClipboard();
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Format column D as text before pasting results, this was required for my data
+                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
+                rng.NumberFormat = "@";
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
+                // Delete blank column A and select cell A1
+                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
+                delRng.Delete(Type.Missing);
+                xlWorkSheet.get_Range("A1").Select();
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlexcel);
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+                dataGridViewVehicle.ClearSelection();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+
+        }
+
+        private void copyAlltoClipboard()
+        {
+            dataGridViewVehicle.SelectAll();
+            DataObject dataObj = dataGridViewVehicle.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occurred while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
         }
 
         private void buttonPrintVehicle_Click(object sender, EventArgs e)
         {
+            PrintDialog printDlg = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.DocumentName = "Print Document";
+            printDlg.Document = printDoc;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
 
+            if (printDlg.ShowDialog() == DialogResult.OK)
+                printDoc.Print();
+
+        }
+
+        private void dataGridViewVehicle_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
         #endregion
 
         private void dashboardForm_Load(object sender, EventArgs e)
         {
-            // VEHICLES
+            #region VEHICLES
             vehicleControls();
+            DataTable table = vehicle.getVehicle(new SqlCommand("SELECT * FROM PhiGuiXeVaSlot"));
+
+            // fill textbox
+            textBoxTotalSlot_Bike.Text = table.Rows[0]["Slot"].ToString();
+            textBoxTotalSlot_Car.Text = table.Rows[1]["Slot"].ToString();
+            textBoxTotalSlot_Moto.Text = table.Rows[2]["Slot"].ToString();
+            textBoxPrice_Bike.Text = table.Rows[0]["Phi"].ToString();
+            textBoxPrice_Car.Text = table.Rows[1]["Phi"].ToString();
+            textBoxPrice_Moto.Text = table.Rows[2]["Phi"].ToString();
+
+            #endregion
 
             // WORKER
-            fillDatagridWorker();
-            comboBoxWork_Worker.DataSource = getWork();
-            comboBoxWork_Worker.DisplayMember = "TenCV";
-            comboBoxWork_Worker.ValueMember = "MaCV";
+            //fillDatagridWorker();
+            //comboBoxWork_Worker.DataSource = getWork();
+            //comboBoxWork_Worker.DisplayMember = "TenCV";
+            //comboBoxWork_Worker.ValueMember = "MaCV";
         }
     }
 }
