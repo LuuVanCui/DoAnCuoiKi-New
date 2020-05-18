@@ -23,7 +23,7 @@ namespace QuanLyNhaXe01
             this.dataGridViewVehicle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewVehicle_DataError);
         }
 
-        #region Tabar-----------------------------------------------------------------------------
+        #region Tabar----------------------------------------------------
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -40,7 +40,7 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Worker -------------------------------------------------------------------
+        #region Worker----------------------------------------------------
         void fillDatagridWorker()
         {
 
@@ -429,7 +429,7 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Vehicles--------------------------------------------------------------------
+        #region Vehicles----------------------------------------------------
 
         Vehicle vehicle = new Vehicle();
 
@@ -534,17 +534,68 @@ namespace QuanLyNhaXe01
 
         private void buttonSetBike_Click(object sender, EventArgs e)
         {
-
+            PriceAndSlot setting = new PriceAndSlot();
+            try
+            {
+                int slot = Convert.ToInt32(textBoxTotalSlot_Bike.Text);
+                float price = float.Parse(textBoxPrice_Bike.Text);
+                if (setting.updatePriceAndSlot("Xe Dap", price, slot))
+                {
+                    MessageBox.Show("Set successful!", "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonSetMoto_Click(object sender, EventArgs e)
         {
-
+            PriceAndSlot setting = new PriceAndSlot();
+            try
+            {
+                int slot = Convert.ToInt32(textBoxTotalSlot_Moto.Text);
+                float price = float.Parse(textBoxPrice_Moto.Text);
+                if (setting.updatePriceAndSlot("Xe May", price, slot))
+                {
+                    MessageBox.Show("Set successful!", "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonSetCar_Click(object sender, EventArgs e)
         {
-
+            PriceAndSlot setting = new PriceAndSlot();
+            try
+            {
+                int slot = Convert.ToInt32(textBoxTotalSlot_Car.Text);
+                float price = float.Parse(textBoxPrice_Car.Text);
+                if (setting.updatePriceAndSlot("Xe Hoi", price, slot))
+                {
+                    MessageBox.Show("Set successful!", "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonExportVehicle_Click(object sender, EventArgs e)
@@ -661,6 +712,9 @@ namespace QuanLyNhaXe01
             textBoxPrice_Bike.Text = table.Rows[0]["Phi"].ToString();
             textBoxPrice_Car.Text = table.Rows[1]["Phi"].ToString();
             textBoxPrice_Moto.Text = table.Rows[2]["Phi"].ToString();
+            labelDangGui.Text = "Existing: " + vehicle.totalVehicle_in();
+            labelDaRa.Text = "Leave: " + vehicle.totalVehicle_out();
+            labelStatus.Text = "Total Vehicle: " + vehicle.totalVehicle();
 
             #endregion
 

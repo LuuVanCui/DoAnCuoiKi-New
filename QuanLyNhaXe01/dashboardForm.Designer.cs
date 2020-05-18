@@ -47,9 +47,9 @@
             this.radioButtonMoto = new System.Windows.Forms.RadioButton();
             this.buttonExportVehicle = new System.Windows.Forms.Button();
             this.buttonPrintVehicle = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelDangGui = new System.Windows.Forms.Label();
+            this.labelDaRa = new System.Windows.Forms.Label();
+            this.labelStatus = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.buttonStatisticsVehicle = new System.Windows.Forms.Button();
             this.textBoxSearchVehicle = new System.Windows.Forms.TextBox();
@@ -317,9 +317,9 @@
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.buttonExportVehicle);
             this.panel8.Controls.Add(this.buttonPrintVehicle);
-            this.panel8.Controls.Add(this.label36);
-            this.panel8.Controls.Add(this.label15);
-            this.panel8.Controls.Add(this.label8);
+            this.panel8.Controls.Add(this.labelDangGui);
+            this.panel8.Controls.Add(this.labelDaRa);
+            this.panel8.Controls.Add(this.labelStatus);
             this.panel8.Controls.Add(this.label30);
             this.panel8.Controls.Add(this.buttonStatisticsVehicle);
             this.panel8.Controls.Add(this.textBoxSearchVehicle);
@@ -446,32 +446,39 @@
             this.buttonPrintVehicle.UseVisualStyleBackColor = false;
             this.buttonPrintVehicle.Click += new System.EventHandler(this.buttonPrintVehicle_Click);
             // 
-            // label36
+            // labelDangGui
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(683, 423);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(70, 30);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "Price:";
+            this.labelDangGui.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelDangGui.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelDangGui.Location = new System.Drawing.Point(525, 420);
+            this.labelDangGui.Name = "labelDangGui";
+            this.labelDangGui.Size = new System.Drawing.Size(193, 30);
+            this.labelDangGui.TabIndex = 0;
+            this.labelDangGui.Text = "Dang Gui";
+            this.labelDangGui.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDangGui.Click += new System.EventHandler(this.labelDangGui_Click);
             // 
-            // label15
+            // labelDaRa
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(830, 423);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(70, 30);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Price:";
+            this.labelDaRa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelDaRa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelDaRa.Location = new System.Drawing.Point(724, 420);
+            this.labelDaRa.Name = "labelDaRa";
+            this.labelDaRa.Size = new System.Drawing.Size(174, 30);
+            this.labelDaRa.TabIndex = 0;
+            this.labelDaRa.Text = "Da Ra";
+            this.labelDaRa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // labelStatus
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(977, 423);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 30);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Price:";
+            this.labelStatus.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelStatus.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelStatus.Location = new System.Drawing.Point(904, 420);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(217, 30);
+            this.labelStatus.TabIndex = 0;
+            this.labelStatus.Text = "Status";
+            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label30
             // 
@@ -1928,9 +1935,9 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelDangGui;
+        private System.Windows.Forms.Label labelDaRa;
+        private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel16;
     }
