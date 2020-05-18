@@ -724,5 +724,114 @@ namespace QuanLyNhaXe01
             //comboBoxWork_Worker.DisplayMember = "TenCV";
             //comboBoxWork_Worker.ValueMember = "MaCV";
         }
+
+        #region Work----------------------------------------------
+        Work work = new Work();
+        private void buttonAdd_Work_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string workID = textBoxWorkID_Work.Text;
+                int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
+                string workName = textBoxWorkName_work.Text;
+                string contain = textBoxWorkDetail_work.Text;
+                if (work.insertWork(workID, workerID, workName, contain))
+                {
+                    MessageBox.Show("Add Successful!", "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }    
+                else
+                {
+                    MessageBox.Show("Add Fail.", "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonEdit_Work_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string workID = textBoxWorkID_Work.Text;
+                int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
+                string workName = textBoxWorkName_work.Text;
+                string contain = textBoxWorkDetail_work.Text;
+                if (work.insertWork(workID, workerID, workName, contain))
+                {
+                    MessageBox.Show("Update Successful!", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Edit Fail.", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonRemove_Work_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string workID = textBoxWorkID_Work.Text;
+                int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
+                
+                if (MessageBox.Show("Do you want to remove this work?", "Delete Work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (work.deleteWork(workID, workerID))
+                    {
+                        MessageBox.Show("This work deleted", "Delete Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Delete Fail.", "Delete Work", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete Work", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonAddGroup_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEditGroup_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRemoveGroup_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxSearch_work_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPrint_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonExport_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonStatistics_work_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }
