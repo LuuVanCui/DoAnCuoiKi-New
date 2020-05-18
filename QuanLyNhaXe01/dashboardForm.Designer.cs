@@ -903,7 +903,7 @@
             // 
             this.comboBoxWork_Worker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxWork_Worker.FormattingEnabled = true;
-            this.comboBoxWork_Worker.Location = new System.Drawing.Point(632, 249);
+            this.comboBoxWork_Worker.Location = new System.Drawing.Point(632, 277);
             this.comboBoxWork_Worker.Name = "comboBoxWork_Worker";
             this.comboBoxWork_Worker.Size = new System.Drawing.Size(243, 41);
             this.comboBoxWork_Worker.TabIndex = 19;
@@ -911,7 +911,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(521, 249);
+            this.label14.Location = new System.Drawing.Point(521, 277);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(85, 33);
             this.label14.TabIndex = 16;
