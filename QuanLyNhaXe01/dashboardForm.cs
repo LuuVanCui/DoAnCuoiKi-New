@@ -23,7 +23,7 @@ namespace QuanLyNhaXe01
             this.dataGridViewVehicle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewVehicle_DataError);
         }
 
-        #region Tabar-----------------------------------------------------------------------------
+        #region Tabar----------------------------------------------------
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -40,7 +40,7 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Worker -------------------------------------------------------------------
+        #region Worker----------------------------------------------------
         void fillDatagridWorker()
         {
 
@@ -444,7 +444,7 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Vehicles--------------------------------------------------------------------
+        #region Vehicles----------------------------------------------------
 
         Vehicle vehicle = new Vehicle();
 
@@ -549,17 +549,68 @@ namespace QuanLyNhaXe01
 
         private void buttonSetBike_Click(object sender, EventArgs e)
         {
-
+            PriceAndSlot setting = new PriceAndSlot();
+            try
+            {
+                int slot = Convert.ToInt32(textBoxTotalSlot_Bike.Text);
+                float price = float.Parse(textBoxPrice_Bike.Text);
+                if (setting.updatePriceAndSlot("Xe Dap", price, slot))
+                {
+                    MessageBox.Show("Set successful!", "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonSetMoto_Click(object sender, EventArgs e)
         {
-
+            PriceAndSlot setting = new PriceAndSlot();
+            try
+            {
+                int slot = Convert.ToInt32(textBoxTotalSlot_Moto.Text);
+                float price = float.Parse(textBoxPrice_Moto.Text);
+                if (setting.updatePriceAndSlot("Xe May", price, slot))
+                {
+                    MessageBox.Show("Set successful!", "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonSetCar_Click(object sender, EventArgs e)
         {
-
+            PriceAndSlot setting = new PriceAndSlot();
+            try
+            {
+                int slot = Convert.ToInt32(textBoxTotalSlot_Car.Text);
+                float price = float.Parse(textBoxPrice_Car.Text);
+                if (setting.updatePriceAndSlot("Xe Hoi", price, slot))
+                {
+                    MessageBox.Show("Set successful!", "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonExportVehicle_Click(object sender, EventArgs e)
@@ -676,8 +727,15 @@ namespace QuanLyNhaXe01
             textBoxPrice_Bike.Text = table.Rows[0]["Phi"].ToString();
             textBoxPrice_Car.Text = table.Rows[1]["Phi"].ToString();
             textBoxPrice_Moto.Text = table.Rows[2]["Phi"].ToString();
+<<<<<<< HEAD
             
            
+=======
+            labelDangGui.Text = "Existing: " + vehicle.totalVehicle_in();
+            labelDaRa.Text = "Leave: " + vehicle.totalVehicle_out();
+            labelStatus.Text = "Total Vehicle: " + vehicle.totalVehicle();
+
+>>>>>>> 2d5c57404fb490d35a376a031f505ca13b40cbfa
             #endregion
 
 
@@ -690,5 +748,114 @@ namespace QuanLyNhaXe01
             //comboBoxWork_Worker.DisplayMember = "TenCV";
             //comboBoxWork_Worker.ValueMember = "MaCV";
         }
+
+        #region Work----------------------------------------------
+        Work work = new Work();
+        private void buttonAdd_Work_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string workID = textBoxWorkID_Work.Text;
+                int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
+                string workName = textBoxWorkName_work.Text;
+                string contain = textBoxWorkDetail_work.Text;
+                if (work.insertWork(workID, workerID, workName, contain))
+                {
+                    MessageBox.Show("Add Successful!", "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }    
+                else
+                {
+                    MessageBox.Show("Add Fail.", "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonEdit_Work_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string workID = textBoxWorkID_Work.Text;
+                int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
+                string workName = textBoxWorkName_work.Text;
+                string contain = textBoxWorkDetail_work.Text;
+                if (work.insertWork(workID, workerID, workName, contain))
+                {
+                    MessageBox.Show("Update Successful!", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Edit Fail.", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonRemove_Work_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string workID = textBoxWorkID_Work.Text;
+                int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
+                
+                if (MessageBox.Show("Do you want to remove this work?", "Delete Work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (work.deleteWork(workID, workerID))
+                    {
+                        MessageBox.Show("This work deleted", "Delete Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Delete Fail.", "Delete Work", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete Work", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonAddGroup_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEditGroup_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRemoveGroup_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxSearch_work_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPrint_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonExport_work_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonStatistics_work_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

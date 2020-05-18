@@ -42,7 +42,6 @@ namespace QuanLyNhaXe01
             }
         }
 
-
         public bool insertMoto(string MaTheXe, string LoaiXe, MemoryStream BienSo, MemoryStream NguoiGui, DateTime ThoiGianVao, string HinhThucGui)
         {
 
@@ -201,7 +200,6 @@ namespace QuanLyNhaXe01
 
         }
 
-
         public DataTable getVehicle(SqlCommand cmd)
         {
             cmd.Connection = mydb.getConnection;
@@ -281,6 +279,7 @@ namespace QuanLyNhaXe01
         {
             return execCount("SELECT COUNT(*) FROM Xe where TrangThaiGui='Da Lay Xe'");
         }
+
         public string totalVehicle_in()
         {
             return execCount("SELECT COUNT(*) FROM Xe where TrangThaiGui='Dang Gui'");
@@ -290,10 +289,12 @@ namespace QuanLyNhaXe01
         {
             return execCount("SELECT COUNT(*) FROM Xe WHERE LoaiXe = 'Xe May' ");
         }
+
         public string totalCar()
         {
             return execCount("SELECT COUNT(*) FROM Xe WHERE LoaiXe = 'Xe Hoi' ");
         }
+
         public string totalBicycle()
         {
             return execCount("SELECT COUNT(*) FROM Xe WHERE LoaiXe = 'Xe Dap' ");
@@ -321,6 +322,7 @@ namespace QuanLyNhaXe01
             
 
         }
+
         public bool updateVehicleOut_DoanhThu(string maTheXe, float total)
         {
             
