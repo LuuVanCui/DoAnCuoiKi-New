@@ -13,7 +13,7 @@ namespace QuanLyNhaXe01
         MyDB mydb = new MyDB();
         public bool insertWorker(int w_id, string name, string sex, string phone, string identity,string address, DateTime bDate, DateTime dateStart, string work)
         {
-            SqlCommand command = new SqlCommand("insert into Worker(worker_id,name, sex, identityCard,bDate, dateStart, phone, address, work) " +
+            SqlCommand command = new SqlCommand("insert into Tho(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, Nhom, NhomTruong, NgayBatDau) " +
                 "values(@wid,@name,@sex,@identity,@bDate,@dStart,@phone,@address,@work)", mydb.getConnection);
 
             command.Parameters.Add("@wid", SqlDbType.Int).Value = w_id;
