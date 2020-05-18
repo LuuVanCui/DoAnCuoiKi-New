@@ -38,28 +38,28 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerSign = new System.Windows.Forms.DateTimePicker();
             this.comboBoxVehicleType = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.comboBoxContractType = new System.Windows.Forms.ComboBox();
             this.textBoxDescibe = new System.Windows.Forms.TextBox();
             this.textBoxContractValue = new System.Windows.Forms.TextBox();
             this.textBoxContractID = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.textBoxCustomerID = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -187,6 +187,15 @@
             this.panel1.Size = new System.Drawing.Size(555, 560);
             this.panel1.TabIndex = 2;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(200, 296);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(189, 30);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
             // dateTimePickerSign
             // 
             this.dateTimePickerSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -204,6 +213,18 @@
             this.comboBoxVehicleType.Name = "comboBoxVehicleType";
             this.comboBoxVehicleType.Size = new System.Drawing.Size(189, 33);
             this.comboBoxVehicleType.TabIndex = 2;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Consolas", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label15.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label15.Location = new System.Drawing.Point(151, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(305, 37);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Contract Details";
             // 
             // comboBoxContractType
             // 
@@ -239,6 +260,16 @@
             this.textBoxContractID.Size = new System.Drawing.Size(189, 30);
             this.textBoxContractID.TabIndex = 1;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(45, 296);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(149, 29);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Lease Term:";
+            // 
             // textBoxCustomerID
             // 
             this.textBoxCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -271,6 +302,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.textBox4);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.textBox3);
@@ -288,6 +320,24 @@
             this.panel3.TabIndex = 4;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(209, 218);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(261, 30);
+            this.textBox4.TabIndex = 9;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(43, 219);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(153, 29);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Identity Card:";
+            // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -295,6 +345,18 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(261, 30);
             this.textBox3.TabIndex = 7;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Consolas", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label14.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label14.Location = new System.Drawing.Point(86, 18);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(377, 37);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Customer Information";
             // 
             // label12
             // 
@@ -343,67 +405,6 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Address:";
             // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(209, 218);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(266, 30);
-            this.textBox4.TabIndex = 9;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(43, 219);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(153, 29);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Identity Card:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Consolas", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label14.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.label14.Location = new System.Drawing.Point(86, 18);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(377, 37);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Customer Information";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Consolas", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label15.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.label15.Location = new System.Drawing.Point(151, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(305, 37);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Contract Details";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(45, 296);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(149, 29);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Lease Term:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(200, 296);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(189, 30);
-            this.dateTimePicker1.TabIndex = 3;
-            // 
             // addContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -414,6 +415,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label9);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "addContractForm";
             this.Text = "addContract";

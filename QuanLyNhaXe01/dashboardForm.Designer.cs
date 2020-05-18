@@ -32,8 +32,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelRefresh = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEditInfo = new System.Windows.Forms.LinkLabel();
             this.buttonExit = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageVehicles = new System.Windows.Forms.TabPage();
@@ -46,6 +46,9 @@
             this.buttonExportVehicle = new System.Windows.Forms.Button();
             this.buttonPrintVehicle = new System.Windows.Forms.Button();
             this.dataGridViewVehicle = new System.Windows.Forms.DataGridView();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.buttonStatisticsVehicle = new System.Windows.Forms.Button();
             this.textBoxSearchVehicle = new System.Windows.Forms.TextBox();
@@ -75,7 +78,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.buttonExportWorker = new System.Windows.Forms.Button();
             this.buttonPrintWorker = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewWorker = new System.Windows.Forms.DataGridView();
             this.label16 = new System.Windows.Forms.Label();
             this.textBoxSearchWorker = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -87,23 +90,19 @@
             this.buttonEditWorker = new System.Windows.Forms.Button();
             this.buttonAddWorker = new System.Windows.Forms.Button();
             this.comboBoxWork_Worker = new System.Windows.Forms.ComboBox();
-            this.comboBoxGroupWorker = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePickerDateStart_Worker = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerBDate_Worker = new System.Windows.Forms.DateTimePicker();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.textBoxLName = new System.Windows.Forms.TextBox();
+            this.textBoxIdentityCard = new System.Windows.Forms.TextBox();
             this.textBoxAddressWorker = new System.Windows.Forms.TextBox();
             this.textBoxPhoneWorker = new System.Windows.Forms.TextBox();
-            this.textBoxFName = new System.Windows.Forms.TextBox();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.textBoxWorkerID = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -158,6 +157,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.labelTotalContract = new System.Windows.Forms.Label();
             this.dataGridViewContract = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
             this.buttonExportContract = new System.Windows.Forms.Button();
             this.buttonPrintContract = new System.Windows.Forms.Button();
             this.buttonStatisticsContract = new System.Windows.Forms.Button();
@@ -186,7 +186,7 @@
             this.panel5.SuspendLayout();
             this.tabPageWorker.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorker)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPageWork.SuspendLayout();
@@ -208,8 +208,8 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.linkLabel3);
-            this.panel1.Controls.Add(this.linkLabel2);
+            this.panel1.Controls.Add(this.linkLabelRefresh);
+            this.panel1.Controls.Add(this.linkLabelEditInfo);
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, -1);
@@ -242,29 +242,31 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(171, 130);
+            this.pictureBox1.Size = new System.Drawing.Size(175, 130);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // linkLabel3
+            // linkLabelRefresh
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(401, 66);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(106, 34);
-            this.linkLabel3.TabIndex = 0;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Refresh";
+            this.linkLabelRefresh.AutoSize = true;
+            this.linkLabelRefresh.Location = new System.Drawing.Point(401, 66);
+            this.linkLabelRefresh.Name = "linkLabelRefresh";
+            this.linkLabelRefresh.Size = new System.Drawing.Size(106, 34);
+            this.linkLabelRefresh.TabIndex = 0;
+            this.linkLabelRefresh.TabStop = true;
+            this.linkLabelRefresh.Text = "Refresh";
+            this.linkLabelRefresh.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRefresh_LinkClicked);
             // 
-            // linkLabel2
+            // linkLabelEditInfo
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(177, 66);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(187, 34);
-            this.linkLabel2.TabIndex = 0;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Edit My Profile";
+            this.linkLabelEditInfo.AutoSize = true;
+            this.linkLabelEditInfo.Location = new System.Drawing.Point(177, 66);
+            this.linkLabelEditInfo.Name = "linkLabelEditInfo";
+            this.linkLabelEditInfo.Size = new System.Drawing.Size(187, 34);
+            this.linkLabelEditInfo.TabIndex = 0;
+            this.linkLabelEditInfo.TabStop = true;
+            this.linkLabelEditInfo.Text = "Edit My Profile";
+            this.linkLabelEditInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEditInfo_LinkClicked);
             // 
             // buttonExit
             // 
@@ -291,7 +293,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1170, 835);
             this.tabControl.TabIndex = 0;
-            // 
+             // 
             // tabPageVehicles
             // 
             this.tabPageVehicles.BackColor = System.Drawing.SystemColors.Window;
@@ -305,7 +307,6 @@
             this.tabPageVehicles.Size = new System.Drawing.Size(1162, 789);
             this.tabPageVehicles.TabIndex = 0;
             this.tabPageVehicles.Text = "Vehicles";
-            this.tabPageVehicles.Click += new System.EventHandler(this.tabPageVehicles_Click);
             // 
             // panel8
             // 
@@ -314,14 +315,18 @@
             this.panel8.Controls.Add(this.buttonExportVehicle);
             this.panel8.Controls.Add(this.buttonPrintVehicle);
             this.panel8.Controls.Add(this.dataGridViewVehicle);
+            this.panel8.Controls.Add(this.label36);
+            this.panel8.Controls.Add(this.label15);
+            this.panel8.Controls.Add(this.label8);
             this.panel8.Controls.Add(this.label30);
             this.panel8.Controls.Add(this.buttonStatisticsVehicle);
             this.panel8.Controls.Add(this.textBoxSearchVehicle);
             this.panel8.Controls.Add(this.label29);
             this.panel8.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel8.Location = new System.Drawing.Point(15, 296);
+            this.panel8.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel8.Location = new System.Drawing.Point(15, 250);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1127, 490);
+            this.panel8.Size = new System.Drawing.Size(1127, 526);
             this.panel8.TabIndex = 3;
             // 
             // panel9
@@ -392,40 +397,71 @@
             // 
             this.buttonExportVehicle.BackColor = System.Drawing.Color.Bisque;
             this.buttonExportVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonExportVehicle.Location = new System.Drawing.Point(500, 412);
+            this.buttonExportVehicle.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExportVehicle.Location = new System.Drawing.Point(480, 464);
             this.buttonExportVehicle.Name = "buttonExportVehicle";
-            this.buttonExportVehicle.Size = new System.Drawing.Size(150, 56);
+            this.buttonExportVehicle.Size = new System.Drawing.Size(150, 49);
             this.buttonExportVehicle.TabIndex = 2;
             this.buttonExportVehicle.Text = "Export";
             this.buttonExportVehicle.UseVisualStyleBackColor = false;
+            this.buttonExportVehicle.Click += new System.EventHandler(this.buttonExportVehicle_Click);
             // 
             // buttonPrintVehicle
             // 
             this.buttonPrintVehicle.BackColor = System.Drawing.Color.Bisque;
             this.buttonPrintVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPrintVehicle.Location = new System.Drawing.Point(750, 417);
+            this.buttonPrintVehicle.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrintVehicle.Location = new System.Drawing.Point(750, 467);
             this.buttonPrintVehicle.Name = "buttonPrintVehicle";
-            this.buttonPrintVehicle.Size = new System.Drawing.Size(150, 51);
+            this.buttonPrintVehicle.Size = new System.Drawing.Size(150, 44);
             this.buttonPrintVehicle.TabIndex = 2;
             this.buttonPrintVehicle.Text = "Print";
             this.buttonPrintVehicle.UseVisualStyleBackColor = false;
+            this.buttonPrintVehicle.Click += new System.EventHandler(this.buttonPrintVehicle_Click);
             // 
             // dataGridViewVehicle
             // 
             this.dataGridViewVehicle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVehicle.Location = new System.Drawing.Point(6, 78);
+            this.dataGridViewVehicle.Location = new System.Drawing.Point(8, 78);
             this.dataGridViewVehicle.Name = "dataGridViewVehicle";
             this.dataGridViewVehicle.RowHeadersWidth = 62;
             this.dataGridViewVehicle.RowTemplate.Height = 28;
-            this.dataGridViewVehicle.Size = new System.Drawing.Size(1106, 315);
+            this.dataGridViewVehicle.Size = new System.Drawing.Size(1106, 342);
             this.dataGridViewVehicle.TabIndex = 2;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(683, 423);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(70, 30);
+            this.label36.TabIndex = 0;
+            this.label36.Text = "Price:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(830, 423);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(70, 30);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Price:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(977, 423);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 30);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Price:";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(3, 22);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(210, 33);
+            this.label30.Size = new System.Drawing.Size(191, 30);
             this.label30.TabIndex = 0;
             this.label30.Text = "Type of Vehicles:";
             // 
@@ -433,9 +469,10 @@
             // 
             this.buttonStatisticsVehicle.BackColor = System.Drawing.Color.Bisque;
             this.buttonStatisticsVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonStatisticsVehicle.Location = new System.Drawing.Point(198, 412);
+            this.buttonStatisticsVehicle.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStatisticsVehicle.Location = new System.Drawing.Point(196, 464);
             this.buttonStatisticsVehicle.Name = "buttonStatisticsVehicle";
-            this.buttonStatisticsVehicle.Size = new System.Drawing.Size(168, 56);
+            this.buttonStatisticsVehicle.Size = new System.Drawing.Size(168, 49);
             this.buttonStatisticsVehicle.TabIndex = 0;
             this.buttonStatisticsVehicle.Text = "Statistics";
             this.buttonStatisticsVehicle.UseVisualStyleBackColor = false;
@@ -454,7 +491,7 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(627, 27);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(101, 33);
+            this.label29.Size = new System.Drawing.Size(91, 30);
             this.label29.TabIndex = 0;
             this.label29.Text = "Search:";
             // 
@@ -467,63 +504,65 @@
             this.panel7.Controls.Add(this.textBoxPrice_Car);
             this.panel7.Controls.Add(this.label27);
             this.panel7.Controls.Add(this.label28);
+            this.panel7.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel7.Location = new System.Drawing.Point(825, 17);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(317, 258);
+            this.panel7.Size = new System.Drawing.Size(317, 227);
             this.panel7.TabIndex = 1;
             // 
             // buttonSetCar
             // 
             this.buttonSetCar.BackColor = System.Drawing.Color.Bisque;
             this.buttonSetCar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSetCar.Location = new System.Drawing.Point(95, 202);
+            this.buttonSetCar.Location = new System.Drawing.Point(100, 167);
             this.buttonSetCar.Name = "buttonSetCar";
             this.buttonSetCar.Size = new System.Drawing.Size(150, 44);
             this.buttonSetCar.TabIndex = 2;
             this.buttonSetCar.Text = "Set";
             this.buttonSetCar.UseVisualStyleBackColor = false;
+            this.buttonSetCar.Click += new System.EventHandler(this.buttonSetCar_Click);
             // 
             // textBoxTotalSlot_Car
             // 
-            this.textBoxTotalSlot_Car.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalSlot_Car.Location = new System.Drawing.Point(147, 92);
+            this.textBoxTotalSlot_Car.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalSlot_Car.Location = new System.Drawing.Point(147, 74);
             this.textBoxTotalSlot_Car.Name = "textBoxTotalSlot_Car";
-            this.textBoxTotalSlot_Car.Size = new System.Drawing.Size(139, 35);
+            this.textBoxTotalSlot_Car.Size = new System.Drawing.Size(139, 30);
             this.textBoxTotalSlot_Car.TabIndex = 1;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(15, 91);
+            this.label26.Location = new System.Drawing.Point(15, 73);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(134, 33);
+            this.label26.Size = new System.Drawing.Size(110, 28);
             this.label26.TabIndex = 0;
             this.label26.Text = "Total Slot:";
             // 
             // textBoxPrice_Car
             // 
-            this.textBoxPrice_Car.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrice_Car.Location = new System.Drawing.Point(147, 150);
+            this.textBoxPrice_Car.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrice_Car.Location = new System.Drawing.Point(147, 121);
             this.textBoxPrice_Car.Name = "textBoxPrice_Car";
-            this.textBoxPrice_Car.Size = new System.Drawing.Size(139, 35);
+            this.textBoxPrice_Car.Size = new System.Drawing.Size(139, 30);
             this.textBoxPrice_Car.TabIndex = 1;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(63, 150);
+            this.label27.Location = new System.Drawing.Point(63, 121);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(78, 33);
+            this.label27.Size = new System.Drawing.Size(65, 28);
             this.label27.TabIndex = 0;
             this.label27.Text = "Price:";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Comic Sans MS", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Font = new System.Drawing.Font("Comic Sans MS", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(102, 13);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(73, 45);
+            this.label28.Size = new System.Drawing.Size(63, 39);
             this.label28.TabIndex = 0;
             this.label28.Text = "Car";
             // 
@@ -536,63 +575,65 @@
             this.panel6.Controls.Add(this.textBoxPrice_Moto);
             this.panel6.Controls.Add(this.label24);
             this.panel6.Controls.Add(this.label25);
+            this.panel6.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6.Location = new System.Drawing.Point(426, 17);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(317, 258);
+            this.panel6.Size = new System.Drawing.Size(317, 227);
             this.panel6.TabIndex = 1;
             // 
             // buttonSetMoto
             // 
             this.buttonSetMoto.BackColor = System.Drawing.Color.Bisque;
             this.buttonSetMoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSetMoto.Location = new System.Drawing.Point(89, 202);
+            this.buttonSetMoto.Location = new System.Drawing.Point(87, 167);
             this.buttonSetMoto.Name = "buttonSetMoto";
             this.buttonSetMoto.Size = new System.Drawing.Size(150, 44);
             this.buttonSetMoto.TabIndex = 2;
             this.buttonSetMoto.Text = "Set";
             this.buttonSetMoto.UseVisualStyleBackColor = false;
+            this.buttonSetMoto.Click += new System.EventHandler(this.buttonSetMoto_Click);
             // 
             // textBoxTotalSlot_Moto
             // 
-            this.textBoxTotalSlot_Moto.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalSlot_Moto.Location = new System.Drawing.Point(147, 92);
+            this.textBoxTotalSlot_Moto.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalSlot_Moto.Location = new System.Drawing.Point(148, 71);
             this.textBoxTotalSlot_Moto.Name = "textBoxTotalSlot_Moto";
-            this.textBoxTotalSlot_Moto.Size = new System.Drawing.Size(139, 35);
+            this.textBoxTotalSlot_Moto.Size = new System.Drawing.Size(139, 30);
             this.textBoxTotalSlot_Moto.TabIndex = 1;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(15, 91);
+            this.label23.Location = new System.Drawing.Point(16, 70);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(134, 33);
+            this.label23.Size = new System.Drawing.Size(110, 28);
             this.label23.TabIndex = 0;
             this.label23.Text = "Total Slot:";
             // 
             // textBoxPrice_Moto
             // 
-            this.textBoxPrice_Moto.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrice_Moto.Location = new System.Drawing.Point(147, 150);
+            this.textBoxPrice_Moto.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrice_Moto.Location = new System.Drawing.Point(148, 119);
             this.textBoxPrice_Moto.Name = "textBoxPrice_Moto";
-            this.textBoxPrice_Moto.Size = new System.Drawing.Size(139, 35);
+            this.textBoxPrice_Moto.Size = new System.Drawing.Size(139, 30);
             this.textBoxPrice_Moto.TabIndex = 1;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(63, 150);
+            this.label24.Location = new System.Drawing.Point(64, 119);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(78, 33);
+            this.label24.Size = new System.Drawing.Size(65, 28);
             this.label24.TabIndex = 0;
             this.label24.Text = "Price:";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Comic Sans MS", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Font = new System.Drawing.Font("Comic Sans MS", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(102, 13);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(97, 45);
+            this.label25.Size = new System.Drawing.Size(85, 39);
             this.label25.TabIndex = 0;
             this.label25.Text = "Moto";
             // 
@@ -605,63 +646,65 @@
             this.panel5.Controls.Add(this.textBoxPrice_Bike);
             this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label1);
+            this.panel5.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(15, 17);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(317, 258);
+            this.panel5.Size = new System.Drawing.Size(317, 227);
             this.panel5.TabIndex = 1;
             // 
             // buttonSetBike
             // 
             this.buttonSetBike.BackColor = System.Drawing.Color.Bisque;
             this.buttonSetBike.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSetBike.Location = new System.Drawing.Point(86, 202);
+            this.buttonSetBike.Location = new System.Drawing.Point(88, 167);
             this.buttonSetBike.Name = "buttonSetBike";
             this.buttonSetBike.Size = new System.Drawing.Size(150, 44);
             this.buttonSetBike.TabIndex = 2;
             this.buttonSetBike.Text = "Set";
             this.buttonSetBike.UseVisualStyleBackColor = false;
+            this.buttonSetBike.Click += new System.EventHandler(this.buttonSetBike_Click);
             // 
             // textBoxTotalSlot_Bike
             // 
-            this.textBoxTotalSlot_Bike.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalSlot_Bike.Location = new System.Drawing.Point(147, 92);
+            this.textBoxTotalSlot_Bike.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalSlot_Bike.Location = new System.Drawing.Point(147, 74);
             this.textBoxTotalSlot_Bike.Name = "textBoxTotalSlot_Bike";
-            this.textBoxTotalSlot_Bike.Size = new System.Drawing.Size(139, 35);
+            this.textBoxTotalSlot_Bike.Size = new System.Drawing.Size(139, 30);
             this.textBoxTotalSlot_Bike.TabIndex = 1;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 91);
+            this.label22.Location = new System.Drawing.Point(15, 73);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(134, 33);
+            this.label22.Size = new System.Drawing.Size(110, 28);
             this.label22.TabIndex = 0;
             this.label22.Text = "Total Slot:";
             // 
             // textBoxPrice_Bike
             // 
-            this.textBoxPrice_Bike.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrice_Bike.Location = new System.Drawing.Point(147, 150);
+            this.textBoxPrice_Bike.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrice_Bike.Location = new System.Drawing.Point(147, 121);
             this.textBoxPrice_Bike.Name = "textBoxPrice_Bike";
-            this.textBoxPrice_Bike.Size = new System.Drawing.Size(139, 35);
+            this.textBoxPrice_Bike.Size = new System.Drawing.Size(139, 30);
             this.textBoxPrice_Bike.TabIndex = 1;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(63, 150);
+            this.label21.Location = new System.Drawing.Point(63, 121);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(78, 33);
+            this.label21.Size = new System.Drawing.Size(65, 28);
             this.label21.TabIndex = 0;
             this.label21.Text = "Price:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(102, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 45);
+            this.label1.Size = new System.Drawing.Size(74, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bike";
             // 
@@ -671,23 +714,19 @@
             this.tabPageWorker.Controls.Add(this.panel3);
             this.tabPageWorker.Controls.Add(this.panel2);
             this.tabPageWorker.Controls.Add(this.comboBoxWork_Worker);
-            this.tabPageWorker.Controls.Add(this.comboBoxGroupWorker);
-            this.tabPageWorker.Controls.Add(this.label15);
             this.tabPageWorker.Controls.Add(this.label14);
             this.tabPageWorker.Controls.Add(this.dateTimePickerDateStart_Worker);
             this.tabPageWorker.Controls.Add(this.dateTimePickerBDate_Worker);
-            this.tabPageWorker.Controls.Add(this.textBoxPassword);
-            this.tabPageWorker.Controls.Add(this.textBoxLName);
+            this.tabPageWorker.Controls.Add(this.textBoxIdentityCard);
             this.tabPageWorker.Controls.Add(this.textBoxAddressWorker);
             this.tabPageWorker.Controls.Add(this.textBoxPhoneWorker);
-            this.tabPageWorker.Controls.Add(this.textBoxFName);
+            this.tabPageWorker.Controls.Add(this.textBoxFullName);
             this.tabPageWorker.Controls.Add(this.textBoxWorkerID);
             this.tabPageWorker.Controls.Add(this.label13);
             this.tabPageWorker.Controls.Add(this.label12);
             this.tabPageWorker.Controls.Add(this.label11);
             this.tabPageWorker.Controls.Add(this.label10);
             this.tabPageWorker.Controls.Add(this.label9);
-            this.tabPageWorker.Controls.Add(this.label8);
             this.tabPageWorker.Controls.Add(this.label4);
             this.tabPageWorker.Controls.Add(this.label3);
             this.tabPageWorker.Controls.Add(this.label2);
@@ -703,12 +742,12 @@
             // 
             this.panel4.Controls.Add(this.buttonExportWorker);
             this.panel4.Controls.Add(this.buttonPrintWorker);
-            this.panel4.Controls.Add(this.dataGridView1);
+            this.panel4.Controls.Add(this.dataGridViewWorker);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.textBoxSearchWorker);
-            this.panel4.Location = new System.Drawing.Point(8, 446);
+            this.panel4.Location = new System.Drawing.Point(18, 392);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1120, 336);
+            this.panel4.Size = new System.Drawing.Size(1120, 391);
             this.panel4.TabIndex = 23;
             // 
             // buttonExportWorker
@@ -719,6 +758,7 @@
             this.buttonExportWorker.TabIndex = 0;
             this.buttonExportWorker.Text = "Export";
             this.buttonExportWorker.UseVisualStyleBackColor = true;
+            this.buttonExportWorker.Click += new System.EventHandler(this.buttonExportWorker_Click);
             // 
             // buttonPrintWorker
             // 
@@ -728,16 +768,19 @@
             this.buttonPrintWorker.TabIndex = 0;
             this.buttonPrintWorker.Text = "Print";
             this.buttonPrintWorker.UseVisualStyleBackColor = true;
+            this.buttonPrintWorker.Click += new System.EventHandler(this.buttonPrintWorker_Click);
             // 
-            // dataGridView1
+            // dataGridViewWorker
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 71);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1077, 258);
-            this.dataGridView1.TabIndex = 20;
+            this.dataGridViewWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewWorker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWorker.Location = new System.Drawing.Point(12, 71);
+            this.dataGridViewWorker.Name = "dataGridViewWorker";
+            this.dataGridViewWorker.RowHeadersWidth = 62;
+            this.dataGridViewWorker.RowTemplate.Height = 28;
+            this.dataGridViewWorker.Size = new System.Drawing.Size(1098, 304);
+            this.dataGridViewWorker.TabIndex = 20;
+            this.dataGridViewWorker.DoubleClick += new System.EventHandler(this.dataGridViewWorker_DoubleClick);
             // 
             // label16
             // 
@@ -755,6 +798,7 @@
             this.textBoxSearchWorker.Name = "textBoxSearchWorker";
             this.textBoxSearchWorker.Size = new System.Drawing.Size(610, 35);
             this.textBoxSearchWorker.TabIndex = 10;
+            this.textBoxSearchWorker.TextChanged += new System.EventHandler(this.textBoxSearchWorker_TextChanged);
             // 
             // panel3
             // 
@@ -795,12 +839,12 @@
             this.panel2.Controls.Add(this.buttonAddWorker);
             this.panel2.Location = new System.Drawing.Point(909, 16);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(219, 396);
+            this.panel2.Size = new System.Drawing.Size(219, 355);
             this.panel2.TabIndex = 21;
             // 
             // buttonStatisticsWorker
             // 
-            this.buttonStatisticsWorker.Location = new System.Drawing.Point(37, 310);
+            this.buttonStatisticsWorker.Location = new System.Drawing.Point(37, 275);
             this.buttonStatisticsWorker.Name = "buttonStatisticsWorker";
             this.buttonStatisticsWorker.Size = new System.Drawing.Size(151, 58);
             this.buttonStatisticsWorker.TabIndex = 0;
@@ -809,21 +853,23 @@
             // 
             // buttonRemoveWorker
             // 
-            this.buttonRemoveWorker.Location = new System.Drawing.Point(37, 209);
+            this.buttonRemoveWorker.Location = new System.Drawing.Point(37, 189);
             this.buttonRemoveWorker.Name = "buttonRemoveWorker";
             this.buttonRemoveWorker.Size = new System.Drawing.Size(151, 58);
             this.buttonRemoveWorker.TabIndex = 0;
             this.buttonRemoveWorker.Text = "Remove";
             this.buttonRemoveWorker.UseVisualStyleBackColor = true;
+            this.buttonRemoveWorker.Click += new System.EventHandler(this.buttonRemoveWorker_Click);
             // 
             // buttonEditWorker
             // 
-            this.buttonEditWorker.Location = new System.Drawing.Point(37, 111);
+            this.buttonEditWorker.Location = new System.Drawing.Point(37, 101);
             this.buttonEditWorker.Name = "buttonEditWorker";
             this.buttonEditWorker.Size = new System.Drawing.Size(151, 58);
             this.buttonEditWorker.TabIndex = 0;
             this.buttonEditWorker.Text = "Edit";
             this.buttonEditWorker.UseVisualStyleBackColor = true;
+            this.buttonEditWorker.Click += new System.EventHandler(this.buttonEditWorker_Click);
             // 
             // buttonAddWorker
             // 
@@ -837,33 +883,17 @@
             // 
             // comboBoxWork_Worker
             // 
+            this.comboBoxWork_Worker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxWork_Worker.FormattingEnabled = true;
-            this.comboBoxWork_Worker.Location = new System.Drawing.Point(632, 336);
+            this.comboBoxWork_Worker.Location = new System.Drawing.Point(632, 249);
             this.comboBoxWork_Worker.Name = "comboBoxWork_Worker";
             this.comboBoxWork_Worker.Size = new System.Drawing.Size(243, 41);
             this.comboBoxWork_Worker.TabIndex = 19;
             // 
-            // comboBoxGroupWorker
-            // 
-            this.comboBoxGroupWorker.FormattingEnabled = true;
-            this.comboBoxGroupWorker.Location = new System.Drawing.Point(179, 369);
-            this.comboBoxGroupWorker.Name = "comboBoxGroupWorker";
-            this.comboBoxGroupWorker.Size = new System.Drawing.Size(232, 41);
-            this.comboBoxGroupWorker.TabIndex = 18;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(76, 369);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(87, 33);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "Group:";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(521, 347);
+            this.label14.Location = new System.Drawing.Point(521, 249);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(85, 33);
             this.label14.TabIndex = 16;
@@ -872,10 +902,11 @@
             // dateTimePickerDateStart_Worker
             // 
             this.dateTimePickerDateStart_Worker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDateStart_Worker.Location = new System.Drawing.Point(632, 260);
+            this.dateTimePickerDateStart_Worker.Location = new System.Drawing.Point(632, 184);
             this.dateTimePickerDateStart_Worker.Name = "dateTimePickerDateStart_Worker";
             this.dateTimePickerDateStart_Worker.Size = new System.Drawing.Size(243, 41);
             this.dateTimePickerDateStart_Worker.TabIndex = 13;
+            this.dateTimePickerDateStart_Worker.Value = new System.DateTime(2020, 5, 16, 0, 0, 0, 0);
             // 
             // dateTimePickerBDate_Worker
             // 
@@ -887,21 +918,13 @@
             this.dateTimePickerBDate_Worker.TabIndex = 12;
             this.dateTimePickerBDate_Worker.Value = new System.DateTime(2020, 5, 15, 0, 0, 0, 0);
             // 
-            // textBoxPassword
+            // textBoxIdentityCard
             // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(632, 193);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(243, 35);
-            this.textBoxPassword.TabIndex = 11;
-            // 
-            // textBoxLName
-            // 
-            this.textBoxLName.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLName.Location = new System.Drawing.Point(632, 71);
-            this.textBoxLName.Name = "textBoxLName";
-            this.textBoxLName.Size = new System.Drawing.Size(243, 35);
-            this.textBoxLName.TabIndex = 10;
+            this.textBoxIdentityCard.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIdentityCard.Location = new System.Drawing.Point(632, 71);
+            this.textBoxIdentityCard.Name = "textBoxIdentityCard";
+            this.textBoxIdentityCard.Size = new System.Drawing.Size(243, 35);
+            this.textBoxIdentityCard.TabIndex = 10;
             // 
             // textBoxAddressWorker
             // 
@@ -909,7 +932,7 @@
             this.textBoxAddressWorker.Location = new System.Drawing.Point(179, 249);
             this.textBoxAddressWorker.Multiline = true;
             this.textBoxAddressWorker.Name = "textBoxAddressWorker";
-            this.textBoxAddressWorker.Size = new System.Drawing.Size(232, 97);
+            this.textBoxAddressWorker.Size = new System.Drawing.Size(232, 100);
             this.textBoxAddressWorker.TabIndex = 9;
             // 
             // textBoxPhoneWorker
@@ -920,13 +943,13 @@
             this.textBoxPhoneWorker.Size = new System.Drawing.Size(232, 35);
             this.textBoxPhoneWorker.TabIndex = 8;
             // 
-            // textBoxFName
+            // textBoxFullName
             // 
-            this.textBoxFName.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFName.Location = new System.Drawing.Point(177, 72);
-            this.textBoxFName.Name = "textBoxFName";
-            this.textBoxFName.Size = new System.Drawing.Size(234, 35);
-            this.textBoxFName.TabIndex = 7;
+            this.textBoxFullName.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFullName.Location = new System.Drawing.Point(177, 72);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.Size = new System.Drawing.Size(234, 35);
+            this.textBoxFullName.TabIndex = 7;
             // 
             // textBoxWorkerID
             // 
@@ -948,7 +971,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(465, 260);
+            this.label12.Location = new System.Drawing.Point(465, 184);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(141, 33);
             this.label12.TabIndex = 5;
@@ -957,7 +980,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(46, 248);
+            this.label11.Location = new System.Drawing.Point(42, 248);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(115, 33);
             this.label11.TabIndex = 5;
@@ -966,7 +989,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(80, 192);
+            this.label10.Location = new System.Drawing.Point(69, 192);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 33);
             this.label10.TabIndex = 5;
@@ -975,43 +998,34 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(93, 127);
+            this.label9.Location = new System.Drawing.Point(55, 127);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 33);
+            this.label9.Size = new System.Drawing.Size(102, 33);
             this.label9.TabIndex = 5;
-            this.label9.Text = "Sex:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(480, 192);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(126, 33);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Password:";
+            this.label9.Text = "Gender:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(468, 71);
+            this.label4.Location = new System.Drawing.Point(433, 70);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 33);
+            this.label4.Size = new System.Drawing.Size(173, 33);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Last Name:";
+            this.label4.Text = "Identity Card:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 71);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 33);
+            this.label3.Size = new System.Drawing.Size(132, 33);
             this.label3.TabIndex = 5;
-            this.label3.Text = "First Name:";
+            this.label3.Text = "Full Name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 16);
+            this.label2.Location = new System.Drawing.Point(11, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 33);
             this.label2.TabIndex = 5;
@@ -1438,6 +1452,7 @@
             this.tabPageContract.Controls.Add(this.label6);
             this.tabPageContract.Controls.Add(this.labelTotalContract);
             this.tabPageContract.Controls.Add(this.dataGridViewContract);
+            this.tabPageContract.Controls.Add(this.button4);
             this.tabPageContract.Controls.Add(this.buttonExportContract);
             this.tabPageContract.Controls.Add(this.buttonPrintContract);
             this.tabPageContract.Controls.Add(this.buttonStatisticsContract);
@@ -1526,9 +1541,18 @@
             this.dataGridViewContract.Size = new System.Drawing.Size(1117, 428);
             this.dataGridViewContract.TabIndex = 3;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(953, 60);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(142, 54);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "ShowXeCongTy";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // buttonExportContract
             // 
-            this.buttonExportContract.Location = new System.Drawing.Point(991, 39);
+            this.buttonExportContract.Location = new System.Drawing.Point(879, 0);
             this.buttonExportContract.Name = "buttonExportContract";
             this.buttonExportContract.Size = new System.Drawing.Size(142, 54);
             this.buttonExportContract.TabIndex = 2;
@@ -1537,7 +1561,7 @@
             // 
             // buttonPrintContract
             // 
-            this.buttonPrintContract.Location = new System.Drawing.Point(782, 37);
+            this.buttonPrintContract.Location = new System.Drawing.Point(758, 46);
             this.buttonPrintContract.Name = "buttonPrintContract";
             this.buttonPrintContract.Size = new System.Drawing.Size(148, 51);
             this.buttonPrintContract.TabIndex = 2;
@@ -1694,6 +1718,7 @@
             this.Name = "dashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.dashboardForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1714,7 +1739,7 @@
             this.tabPageWorker.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorker)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1746,8 +1771,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabelRefresh;
+        private System.Windows.Forms.LinkLabel linkLabelEditInfo;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageVehicles;
         private System.Windows.Forms.Button buttonStatisticsVehicle;
@@ -1769,27 +1794,23 @@
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.TabPage tabPageWork;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewWorker;
         private System.Windows.Forms.ComboBox comboBoxWork_Worker;
-        private System.Windows.Forms.ComboBox comboBoxGroupWorker;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RadioButton radioButtonFeMale;
         private System.Windows.Forms.RadioButton radioButtonMale;
         private System.Windows.Forms.DateTimePicker dateTimePickerDateStart_Worker;
         private System.Windows.Forms.DateTimePicker dateTimePickerBDate_Worker;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.TextBox textBoxLName;
+        private System.Windows.Forms.TextBox textBoxIdentityCard;
         private System.Windows.Forms.TextBox textBoxAddressWorker;
         private System.Windows.Forms.TextBox textBoxPhoneWorker;
-        private System.Windows.Forms.TextBox textBoxFName;
+        private System.Windows.Forms.TextBox textBoxFullName;
         private System.Windows.Forms.TextBox textBoxWorkerID;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -1888,5 +1909,9 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button4;
     }
 }
