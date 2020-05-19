@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -90,7 +92,11 @@
             this.buttonRemoveWorker = new System.Windows.Forms.Button();
             this.buttonEditWorker = new System.Windows.Forms.Button();
             this.buttonAddWorker = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+=======
+            this.comboBoxGroup_Worker = new System.Windows.Forms.ComboBox();
+>>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
             this.label36 = new System.Windows.Forms.Label();
             this.comboBoxWork_Worker = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -123,8 +129,13 @@
             this.textBoxAddGroupID_work = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.textBoxNewGroup_work = new System.Windows.Forms.TextBox();
             this.comboBoxEditGroup_work = new System.Windows.Forms.ComboBox();
+=======
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+>>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
             this.label15 = new System.Windows.Forms.Label();
             this.buttonEditGroup_work = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
@@ -133,7 +144,11 @@
             this.buttonRemoveGroup_work = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
             this.comboBoxGroupName_work = new System.Windows.Forms.ComboBox();
+=======
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+>>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -743,7 +758,7 @@
             this.tabPageWorker.Controls.Add(this.panel4);
             this.tabPageWorker.Controls.Add(this.panel3);
             this.tabPageWorker.Controls.Add(this.panel2);
-            this.tabPageWorker.Controls.Add(this.comboBox3);
+            this.tabPageWorker.Controls.Add(this.comboBoxGroup_Worker);
             this.tabPageWorker.Controls.Add(this.label36);
             this.tabPageWorker.Controls.Add(this.comboBoxWork_Worker);
             this.tabPageWorker.Controls.Add(this.label14);
@@ -777,6 +792,7 @@
             this.panel4.Controls.Add(this.dataGridViewWorker);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.textBoxSearchWorker);
+            this.panel4.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.panel4.Location = new System.Drawing.Point(18, 392);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1120, 391);
@@ -805,7 +821,23 @@
             // dataGridViewWorker
             // 
             this.dataGridViewWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewWorker.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewWorker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewWorker.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewWorker.Location = new System.Drawing.Point(12, 71);
             this.dataGridViewWorker.Name = "dataGridViewWorker";
             this.dataGridViewWorker.RowHeadersWidth = 62;
@@ -819,7 +851,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(12, 21);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 33);
+            this.label16.Size = new System.Drawing.Size(85, 28);
             this.label16.TabIndex = 5;
             this.label16.Text = "Search:";
             // 
@@ -913,6 +945,7 @@
             this.buttonAddWorker.UseVisualStyleBackColor = true;
             this.buttonAddWorker.Click += new System.EventHandler(this.buttonAddWorker_Click);
             // 
+<<<<<<< HEAD
             // comboBox3
             // 
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -921,6 +954,16 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(243, 41);
             this.comboBox3.TabIndex = 19;
+=======
+            // comboBoxGroup_Worker
+            // 
+            this.comboBoxGroup_Worker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroup_Worker.FormattingEnabled = true;
+            this.comboBoxGroup_Worker.Location = new System.Drawing.Point(632, 245);
+            this.comboBoxGroup_Worker.Name = "comboBoxGroup_Worker";
+            this.comboBoxGroup_Worker.Size = new System.Drawing.Size(243, 41);
+            this.comboBoxGroup_Worker.TabIndex = 19;
+>>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
             // 
             // label36
             // 
@@ -935,7 +978,7 @@
             // 
             this.comboBoxWork_Worker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxWork_Worker.FormattingEnabled = true;
-            this.comboBoxWork_Worker.Location = new System.Drawing.Point(632, 308);
+            this.comboBoxWork_Worker.Location = new System.Drawing.Point(632, 301);
             this.comboBoxWork_Worker.Name = "comboBoxWork_Worker";
             this.comboBoxWork_Worker.Size = new System.Drawing.Size(243, 41);
             this.comboBoxWork_Worker.TabIndex = 19;
@@ -943,7 +986,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(521, 308);
+            this.label14.Location = new System.Drawing.Point(521, 304);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(85, 33);
             this.label14.TabIndex = 16;
@@ -1238,6 +1281,7 @@
             this.panel13.Size = new System.Drawing.Size(478, 88);
             this.panel13.TabIndex = 12;
             // 
+<<<<<<< HEAD
             // textBoxNewGroup_work
             // 
             this.textBoxNewGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1254,6 +1298,24 @@
             this.comboBoxEditGroup_work.Name = "comboBoxEditGroup_work";
             this.comboBoxEditGroup_work.Size = new System.Drawing.Size(198, 36);
             this.comboBoxEditGroup_work.TabIndex = 12;
+=======
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(148, 45);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(198, 35);
+            this.textBox1.TabIndex = 10;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(148, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(198, 36);
+            this.comboBox2.TabIndex = 12;
+>>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
             // 
             // label15
             // 
@@ -1346,6 +1408,7 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work";
             // 
+<<<<<<< HEAD
             // comboBoxGroupName_work
             // 
             this.comboBoxGroupName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
@@ -1354,6 +1417,16 @@
             this.comboBoxGroupName_work.Name = "comboBoxGroupName_work";
             this.comboBoxGroupName_work.Size = new System.Drawing.Size(294, 36);
             this.comboBoxGroupName_work.TabIndex = 12;
+=======
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(167, 301);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(294, 36);
+            this.comboBox1.TabIndex = 12;
+>>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
             // 
             // label17
             // 
@@ -2014,7 +2087,7 @@
         private System.Windows.Forms.TextBox textBoxNewGroup_work;
         private System.Windows.Forms.ComboBox comboBoxEditGroup_work;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxGroup_Worker;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Panel panel17;
     }

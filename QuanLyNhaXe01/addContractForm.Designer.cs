@@ -211,7 +211,7 @@
             this.comboBoxVehicleType.FormattingEnabled = true;
             this.comboBoxVehicleType.Location = new System.Drawing.Point(200, 175);
             this.comboBoxVehicleType.Name = "comboBoxVehicleType";
-            this.comboBoxVehicleType.Size = new System.Drawing.Size(189, 33);
+            this.comboBoxVehicleType.Size = new System.Drawing.Size(256, 33);
             this.comboBoxVehicleType.TabIndex = 2;
             // 
             // label15
@@ -232,7 +232,7 @@
             this.comboBoxContractType.FormattingEnabled = true;
             this.comboBoxContractType.Location = new System.Drawing.Point(200, 124);
             this.comboBoxContractType.Name = "comboBoxContractType";
-            this.comboBoxContractType.Size = new System.Drawing.Size(189, 33);
+            this.comboBoxContractType.Size = new System.Drawing.Size(256, 33);
             this.comboBoxContractType.TabIndex = 2;
             // 
             // textBoxDescibe
@@ -249,7 +249,7 @@
             this.textBoxContractValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxContractValue.Location = new System.Drawing.Point(200, 483);
             this.textBoxContractValue.Name = "textBoxContractValue";
-            this.textBoxContractValue.Size = new System.Drawing.Size(189, 30);
+            this.textBoxContractValue.Size = new System.Drawing.Size(256, 30);
             this.textBoxContractValue.TabIndex = 1;
             // 
             // textBoxContractID

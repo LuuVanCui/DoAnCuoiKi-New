@@ -11,49 +11,23 @@ namespace QuanLyNhaXe01
     class Worker
     {
         MyDB mydb = new MyDB();
-        public bool insertWorker(int w_id, string name, string sex, string phone, string identity,string address, DateTime bDate, DateTime dateStart, string work)
+        public bool insertWorker(int maTho, string name, string sex, string CMND, DateTime ngaysinh,string address, string sdt, int maNhom, string maCV, DateTime dateStart)
         {
-            SqlCommand command = new SqlCommand("insert into Tho(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, Nhom, NhomTruong, NgayBatDau) " +
-                "values(@wid,@name,@sex,@identity,@bDate,@dStart,@phone,@address,@work)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("insert into Tho(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, MaNhom, MaCV, NgayBatDau) " +
+                "values(@wid,@name,@sex,@identity,@bDate,@address,@phone, @maNhom, @maCV, @dStart)", mydb.getConnection);
 
-            command.Parameters.Add("@wid", SqlDbType.Int).Value = w_id;
+            command.Parameters.Add("@wid", SqlDbType.Int).Value = maTho;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
             command.Parameters.Add("@sex", SqlDbType.VarChar).Value = sex;
-            command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = phone;
-            command.Parameters.Add("@identity", SqlDbType.NVarChar).Value = identity;
-            command.Parameters.Add("@bDate", SqlDbType.DateTime).Value = bDate;
+            command.Parameters.Add("@phone", SqlDbType.VarChar).Value = sdt;
+            command.Parameters.Add("@identity", SqlDbType.VarChar).Value = CMND;
+            command.Parameters.Add("@bDate", SqlDbType.DateTime).Value = ngaysinh;
             command.Parameters.Add("dStart", SqlDbType.DateTime).Value = dateStart;
-            command.Parameters.Add("@work", SqlDbType.NVarChar).Value = work;
-            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
-            
+           
+            command.Parameters.Add("@address", SqlDbType.Text).Value = address;
 
-            mydb.openConnection();
-
-            if (command.ExecuteNonQuery() == 1)
-            {
-                mydb.closeConnection();
-                return true;
-            }
-            else
-            {
-                mydb.closeConnection();
-                return false;
-            }
-        }
-
-        public bool updateWorker(int w_id, string name, string sex, string phone, string identity,string address, DateTime bDate, DateTime dateStart, string work)
-        {
-            SqlCommand command = new SqlCommand("update Worker set worker_id = @wid, name=@name, sex = @sex, identityCard= @identity,bDate= @bDate, dateStart= @dStart, phone = @phone, address = @address, work=@work Where worker_id = @wid", mydb.getConnection);
-
-            command.Parameters.Add("@wid", SqlDbType.Int).Value = w_id;
-            command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
-            command.Parameters.Add("@sex", SqlDbType.VarChar).Value = sex;
-            command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = phone;
-            command.Parameters.Add("@identity", SqlDbType.NVarChar).Value = identity;
-            command.Parameters.Add("@bDate", SqlDbType.DateTime).Value = bDate;
-            command.Parameters.Add("dStart", SqlDbType.DateTime).Value = dateStart;
-            command.Parameters.Add("@work", SqlDbType.NVarChar).Value = work;
-            command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
+            command.Parameters.Add("@maNhom", SqlDbType.Int).Value = maNhom;
+            command.Parameters.Add("@maCV", SqlDbType.VarChar).Value = maCV;
 
 
             mydb.openConnection();
@@ -70,11 +44,43 @@ namespace QuanLyNhaXe01
             }
         }
 
-        public bool deleteWorker(int W_id)
+        public bool updateWorker(int maTho, string name, string sex, string CMND, DateTime ngaysinh, string address, string sdt, int maNhom, string maCV, DateTime dateStart)
         {
-            SqlCommand command = new SqlCommand("DELETE FROM Worker WHERE worker_id=@id", mydb.getConnection);
+            SqlCommand command = new SqlCommand("update Tho set TenTho=@name, GioiTinh=@sex, CMND=@identity, NgaySinh=@bDate, DiaChi=@address, SDT=@phone, MaNhom= @maNhom, MaCV=@maCV,NgayBatDau=@dStart where MaTho=@wid  ", mydb.getConnection);
 
-            command.Parameters.Add("@id", SqlDbType.Int).Value = W_id;
+            command.Parameters.Add("@wid", SqlDbType.Int).Value = maTho;
+            command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
+            command.Parameters.Add("@sex", SqlDbType.VarChar).Value = sex;
+            command.Parameters.Add("@phone", SqlDbType.VarChar).Value = sdt;
+            command.Parameters.Add("@identity", SqlDbType.VarChar).Value = CMND;
+            command.Parameters.Add("@bDate", SqlDbType.DateTime).Value = ngaysinh;
+            command.Parameters.Add("dStart", SqlDbType.DateTime).Value = dateStart;
+           
+            command.Parameters.Add("@address", SqlDbType.Text).Value = address;
+
+            command.Parameters.Add("@maNhom", SqlDbType.Int).Value = maNhom;
+            command.Parameters.Add("@maCV", SqlDbType.VarChar).Value = maCV;
+
+
+            mydb.openConnection();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
+
+        public bool deleteWorker(int maTho)
+        {
+            SqlCommand command = new SqlCommand("DELETE FROM Tho WHERE MaTho= @id", mydb.getConnection);
+
+            command.Parameters.Add("@id", SqlDbType.Int).Value = maTho;
 
             mydb.openConnection();
             if ((command.ExecuteNonQuery() == 1))
@@ -114,12 +120,12 @@ namespace QuanLyNhaXe01
 
         public string totalWorker()
         {
-            return execCount("Select count * from Worker");
+            return execCount("Select count * from Tho");
         }
 
         public bool checkID(int id)
         {
-            SqlCommand command = new SqlCommand("SELECT * From Worker Where Worker_id = @id", mydb.getConnection);
+            SqlCommand command = new SqlCommand("SELECT * From Tho Where MaTho = @id", mydb.getConnection);
 
             command.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
