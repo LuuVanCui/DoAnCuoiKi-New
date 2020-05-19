@@ -47,9 +47,14 @@ namespace QuanLyNhaXe01
             MyDB mydb = new MyDB();
             Worker worker = new Worker();
 
-            SqlCommand command = new SqlCommand("Select MaTho as 'ID', TenTho as 'Name', GioiTinh as 'Gender'," +
-                " CMND as 'Identity Card', NgaySinh as 'Birth Date',  SDT as 'Phone', DiaChi as 'Address', NgayBatDau as 'Date Strat'  from Tho");
-            dataGridViewWorker.DataSource = worker.getWorker(command);
+            /*SqlCommand command = new SqlCommand("Select MaTho as 'ID', TenTho as 'Name', GioiTinh as 'Gender'," +
+                " CMND as 'Identity Card', NgaySinh as 'Birth Date',  SDT as 'Phone', DiaChi as 'Address', NgayBatDau as 'Date Strat', MaNhom, MaCV  from Tho inner join ");*/
+
+            SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
+
+
+
+                    dataGridViewWorker.DataSource = worker.getWorker(command);
         }
 
         private void buttonAddWorker_Click(object sender, EventArgs e)
@@ -65,9 +70,10 @@ namespace QuanLyNhaXe01
             DateTime dateStart = dateTimePickerDateStart_Worker.Value;
 
             string address = textBoxAddressWorker.Text;
-            string work = comboBoxWork_Worker.Text;
-            int MaCv = int.Parse(comboBoxWork_Worker.SelectedValue.ToString());
-            MessageBox.Show(MaCv.ToString());
+           // string work = comboBoxWork_Worker.Text;
+            string maCV = comboBoxWork_Worker.SelectedValue.ToString();
+            int maNhom = int.Parse(comboBoxGroup_Worker.SelectedValue.ToString());
+
 
             string gender = "";
 
@@ -97,7 +103,7 @@ namespace QuanLyNhaXe01
 
                         else
                         {
-                            if (worker.insertWorker(w_id, name, gender, CMND, bdate, address,phone, dateStart))
+                            if (worker.insertWorker(w_id, name, gender, CMND, bdate, address,phone,maNhom, maCV, dateStart))
                             {
                                 MessageBox.Show("New Worker Added", "Add Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -140,7 +146,8 @@ namespace QuanLyNhaXe01
             DateTime dateStart = dateTimePickerDateStart_Worker.Value;
 
             string address = textBoxAddressWorker.Text;
-            string work = comboBoxWork_Worker.Text;
+            string maCV = comboBoxWork_Worker.SelectedValue.ToString();
+            int maNhom = int.Parse(comboBoxGroup_Worker.SelectedValue.ToString());
 
             string gender = "";
 
@@ -171,7 +178,7 @@ namespace QuanLyNhaXe01
 
                         else
                         {
-                            if (worker.updateWorker(w_id, name, gender, CMND, bdate, address, phone, dateStart))
+                            if (worker.updateWorker(w_id, name, gender, CMND, bdate, address, phone,maNhom,maCV, dateStart))
                             {
                                 MessageBox.Show("New Worker Updated", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -203,7 +210,7 @@ namespace QuanLyNhaXe01
 
         private void dataGridViewWorker_DoubleClick(object sender, EventArgs e)
         {
-
+            
             if (dataGridViewWorker.CurrentRow.Cells[2].Value.ToString() == "Female")
             {
                 radioButtonFeMale.Checked = true;
@@ -289,6 +296,13 @@ namespace QuanLyNhaXe01
             comboBoxWork_Worker.ValueMember = "MaCV";
         }
 
+        void fillComboboxGroup_Worker()
+        {
+            comboBoxGroup_Worker.DataSource = getGroup_Worker();
+            comboBoxGroup_Worker.DisplayMember = "TenNhom";
+            comboBoxGroup_Worker.ValueMember = "MaNhom";
+        }
+
         bool verifyData()
         {
             if ((textBoxWorkerID.Text.Trim() == "")
@@ -326,9 +340,10 @@ namespace QuanLyNhaXe01
         private void textBoxSearchWorker_TextChanged(object sender, EventArgs e)
         {
             Worker worker = new Worker();
-            SqlCommand command = new SqlCommand("Select MaTho as 'ID', TenTho as 'Name', GioiTinh as 'Gender'," +
-                " CMND as 'Identity Card', NgaySinh as 'Birth Date',  SDT as 'Phone', DiaChi as 'Address', NgayBatDau as 'Date Strat' " +
-                " FROM Tho WHERE CONCAT(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, NgayBatDau) LIKE'%" + textBoxSearchWorker.Text + "%'");
+            SqlCommand command = new SqlCommand("Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau " +
+                " from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV "+
+                " WHERE CONCAT(T.MaTho, T." +
+                "TenTho, T.GioiTinh, T.CMND, T.NgaySinh, T.DiaChi, T.SDT, T.NgayBatDau, CV.TenCV, N.TenNhom) LIKE'%" + textBoxSearchWorker.Text + "%'");
 
             dataGridViewWorker.DataSource = worker.getWorker(command);
         }
@@ -429,11 +444,29 @@ namespace QuanLyNhaXe01
         {
             
                 MyDB mydb = new MyDB();
-                SqlCommand command = new SqlCommand("Select distinct * From CongViec", mydb.getConnection);
+                SqlCommand command = new SqlCommand("Select * From CongViec", mydb.getConnection);
 
                
                 
            
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+            return table;
+        }
+
+        public DataTable getGroup_Worker()
+        {
+
+            MyDB mydb = new MyDB();
+            SqlCommand command = new SqlCommand("Select * From Nhom", mydb.getConnection);
+
+
+
+
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = command;
 
@@ -727,26 +760,15 @@ namespace QuanLyNhaXe01
             textBoxPrice_Bike.Text = table.Rows[0]["Phi"].ToString();
             textBoxPrice_Car.Text = table.Rows[1]["Phi"].ToString();
             textBoxPrice_Moto.Text = table.Rows[2]["Phi"].ToString();
-<<<<<<< HEAD
-            
-           
-=======
-            labelDangGui.Text = "Existing: " + vehicle.totalVehicle_in();
-            labelDaRa.Text = "Leave: " + vehicle.totalVehicle_out();
-            labelStatus.Text = "Total Vehicle: " + vehicle.totalVehicle();
 
->>>>>>> 2d5c57404fb490d35a376a031f505ca13b40cbfa
+            // worker
+
+            fillComboboxGroup_Worker();
+            fillComboBoxWork_Worker();
+            fillDatagridWorker();
+           
             #endregion
 
-
-            
-            // WORKER
-            fillDatagridWorker();
-
-            fillComboBoxWork_Worker();
-            //comboBoxWork_Worker.DataSource = getWork();
-            //comboBoxWork_Worker.DisplayMember = "TenCV";
-            //comboBoxWork_Worker.ValueMember = "MaCV";
         }
 
         #region Work----------------------------------------------

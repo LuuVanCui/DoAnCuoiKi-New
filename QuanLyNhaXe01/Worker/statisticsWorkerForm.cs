@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyNhaXe01
 {
-    public partial class addContractForm : Form
+    public partial class statisticsWorkerForm : Form
     {
-        public addContractForm()
+        public statisticsWorkerForm()
         {
             InitializeComponent();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void statisticsWorkerForm_Load(object sender, EventArgs e)
         {
 
         }
-
-        
     }
 }

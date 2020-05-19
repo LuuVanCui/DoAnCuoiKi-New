@@ -11,10 +11,10 @@ namespace QuanLyNhaXe01
     class Worker
     {
         MyDB mydb = new MyDB();
-        public bool insertWorker(int maTho, string name, string sex, string CMND, DateTime ngaysinh,string address, string sdt, DateTime dateStart)
+        public bool insertWorker(int maTho, string name, string sex, string CMND, DateTime ngaysinh,string address, string sdt, int maNhom, string maCV, DateTime dateStart)
         {
-            SqlCommand command = new SqlCommand("insert into Tho(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, NgayBatDau) " +
-                "values(@wid,@name,@sex,@identity,@bDate,@address,@phone, @dStart)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("insert into Tho(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, MaNhom, MaCV, NgayBatDau) " +
+                "values(@wid,@name,@sex,@identity,@bDate,@address,@phone, @maNhom, @maCV, @dStart)", mydb.getConnection);
 
             command.Parameters.Add("@wid", SqlDbType.Int).Value = maTho;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
@@ -26,8 +26,8 @@ namespace QuanLyNhaXe01
            
             command.Parameters.Add("@address", SqlDbType.Text).Value = address;
 
-            //command.Parameters.Add("@nhom", SqlDbType.Int).Value = nhom;
-            //command.Parameters.Add("@nTruong", SqlDbType.Int).Value = nhomTruong;
+            command.Parameters.Add("@maNhom", SqlDbType.Int).Value = maNhom;
+            command.Parameters.Add("@maCV", SqlDbType.VarChar).Value = maCV;
 
 
             mydb.openConnection();
@@ -44,9 +44,9 @@ namespace QuanLyNhaXe01
             }
         }
 
-        public bool updateWorker(int maTho, string name, string sex, string CMND, DateTime ngaysinh, string address, string sdt, DateTime dateStart)
+        public bool updateWorker(int maTho, string name, string sex, string CMND, DateTime ngaysinh, string address, string sdt, int maNhom, string maCV, DateTime dateStart)
         {
-            SqlCommand command = new SqlCommand("update Tho set MaTho=@wid, TenTho=@name, GioiTinh=@sex, CMND=@identity, NgaySinh=@bDate, DiaChi=@address, SDT=@phone, NgayBatDau=@dStart ", mydb.getConnection);
+            SqlCommand command = new SqlCommand("update Tho set TenTho=@name, GioiTinh=@sex, CMND=@identity, NgaySinh=@bDate, DiaChi=@address, SDT=@phone, MaNhom= @maNhom, MaCV=@maCV,NgayBatDau=@dStart where MaTho=@wid  ", mydb.getConnection);
 
             command.Parameters.Add("@wid", SqlDbType.Int).Value = maTho;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
@@ -58,8 +58,8 @@ namespace QuanLyNhaXe01
            
             command.Parameters.Add("@address", SqlDbType.Text).Value = address;
 
-           // command.Parameters.Add("@nhom", SqlDbType.Int).Value = nhom;
-           // command.Parameters.Add("@nTruong", SqlDbType.Int).Value = nhomTruong;
+            command.Parameters.Add("@maNhom", SqlDbType.Int).Value = maNhom;
+            command.Parameters.Add("@maCV", SqlDbType.VarChar).Value = maCV;
 
 
             mydb.openConnection();
