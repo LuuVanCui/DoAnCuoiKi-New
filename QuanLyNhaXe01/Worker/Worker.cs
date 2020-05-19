@@ -146,5 +146,23 @@ namespace QuanLyNhaXe01
             }
 
         }
+
+        public DataTable getGroup_Worker()
+        {
+
+            MyDB mydb = new MyDB();
+            SqlCommand command = new SqlCommand("Select * From Nhom", mydb.getConnection);
+
+
+
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

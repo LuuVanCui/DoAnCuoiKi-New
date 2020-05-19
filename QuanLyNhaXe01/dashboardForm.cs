@@ -25,6 +25,7 @@ namespace QuanLyNhaXe01
         }
 
         Worker worker = new Worker();
+       
 
         private void dashboardForm_Load(object sender, EventArgs e)
         {
@@ -74,6 +75,14 @@ namespace QuanLyNhaXe01
                 " inner join Nhom on Tho.MaNhom = Nhom.MaNhom";
             dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
             #endregion
+
+            #region Worker
+
+            fillDatagridWorker();
+            fillComboboxGroup_Worker();
+            fillComboBoxWork_Worker();
+            
+            #endregion 
         }
 
         #region Tabar----------------------------------------------------
@@ -367,21 +376,37 @@ namespace QuanLyNhaXe01
         #endregion
 
         #region Worker----------------------------------------------------
+
+       
+
+        void fillComboBoxWork_Worker()
+        {
+            comboBoxWork_Worker.DataSource = work.getWork();
+            comboBoxWork_Worker.DisplayMember = "TenCV";
+            comboBoxWork_Worker.ValueMember = "MaCV";
+        }
+
+        void fillComboboxGroup_Worker()
+        {
+            comboBoxGroup_Worker.DataSource = worker.getGroup_Worker();
+            comboBoxGroup_Worker.DisplayMember = "TenNhom";
+            comboBoxGroup_Worker.ValueMember = "MaNhom";
+        }
+
         void fillDatagridWorker()
         {
 
             MyDB mydb = new MyDB();
             Worker worker = new Worker();
+            SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
 
-            SqlCommand command = new SqlCommand("Select worker_id as 'ID', name as 'Name', sex as 'Gender'," +
-                " identityCard as 'Identity Card', bDate as 'Birth Date', dateStart as 'Date Strat', phone as 'Phone', address as 'Address', work as 'Work'  from Worker");
             dataGridViewWorker.DataSource = worker.getWorker(command);
         }
 
         private void buttonAddWorker_Click(object sender, EventArgs e)
         {
             Worker worker = new Worker();
-            
+
             string name = textBoxFullName.Text;
             string CMND = textBoxIdentityCard.Text;
             // || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
@@ -391,7 +416,10 @@ namespace QuanLyNhaXe01
             DateTime dateStart = dateTimePickerDateStart_Worker.Value;
 
             string address = textBoxAddressWorker.Text;
-            string work = comboBoxWork_Worker.Text;
+            // string work = comboBoxWork_Worker.Text;
+            string maCV = comboBoxWork_Worker.SelectedValue.ToString();
+            int maNhom = int.Parse(comboBoxGroup_Worker.SelectedValue.ToString());
+
 
             string gender = "";
 
@@ -421,7 +449,7 @@ namespace QuanLyNhaXe01
 
                         else
                         {
-                            if (worker.insertWorker(w_id, name, gender, phone, CMND, address, bdate, dateStart, work))
+                            if (worker.insertWorker(w_id, name, gender, CMND, bdate, address, phone, maNhom, maCV, dateStart))
                             {
                                 MessageBox.Show("New Worker Added", "Add Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -442,7 +470,7 @@ namespace QuanLyNhaXe01
                     MessageBox.Show("Empty Fields", "Add Worker", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -464,7 +492,8 @@ namespace QuanLyNhaXe01
             DateTime dateStart = dateTimePickerDateStart_Worker.Value;
 
             string address = textBoxAddressWorker.Text;
-            string work = comboBoxWork_Worker.Text;
+            string maCV = comboBoxWork_Worker.SelectedValue.ToString();
+            int maNhom = int.Parse(comboBoxGroup_Worker.SelectedValue.ToString());
 
             string gender = "";
 
@@ -485,31 +514,31 @@ namespace QuanLyNhaXe01
                     }
 
                     //if (worker.checkID(int.Parse(textBoxWorkerID.Text)) && )
-                   // {
-                        // kiem tra tren 18 tuoi
-                        int tuoi = DateTime.Now.Year - dateTimePickerBDate_Worker.Value.Year;
-                        if (tuoi < 18)
-                        {
-                            MessageBox.Show("Worker age is younger than 18", "Add Worker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                    // {
+                    // kiem tra tren 18 tuoi
+                    int tuoi = DateTime.Now.Year - dateTimePickerBDate_Worker.Value.Year;
+                    if (tuoi < 18)
+                    {
+                        MessageBox.Show("Worker age is younger than 18", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
 
+                    else
+                    {
+                        if (worker.updateWorker(w_id, name, gender, CMND, bdate, address, phone, maNhom, maCV, dateStart))
+                        {
+                            MessageBox.Show("New Worker Updated", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
                         else
                         {
-                            if (worker.updateWorker(w_id, name, gender, phone, CMND, address, bdate, dateStart, work))
-                            {
-                                MessageBox.Show("New Worker Updated", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            MessageBox.Show("Error", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                    }
                     //}
-                   /* else
-                    {
-                        MessageBox.Show("This ID Already Exists, Try Another One", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }*/
+                    /* else
+                     {
+                         MessageBox.Show("This ID Already Exists, Try Another One", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     }*/
                 }
                 else
                 {
@@ -642,9 +671,10 @@ namespace QuanLyNhaXe01
         private void textBoxSearchWorker_TextChanged(object sender, EventArgs e)
         {
             Worker worker = new Worker();
-            SqlCommand command = new SqlCommand("SELECT worker_id as 'ID', name as 'Name', sex as 'Gender'," +
-                " identityCard as 'Identity Card', bDate as 'Birth Date', dateStart as 'Date Strat', phone as 'Phone', address as 'Address', work as 'Work' " +
-                " FROM Worker WHERE CONCAT(worker_id,name, sex, identityCard,bDate, dateStart, phone, address, work) LIKE'%" + textBoxSearchWorker.Text + "%'");
+            SqlCommand command = new SqlCommand("Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau " +
+                " from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV " +
+                " WHERE CONCAT(T.MaTho, T." +
+                "TenTho, T.GioiTinh, T.CMND, T.NgaySinh, T.DiaChi, T.SDT, T.NgayBatDau, CV.TenCV, N.TenNhom) LIKE'%" + textBoxSearchWorker.Text + "%'");
 
             dataGridViewWorker.DataSource = worker.getWorker(command);
         }
