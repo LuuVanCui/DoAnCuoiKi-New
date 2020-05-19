@@ -299,7 +299,7 @@
             this.tabControl.Location = new System.Drawing.Point(12, 135);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1170, 835);
+            this.tabControl.Size = new System.Drawing.Size(1182, 835);
             this.tabControl.TabIndex = 0;
             // 
             // tabPageVehicles
@@ -1714,7 +1714,7 @@
             this.tabPageRevenue.Location = new System.Drawing.Point(4, 42);
             this.tabPageRevenue.Name = "tabPageRevenue";
             this.tabPageRevenue.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRevenue.Size = new System.Drawing.Size(1162, 789);
+            this.tabPageRevenue.Size = new System.Drawing.Size(1174, 789);
             this.tabPageRevenue.TabIndex = 3;
             this.tabPageRevenue.Text = "Revenue";
             this.tabPageRevenue.UseVisualStyleBackColor = true;
@@ -1727,6 +1727,7 @@
             this.comboBoxTypeRevenue.Name = "comboBoxTypeRevenue";
             this.comboBoxTypeRevenue.Size = new System.Drawing.Size(121, 36);
             this.comboBoxTypeRevenue.TabIndex = 4;
+            this.comboBoxTypeRevenue.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeRevenue_SelectedIndexChanged);
             // 
             // label37
             // 
@@ -1781,6 +1782,7 @@
             this.buttonPrintRevenue.TabIndex = 0;
             this.buttonPrintRevenue.Text = "Print";
             this.buttonPrintRevenue.UseVisualStyleBackColor = true;
+            this.buttonPrintRevenue.Click += new System.EventHandler(this.buttonPrintRevenue_Click);
             // 
             // buttonExportRevenue
             // 
@@ -1790,6 +1792,7 @@
             this.buttonExportRevenue.TabIndex = 0;
             this.buttonExportRevenue.Text = "Export";
             this.buttonExportRevenue.UseVisualStyleBackColor = true;
+            this.buttonExportRevenue.Click += new System.EventHandler(this.buttonExportRevenue_Click);
             // 
             // buttonRevenueStatistics
             // 
@@ -1799,6 +1802,7 @@
             this.buttonRevenueStatistics.TabIndex = 0;
             this.buttonRevenueStatistics.Text = "Statistics";
             this.buttonRevenueStatistics.UseVisualStyleBackColor = true;
+            this.buttonRevenueStatistics.Click += new System.EventHandler(this.buttonRevenueStatistics_Click);
             // 
             // dashboardForm
             // 
