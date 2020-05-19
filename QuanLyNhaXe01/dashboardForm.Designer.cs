@@ -180,6 +180,10 @@
             this.buttonPrintRevenue = new System.Windows.Forms.Button();
             this.buttonExportRevenue = new System.Windows.Forms.Button();
             this.buttonRevenueStatistics = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.label43 = new System.Windows.Forms.Label();
+            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -312,7 +316,7 @@
             this.tabPageVehicles.Location = new System.Drawing.Point(4, 42);
             this.tabPageVehicles.Name = "tabPageVehicles";
             this.tabPageVehicles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVehicles.Size = new System.Drawing.Size(1162, 789);
+            this.tabPageVehicles.Size = new System.Drawing.Size(1174, 789);
             this.tabPageVehicles.TabIndex = 0;
             this.tabPageVehicles.Text = "Vehicles";
             // 
@@ -765,7 +769,7 @@
             this.tabPageWorker.Location = new System.Drawing.Point(4, 42);
             this.tabPageWorker.Name = "tabPageWorker";
             this.tabPageWorker.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWorker.Size = new System.Drawing.Size(1162, 789);
+            this.tabPageWorker.Size = new System.Drawing.Size(1174, 789);
             this.tabPageWorker.TabIndex = 1;
             this.tabPageWorker.Text = "Worker";
             this.tabPageWorker.UseVisualStyleBackColor = true;
@@ -1097,7 +1101,7 @@
             this.tabPageWork.Location = new System.Drawing.Point(4, 42);
             this.tabPageWork.Name = "tabPageWork";
             this.tabPageWork.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWork.Size = new System.Drawing.Size(1162, 789);
+            this.tabPageWork.Size = new System.Drawing.Size(1174, 789);
             this.tabPageWork.TabIndex = 4;
             this.tabPageWork.Text = "Work";
             this.tabPageWork.UseVisualStyleBackColor = true;
@@ -1124,7 +1128,6 @@
             this.dataGridViewWork.RowTemplate.Height = 28;
             this.dataGridViewWork.Size = new System.Drawing.Size(921, 235);
             this.dataGridViewWork.TabIndex = 0;
-            this.dataGridViewWork.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewWork_CellMouseClick);
             // 
             // label31
             // 
@@ -1155,6 +1158,7 @@
             this.listBoxGroup_work.Name = "listBoxGroup_work";
             this.listBoxGroup_work.Size = new System.Drawing.Size(193, 228);
             this.listBoxGroup_work.TabIndex = 3;
+            this.listBoxGroup_work.SelectedIndexChanged += new System.EventHandler(this.listBoxGroup_work_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -1558,7 +1562,7 @@
             this.tabPageContract.Location = new System.Drawing.Point(4, 42);
             this.tabPageContract.Name = "tabPageContract";
             this.tabPageContract.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageContract.Size = new System.Drawing.Size(1162, 789);
+            this.tabPageContract.Size = new System.Drawing.Size(1174, 789);
             this.tabPageContract.TabIndex = 2;
             this.tabPageContract.Text = "Contract";
             this.tabPageContract.UseVisualStyleBackColor = true;
@@ -1702,7 +1706,11 @@
             // 
             // tabPageRevenue
             // 
+            this.tabPageRevenue.Controls.Add(this.dateTimePickerTo);
+            this.tabPageRevenue.Controls.Add(this.dateTimePickerFrom);
             this.tabPageRevenue.Controls.Add(this.comboBoxTypeRevenue);
+            this.tabPageRevenue.Controls.Add(this.label43);
+            this.tabPageRevenue.Controls.Add(this.label42);
             this.tabPageRevenue.Controls.Add(this.label37);
             this.tabPageRevenue.Controls.Add(this.label38);
             this.tabPageRevenue.Controls.Add(this.labelTotalRevenue);
@@ -1723,16 +1731,18 @@
             // 
             this.comboBoxTypeRevenue.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTypeRevenue.FormattingEnabled = true;
-            this.comboBoxTypeRevenue.Location = new System.Drawing.Point(247, 57);
+            this.comboBoxTypeRevenue.Items.AddRange(new object[] {
+            "Vehicles Parking"});
+            this.comboBoxTypeRevenue.Location = new System.Drawing.Point(223, 16);
             this.comboBoxTypeRevenue.Name = "comboBoxTypeRevenue";
-            this.comboBoxTypeRevenue.Size = new System.Drawing.Size(121, 36);
+            this.comboBoxTypeRevenue.Size = new System.Drawing.Size(353, 36);
             this.comboBoxTypeRevenue.TabIndex = 4;
             this.comboBoxTypeRevenue.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeRevenue_SelectedIndexChanged);
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(34, 56);
+            this.label37.Location = new System.Drawing.Point(10, 15);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(207, 33);
             this.label37.TabIndex = 3;
@@ -1741,7 +1751,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(465, 56);
+            this.label38.Location = new System.Drawing.Point(611, 45);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(101, 33);
             this.label38.TabIndex = 3;
@@ -1759,9 +1769,9 @@
             // textBoxSearchRevenue
             // 
             this.textBoxSearchRevenue.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchRevenue.Location = new System.Drawing.Point(586, 54);
+            this.textBoxSearchRevenue.Location = new System.Drawing.Point(732, 43);
             this.textBoxSearchRevenue.Name = "textBoxSearchRevenue";
-            this.textBoxSearchRevenue.Size = new System.Drawing.Size(511, 35);
+            this.textBoxSearchRevenue.Size = new System.Drawing.Size(396, 35);
             this.textBoxSearchRevenue.TabIndex = 2;
             // 
             // dataGridViewRevenue
@@ -1803,6 +1813,44 @@
             this.buttonRevenueStatistics.Text = "Statistics";
             this.buttonRevenueStatistics.UseVisualStyleBackColor = true;
             this.buttonRevenueStatistics.Click += new System.EventHandler(this.buttonRevenueStatistics_Click);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(65, 68);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(152, 33);
+            this.label42.TabIndex = 3;
+            this.label42.Text = "Range From:";
+            // 
+            // dateTimePickerFrom
+            // 
+            this.dateTimePickerFrom.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(224, 68);
+            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(148, 35);
+            this.dateTimePickerFrom.TabIndex = 5;
+            this.dateTimePickerFrom.ValueChanged += new System.EventHandler(this.dateTimePickerFrom_ValueChanged);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(378, 70);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(44, 33);
+            this.label43.TabIndex = 3;
+            this.label43.Text = "To";
+            // 
+            // dateTimePickerTo
+            // 
+            this.dateTimePickerTo.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerTo.Location = new System.Drawing.Point(428, 68);
+            this.dateTimePickerTo.Name = "dateTimePickerTo";
+            this.dateTimePickerTo.Size = new System.Drawing.Size(148, 35);
+            this.dateTimePickerTo.TabIndex = 5;
+            this.dateTimePickerTo.ValueChanged += new System.EventHandler(this.dateTimePickerTo_ValueChanged);
             // 
             // dashboardForm
             // 
@@ -2022,5 +2070,9 @@
         private System.Windows.Forms.ComboBox comboBoxGroup_Worker;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTo;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label42;
     }
 }

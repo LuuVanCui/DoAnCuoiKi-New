@@ -24,9 +24,6 @@ namespace QuanLyNhaXe01
             this.dataGridViewVehicle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewVehicle_DataError);
         }
 
-        Worker worker = new Worker();
-       
-
         private void dashboardForm_Load(object sender, EventArgs e)
         {
             #region VEHICLES
@@ -76,7 +73,7 @@ namespace QuanLyNhaXe01
             dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
             #endregion
 
-            #region Worker
+            #region WORKER
 
             fillDatagridWorker();
             fillComboboxGroup_Worker();
@@ -85,7 +82,7 @@ namespace QuanLyNhaXe01
             #endregion 
         }
 
-        #region Tabar----------------------------------------------------
+        #region Tabar----------------------------------------------------------
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -102,7 +99,7 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Vehicles----------------------------------------------------
+        #region Vehicles-------------------------------------------------------
 
         Vehicle vehicle = new Vehicle();
 
@@ -375,9 +372,8 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Worker----------------------------------------------------
-
-       
+        #region Worker---------------------------------------------------------
+        Worker worker = new Worker();
 
         void fillComboBoxWork_Worker()
         {
@@ -772,7 +768,7 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Work----------------------------------------------
+        #region Work-----------------------------------------------------------
 
         Work work = new Work();
         private void buttonAdd_Work_Click(object sender, EventArgs e)
@@ -998,18 +994,18 @@ namespace QuanLyNhaXe01
 
         }
 
-        private void dataGridViewWork_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void listBoxGroup_work_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
-            string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
-                "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
-                " inner join Nhom on Tho.MaNhom = Nhom.MaNhom " +
-                "where MaNhom = " + groupID;
-            dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
+          //  int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
+            //string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+            //    "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
+            //    " inner join Nhom on Tho.MaNhom = Nhom.MaNhom " +
+            //    "where MaNhom = " + groupID;
+            //dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
         }
         #endregion
 
-        #region Revenue
+        #region Revenue -------------------------------------------------------
         private void buttonPrintRevenue_Click(object sender, EventArgs e)
         {
             PrintDialog printDlg = new PrintDialog();
@@ -1084,9 +1080,71 @@ namespace QuanLyNhaXe01
 
         }
 
+        void makeUpGridForAll()
+        {
+            try
+            {
+                dataGridViewRevenue.ReadOnly = true;
+                dataGridViewRevenue.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
+
+
+                dataGridViewRevenue.RowTemplate.Height = 80;
+
+                picCol2 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[2];
+                picCol3 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[3];
+                picCol4 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[4];
+                picCol5 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[5];
+
+                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol4.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol5.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                dataGridViewRevenue.AllowUserToAddRows = false;
+            }
+            catch
+            {
+
+            }
+        }
+
         private void comboBoxTypeRevenue_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBoxTypeRevenue.Text == "Vehicles Parking")
+            {
+                string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
+                string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
+                string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
+                    "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
+                    "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' " +
+                    "GROUP BY LoaiXe";
+                System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
+                int tatCaXe = 0;
+                float tongDoanhThu = 0;
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    tatCaXe += int.Parse(table.Rows[i][1].ToString());
+                    tongDoanhThu += float.Parse(table.Rows[i][2].ToString());
+                }
+                table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
+                dataGridViewRevenue.DataSource = table;
+                makeUpGridForAll();
+            }
+        }
 
+        private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
+        {
+            comboBoxTypeRevenue_SelectedIndexChanged(sender, e);
+        }
+
+        private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
+        {
+            comboBoxTypeRevenue_SelectedIndexChanged(sender, e);
         }
         #endregion
     }
