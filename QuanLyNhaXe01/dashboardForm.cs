@@ -24,6 +24,8 @@ namespace QuanLyNhaXe01
             this.dataGridViewVehicle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewVehicle_DataError);
         }
 
+        Worker worker = new Worker();
+
         private void dashboardForm_Load(object sender, EventArgs e)
         {
             #region VEHICLES
@@ -106,19 +108,10 @@ namespace QuanLyNhaXe01
                 DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
                 DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
 
-<<<<<<< HEAD
-=======
-            /*SqlCommand command = new SqlCommand("Select MaTho as 'ID', TenTho as 'Name', GioiTinh as 'Gender'," +
-                " CMND as 'Identity Card', NgaySinh as 'Birth Date',  SDT as 'Phone', DiaChi as 'Address', NgayBatDau as 'Date Strat', MaNhom, MaCV  from Tho inner join ");*/
+                SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
 
-            SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
-
-
-
-                    dataGridViewWorker.DataSource = worker.getWorker(command);
-        }
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
-
+                dataGridViewWorker.DataSource = vehicle.getVehicle(command);
+        
                 dataGridViewVehicle.RowTemplate.Height = 80;
 
                 picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
@@ -126,18 +119,10 @@ namespace QuanLyNhaXe01
                 picCol4 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[4];
                 picCol5 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[5];
 
-<<<<<<< HEAD
                 picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 picCol4.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 picCol5.ImageLayout = DataGridViewImageCellLayout.Stretch;
-=======
-            string address = textBoxAddressWorker.Text;
-           // string work = comboBoxWork_Worker.Text;
-            string maCV = comboBoxWork_Worker.SelectedValue.ToString();
-            int maNhom = int.Parse(comboBoxGroup_Worker.SelectedValue.ToString());
-
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
 
                 dataGridViewVehicle.AllowUserToAddRows = false;
             }
@@ -147,38 +132,19 @@ namespace QuanLyNhaXe01
             }
         }
 
-<<<<<<< HEAD
         void makeUpGridForXeMayAndXeDap()
         {
             try
             {
                 dataGridViewVehicle.ReadOnly = true;
-=======
-           try
-           {
-                if (verifyData())
-                {
-                    int w_id = int.Parse(textBoxWorkerID.Text);
-                    if (radioButtonFeMale.Checked == true)
-                    {
-                        gender = "Female";
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
 
                 DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
                 DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
 
                 dataGridViewVehicle.RowTemplate.Height = 80;
 
-<<<<<<< HEAD
                 picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
                 picCol3 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[3];
-=======
-                        else
-                        {
-                            if (worker.insertWorker(w_id, name, gender, CMND, bdate, address,phone,maNhom, maCV, dateStart))
-                            {
-                                MessageBox.Show("New Worker Added", "Add Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
 
                 picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
@@ -215,17 +181,11 @@ namespace QuanLyNhaXe01
             makeUpGridForXeMayAndXeDap();
         }
 
-<<<<<<< HEAD
         private void radioButtonAllVehicle_CheckedChanged(object sender, EventArgs e)
         {
             dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
             makeUpGridForAllAndXeHoi();
         }
-=======
-            string address = textBoxAddressWorker.Text;
-            string maCV = comboBoxWork_Worker.SelectedValue.ToString();
-            int maNhom = int.Parse(comboBoxGroup_Worker.SelectedValue.ToString());
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
 
         void vehicleControls()
         {
@@ -248,47 +208,7 @@ namespace QuanLyNhaXe01
                 float price = float.Parse(textBoxPrice_Bike.Text);
                 if (setting.updatePriceAndSlot("Xe Dap", price, slot))
                 {
-<<<<<<< HEAD
                     MessageBox.Show("Set successful!", "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Information);
-=======
-                    int w_id = int.Parse(textBoxWorkerID.Text);
-                    if (radioButtonFeMale.Checked == true)
-                    {
-                        gender = "Female";
-
-                    }
-                    else
-                    {
-                        gender = "Male";
-                    }
-
-                    //if (worker.checkID(int.Parse(textBoxWorkerID.Text)) && )
-                   // {
-                        // kiem tra tren 18 tuoi
-                        int tuoi = DateTime.Now.Year - dateTimePickerBDate_Worker.Value.Year;
-                        if (tuoi < 18)
-                        {
-                            MessageBox.Show("Worker age is younger than 18", "Add Worker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-
-                        else
-                        {
-                            if (worker.updateWorker(w_id, name, gender, CMND, bdate, address, phone,maNhom,maCV, dateStart))
-                            {
-                                MessageBox.Show("New Worker Updated", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    //}
-                   /* else
-                    {
-                        MessageBox.Show("This ID Already Exists, Try Another One", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }*/
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
                 }
                 else
                 {
@@ -303,13 +223,8 @@ namespace QuanLyNhaXe01
 
         private void buttonSetMoto_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             PriceAndSlot setting = new PriceAndSlot();
             try
-=======
-            
-            if (dataGridViewWorker.CurrentRow.Cells[2].Value.ToString() == "Female")
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
             {
                 int slot = Convert.ToInt32(textBoxTotalSlot_Moto.Text);
                 float price = float.Parse(textBoxPrice_Moto.Text);
@@ -328,38 +243,7 @@ namespace QuanLyNhaXe01
             }
         }
 
-<<<<<<< HEAD
         private void buttonSetCar_Click(object sender, EventArgs e)
-=======
-            textBoxFullName.Text = dataGridViewWorker.CurrentRow.Cells[1].Value.ToString();
-            textBoxWorkerID.Text = dataGridViewWorker.CurrentRow.Cells[0].Value.ToString();
-            textBoxIdentityCard.Text = dataGridViewWorker.CurrentRow.Cells[3].Value.ToString();
-            // || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
-            textBoxPhoneWorker.Text = dataGridViewWorker.CurrentRow.Cells[6].Value.ToString();
-
-            dateTimePickerBDate_Worker.Value = Convert.ToDateTime(dataGridViewWorker.CurrentRow.Cells[4].Value);
-            dateTimePickerDateStart_Worker.Value = Convert.ToDateTime(dataGridViewWorker.CurrentRow.Cells[9].Value);
-
-            textBoxAddressWorker.Text = dataGridViewWorker.CurrentRow.Cells[5].Value.ToString();
-
-           // comboBoxWork_Worker.Text = dataGridViewWorker.CurrentRow.Cells[8].Value.ToString();
-        }
-
-        private void buttonPrintWorker_Click(object sender, EventArgs e)
-        {
-
-            PrintDialog printDlg = new PrintDialog();
-            PrintDocument printDoc = new PrintDocument();
-            printDoc.DocumentName = "Print Worker";
-            printDlg.Document = printDoc;
-            printDlg.AllowSelection = true;
-            printDlg.AllowSomePages = true;
-
-            if (printDlg.ShowDialog() == DialogResult.OK) printDoc.Print();
-        }
-
-        private void buttonRemoveWorker_Click(object sender, EventArgs e)
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
         {
             PriceAndSlot setting = new PriceAndSlot();
             try
@@ -375,41 +259,7 @@ namespace QuanLyNhaXe01
                     MessageBox.Show("Set fail", "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-<<<<<<< HEAD
             catch (Exception ex)
-=======
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-        //verify data
-
-       void fillComboBoxWork_Worker()
-        {
-            comboBoxWork_Worker.DataSource = getWork();
-            comboBoxWork_Worker.DisplayMember = "TenCV";
-            comboBoxWork_Worker.ValueMember = "MaCV";
-        }
-
-        void fillComboboxGroup_Worker()
-        {
-            comboBoxGroup_Worker.DataSource = getGroup_Worker();
-            comboBoxGroup_Worker.DisplayMember = "TenNhom";
-            comboBoxGroup_Worker.ValueMember = "MaNhom";
-        }
-
-        bool verifyData()
-        {
-            if ((textBoxWorkerID.Text.Trim() == "")
-                || (textBoxFullName.Text.Trim() == "")
-                || (textBoxIdentityCard.Text.Trim() == "")
-                || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
-                || (textBoxPhoneWorker.Text.Trim() == "")
-                || (textBoxAddressWorker.Text.Trim() == "")
-                )
-                //|| (comboBoxWork_Worker.Text.Trim() == ""))
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
             {
                 MessageBox.Show(ex.Message, "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -427,75 +277,8 @@ namespace QuanLyNhaXe01
                 // Copy DataGridView results to clipboard
                 copyAlltoClipboard();
 
-<<<<<<< HEAD
                 object misValue = System.Reflection.Missing.Value;
                 Excel.Application xlexcel = new Excel.Application();
-=======
-                Export_Data_To_Word(dataGridViewWorker, sfd.FileName);
-            }
-        }
-
-        private void textBoxSearchWorker_TextChanged(object sender, EventArgs e)
-        {
-            Worker worker = new Worker();
-            SqlCommand command = new SqlCommand("Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau " +
-                " from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV "+
-                " WHERE CONCAT(T.MaTho, T." +
-                "TenTho, T.GioiTinh, T.CMND, T.NgaySinh, T.DiaChi, T.SDT, T.NgayBatDau, CV.TenCV, N.TenNhom) LIKE'%" + textBoxSearchWorker.Text + "%'");
-
-            dataGridViewWorker.DataSource = worker.getWorker(command);
-        }
-
-        public void Export_Data_To_Word(DataGridView DGV, string filename)
-        {
-            if (DGV.Rows.Count != 0)
-            {
-                int RowCount = DGV.Rows.Count;
-                int ColumnCount = DGV.Columns.Count;
-                Object[,] DataArray = new object[RowCount + 1, ColumnCount + 1];
-
-                //add rows
-                int r = 0;
-                for (int c = 0; c <= ColumnCount - 1; c++)
-                {
-                    for (r = 0; r <= RowCount - 1; r++)
-                    {
-                        DataArray[r, c] = DGV.Rows[r].Cells[c].Value;
-                    } //end row loop
-                } //end column loop
-
-                Word.Document oDoc = new Word.Document();
-                oDoc.Application.Visible = true;
-
-                //page orintation
-                oDoc.PageSetup.Orientation = Word.WdOrientation.wdOrientLandscape;
-
-
-                dynamic oRange = oDoc.Content.Application.Selection.Range;
-                string oTemp = "";
-                for (r = 0; r <= RowCount - 1; r++)
-                {
-                    for (int c = 0; c <= ColumnCount - 1; c++)
-                    {
-                        oTemp = oTemp + DataArray[r, c] + "\t";
-
-                    }
-                }
-
-                //table format
-                oRange.Text = oTemp;
-
-                object Separator = Word.WdTableFieldSeparator.wdSeparateByTabs;
-                object ApplyBorders = true;
-                object AutoFit = true;
-                object AutoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitContent;
-
-                oRange.ConvertToTable(ref Separator, ref RowCount, ref ColumnCount,
-                                      Type.Missing, Type.Missing, ref ApplyBorders,
-                                      Type.Missing, Type.Missing, Type.Missing,
-                                      Type.Missing, Type.Missing, Type.Missing,
-                                      Type.Missing, ref AutoFit, ref AutoFitBehavior, Type.Missing);
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
 
                 xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
                 Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
@@ -539,45 +322,10 @@ namespace QuanLyNhaXe01
 
         private void copyAlltoClipboard()
         {
-<<<<<<< HEAD
             dataGridViewVehicle.SelectAll();
             DataObject dataObj = dataGridViewVehicle.GetClipboardContent();
             if (dataObj != null)
                 Clipboard.SetDataObject(dataObj);
-=======
-            
-                MyDB mydb = new MyDB();
-                SqlCommand command = new SqlCommand("Select * From CongViec", mydb.getConnection);
-
-               
-                
-           
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = command;
-
-            DataTable table = new DataTable();
-
-            adapter.Fill(table);
-            return table;
-        }
-
-        public DataTable getGroup_Worker()
-        {
-
-            MyDB mydb = new MyDB();
-            SqlCommand command = new SqlCommand("Select * From Nhom", mydb.getConnection);
-
-
-
-
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = command;
-
-            DataTable table = new DataTable();
-
-            adapter.Fill(table);
-            return table;
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
         }
 
         private void releaseObject(object obj)
@@ -909,7 +657,6 @@ namespace QuanLyNhaXe01
                 int ColumnCount = DGV.Columns.Count;
                 Object[,] DataArray = new object[RowCount + 1, ColumnCount + 1];
 
-<<<<<<< HEAD
                 //add rows
                 int r = 0;
                 for (int c = 0; c <= ColumnCount - 1; c++)
@@ -992,24 +739,6 @@ namespace QuanLyNhaXe01
 
                 //NASSIM LOUCHANI
             }
-=======
-            // fill textbox
-            textBoxTotalSlot_Bike.Text = table.Rows[0]["Slot"].ToString();
-            textBoxTotalSlot_Car.Text = table.Rows[1]["Slot"].ToString();
-            textBoxTotalSlot_Moto.Text = table.Rows[2]["Slot"].ToString();
-            textBoxPrice_Bike.Text = table.Rows[0]["Phi"].ToString();
-            textBoxPrice_Car.Text = table.Rows[1]["Phi"].ToString();
-            textBoxPrice_Moto.Text = table.Rows[2]["Phi"].ToString();
-
-            // worker
-
-            fillComboboxGroup_Worker();
-            fillComboBoxWork_Worker();
-            fillDatagridWorker();
-           
-            #endregion
-
->>>>>>> dfd43d255a414e5f20cab9225f92e1f5523be98a
         }
         #endregion
 
