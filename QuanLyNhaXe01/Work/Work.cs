@@ -78,5 +78,21 @@ namespace QuanLyNhaXe01
                 return false;
             }
         }
+
+
+        public DataTable getWork()
+        {
+
+            MyDB mydb = new MyDB();
+            SqlCommand command = new SqlCommand("Select * From CongViec", mydb.getConnection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+            return table;
+        }
     }
 }
