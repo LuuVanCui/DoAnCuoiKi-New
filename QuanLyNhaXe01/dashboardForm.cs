@@ -12,6 +12,7 @@ using System.Drawing.Printing;
 using Word = Microsoft.Office.Interop.Word;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
+using Microsoft.Office.Interop.Excel;
 
 namespace QuanLyNhaXe01
 {
@@ -21,6 +22,56 @@ namespace QuanLyNhaXe01
         {
             InitializeComponent();
             this.dataGridViewVehicle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewVehicle_DataError);
+        }
+
+        private void dashboardForm_Load(object sender, EventArgs e)
+        {
+            #region VEHICLES
+            vehicleControls();
+            System.Data.DataTable table = vehicle.getVehicle(new SqlCommand("SELECT * FROM PhiGuiXeVaSlot"));
+
+            // fill textbox
+            textBoxTotalSlot_Bike.Text = table.Rows[0]["Slot"].ToString();
+            textBoxTotalSlot_Car.Text = table.Rows[1]["Slot"].ToString();
+            textBoxTotalSlot_Moto.Text = table.Rows[2]["Slot"].ToString();
+            textBoxPrice_Bike.Text = table.Rows[0]["Phi"].ToString();
+            textBoxPrice_Car.Text = table.Rows[1]["Phi"].ToString();
+            textBoxPrice_Moto.Text = table.Rows[2]["Phi"].ToString();
+            labelDangGui.Text = "Existing: " + vehicle.totalVehicle_in();
+            labelDaRa.Text = "Leave: " + vehicle.totalVehicle_out();
+            labelStatus.Text = "Total Vehicle: " + vehicle.totalVehicle();
+
+            #endregion
+
+            #region WORK
+
+            comboBoxGroupName_work.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Nhom"));
+            comboBoxGroupName_work.DisplayMember = "TenNhom";
+            comboBoxGroupName_work.ValueMember = "MaNhom";
+
+            // edit
+            comboBoxEditGroup_work.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Nhom"));
+            comboBoxEditGroup_work.DisplayMember = "TenNhom";
+            comboBoxEditGroup_work.ValueMember = "MaNhom";
+
+            // remove
+            comboBoxRemoveGroup_work.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Nhom"));
+            comboBoxRemoveGroup_work.DisplayMember = "TenNhom";
+            comboBoxRemoveGroup_work.ValueMember = "MaNhom";
+
+            // listBox
+            listBoxGroup_work.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Nhom"));
+            listBoxGroup_work.DisplayMember = "TenNhom";
+            listBoxGroup_work.ValueMember = "MaNhom";
+            listBoxGroup_work.SelectedItem = null;
+            listBoxGroup_work.ClearSelected();
+
+            // dataGid Show Data
+            string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+                "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
+                " inner join Nhom on Tho.MaNhom = Nhom.MaNhom";
+            dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
+            #endregion
         }
 
         #region Tabar----------------------------------------------------
@@ -37,6 +88,276 @@ namespace QuanLyNhaXe01
         private void linkLabelRefresh_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+        #endregion
+
+        #region Vehicles----------------------------------------------------
+
+        Vehicle vehicle = new Vehicle();
+
+        void makeUpGridForAllAndXeHoi()
+        {
+            try
+            {
+                dataGridViewVehicle.ReadOnly = true;
+
+                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
+
+
+                dataGridViewVehicle.RowTemplate.Height = 80;
+
+                picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
+                picCol3 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[3];
+                picCol4 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[4];
+                picCol5 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[5];
+
+                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol4.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol5.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                dataGridViewVehicle.AllowUserToAddRows = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        void makeUpGridForXeMayAndXeDap()
+        {
+            try
+            {
+                dataGridViewVehicle.ReadOnly = true;
+
+                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
+
+                dataGridViewVehicle.RowTemplate.Height = 80;
+
+                picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
+                picCol3 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[3];
+
+                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                dataGridViewVehicle.AllowUserToAddRows = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void textBoxSearchVehicle_TextChanged(object sender, EventArgs e)
+        {
+            SqlCommand command = new SqlCommand("SELECT *FROM Xe WHERE CONCAT(MaTheXe, LoaiXe, ThoiGianVao, ThoiGianRa, HinhThucGui, TrangThaiGui) LIKE '%" + textBoxSearchVehicle.Text + "%'");
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(command);
+        }
+
+        private void radioButtonBike_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, HinhThucGui,TrangThaiGui FROM dbo.Xe WHERE LoaiXe = 'Xe Dap'"));
+            makeUpGridForXeMayAndXeDap();
+        }
+
+        private void radioButtonMoto_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, BienSo, ThoiGianVao, HinhThucGui, TrangThaiGui FROM dbo.Xe WHERE LoaiXe = 'Xe May'"));
+            makeUpGridForXeMayAndXeDap();
+        }
+
+        private void radioButtonCar_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, HieuXe, BienSo, ThoiGianVao, HinhThucGui,TrangThaiGui FROM Xe  WHERE LoaiXe = 'Xe Hoi'"));
+            makeUpGridForXeMayAndXeDap();
+        }
+
+        private void radioButtonAllVehicle_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
+            makeUpGridForAllAndXeHoi();
+        }
+
+        void vehicleControls()
+        {
+            radioButtonAllVehicle.Checked = true;
+            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
+        }
+
+        private void buttonStatistics_Click(object sender, EventArgs e)
+        {
+            staticsForm statics = new staticsForm();
+            statics.Show(this);
+        }
+
+        private void buttonSetBike_Click(object sender, EventArgs e)
+        {
+            PriceAndSlot setting = new PriceAndSlot();
+            try
+            {
+                int slot = Convert.ToInt32(textBoxTotalSlot_Bike.Text);
+                float price = float.Parse(textBoxPrice_Bike.Text);
+                if (setting.updatePriceAndSlot("Xe Dap", price, slot))
+                {
+                    MessageBox.Show("Set successful!", "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonSetMoto_Click(object sender, EventArgs e)
+        {
+            PriceAndSlot setting = new PriceAndSlot();
+            try
+            {
+                int slot = Convert.ToInt32(textBoxTotalSlot_Moto.Text);
+                float price = float.Parse(textBoxPrice_Moto.Text);
+                if (setting.updatePriceAndSlot("Xe May", price, slot))
+                {
+                    MessageBox.Show("Set successful!", "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonSetCar_Click(object sender, EventArgs e)
+        {
+            PriceAndSlot setting = new PriceAndSlot();
+            try
+            {
+                int slot = Convert.ToInt32(textBoxTotalSlot_Car.Text);
+                float price = float.Parse(textBoxPrice_Car.Text);
+                if (setting.updatePriceAndSlot("Xe Hoi", price, slot))
+                {
+                    MessageBox.Show("Set successful!", "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonExportVehicle_Click(object sender, EventArgs e)
+        {
+            // Tham khảo link: https://stackoverflow.com/questions/18182029/how-to-export-datagridview-data-instantly-to-excel-on-button-click
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "Inventory_Adjustment_Export.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Copy DataGridView results to clipboard
+                copyAlltoClipboard();
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Format column D as text before pasting results, this was required for my data
+                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
+                rng.NumberFormat = "@";
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
+                // Delete blank column A and select cell A1
+                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
+                delRng.Delete(Type.Missing);
+                xlWorkSheet.get_Range("A1").Select();
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlexcel);
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+                dataGridViewVehicle.ClearSelection();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+
+        }
+
+        private void copyAlltoClipboard()
+        {
+            dataGridViewVehicle.SelectAll();
+            DataObject dataObj = dataGridViewVehicle.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occurred while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
+        private void buttonPrintVehicle_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.DocumentName = "Print Document";
+            printDlg.Document = printDoc;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
+
+            if (printDlg.ShowDialog() == DialogResult.OK)
+                printDoc.Print();
+
+        }
+
+        private void dataGridViewVehicle_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
         #endregion
 
@@ -414,318 +735,10 @@ namespace QuanLyNhaXe01
                 //NASSIM LOUCHANI
             }
         }
-
-        public DataTable getWork()
-        {
-            MyDB mydb = new MyDB();
-            SqlCommand command = new SqlCommand("Select * From CongViec",mydb.getConnection );
-
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = command;
-
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            return table;
-        }
         #endregion
-
-        #region Vehicles----------------------------------------------------
-
-        Vehicle vehicle = new Vehicle();
-
-        void makeUpGridForAllAndXeHoi()
-        {
-            try
-            {
-                dataGridViewVehicle.ReadOnly = true;
-
-                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
-                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
-                DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
-                DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
-
-
-                dataGridViewVehicle.RowTemplate.Height = 80;
-
-                picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
-                picCol3 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[3];
-                picCol4 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[4];
-                picCol5 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[5];
-
-                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picCol4.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picCol5.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
-                dataGridViewVehicle.AllowUserToAddRows = false;
-            }
-            catch
-            {
-
-            }
-        }
-
-        void makeUpGridForXeMayAndXeDap()
-        {
-            try
-            {
-                dataGridViewVehicle.ReadOnly = true;
-
-                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
-                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
-
-                dataGridViewVehicle.RowTemplate.Height = 80;
-
-                picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
-                picCol3 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[3];
-
-                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
-                dataGridViewVehicle.AllowUserToAddRows = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void textBoxSearchVehicle_TextChanged(object sender, EventArgs e)
-        {
-            SqlCommand command = new SqlCommand("SELECT *FROM Xe WHERE CONCAT(MaTheXe, LoaiXe, ThoiGianVao, ThoiGianRa, HinhThucGui, TrangThaiGui) LIKE '%" + textBoxSearchVehicle.Text + "%'");
-            dataGridViewVehicle.DataSource = vehicle.getVehicle(command);
-        }
-
-        private void radioButtonBike_CheckedChanged(object sender, EventArgs e)
-        {
-            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, HinhThucGui,TrangThaiGui FROM dbo.Xe WHERE LoaiXe = 'Xe Dap'"));
-            makeUpGridForXeMayAndXeDap();
-        }
-
-        private void radioButtonMoto_CheckedChanged(object sender, EventArgs e)
-        {
-            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, NguoiGui, BienSo, ThoiGianVao, HinhThucGui, TrangThaiGui FROM dbo.Xe WHERE LoaiXe = 'Xe May'"));
-            makeUpGridForXeMayAndXeDap();
-        }
-
-        private void radioButtonCar_CheckedChanged(object sender, EventArgs e)
-        {
-            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT MaTheXe, LoaiXe, HieuXe, BienSo, ThoiGianVao, HinhThucGui,TrangThaiGui FROM Xe  WHERE LoaiXe = 'Xe Hoi'"));
-            makeUpGridForXeMayAndXeDap();
-        }
-
-        private void radioButtonAllVehicle_CheckedChanged(object sender, EventArgs e)
-        {
-            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
-            makeUpGridForAllAndXeHoi();
-        }
-
-        void vehicleControls()
-        {
-            radioButtonAllVehicle.Checked = true;
-            dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
-        }
-
-        private void buttonStatistics_Click(object sender, EventArgs e)
-        {
-            staticsForm statics = new staticsForm();
-            statics.Show(this);
-        }
-
-        private void buttonSetBike_Click(object sender, EventArgs e)
-        {
-            PriceAndSlot setting = new PriceAndSlot();
-            try
-            {
-                int slot = Convert.ToInt32(textBoxTotalSlot_Bike.Text);
-                float price = float.Parse(textBoxPrice_Bike.Text);
-                if (setting.updatePriceAndSlot("Xe Dap", price, slot))
-                {
-                    MessageBox.Show("Set successful!", "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Set fail", "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }    
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Set Bike", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void buttonSetMoto_Click(object sender, EventArgs e)
-        {
-            PriceAndSlot setting = new PriceAndSlot();
-            try
-            {
-                int slot = Convert.ToInt32(textBoxTotalSlot_Moto.Text);
-                float price = float.Parse(textBoxPrice_Moto.Text);
-                if (setting.updatePriceAndSlot("Xe May", price, slot))
-                {
-                    MessageBox.Show("Set successful!", "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Set fail", "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Set Moto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void buttonSetCar_Click(object sender, EventArgs e)
-        {
-            PriceAndSlot setting = new PriceAndSlot();
-            try
-            {
-                int slot = Convert.ToInt32(textBoxTotalSlot_Car.Text);
-                float price = float.Parse(textBoxPrice_Car.Text);
-                if (setting.updatePriceAndSlot("Xe Hoi", price, slot))
-                {
-                    MessageBox.Show("Set successful!", "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Set fail", "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Set Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void buttonExportVehicle_Click(object sender, EventArgs e)
-        {
-            // Tham khảo link: https://stackoverflow.com/questions/18182029/how-to-export-datagridview-data-instantly-to-excel-on-button-click
-
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel Documents (*.xls)|*.xls";
-            sfd.FileName = "Inventory_Adjustment_Export.xls";
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                // Copy DataGridView results to clipboard
-                copyAlltoClipboard();
-
-                object misValue = System.Reflection.Missing.Value;
-                Excel.Application xlexcel = new Excel.Application();
-
-                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
-                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
-                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-                // Format column D as text before pasting results, this was required for my data
-                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
-                rng.NumberFormat = "@";
-
-                // Paste clipboard results to worksheet range
-                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
-                CR.Select();
-                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
-
-                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
-                // Delete blank column A and select cell A1
-                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
-                delRng.Delete(Type.Missing);
-                xlWorkSheet.get_Range("A1").Select();
-
-                // Save the excel file under the captured location from the SaveFileDialog
-                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                xlexcel.DisplayAlerts = true;
-                xlWorkBook.Close(true, misValue, misValue);
-                xlexcel.Quit();
-
-                releaseObject(xlWorkSheet);
-                releaseObject(xlWorkBook);
-                releaseObject(xlexcel);
-
-                // Clear Clipboard and DataGridView selection
-                Clipboard.Clear();
-                dataGridViewVehicle.ClearSelection();
-
-                // Open the newly saved excel file
-                if (File.Exists(sfd.FileName))
-                    System.Diagnostics.Process.Start(sfd.FileName);
-            }
-
-        }
-
-        private void copyAlltoClipboard()
-        {
-            dataGridViewVehicle.SelectAll();
-            DataObject dataObj = dataGridViewVehicle.GetClipboardContent();
-            if (dataObj != null)
-                Clipboard.SetDataObject(dataObj);
-        }
-
-        private void releaseObject(object obj)
-        {
-            try
-            {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-                obj = null;
-            }
-            catch (Exception ex)
-            {
-                obj = null;
-                MessageBox.Show("Exception Occurred while releasing object " + ex.ToString());
-            }
-            finally
-            {
-                GC.Collect();
-            }
-        }
-
-        private void buttonPrintVehicle_Click(object sender, EventArgs e)
-        {
-            PrintDialog printDlg = new PrintDialog();
-            PrintDocument printDoc = new PrintDocument();
-            printDoc.DocumentName = "Print Document";
-            printDlg.Document = printDoc;
-            printDlg.AllowSelection = true;
-            printDlg.AllowSomePages = true;
-
-            if (printDlg.ShowDialog() == DialogResult.OK)
-                printDoc.Print();
-
-        }
-
-        private void dataGridViewVehicle_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            e.Cancel = true;
-        }
-        #endregion
-
-        private void dashboardForm_Load(object sender, EventArgs e)
-        {
-            #region VEHICLES
-            vehicleControls();
-            DataTable table = vehicle.getVehicle(new SqlCommand("SELECT * FROM PhiGuiXeVaSlot"));
-
-            // fill textbox
-            textBoxTotalSlot_Bike.Text = table.Rows[0]["Slot"].ToString();
-            textBoxTotalSlot_Car.Text = table.Rows[1]["Slot"].ToString();
-            textBoxTotalSlot_Moto.Text = table.Rows[2]["Slot"].ToString();
-            textBoxPrice_Bike.Text = table.Rows[0]["Phi"].ToString();
-            textBoxPrice_Car.Text = table.Rows[1]["Phi"].ToString();
-            textBoxPrice_Moto.Text = table.Rows[2]["Phi"].ToString();
-            labelDangGui.Text = "Existing: " + vehicle.totalVehicle_in();
-            labelDaRa.Text = "Leave: " + vehicle.totalVehicle_out();
-            labelStatus.Text = "Total Vehicle: " + vehicle.totalVehicle();
-
-            #endregion
-
-            // WORKER
-            //fillDatagridWorker();
-            //comboBoxWork_Worker.DataSource = getWork();
-            //comboBoxWork_Worker.DisplayMember = "TenCV";
-            //comboBoxWork_Worker.ValueMember = "MaCV";
-        }
 
         #region Work----------------------------------------------
+
         Work work = new Work();
         private void buttonAdd_Work_Click(object sender, EventArgs e)
         {
@@ -735,7 +748,8 @@ namespace QuanLyNhaXe01
                 int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
                 string workName = textBoxWorkName_work.Text;
                 string contain = textBoxWorkDetail_work.Text;
-                if (work.insertWork(workID, workerID, workName, contain))
+                int groupID = Convert.ToInt32(comboBoxGroupName_work.SelectedValue.ToString());
+                if (work.insertWork(workID, workerID, workName, contain, groupID))
                 {
                     MessageBox.Show("Add Successful!", "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }    
@@ -758,7 +772,8 @@ namespace QuanLyNhaXe01
                 int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
                 string workName = textBoxWorkName_work.Text;
                 string contain = textBoxWorkDetail_work.Text;
-                if (work.insertWork(workID, workerID, workName, contain))
+                int groupID = Convert.ToInt32(comboBoxGroupName_work.SelectedValue.ToString());
+                if (work.insertWork(workID, workerID, workName, contain, groupID))
                 {
                     MessageBox.Show("Update Successful!", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -800,17 +815,73 @@ namespace QuanLyNhaXe01
 
         private void buttonAddGroup_work_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                int groupID = Convert.ToInt32(textBoxAddGroupID_work.Text);
+                string groupName = textBoxAddGroup_work.Text;
+                Group group = new Group();
+                if (group.insertGroup(groupID, groupName))
+                {
+                    MessageBox.Show("Add Successful!", "Add Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dashboardForm_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Add Fail.", "Add Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Add Group", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buttonEditGroup_work_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                int groupID = Convert.ToInt32(comboBoxEditGroup_work.SelectedValue.ToString());
+                string groupName = textBoxNewGroup_work.Text;
+                Group group = new Group();
+                if (group.updateGroup(groupID, groupName))
+                {
+                    MessageBox.Show("Update Successful!", "Edit Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dashboardForm_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Update Fail.", "Edit Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Edit Group", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buttonRemoveGroup_work_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                int groupID = Convert.ToInt32(comboBoxRemoveGroup_work.SelectedValue.ToString());
+                Group group = new Group();
+                if (MessageBox.Show("Do you want to remove this group?", "Delete Group", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (group.deleteGroup(groupID))
+                    {
+                        MessageBox.Show("This group deleted", "Delete Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dashboardForm_Load(sender, e);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Delete Fail.", "Delete Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete Work", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void textBoxSearch_work_TextChanged(object sender, EventArgs e)
@@ -820,17 +891,86 @@ namespace QuanLyNhaXe01
 
         private void buttonPrint_work_Click(object sender, EventArgs e)
         {
+            PrintDialog printDlg = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.DocumentName = "Print Document";
+            printDlg.Document = printDoc;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
+
+            if (printDlg.ShowDialog() == DialogResult.OK)
+                printDoc.Print();
 
         }
 
         private void buttonExport_work_Click(object sender, EventArgs e)
         {
+            // Tham khảo link: https://stackoverflow.com/questions/18182029/how-to-export-datagridview-data-instantly-to-excel-on-button-click
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "Work.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Copy DataGridView results to clipboard
+                copyAlltoClipboard();
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Format column D as text before pasting results, this was required for my data
+                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
+                rng.NumberFormat = "@";
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
+                // Delete blank column A and select cell A1
+                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
+                delRng.Delete(Type.Missing);
+                xlWorkSheet.get_Range("A1").Select();
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlexcel);
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+                dataGridViewWork.ClearSelection();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
 
         }
 
         private void buttonStatistics_work_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewWork_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
+            string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+                "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
+                " inner join Nhom on Tho.MaNhom = Nhom.MaNhom " +
+                "where MaNhom = " + groupID;
+            dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
         }
         #endregion
     }

@@ -82,6 +82,7 @@
     <Compile Include="Account\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Group.cs" />
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,7 +154,7 @@
     <Compile Include="Vehicle\vehiclesListForm.Designer.cs">
       <DependentUpon>vehiclesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Work.cs" />
+    <Compile Include="Work\Work.cs" />
     <Compile Include="Worker\Worker.cs" />
     <EmbeddedResource Include="Account\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
@@ -232,9 +233,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Work\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\1815_img1.jpg" />
     <Content Include="images\bicycle.png" />

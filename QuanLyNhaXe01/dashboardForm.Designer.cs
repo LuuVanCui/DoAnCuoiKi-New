@@ -90,6 +90,8 @@
             this.buttonRemoveWorker = new System.Windows.Forms.Button();
             this.buttonEditWorker = new System.Windows.Forms.Button();
             this.buttonAddWorker = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.comboBoxWork_Worker = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePickerDateStart_Worker = new System.Windows.Forms.DateTimePicker();
@@ -108,6 +110,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPageWork = new System.Windows.Forms.TabPage();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.dataGridViewWork = new System.Windows.Forms.DataGridView();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.listBoxGroup_work = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.textBoxAddGroup_work = new System.Windows.Forms.TextBox();
@@ -116,16 +123,21 @@
             this.textBoxAddGroupID_work = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.textBoxNewGroup_work = new System.Windows.Forms.TextBox();
+            this.comboBoxEditGroup_work = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.buttonEditGroup_work = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.comboBoxGroup_work = new System.Windows.Forms.ComboBox();
+            this.comboBoxRemoveGroup_work = new System.Windows.Forms.ComboBox();
             this.buttonRemoveGroup_work = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxGroupName_work = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.textBoxWorkerID_work = new System.Windows.Forms.TextBox();
             this.textBoxWorkName_work = new System.Windows.Forms.TextBox();
@@ -140,12 +152,8 @@
             this.buttonExport_work = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.buttonPrint_work = new System.Windows.Forms.Button();
-            this.listBoxGroup_work = new System.Windows.Forms.ListBox();
             this.textBoxSearch_work = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.dataGridViewWork = new System.Windows.Forms.DataGridView();
             this.tabPageContract = new System.Windows.Forms.TabPage();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -172,13 +180,6 @@
             this.buttonPrintRevenue = new System.Windows.Forms.Button();
             this.buttonExportRevenue = new System.Windows.Forms.Button();
             this.buttonRevenueStatistics = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -196,13 +197,14 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPageWork.SuspendLayout();
+            this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWork)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel15.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWork)).BeginInit();
             this.tabPageContract.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContract)).BeginInit();
             this.tabPageRevenue.SuspendLayout();
@@ -348,7 +350,7 @@
             // 
             this.dataGridViewVehicle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewVehicle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVehicle.Location = new System.Drawing.Point(4, 3);
+            this.dataGridViewVehicle.Location = new System.Drawing.Point(-17, 6);
             this.dataGridViewVehicle.Name = "dataGridViewVehicle";
             this.dataGridViewVehicle.RowHeadersWidth = 62;
             this.dataGridViewVehicle.RowTemplate.Height = 28;
@@ -911,6 +913,24 @@
             this.buttonAddWorker.UseVisualStyleBackColor = true;
             this.buttonAddWorker.Click += new System.EventHandler(this.buttonAddWorker_Click);
             // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(632, 245);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(243, 41);
+            this.comboBox3.TabIndex = 19;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(521, 245);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(87, 33);
+            this.label36.TabIndex = 16;
+            this.label36.Text = "Group:";
+            // 
             // comboBoxWork_Worker
             // 
             this.comboBoxWork_Worker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1063,6 +1083,7 @@
             // 
             // tabPageWork
             // 
+            this.tabPageWork.Controls.Add(this.panel17);
             this.tabPageWork.Controls.Add(this.groupBox2);
             this.tabPageWork.Controls.Add(this.groupBox1);
             this.tabPageWork.Controls.Add(this.panel12);
@@ -1070,12 +1091,8 @@
             this.tabPageWork.Controls.Add(this.buttonExport_work);
             this.tabPageWork.Controls.Add(this.panel11);
             this.tabPageWork.Controls.Add(this.buttonPrint_work);
-            this.tabPageWork.Controls.Add(this.listBoxGroup_work);
             this.tabPageWork.Controls.Add(this.textBoxSearch_work);
             this.tabPageWork.Controls.Add(this.label20);
-            this.tabPageWork.Controls.Add(this.label32);
-            this.tabPageWork.Controls.Add(this.label31);
-            this.tabPageWork.Controls.Add(this.dataGridViewWork);
             this.tabPageWork.Location = new System.Drawing.Point(4, 42);
             this.tabPageWork.Name = "tabPageWork";
             this.tabPageWork.Padding = new System.Windows.Forms.Padding(3);
@@ -1083,6 +1100,60 @@
             this.tabPageWork.TabIndex = 4;
             this.tabPageWork.Text = "Work";
             this.tabPageWork.UseVisualStyleBackColor = true;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.dataGridViewWork);
+            this.panel17.Controls.Add(this.label31);
+            this.panel17.Controls.Add(this.label32);
+            this.panel17.Controls.Add(this.listBoxGroup_work);
+            this.panel17.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel17.Location = new System.Drawing.Point(9, 436);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(1156, 285);
+            this.panel17.TabIndex = 17;
+            // 
+            // dataGridViewWork
+            // 
+            this.dataGridViewWork.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewWork.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWork.Location = new System.Drawing.Point(220, 47);
+            this.dataGridViewWork.Name = "dataGridViewWork";
+            this.dataGridViewWork.RowHeadersWidth = 62;
+            this.dataGridViewWork.RowTemplate.Height = 28;
+            this.dataGridViewWork.Size = new System.Drawing.Size(921, 235);
+            this.dataGridViewWork.TabIndex = 0;
+            this.dataGridViewWork.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewWork_CellMouseClick);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Comic Sans MS", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(14, 5);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(207, 39);
+            this.label31.TabIndex = 1;
+            this.label31.Text = "Worker Group";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Comic Sans MS", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(594, 5);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(163, 39);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "Show Data";
+            // 
+            // listBoxGroup_work
+            // 
+            this.listBoxGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxGroup_work.FormattingEnabled = true;
+            this.listBoxGroup_work.ItemHeight = 28;
+            this.listBoxGroup_work.Location = new System.Drawing.Point(21, 47);
+            this.listBoxGroup_work.Name = "listBoxGroup_work";
+            this.listBoxGroup_work.Size = new System.Drawing.Size(193, 228);
+            this.listBoxGroup_work.TabIndex = 3;
             // 
             // groupBox2
             // 
@@ -1157,8 +1228,8 @@
             // panel13
             // 
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.textBox1);
-            this.panel13.Controls.Add(this.comboBox2);
+            this.panel13.Controls.Add(this.textBoxNewGroup_work);
+            this.panel13.Controls.Add(this.comboBoxEditGroup_work);
             this.panel13.Controls.Add(this.label15);
             this.panel13.Controls.Add(this.buttonEditGroup_work);
             this.panel13.Controls.Add(this.label41);
@@ -1166,6 +1237,33 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(478, 88);
             this.panel13.TabIndex = 12;
+            // 
+            // textBoxNewGroup_work
+            // 
+            this.textBoxNewGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNewGroup_work.Location = new System.Drawing.Point(148, 45);
+            this.textBoxNewGroup_work.Name = "textBoxNewGroup_work";
+            this.textBoxNewGroup_work.Size = new System.Drawing.Size(198, 35);
+            this.textBoxNewGroup_work.TabIndex = 10;
+            // 
+            // comboBoxEditGroup_work
+            // 
+            this.comboBoxEditGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.comboBoxEditGroup_work.FormattingEnabled = true;
+            this.comboBoxEditGroup_work.Location = new System.Drawing.Point(148, 3);
+            this.comboBoxEditGroup_work.Name = "comboBoxEditGroup_work";
+            this.comboBoxEditGroup_work.Size = new System.Drawing.Size(198, 36);
+            this.comboBoxEditGroup_work.TabIndex = 12;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(21, 48);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(121, 28);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "New Group:";
             // 
             // buttonEditGroup_work
             // 
@@ -1191,7 +1289,7 @@
             // panel15
             // 
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel15.Controls.Add(this.comboBoxGroup_work);
+            this.panel15.Controls.Add(this.comboBoxRemoveGroup_work);
             this.panel15.Controls.Add(this.buttonRemoveGroup_work);
             this.panel15.Controls.Add(this.label40);
             this.panel15.Location = new System.Drawing.Point(12, 244);
@@ -1199,14 +1297,14 @@
             this.panel15.Size = new System.Drawing.Size(478, 96);
             this.panel15.TabIndex = 14;
             // 
-            // comboBoxGroup_work
+            // comboBoxRemoveGroup_work
             // 
-            this.comboBoxGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.comboBoxGroup_work.FormattingEnabled = true;
-            this.comboBoxGroup_work.Location = new System.Drawing.Point(105, 14);
-            this.comboBoxGroup_work.Name = "comboBoxGroup_work";
-            this.comboBoxGroup_work.Size = new System.Drawing.Size(334, 36);
-            this.comboBoxGroup_work.TabIndex = 12;
+            this.comboBoxRemoveGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.comboBoxRemoveGroup_work.FormattingEnabled = true;
+            this.comboBoxRemoveGroup_work.Location = new System.Drawing.Point(105, 14);
+            this.comboBoxRemoveGroup_work.Name = "comboBoxRemoveGroup_work";
+            this.comboBoxRemoveGroup_work.Size = new System.Drawing.Size(334, 36);
+            this.comboBoxRemoveGroup_work.TabIndex = 12;
             // 
             // buttonRemoveGroup_work
             // 
@@ -1230,7 +1328,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBoxGroupName_work);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label33);
@@ -1247,6 +1345,15 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work";
+            // 
+            // comboBoxGroupName_work
+            // 
+            this.comboBoxGroupName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.comboBoxGroupName_work.FormattingEnabled = true;
+            this.comboBoxGroupName_work.Location = new System.Drawing.Point(167, 301);
+            this.comboBoxGroupName_work.Name = "comboBoxGroupName_work";
+            this.comboBoxGroupName_work.Size = new System.Drawing.Size(294, 36);
+            this.comboBoxGroupName_work.TabIndex = 12;
             // 
             // label17
             // 
@@ -1274,6 +1381,15 @@
             this.label33.Size = new System.Drawing.Size(154, 33);
             this.label33.TabIndex = 1;
             this.label33.Text = "Work Name:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(-3, 300);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(156, 33);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Group Name:";
             // 
             // label19
             // 
@@ -1367,7 +1483,7 @@
             // 
             // buttonStatistics_work
             // 
-            this.buttonStatistics_work.Location = new System.Drawing.Point(718, 721);
+            this.buttonStatistics_work.Location = new System.Drawing.Point(720, 727);
             this.buttonStatistics_work.Name = "buttonStatistics_work";
             this.buttonStatistics_work.Size = new System.Drawing.Size(159, 54);
             this.buttonStatistics_work.TabIndex = 5;
@@ -1377,7 +1493,7 @@
             // 
             // buttonExport_work
             // 
-            this.buttonExport_work.Location = new System.Drawing.Point(503, 721);
+            this.buttonExport_work.Location = new System.Drawing.Point(505, 727);
             this.buttonExport_work.Name = "buttonExport_work";
             this.buttonExport_work.Size = new System.Drawing.Size(141, 54);
             this.buttonExport_work.TabIndex = 5;
@@ -1395,22 +1511,13 @@
             // 
             // buttonPrint_work
             // 
-            this.buttonPrint_work.Location = new System.Drawing.Point(281, 721);
+            this.buttonPrint_work.Location = new System.Drawing.Point(283, 727);
             this.buttonPrint_work.Name = "buttonPrint_work";
             this.buttonPrint_work.Size = new System.Drawing.Size(141, 54);
             this.buttonPrint_work.TabIndex = 5;
             this.buttonPrint_work.Text = "Print";
             this.buttonPrint_work.UseVisualStyleBackColor = true;
             this.buttonPrint_work.Click += new System.EventHandler(this.buttonPrint_work_Click);
-            // 
-            // listBoxGroup_work
-            // 
-            this.listBoxGroup_work.FormattingEnabled = true;
-            this.listBoxGroup_work.ItemHeight = 33;
-            this.listBoxGroup_work.Location = new System.Drawing.Point(23, 475);
-            this.listBoxGroup_work.Name = "listBoxGroup_work";
-            this.listBoxGroup_work.Size = new System.Drawing.Size(193, 235);
-            this.listBoxGroup_work.TabIndex = 3;
             // 
             // textBoxSearch_work
             // 
@@ -1429,36 +1536,6 @@
             this.label20.Size = new System.Drawing.Size(101, 33);
             this.label20.TabIndex = 1;
             this.label20.Text = "Search:";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Comic Sans MS", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(596, 433);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(163, 39);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "Show Data";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Comic Sans MS", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(16, 433);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(207, 39);
-            this.label31.TabIndex = 1;
-            this.label31.Text = "Worker Group";
-            // 
-            // dataGridViewWork
-            // 
-            this.dataGridViewWork.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewWork.Location = new System.Drawing.Point(222, 475);
-            this.dataGridViewWork.Name = "dataGridViewWork";
-            this.dataGridViewWork.RowHeadersWidth = 62;
-            this.dataGridViewWork.RowTemplate.Height = 28;
-            this.dataGridViewWork.Size = new System.Drawing.Size(921, 235);
-            this.dataGridViewWork.TabIndex = 0;
             // 
             // tabPageContract
             // 
@@ -1722,69 +1799,6 @@
             this.buttonRevenueStatistics.Text = "Statistics";
             this.buttonRevenueStatistics.UseVisualStyleBackColor = true;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(-3, 300);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(156, 33);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Group Name:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(167, 301);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(294, 36);
-            this.comboBox1.TabIndex = 12;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(148, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(198, 36);
-            this.comboBox2.TabIndex = 12;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(21, 48);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(121, 28);
-            this.label15.TabIndex = 9;
-            this.label15.Text = "New Group:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(148, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 35);
-            this.textBox1.TabIndex = 10;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(521, 245);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(87, 33);
-            this.label36.TabIndex = 16;
-            this.label36.Text = "Group:";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(632, 245);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(243, 41);
-            this.comboBox3.TabIndex = 19;
-            // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1827,6 +1841,9 @@
             this.panel2.ResumeLayout(false);
             this.tabPageWork.ResumeLayout(false);
             this.tabPageWork.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWork)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
@@ -1837,7 +1854,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWork)).EndInit();
             this.tabPageContract.ResumeLayout(false);
             this.tabPageContract.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContract)).EndInit();
@@ -1983,7 +1999,7 @@
         private System.Windows.Forms.Button buttonEditGroup_work;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.ComboBox comboBoxGroup_work;
+        private System.Windows.Forms.ComboBox comboBoxRemoveGroup_work;
         private System.Windows.Forms.Button buttonRemoveGroup_work;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1993,12 +2009,13 @@
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxGroupName_work;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBoxNewGroup_work;
+        private System.Windows.Forms.ComboBox comboBoxEditGroup_work;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Panel panel17;
     }
 }
