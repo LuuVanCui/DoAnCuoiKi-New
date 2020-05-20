@@ -42,8 +42,8 @@ namespace QuanLyNhaXe01
                     float giaTriHD = float.Parse(textBoxContractValue.Text);
 
                     // kiem tra ma hop dong co bi trung ko
-                    if (contract.check_ID(soHD))
-                    {
+                    /*if (contract.check_ID(soHD))
+                    {*/
                         //kiem tra xem thong tin khach hang da co chua
                         if (customer.Check_Customer(maKH))
                         {
@@ -63,11 +63,11 @@ namespace QuanLyNhaXe01
                         {
                             MessageBox.Show("Customer does not exist, please add new customer", "Invalid Customer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                    }
+                   /* }
                     else
                     {
                         MessageBox.Show("This Contract ID Already Exists, Try Another One", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    }*/
 
                 }
                 else
@@ -95,6 +95,11 @@ namespace QuanLyNhaXe01
             }
             else
                 return true;
+        }
+
+        private void dateTimePickerSign_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

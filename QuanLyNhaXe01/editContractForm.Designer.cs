@@ -224,6 +224,7 @@
             this.dateTimePickerSign.Name = "dateTimePickerSign";
             this.dateTimePickerSign.Size = new System.Drawing.Size(291, 30);
             this.dateTimePickerSign.TabIndex = 3;
+            this.dateTimePickerSign.ValueChanged += new System.EventHandler(this.dateTimePickerSign_ValueChanged);
             // 
             // comboBoxContractType
             // 

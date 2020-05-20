@@ -93,6 +93,12 @@
     <Compile Include="editContractForm.Designer.cs">
       <DependentUpon>editContractForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="editCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editCustomerForm.Designer.cs">
+      <DependentUpon>editCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="editMyProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editContractForm.resx">
       <DependentUpon>editContractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editCustomerForm.resx">
+      <DependentUpon>editCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editMyProfileForm.resx">
       <DependentUpon>editMyProfileForm.cs</DependentUpon>
