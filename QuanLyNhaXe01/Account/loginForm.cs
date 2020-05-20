@@ -24,7 +24,16 @@ namespace QuanLyNhaXe01
             SqlDataAdapter adapter = new SqlDataAdapter();
 
             DataTable table = new DataTable();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Login WHERE username=@User AND password=@Pass AND user_type = 'admin'", db.getConnection);
+            string query = "SELECT * FROM Login WHERE username=@User AND password=@Pass AND user_type = 'admin'";
+            if (radioButtonParking.Checked == true)
+            {
+                query = "SELECT * FROM Login WHERE username=@User AND password=@Pass AND user_type = 'parking'";
+            }
+            else if (radioButtonWorker.Checked)
+            {
+                query = "SELECT * FROM Login WHERE username=@User AND password=@Pass AND user_type = 'worker'";
+            }    
+            SqlCommand cmd = new SqlCommand(query, db.getConnection);
             cmd.Parameters.Add("@User", SqlDbType.VarChar).Value = textBoxUser.Text;
             cmd.Parameters.Add("@Pass", SqlDbType.VarChar).Value = textBoxPassword.Text;
 
@@ -34,9 +43,22 @@ namespace QuanLyNhaXe01
 
             if ((table.Rows.Count > 0))
             {
-                this.DialogResult = DialogResult.OK;
                 Globals.GlobalUserID = Convert.ToInt32(table.Rows[0]["id"].ToString());
-                //MessageBox.Show("Login successful");
+                this.Close();
+                if (radioButtonHumanResourse.Checked)
+                {
+                    dashboardForm dashboard = new dashboardForm();
+                    dashboard.ShowDialog(this);
+                }    
+                else if (radioButtonParking.Checked)
+                {
+                    manageVehiclesForm manageVehicles = new manageVehiclesForm();
+                    manageVehicles.ShowDialog(this);
+                }
+                else
+                {
+                    MessageBox.Show("Check in Sucessfully!", "Check in", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
@@ -47,6 +69,11 @@ namespace QuanLyNhaXe01
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void loginForm_Load(object sender, EventArgs e)
+        {
+            radioButtonHumanResourse.Checked = true;
         }
     }
 }

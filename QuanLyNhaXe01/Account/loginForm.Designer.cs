@@ -31,6 +31,9 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.radioButtonParking = new System.Windows.Forms.RadioButton();
+            this.radioButtonHumanResourse = new System.Windows.Forms.RadioButton();
+            this.radioButtonWorker = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,12 +123,51 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // radioButtonParking
+            // 
+            this.radioButtonParking.AutoSize = true;
+            this.radioButtonParking.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButtonParking.Location = new System.Drawing.Point(232, 487);
+            this.radioButtonParking.Name = "radioButtonParking";
+            this.radioButtonParking.Size = new System.Drawing.Size(87, 24);
+            this.radioButtonParking.TabIndex = 8;
+            this.radioButtonParking.TabStop = true;
+            this.radioButtonParking.Text = "Parking";
+            this.radioButtonParking.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonHumanResourse
+            // 
+            this.radioButtonHumanResourse.AutoSize = true;
+            this.radioButtonHumanResourse.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButtonHumanResourse.Location = new System.Drawing.Point(55, 487);
+            this.radioButtonHumanResourse.Name = "radioButtonHumanResourse";
+            this.radioButtonHumanResourse.Size = new System.Drawing.Size(159, 24);
+            this.radioButtonHumanResourse.TabIndex = 8;
+            this.radioButtonHumanResourse.TabStop = true;
+            this.radioButtonHumanResourse.Text = "Human Resourse";
+            this.radioButtonHumanResourse.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonWorker
+            // 
+            this.radioButtonWorker.AutoSize = true;
+            this.radioButtonWorker.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButtonWorker.Location = new System.Drawing.Point(350, 487);
+            this.radioButtonWorker.Name = "radioButtonWorker";
+            this.radioButtonWorker.Size = new System.Drawing.Size(85, 24);
+            this.radioButtonWorker.TabIndex = 8;
+            this.radioButtonWorker.TabStop = true;
+            this.radioButtonWorker.Text = "Worker";
+            this.radioButtonWorker.UseVisualStyleBackColor = true;
+            // 
             // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ClientSize = new System.Drawing.Size(556, 483);
+            this.ClientSize = new System.Drawing.Size(556, 537);
+            this.Controls.Add(this.radioButtonHumanResourse);
+            this.Controls.Add(this.radioButtonWorker);
+            this.Controls.Add(this.radioButtonParking);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.label2);
@@ -140,6 +182,7 @@
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.loginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,5 +197,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton radioButtonParking;
+        private System.Windows.Forms.RadioButton radioButtonHumanResourse;
+        private System.Windows.Forms.RadioButton radioButtonWorker;
     }
 }

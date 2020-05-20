@@ -24,15 +24,7 @@ namespace QuanLyNhaXe01
             Application.SetCompatibleTextRenderingDefault(false);
             
             loginForm fLogin = new loginForm();
-
-            if (fLogin.ShowDialog() == DialogResult.OK)
-            {
-                Application.Run(new dashboardForm());
-            }
-            else
-            {
-                Application.Exit();
-            }
+            fLogin.ShowDialog();
         }
     }
 }
