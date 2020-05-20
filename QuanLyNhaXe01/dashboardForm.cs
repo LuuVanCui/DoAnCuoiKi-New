@@ -1205,19 +1205,25 @@ namespace QuanLyNhaXe01
 
             try
             {
-
-                if (dataGridViewContract.CurrentRow.Cells.Count == 8)
+                if (dataGridViewContract.Rows.Count > 1)
                 {
-                    edit.textBoxContractID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
-                    edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
-                    edit.textBoxDescibe.Text = dataGridViewContract.CurrentRow.Cells[5].Value.ToString();
-                    edit.textBoxContractValue.Text = dataGridViewContract.CurrentRow.Cells[6].Value.ToString();
-                    edit.comboBoxContractType.Text = dataGridViewContract.CurrentRow.Cells[1].Value.ToString();
-                    edit.dateTimePickerSign.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[2].Value.ToString());
-                    edit.dateTimePicker_LeaseTerm.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[7].Value.ToString());
-                    edit.textBoxVehicleID.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
-                    edit.Show(this);
+                    if (dataGridViewContract.CurrentRow.Cells.Count == 8)
+                    {
+                        edit.textBoxContractID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
+                        edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
+                        edit.textBoxDescibe.Text = dataGridViewContract.CurrentRow.Cells[5].Value.ToString();
+                        edit.textBoxContractValue.Text = dataGridViewContract.CurrentRow.Cells[6].Value.ToString();
+                        edit.comboBoxContractType.Text = dataGridViewContract.CurrentRow.Cells[1].Value.ToString();
+                        edit.dateTimePickerSign.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[2].Value.ToString());
+                        edit.dateTimePicker_LeaseTerm.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[7].Value.ToString());
+                        edit.textBoxVehicleID.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
+                        edit.Show(this);
+                    }
                 }
+                else
+                {
+
+                }    
             }
             catch
             {
@@ -1274,17 +1280,23 @@ namespace QuanLyNhaXe01
 
             try
             {
-
-                if (dataGridViewContract.CurrentRow.Cells.Count == 5)
+                if (dataGridViewContract.Rows.Count > 1)
                 {
-                    edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
-                    edit.textBoxCustomerName.Text = dataGridViewContract.CurrentRow.Cells[1].Value.ToString();
-                    edit.textBoxIdentityCard.Text = dataGridViewContract.CurrentRow.Cells[2].Value.ToString();
-                    edit.textBoxAddress.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
-                    edit.textBoxPhone.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
-                    //edit.textBoxPhone.Text=dat
-                    edit.Show(this);
+                    if (dataGridViewContract.CurrentRow.Cells.Count == 5)
+                    {
+                        edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
+                        edit.textBoxCustomerName.Text = dataGridViewContract.CurrentRow.Cells[1].Value.ToString();
+                        edit.textBoxIdentityCard.Text = dataGridViewContract.CurrentRow.Cells[2].Value.ToString();
+                        edit.textBoxAddress.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
+                        edit.textBoxPhone.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
+                        //edit.textBoxPhone.Text=dat
+                        edit.Show(this);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("You have to select data in Data Grid View", "Edit Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }    
             }
             catch
             {
@@ -1294,52 +1306,66 @@ namespace QuanLyNhaXe01
 
         private void buttonDeleteCustomer_Click(object sender, EventArgs e)
         {
-            if (dataGridViewContract.CurrentRow.Cells.Count == 5)
+            if (dataGridViewContract.Rows.Count > 1)
             {
-                try
+                if (dataGridViewContract.CurrentRow.Cells.Count == 5)
                 {
-                    string id = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
-                    Customer customer = new Customer();
-                    if (customer.deleteCustomer(id))
+                    try
                     {
-                        MessageBox.Show("Delete successfuly", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        fillDatagridContract();
+                        string id = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
+                        Customer customer = new Customer();
+                        if (customer.deleteCustomer(id))
+                        {
+                            MessageBox.Show("Delete successfuly", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            fillDatagridContract();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not deleted", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
+                    catch
                     {
-                        MessageBox.Show("Not deleted", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch
-                {
 
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("You have to select data in Data Grid View", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }    
         }
 
         private void buttonDeleteContract_Click(object sender, EventArgs e)
         {
-            if (dataGridViewContract.CurrentRow.Cells.Count == 8)
+            if (dataGridViewContract.Rows.Count > 1)
             {
-                try
+                if (dataGridViewContract.CurrentRow.Cells.Count == 8)
                 {
-                    int id = Convert.ToInt32(dataGridViewContract.CurrentRow.Cells[0].Value.ToString());
-                    Contract contract = new Contract();
-                    if (contract.delete_HopDong(id))
+                    try
                     {
-                        MessageBox.Show("Delete successfuly", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        fillDatagridContract();
+                        int id = Convert.ToInt32(dataGridViewContract.CurrentRow.Cells[0].Value.ToString());
+                        Contract contract = new Contract();
+                        if (contract.delete_HopDong(id))
+                        {
+                            MessageBox.Show("Delete successfuly", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            fillDatagridContract();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not deleted", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
+                    catch
                     {
-                        MessageBox.Show("Not deleted", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("You have to select data in Data Grid View", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                }
-                catch
-                {
-
                 }
             }
+            else
+            {
+                MessageBox.Show("You have to select data in Data Grid View", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }    
         }
 
         private void buttonAddCustomer_Click(object sender, EventArgs e)
