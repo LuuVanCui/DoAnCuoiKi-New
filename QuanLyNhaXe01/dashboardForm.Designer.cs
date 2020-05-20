@@ -155,11 +155,7 @@
             this.textBoxSearch_work = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.tabPageContract = new System.Windows.Forms.TabPage();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBoxSearchContract = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelTotalContract = new System.Windows.Forms.Label();
             this.dataGridViewContract = new System.Windows.Forms.DataGridView();
@@ -177,13 +173,14 @@
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.labelTotalRevenue = new System.Windows.Forms.Label();
-            this.textBoxSearchRevenue = new System.Windows.Forms.TextBox();
             this.dataGridViewRevenue = new System.Windows.Forms.DataGridView();
             this.buttonPrintRevenue = new System.Windows.Forms.Button();
             this.buttonExportRevenue = new System.Windows.Forms.Button();
             this.buttonRevenueStatistics = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -1127,7 +1124,7 @@
             this.dataGridViewWork.Name = "dataGridViewWork";
             this.dataGridViewWork.RowHeadersWidth = 62;
             this.dataGridViewWork.RowTemplate.Height = 28;
-            this.dataGridViewWork.Size = new System.Drawing.Size(921, 235);
+            this.dataGridViewWork.Size = new System.Drawing.Size(921, 228);
             this.dataGridViewWork.TabIndex = 0;
             // 
             // label31
@@ -1545,14 +1542,14 @@
             // 
             // tabPageContract
             // 
-            this.tabPageContract.Controls.Add(this.checkBox3);
-            this.tabPageContract.Controls.Add(this.checkBox2);
-            this.tabPageContract.Controls.Add(this.checkBox1);
             this.tabPageContract.Controls.Add(this.textBoxSearchContract);
-            this.tabPageContract.Controls.Add(this.label35);
             this.tabPageContract.Controls.Add(this.label6);
             this.tabPageContract.Controls.Add(this.labelTotalContract);
             this.tabPageContract.Controls.Add(this.dataGridViewContract);
+            this.tabPageContract.Controls.Add(this.button5);
+            this.tabPageContract.Controls.Add(this.button3);
+            this.tabPageContract.Controls.Add(this.button2);
+            this.tabPageContract.Controls.Add(this.button1);
             this.tabPageContract.Controls.Add(this.button4);
             this.tabPageContract.Controls.Add(this.buttonExportContract);
             this.tabPageContract.Controls.Add(this.buttonPrintContract);
@@ -1568,56 +1565,17 @@
             this.tabPageContract.Text = "Contract";
             this.tabPageContract.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(891, 125);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(153, 37);
-            this.checkBox3.TabIndex = 6;
-            this.checkBox3.Text = "Take Care";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(625, 121);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(106, 37);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "check";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(267, 125);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(322, 37);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Vehicle Rental Companies";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // textBoxSearchContract
             // 
-            this.textBoxSearchContract.Location = new System.Drawing.Point(179, 52);
+            this.textBoxSearchContract.Location = new System.Drawing.Point(183, 25);
             this.textBoxSearchContract.Name = "textBoxSearchContract";
-            this.textBoxSearchContract.Size = new System.Drawing.Size(529, 41);
+            this.textBoxSearchContract.Size = new System.Drawing.Size(473, 41);
             this.textBoxSearchContract.TabIndex = 5;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(41, 125);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(211, 33);
-            this.label35.TabIndex = 4;
-            this.label35.Text = "Type of Contract:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 55);
+            this.label6.Location = new System.Drawing.Point(45, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 33);
             this.label6.TabIndex = 4;
@@ -1626,7 +1584,7 @@
             // labelTotalContract
             // 
             this.labelTotalContract.AutoSize = true;
-            this.labelTotalContract.Location = new System.Drawing.Point(995, 630);
+            this.labelTotalContract.Location = new System.Drawing.Point(873, 633);
             this.labelTotalContract.Name = "labelTotalContract";
             this.labelTotalContract.Size = new System.Drawing.Size(73, 33);
             this.labelTotalContract.TabIndex = 4;
@@ -1635,25 +1593,25 @@
             // dataGridViewContract
             // 
             this.dataGridViewContract.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewContract.Location = new System.Drawing.Point(15, 185);
+            this.dataGridViewContract.Location = new System.Drawing.Point(15, 166);
             this.dataGridViewContract.Name = "dataGridViewContract";
             this.dataGridViewContract.RowHeadersWidth = 62;
             this.dataGridViewContract.RowTemplate.Height = 28;
-            this.dataGridViewContract.Size = new System.Drawing.Size(1117, 428);
+            this.dataGridViewContract.Size = new System.Drawing.Size(983, 464);
             this.dataGridViewContract.TabIndex = 3;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(953, 60);
+            this.button4.Location = new System.Drawing.Point(15, 90);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(142, 54);
+            this.button4.Size = new System.Drawing.Size(189, 54);
             this.button4.TabIndex = 2;
-            this.button4.Text = "ShowXeCongTy";
+            this.button4.Text = "Show Contract";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // buttonExportContract
             // 
-            this.buttonExportContract.Location = new System.Drawing.Point(879, 0);
+            this.buttonExportContract.Location = new System.Drawing.Point(926, 19);
             this.buttonExportContract.Name = "buttonExportContract";
             this.buttonExportContract.Size = new System.Drawing.Size(142, 54);
             this.buttonExportContract.TabIndex = 2;
@@ -1662,7 +1620,7 @@
             // 
             // buttonPrintContract
             // 
-            this.buttonPrintContract.Location = new System.Drawing.Point(758, 46);
+            this.buttonPrintContract.Location = new System.Drawing.Point(714, 19);
             this.buttonPrintContract.Name = "buttonPrintContract";
             this.buttonPrintContract.Size = new System.Drawing.Size(148, 51);
             this.buttonPrintContract.TabIndex = 2;
@@ -1695,6 +1653,7 @@
             this.buttonEditContract.TabIndex = 2;
             this.buttonEditContract.Text = "Edit";
             this.buttonEditContract.UseVisualStyleBackColor = true;
+            this.buttonEditContract.Click += new System.EventHandler(this.buttonEditContract_Click);
             // 
             // buttonAddContract
             // 
@@ -1704,6 +1663,7 @@
             this.buttonAddContract.TabIndex = 2;
             this.buttonAddContract.Text = "Add";
             this.buttonAddContract.UseVisualStyleBackColor = true;
+            this.buttonAddContract.Click += new System.EventHandler(this.buttonAddContract_Click);
             // 
             // tabPageRevenue
             // 
@@ -1713,9 +1673,6 @@
             this.tabPageRevenue.Controls.Add(this.label43);
             this.tabPageRevenue.Controls.Add(this.label42);
             this.tabPageRevenue.Controls.Add(this.label37);
-            this.tabPageRevenue.Controls.Add(this.label38);
-            this.tabPageRevenue.Controls.Add(this.labelTotalRevenue);
-            this.tabPageRevenue.Controls.Add(this.textBoxSearchRevenue);
             this.tabPageRevenue.Controls.Add(this.dataGridViewRevenue);
             this.tabPageRevenue.Controls.Add(this.buttonPrintRevenue);
             this.tabPageRevenue.Controls.Add(this.buttonExportRevenue);
@@ -1730,21 +1687,21 @@
             // 
             // dateTimePickerTo
             // 
-            this.dateTimePickerTo.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerTo.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerTo.Location = new System.Drawing.Point(428, 68);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(963, 17);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(148, 35);
+            this.dateTimePickerTo.Size = new System.Drawing.Size(148, 30);
             this.dateTimePickerTo.TabIndex = 5;
             this.dateTimePickerTo.ValueChanged += new System.EventHandler(this.dateTimePickerTo_ValueChanged);
             // 
             // dateTimePickerFrom
             // 
-            this.dateTimePickerFrom.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFrom.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(224, 68);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(759, 17);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(148, 35);
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(148, 30);
             this.dateTimePickerFrom.TabIndex = 5;
             this.dateTimePickerFrom.ValueChanged += new System.EventHandler(this.dateTimePickerFrom_ValueChanged);
             // 
@@ -1763,7 +1720,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(378, 70);
+            this.label43.Location = new System.Drawing.Point(913, 19);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(44, 33);
             this.label43.TabIndex = 3;
@@ -1772,7 +1729,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(65, 68);
+            this.label42.Location = new System.Drawing.Point(600, 17);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(152, 33);
             this.label42.TabIndex = 3;
@@ -1787,45 +1744,19 @@
             this.label37.TabIndex = 3;
             this.label37.Text = "Type of Revenue:";
             // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(611, 45);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(101, 33);
-            this.label38.TabIndex = 3;
-            this.label38.Text = "Search:";
-            // 
-            // labelTotalRevenue
-            // 
-            this.labelTotalRevenue.AutoSize = true;
-            this.labelTotalRevenue.Location = new System.Drawing.Point(923, 633);
-            this.labelTotalRevenue.Name = "labelTotalRevenue";
-            this.labelTotalRevenue.Size = new System.Drawing.Size(73, 33);
-            this.labelTotalRevenue.TabIndex = 3;
-            this.labelTotalRevenue.Text = "Total";
-            // 
-            // textBoxSearchRevenue
-            // 
-            this.textBoxSearchRevenue.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchRevenue.Location = new System.Drawing.Point(732, 43);
-            this.textBoxSearchRevenue.Name = "textBoxSearchRevenue";
-            this.textBoxSearchRevenue.Size = new System.Drawing.Size(396, 35);
-            this.textBoxSearchRevenue.TabIndex = 2;
-            // 
             // dataGridViewRevenue
             // 
             this.dataGridViewRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRevenue.Location = new System.Drawing.Point(36, 119);
+            this.dataGridViewRevenue.Location = new System.Drawing.Point(36, 80);
             this.dataGridViewRevenue.Name = "dataGridViewRevenue";
             this.dataGridViewRevenue.RowHeadersWidth = 62;
             this.dataGridViewRevenue.RowTemplate.Height = 28;
-            this.dataGridViewRevenue.Size = new System.Drawing.Size(1092, 496);
+            this.dataGridViewRevenue.Size = new System.Drawing.Size(1092, 579);
             this.dataGridViewRevenue.TabIndex = 1;
             // 
             // buttonPrintRevenue
             // 
-            this.buttonPrintRevenue.Location = new System.Drawing.Point(158, 694);
+            this.buttonPrintRevenue.Location = new System.Drawing.Point(158, 686);
             this.buttonPrintRevenue.Name = "buttonPrintRevenue";
             this.buttonPrintRevenue.Size = new System.Drawing.Size(251, 70);
             this.buttonPrintRevenue.TabIndex = 0;
@@ -1835,7 +1766,7 @@
             // 
             // buttonExportRevenue
             // 
-            this.buttonExportRevenue.Location = new System.Drawing.Point(471, 694);
+            this.buttonExportRevenue.Location = new System.Drawing.Point(471, 686);
             this.buttonExportRevenue.Name = "buttonExportRevenue";
             this.buttonExportRevenue.Size = new System.Drawing.Size(251, 70);
             this.buttonExportRevenue.TabIndex = 0;
@@ -1845,13 +1776,49 @@
             // 
             // buttonRevenueStatistics
             // 
-            this.buttonRevenueStatistics.Location = new System.Drawing.Point(794, 694);
+            this.buttonRevenueStatistics.Location = new System.Drawing.Point(794, 686);
             this.buttonRevenueStatistics.Name = "buttonRevenueStatistics";
             this.buttonRevenueStatistics.Size = new System.Drawing.Size(251, 70);
             this.buttonRevenueStatistics.TabIndex = 0;
             this.buttonRevenueStatistics.Text = "Statistics";
             this.buttonRevenueStatistics.UseVisualStyleBackColor = true;
             this.buttonRevenueStatistics.Click += new System.EventHandler(this.buttonRevenueStatistics_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(576, 90);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(240, 54);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Show Customer";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1020, 212);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 83);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Add Customer";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1020, 331);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(134, 83);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Edit Customer";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1020, 449);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(134, 83);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Delete Customer";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // dashboardForm
             // 
@@ -2030,15 +1997,8 @@
         private System.Windows.Forms.Button buttonStatistics_work;
         private System.Windows.Forms.Button buttonExport_work;
         private System.Windows.Forms.Button buttonPrint_work;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.ComboBox comboBoxTypeRevenue;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label labelTotalRevenue;
-        private System.Windows.Forms.TextBox textBoxSearchRevenue;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button buttonPrintRevenue;
         private System.Windows.Forms.Button buttonExportRevenue;
         private System.Windows.Forms.RadioButton radioButtonAllVehicle;
@@ -2075,5 +2035,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

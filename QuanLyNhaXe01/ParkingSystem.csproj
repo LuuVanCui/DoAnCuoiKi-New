@@ -61,7 +61,15 @@
     <Compile Include="addContractForm.Designer.cs">
       <DependentUpon>addContractForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="addCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addCustomerForm.Designer.cs">
+      <DependentUpon>addCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calculate.cs" />
+    <Compile Include="Contract.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="dashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +86,12 @@
     </Compile>
     <Compile Include="Account\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editContractForm.Designer.cs">
+      <DependentUpon>editContractForm.cs</DependentUpon>
     </Compile>
     <Compile Include="editMyProfileForm.cs">
       <SubType>Form</SubType>
@@ -172,8 +186,14 @@
     <EmbeddedResource Include="addContractForm.resx">
       <DependentUpon>addContractForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="addCustomerForm.resx">
+      <DependentUpon>addCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dashboardForm.resx">
       <DependentUpon>dashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editContractForm.resx">
+      <DependentUpon>editContractForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editMyProfileForm.resx">
       <DependentUpon>editMyProfileForm.cs</DependentUpon>

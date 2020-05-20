@@ -1150,12 +1150,47 @@ namespace QuanLyNhaXe01
         private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
         {
             comboBoxTypeRevenue_SelectedIndexChanged(sender, e);
+            makeUpGridForAll();
         }
 
         private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
         {
             comboBoxTypeRevenue_SelectedIndexChanged(sender, e);
+            makeUpGridForAll();
+        }
+
+        private void textBoxSearchRevenue_TextChanged(object sender, EventArgs e)
+        {
+            string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
+            string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
+            string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
+                "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
+                "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' AND CONCAT(LoaiXe) LIKE '%" + textBoxSearchVehicle.Text + "%' " +
+                "GROUP BY LoaiXe";
+            System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
+            int tatCaXe = 0;
+            float tongDoanhThu = 0;
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                tatCaXe += int.Parse(table.Rows[i][1].ToString());
+                tongDoanhThu += float.Parse(table.Rows[i][2].ToString());
+            }
+            table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
+            dataGridViewRevenue.DataSource = table;
+            makeUpGridForAll();
         }
         #endregion
+
+        private void buttonAddContract_Click(object sender, EventArgs e)
+        {
+            addContractForm addContract = new addContractForm();
+            addContract.Show(this);
+        }
+
+        private void buttonEditContract_Click(object sender, EventArgs e)
+        {
+            editContractForm edit = new editContractForm();
+            edit.ShowDialog(this);
+        }
     }
 }

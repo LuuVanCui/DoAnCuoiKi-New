@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyNhaXe01
 {
-    public partial class addContractForm: Form
+    public partial class editContractForm : Form
     {
-        public addContractForm()
+        public editContractForm()
         {
             InitializeComponent();
         }
@@ -22,10 +22,10 @@ namespace QuanLyNhaXe01
             this.Close();
         }
 
-        Contract contract = new Contract();
         Customer customer = new Customer();
+        Contract contract = new Contract();
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonEdit_Click(object sender, EventArgs e)
         {
             string loaiHd = comboBoxContractType.Text;
             DateTime ngayKy = dateTimePickerSign.Value;
@@ -49,13 +49,13 @@ namespace QuanLyNhaXe01
                         {
                             //them cai kiem tra xe co ton tai trong ds xe hop dong chua
 
-                            if (contract.insert_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu))
+                            if (contract.update_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu))
                             {
-                                MessageBox.Show("New Contract Added", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Update Successfully", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show("Error", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Error", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
                         }
@@ -72,7 +72,7 @@ namespace QuanLyNhaXe01
                 }
                 else
                 {
-                    MessageBox.Show("Empty Field, please enter the data! ", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Empty Field, please enter the data! ", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch
@@ -95,29 +95,6 @@ namespace QuanLyNhaXe01
             }
             else
                 return true;
-        }
-
-        private void buttonFindCustomer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonAddCustomer_Click(object sender, EventArgs e)
-        {
-            addCustomerForm add = new addCustomerForm();
-            add.ShowDialog();
-        }
-
-        private void buttonAddVehicle_Click(object sender, EventArgs e)
-        {
-            addVehicleForm addvhc = new addVehicleForm();
-            addvhc.Show(this);
-        }
-
-        private void buttonFindVehicle_Click(object sender, EventArgs e)
-        {
-            vehiclesListForm vhcList = new vehiclesListForm();
-            vhcList.Show(this);
         }
     }
 }

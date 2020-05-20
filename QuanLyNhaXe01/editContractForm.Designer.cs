@@ -1,6 +1,6 @@
 ﻿namespace QuanLyNhaXe01
 {
-    partial class addContractForm
+    partial class editContractForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,13 +34,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonAddVehicle = new System.Windows.Forms.Button();
-            this.buttonFindVehicle = new System.Windows.Forms.Button();
-            this.buttonAddCustomer = new System.Windows.Forms.Button();
-            this.buttonFindCustomer = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxVehicleID = new System.Windows.Forms.TextBox();
             this.textBoxCustomerID = new System.Windows.Forms.TextBox();
@@ -54,10 +50,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -120,19 +114,19 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Contract Value:";
             // 
-            // buttonAdd
+            // buttonEdit
             // 
-            this.buttonAdd.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(416, 16);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(204, 55);
-            this.buttonAdd.TabIndex = 10;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonEdit.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buttonEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEdit.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEdit.Location = new System.Drawing.Point(416, 27);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(204, 55);
+            this.buttonEdit.TabIndex = 1;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonCancel
             // 
@@ -140,10 +134,10 @@
             this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(23, 16);
+            this.buttonCancel.Location = new System.Drawing.Point(26, 27);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(204, 55);
-            this.buttonCancel.TabIndex = 9;
+            this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -152,10 +146,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.buttonAddVehicle);
-            this.panel1.Controls.Add(this.buttonFindVehicle);
-            this.panel1.Controls.Add(this.buttonAddCustomer);
-            this.panel1.Controls.Add(this.buttonFindCustomer);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.textBoxVehicleID);
             this.panel1.Controls.Add(this.textBoxCustomerID);
@@ -175,66 +165,10 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(16, 84);
+            this.panel1.Location = new System.Drawing.Point(12, 96);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(721, 560);
             this.panel1.TabIndex = 2;
-            // 
-            // buttonAddVehicle
-            // 
-            this.buttonAddVehicle.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonAddVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAddVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddVehicle.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonAddVehicle.Location = new System.Drawing.Point(516, 146);
-            this.buttonAddVehicle.Name = "buttonAddVehicle";
-            this.buttonAddVehicle.Size = new System.Drawing.Size(157, 38);
-            this.buttonAddVehicle.TabIndex = 11;
-            this.buttonAddVehicle.Text = "Add Vehicle";
-            this.buttonAddVehicle.UseVisualStyleBackColor = false;
-            this.buttonAddVehicle.Click += new System.EventHandler(this.buttonAddVehicle_Click);
-            // 
-            // buttonFindVehicle
-            // 
-            this.buttonFindVehicle.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonFindVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonFindVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFindVehicle.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonFindVehicle.Location = new System.Drawing.Point(414, 146);
-            this.buttonFindVehicle.Name = "buttonFindVehicle";
-            this.buttonFindVehicle.Size = new System.Drawing.Size(77, 38);
-            this.buttonFindVehicle.TabIndex = 10;
-            this.buttonFindVehicle.Text = "Find";
-            this.buttonFindVehicle.UseVisualStyleBackColor = false;
-            this.buttonFindVehicle.Click += new System.EventHandler(this.buttonFindVehicle_Click);
-            // 
-            // buttonAddCustomer
-            // 
-            this.buttonAddCustomer.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddCustomer.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonAddCustomer.Location = new System.Drawing.Point(516, 86);
-            this.buttonAddCustomer.Name = "buttonAddCustomer";
-            this.buttonAddCustomer.Size = new System.Drawing.Size(157, 40);
-            this.buttonAddCustomer.TabIndex = 9;
-            this.buttonAddCustomer.Text = "Add Customer";
-            this.buttonAddCustomer.UseVisualStyleBackColor = false;
-            this.buttonAddCustomer.Click += new System.EventHandler(this.buttonAddCustomer_Click);
-            // 
-            // buttonFindCustomer
-            // 
-            this.buttonFindCustomer.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonFindCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonFindCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFindCustomer.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonFindCustomer.Location = new System.Drawing.Point(414, 86);
-            this.buttonFindCustomer.Name = "buttonFindCustomer";
-            this.buttonFindCustomer.Size = new System.Drawing.Size(77, 40);
-            this.buttonFindCustomer.TabIndex = 8;
-            this.buttonFindCustomer.Text = "Find";
-            this.buttonFindCustomer.UseVisualStyleBackColor = false;
-            this.buttonFindCustomer.Click += new System.EventHandler(this.buttonFindCustomer_Click);
             // 
             // label10
             // 
@@ -253,7 +187,7 @@
             this.textBoxVehicleID.Location = new System.Drawing.Point(200, 146);
             this.textBoxVehicleID.Name = "textBoxVehicleID";
             this.textBoxVehicleID.Size = new System.Drawing.Size(189, 30);
-            this.textBoxVehicleID.TabIndex = 3;
+            this.textBoxVehicleID.TabIndex = 6;
             // 
             // textBoxCustomerID
             // 
@@ -261,7 +195,7 @@
             this.textBoxCustomerID.Location = new System.Drawing.Point(200, 92);
             this.textBoxCustomerID.Name = "textBoxCustomerID";
             this.textBoxCustomerID.Size = new System.Drawing.Size(189, 30);
-            this.textBoxCustomerID.TabIndex = 2;
+            this.textBoxCustomerID.TabIndex = 5;
             // 
             // label4
             // 
@@ -279,8 +213,8 @@
             this.dateTimePicker_LeaseTerm.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_LeaseTerm.Location = new System.Drawing.Point(200, 313);
             this.dateTimePicker_LeaseTerm.Name = "dateTimePicker_LeaseTerm";
-            this.dateTimePicker_LeaseTerm.Size = new System.Drawing.Size(256, 30);
-            this.dateTimePicker_LeaseTerm.TabIndex = 6;
+            this.dateTimePicker_LeaseTerm.Size = new System.Drawing.Size(291, 30);
+            this.dateTimePicker_LeaseTerm.TabIndex = 3;
             // 
             // dateTimePickerSign
             // 
@@ -288,8 +222,8 @@
             this.dateTimePickerSign.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerSign.Location = new System.Drawing.Point(200, 264);
             this.dateTimePickerSign.Name = "dateTimePickerSign";
-            this.dateTimePickerSign.Size = new System.Drawing.Size(256, 30);
-            this.dateTimePickerSign.TabIndex = 5;
+            this.dateTimePickerSign.Size = new System.Drawing.Size(291, 30);
+            this.dateTimePickerSign.TabIndex = 3;
             // 
             // comboBoxContractType
             // 
@@ -297,8 +231,8 @@
             this.comboBoxContractType.FormattingEnabled = true;
             this.comboBoxContractType.Location = new System.Drawing.Point(200, 208);
             this.comboBoxContractType.Name = "comboBoxContractType";
-            this.comboBoxContractType.Size = new System.Drawing.Size(256, 33);
-            this.comboBoxContractType.TabIndex = 4;
+            this.comboBoxContractType.Size = new System.Drawing.Size(291, 33);
+            this.comboBoxContractType.TabIndex = 2;
             // 
             // textBoxDescibe
             // 
@@ -307,7 +241,7 @@
             this.textBoxDescibe.Multiline = true;
             this.textBoxDescibe.Name = "textBoxDescibe";
             this.textBoxDescibe.Size = new System.Drawing.Size(310, 94);
-            this.textBoxDescibe.TabIndex = 7;
+            this.textBoxDescibe.TabIndex = 1;
             // 
             // textBoxContractValue
             // 
@@ -315,7 +249,7 @@
             this.textBoxContractValue.Location = new System.Drawing.Point(200, 493);
             this.textBoxContractValue.Name = "textBoxContractValue";
             this.textBoxContractValue.Size = new System.Drawing.Size(310, 30);
-            this.textBoxContractValue.TabIndex = 8;
+            this.textBoxContractValue.TabIndex = 1;
             // 
             // textBoxContractID
             // 
@@ -337,10 +271,10 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.buttonAdd);
+            this.panel2.Controls.Add(this.buttonEdit);
             this.panel2.Controls.Add(this.buttonCancel);
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.Location = new System.Drawing.Point(16, 650);
+            this.panel2.Location = new System.Drawing.Point(12, 680);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(721, 93);
             this.panel2.TabIndex = 3;
@@ -350,40 +284,32 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Consolas", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.label9.Location = new System.Drawing.Point(210, 16);
+            this.label9.Location = new System.Drawing.Point(206, 28);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(284, 47);
+            this.label9.Size = new System.Drawing.Size(306, 47);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Add Contract";
+            this.label9.Text = "Edit Contract";
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.panel1);
-            this.panel3.Location = new System.Drawing.Point(12, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(757, 758);
-            this.panel3.TabIndex = 4;
-            // 
-            // addContractForm
+            // editContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(781, 766);
-            this.Controls.Add(this.panel3);
-            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ClientSize = new System.Drawing.Size(745, 785);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label9);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "addContractForm";
+            this.Name = "editContractForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addContract";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -395,26 +321,21 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePickerSign;
-        private System.Windows.Forms.ComboBox comboBoxContractType;
-        private System.Windows.Forms.TextBox textBoxDescibe;
-        private System.Windows.Forms.TextBox textBoxContractValue;
-        private System.Windows.Forms.TextBox textBoxContractID;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_LeaseTerm;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxCustomerID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxVehicleID;
-        private System.Windows.Forms.Button buttonAddVehicle;
-        private System.Windows.Forms.Button buttonFindVehicle;
-        private System.Windows.Forms.Button buttonAddCustomer;
-        private System.Windows.Forms.Button buttonFindCustomer;
-        private System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.DateTimePicker dateTimePickerSign;
+        public System.Windows.Forms.ComboBox comboBoxContractType;
+        public System.Windows.Forms.TextBox textBoxDescibe;
+        public System.Windows.Forms.TextBox textBoxContractValue;
+        public System.Windows.Forms.TextBox textBoxContractID;
+        public System.Windows.Forms.DateTimePicker dateTimePicker_LeaseTerm;
+        public System.Windows.Forms.TextBox textBoxCustomerID;
+        public System.Windows.Forms.TextBox textBoxVehicleID;
     }
 }
