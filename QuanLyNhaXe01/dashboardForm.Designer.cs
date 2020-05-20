@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -181,6 +179,8 @@
             this.buttonPrintRevenue = new System.Windows.Forms.Button();
             this.buttonExportRevenue = new System.Windows.Forms.Button();
             this.buttonRevenueStatistics = new System.Windows.Forms.Button();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -210,31 +210,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContract)).BeginInit();
             this.tabPageRevenue.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).BeginInit();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.panel1.Controls.Add(this.pictureBoxProfile);
             this.panel1.Controls.Add(this.labelWelcome);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.pictureBoxProfile);
             this.panel1.Controls.Add(this.linkLabelRefresh);
             this.panel1.Controls.Add(this.linkLabelEditInfo);
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1194, 130);
+            this.panel1.Size = new System.Drawing.Size(1164, 130);
             this.panel1.TabIndex = 1;
             // 
             // labelWelcome
             // 
             this.labelWelcome.AutoSize = true;
-            this.labelWelcome.Font = new System.Drawing.Font("MV Boli", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWelcome.ForeColor = System.Drawing.Color.Crimson;
+            this.labelWelcome.Font = new System.Drawing.Font("Segoe Print", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWelcome.ForeColor = System.Drawing.Color.DarkViolet;
             this.labelWelcome.Location = new System.Drawing.Point(181, 14);
             this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(136, 37);
+            this.labelWelcome.Size = new System.Drawing.Size(146, 50);
             this.labelWelcome.TabIndex = 3;
             this.labelWelcome.Text = "Welcome";
             // 
@@ -272,6 +275,7 @@
             // 
             // buttonExit
             // 
+            this.buttonExit.BackColor = System.Drawing.Color.RosyBrown;
             this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonExit.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.Location = new System.Drawing.Point(895, 24);
@@ -279,7 +283,7 @@
             this.buttonExit.Size = new System.Drawing.Size(206, 66);
             this.buttonExit.TabIndex = 0;
             this.buttonExit.Text = "Exit";
-            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // tabControl
@@ -290,15 +294,15 @@
             this.tabControl.Controls.Add(this.tabPageContract);
             this.tabControl.Controls.Add(this.tabPageRevenue);
             this.tabControl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(12, 135);
+            this.tabControl.Location = new System.Drawing.Point(1, 135);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1182, 835);
+            this.tabControl.Size = new System.Drawing.Size(1163, 853);
             this.tabControl.TabIndex = 0;
             // 
             // tabPageVehicles
             // 
-            this.tabPageVehicles.BackColor = System.Drawing.SystemColors.Window;
+            this.tabPageVehicles.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPageVehicles.Controls.Add(this.panel8);
             this.tabPageVehicles.Controls.Add(this.panel7);
             this.tabPageVehicles.Controls.Add(this.panel6);
@@ -306,13 +310,13 @@
             this.tabPageVehicles.Location = new System.Drawing.Point(4, 42);
             this.tabPageVehicles.Name = "tabPageVehicles";
             this.tabPageVehicles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVehicles.Size = new System.Drawing.Size(1174, 789);
+            this.tabPageVehicles.Size = new System.Drawing.Size(1155, 807);
             this.tabPageVehicles.TabIndex = 0;
             this.tabPageVehicles.Text = "Vehicles";
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel8.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel8.Controls.Add(this.panel16);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.buttonExportVehicle);
@@ -328,7 +332,7 @@
             this.panel8.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel8.Location = new System.Drawing.Point(15, 250);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1127, 526);
+            this.panel8.Size = new System.Drawing.Size(1127, 557);
             this.panel8.TabIndex = 3;
             // 
             // panel16
@@ -354,7 +358,8 @@
             // 
             // panel9
             // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel9.Controls.Add(this.radioButtonAllVehicle);
             this.panel9.Controls.Add(this.radioButtonCar);
             this.panel9.Controls.Add(this.radioButtonBike);
@@ -369,6 +374,7 @@
             this.radioButtonAllVehicle.AutoSize = true;
             this.radioButtonAllVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButtonAllVehicle.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonAllVehicle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.radioButtonAllVehicle.Location = new System.Drawing.Point(303, 4);
             this.radioButtonAllVehicle.Name = "radioButtonAllVehicle";
             this.radioButtonAllVehicle.Size = new System.Drawing.Size(61, 32);
@@ -383,6 +389,7 @@
             this.radioButtonCar.AutoSize = true;
             this.radioButtonCar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButtonCar.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonCar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.radioButtonCar.Location = new System.Drawing.Point(210, 3);
             this.radioButtonCar.Name = "radioButtonCar";
             this.radioButtonCar.Size = new System.Drawing.Size(69, 32);
@@ -397,6 +404,7 @@
             this.radioButtonBike.AutoSize = true;
             this.radioButtonBike.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButtonBike.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonBike.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.radioButtonBike.Location = new System.Drawing.Point(14, 3);
             this.radioButtonBike.Name = "radioButtonBike";
             this.radioButtonBike.Size = new System.Drawing.Size(78, 32);
@@ -411,6 +419,7 @@
             this.radioButtonMoto.AutoSize = true;
             this.radioButtonMoto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButtonMoto.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonMoto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.radioButtonMoto.Location = new System.Drawing.Point(106, 3);
             this.radioButtonMoto.Name = "radioButtonMoto";
             this.radioButtonMoto.Size = new System.Drawing.Size(85, 32);
@@ -422,10 +431,11 @@
             // 
             // buttonExportVehicle
             // 
-            this.buttonExportVehicle.BackColor = System.Drawing.Color.Bisque;
+            this.buttonExportVehicle.BackColor = System.Drawing.Color.Chocolate;
             this.buttonExportVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonExportVehicle.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExportVehicle.Location = new System.Drawing.Point(480, 464);
+            this.buttonExportVehicle.ForeColor = System.Drawing.Color.White;
+            this.buttonExportVehicle.Location = new System.Drawing.Point(500, 480);
             this.buttonExportVehicle.Name = "buttonExportVehicle";
             this.buttonExportVehicle.Size = new System.Drawing.Size(150, 49);
             this.buttonExportVehicle.TabIndex = 2;
@@ -435,10 +445,11 @@
             // 
             // buttonPrintVehicle
             // 
-            this.buttonPrintVehicle.BackColor = System.Drawing.Color.Bisque;
+            this.buttonPrintVehicle.BackColor = System.Drawing.Color.Chocolate;
             this.buttonPrintVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPrintVehicle.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrintVehicle.Location = new System.Drawing.Point(750, 467);
+            this.buttonPrintVehicle.ForeColor = System.Drawing.Color.White;
+            this.buttonPrintVehicle.Location = new System.Drawing.Point(729, 485);
             this.buttonPrintVehicle.Name = "buttonPrintVehicle";
             this.buttonPrintVehicle.Size = new System.Drawing.Size(150, 44);
             this.buttonPrintVehicle.TabIndex = 2;
@@ -449,51 +460,57 @@
             // labelDangGui
             // 
             this.labelDangGui.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.labelDangGui.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelDangGui.ForeColor = System.Drawing.Color.White;
             this.labelDangGui.Location = new System.Drawing.Point(525, 420);
             this.labelDangGui.Name = "labelDangGui";
-            this.labelDangGui.Size = new System.Drawing.Size(193, 30);
+            this.labelDangGui.Size = new System.Drawing.Size(193, 41);
             this.labelDangGui.TabIndex = 0;
             this.labelDangGui.Text = "Dang Gui";
             this.labelDangGui.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDangGui.Click += new System.EventHandler(this.labelDangGui_Click);
             // 
             // labelDaRa
             // 
             this.labelDaRa.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.labelDaRa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelDaRa.ForeColor = System.Drawing.Color.White;
             this.labelDaRa.Location = new System.Drawing.Point(724, 420);
             this.labelDaRa.Name = "labelDaRa";
-            this.labelDaRa.Size = new System.Drawing.Size(174, 30);
+            this.labelDaRa.Size = new System.Drawing.Size(174, 44);
             this.labelDaRa.TabIndex = 0;
             this.labelDaRa.Text = "Da Ra";
             this.labelDaRa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDaRa.Click += new System.EventHandler(this.labelDaRa_Click);
             // 
             // labelStatus
             // 
             this.labelStatus.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.labelStatus.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelStatus.ForeColor = System.Drawing.Color.White;
             this.labelStatus.Location = new System.Drawing.Point(904, 420);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(217, 30);
+            this.labelStatus.Size = new System.Drawing.Size(217, 44);
             this.labelStatus.TabIndex = 0;
             this.labelStatus.Text = "Status";
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelStatus.Click += new System.EventHandler(this.labelStatus_Click);
             // 
             // label30
             // 
             this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label30.Location = new System.Drawing.Point(3, 22);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(191, 30);
             this.label30.TabIndex = 0;
             this.label30.Text = "Type of Vehicles:";
+            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // buttonStatisticsVehicle
             // 
-            this.buttonStatisticsVehicle.BackColor = System.Drawing.Color.Bisque;
+            this.buttonStatisticsVehicle.BackColor = System.Drawing.Color.Chocolate;
             this.buttonStatisticsVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonStatisticsVehicle.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStatisticsVehicle.Location = new System.Drawing.Point(196, 464);
+            this.buttonStatisticsVehicle.ForeColor = System.Drawing.Color.White;
+            this.buttonStatisticsVehicle.Location = new System.Drawing.Point(242, 483);
             this.buttonStatisticsVehicle.Name = "buttonStatisticsVehicle";
             this.buttonStatisticsVehicle.Size = new System.Drawing.Size(168, 49);
             this.buttonStatisticsVehicle.TabIndex = 0;
@@ -513,15 +530,18 @@
             // label29
             // 
             this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label29.Location = new System.Drawing.Point(627, 27);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(91, 30);
             this.label29.TabIndex = 0;
             this.label29.Text = "Search:";
+            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel7.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel7.Controls.Add(this.buttonSetCar);
             this.panel7.Controls.Add(this.textBoxTotalSlot_Car);
             this.panel7.Controls.Add(this.label26);
@@ -536,8 +556,9 @@
             // 
             // buttonSetCar
             // 
-            this.buttonSetCar.BackColor = System.Drawing.Color.Bisque;
+            this.buttonSetCar.BackColor = System.Drawing.Color.Chocolate;
             this.buttonSetCar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSetCar.ForeColor = System.Drawing.Color.White;
             this.buttonSetCar.Location = new System.Drawing.Point(100, 167);
             this.buttonSetCar.Name = "buttonSetCar";
             this.buttonSetCar.Size = new System.Drawing.Size(150, 44);
@@ -557,6 +578,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
+            this.label26.ForeColor = System.Drawing.Color.Black;
             this.label26.Location = new System.Drawing.Point(15, 73);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(110, 28);
@@ -574,6 +596,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.Black;
             this.label27.Location = new System.Drawing.Point(63, 121);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(65, 28);
@@ -592,7 +615,8 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.buttonSetMoto);
             this.panel6.Controls.Add(this.textBoxTotalSlot_Moto);
             this.panel6.Controls.Add(this.label23);
@@ -607,8 +631,9 @@
             // 
             // buttonSetMoto
             // 
-            this.buttonSetMoto.BackColor = System.Drawing.Color.Bisque;
+            this.buttonSetMoto.BackColor = System.Drawing.Color.Chocolate;
             this.buttonSetMoto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSetMoto.ForeColor = System.Drawing.Color.White;
             this.buttonSetMoto.Location = new System.Drawing.Point(87, 167);
             this.buttonSetMoto.Name = "buttonSetMoto";
             this.buttonSetMoto.Size = new System.Drawing.Size(150, 44);
@@ -628,6 +653,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.Black;
             this.label23.Location = new System.Drawing.Point(16, 70);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(110, 28);
@@ -645,6 +671,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.Black;
             this.label24.Location = new System.Drawing.Point(64, 119);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(65, 28);
@@ -663,7 +690,8 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Controls.Add(this.buttonSetBike);
             this.panel5.Controls.Add(this.textBoxTotalSlot_Bike);
             this.panel5.Controls.Add(this.label22);
@@ -678,8 +706,9 @@
             // 
             // buttonSetBike
             // 
-            this.buttonSetBike.BackColor = System.Drawing.Color.Bisque;
+            this.buttonSetBike.BackColor = System.Drawing.Color.Chocolate;
             this.buttonSetBike.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSetBike.ForeColor = System.Drawing.Color.White;
             this.buttonSetBike.Location = new System.Drawing.Point(88, 167);
             this.buttonSetBike.Name = "buttonSetBike";
             this.buttonSetBike.Size = new System.Drawing.Size(150, 44);
@@ -699,6 +728,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Black;
             this.label22.Location = new System.Drawing.Point(15, 73);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(110, 28);
@@ -716,6 +746,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Black;
             this.label21.Location = new System.Drawing.Point(63, 121);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(65, 28);
@@ -734,6 +765,7 @@
             // 
             // tabPageWorker
             // 
+            this.tabPageWorker.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPageWorker.Controls.Add(this.panel4);
             this.tabPageWorker.Controls.Add(this.panel3);
             this.tabPageWorker.Controls.Add(this.panel2);
@@ -756,16 +788,17 @@
             this.tabPageWorker.Controls.Add(this.label4);
             this.tabPageWorker.Controls.Add(this.label3);
             this.tabPageWorker.Controls.Add(this.label2);
+            this.tabPageWorker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.tabPageWorker.Location = new System.Drawing.Point(4, 42);
             this.tabPageWorker.Name = "tabPageWorker";
             this.tabPageWorker.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWorker.Size = new System.Drawing.Size(1174, 789);
+            this.tabPageWorker.Size = new System.Drawing.Size(1155, 807);
             this.tabPageWorker.TabIndex = 1;
             this.tabPageWorker.Text = "Worker";
-            this.tabPageWorker.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel4.Controls.Add(this.buttonExportWorker);
             this.panel4.Controls.Add(this.buttonPrintWorker);
             this.panel4.Controls.Add(this.dataGridViewWorker);
@@ -774,27 +807,31 @@
             this.panel4.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.panel4.Location = new System.Drawing.Point(18, 392);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1120, 391);
+            this.panel4.Size = new System.Drawing.Size(1120, 409);
             this.panel4.TabIndex = 23;
             // 
             // buttonExportWorker
             // 
+            this.buttonExportWorker.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonExportWorker.ForeColor = System.Drawing.Color.White;
             this.buttonExportWorker.Location = new System.Drawing.Point(938, 15);
             this.buttonExportWorker.Name = "buttonExportWorker";
             this.buttonExportWorker.Size = new System.Drawing.Size(143, 44);
             this.buttonExportWorker.TabIndex = 0;
             this.buttonExportWorker.Text = "Export";
-            this.buttonExportWorker.UseVisualStyleBackColor = true;
+            this.buttonExportWorker.UseVisualStyleBackColor = false;
             this.buttonExportWorker.Click += new System.EventHandler(this.buttonExportWorker_Click);
             // 
             // buttonPrintWorker
             // 
+            this.buttonPrintWorker.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonPrintWorker.ForeColor = System.Drawing.Color.White;
             this.buttonPrintWorker.Location = new System.Drawing.Point(761, 15);
             this.buttonPrintWorker.Name = "buttonPrintWorker";
             this.buttonPrintWorker.Size = new System.Drawing.Size(141, 44);
             this.buttonPrintWorker.TabIndex = 0;
             this.buttonPrintWorker.Text = "Print";
-            this.buttonPrintWorker.UseVisualStyleBackColor = true;
+            this.buttonPrintWorker.UseVisualStyleBackColor = false;
             this.buttonPrintWorker.Click += new System.EventHandler(this.buttonPrintWorker_Click);
             // 
             // dataGridViewWorker
@@ -805,16 +842,18 @@
             this.dataGridViewWorker.Name = "dataGridViewWorker";
             this.dataGridViewWorker.RowHeadersWidth = 62;
             this.dataGridViewWorker.RowTemplate.Height = 28;
-            this.dataGridViewWorker.Size = new System.Drawing.Size(1098, 304);
+            this.dataGridViewWorker.Size = new System.Drawing.Size(1098, 322);
             this.dataGridViewWorker.TabIndex = 20;
             this.dataGridViewWorker.DoubleClick += new System.EventHandler(this.dataGridViewWorker_DoubleClick);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label16.Location = new System.Drawing.Point(12, 21);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(85, 28);
+            this.label16.Size = new System.Drawing.Size(101, 33);
             this.label16.TabIndex = 5;
             this.label16.Text = "Search:";
             // 
@@ -829,6 +868,7 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.radioButtonFeMale);
             this.panel3.Controls.Add(this.radioButtonMale);
             this.panel3.Location = new System.Drawing.Point(177, 113);
@@ -839,6 +879,7 @@
             // radioButtonFeMale
             // 
             this.radioButtonFeMale.AutoSize = true;
+            this.radioButtonFeMale.ForeColor = System.Drawing.Color.Black;
             this.radioButtonFeMale.Location = new System.Drawing.Point(109, 14);
             this.radioButtonFeMale.Name = "radioButtonFeMale";
             this.radioButtonFeMale.Size = new System.Drawing.Size(118, 37);
@@ -850,6 +891,7 @@
             // radioButtonMale
             // 
             this.radioButtonMale.AutoSize = true;
+            this.radioButtonMale.ForeColor = System.Drawing.Color.Black;
             this.radioButtonMale.Location = new System.Drawing.Point(10, 12);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(93, 37);
@@ -860,6 +902,8 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.buttonStatisticsWorker);
             this.panel2.Controls.Add(this.buttonRemoveWorker);
             this.panel2.Controls.Add(this.buttonEditWorker);
@@ -871,41 +915,49 @@
             // 
             // buttonStatisticsWorker
             // 
+            this.buttonStatisticsWorker.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonStatisticsWorker.ForeColor = System.Drawing.Color.White;
             this.buttonStatisticsWorker.Location = new System.Drawing.Point(37, 275);
             this.buttonStatisticsWorker.Name = "buttonStatisticsWorker";
             this.buttonStatisticsWorker.Size = new System.Drawing.Size(151, 58);
             this.buttonStatisticsWorker.TabIndex = 0;
             this.buttonStatisticsWorker.Text = "Statistics";
-            this.buttonStatisticsWorker.UseVisualStyleBackColor = true;
+            this.buttonStatisticsWorker.UseVisualStyleBackColor = false;
             // 
             // buttonRemoveWorker
             // 
+            this.buttonRemoveWorker.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonRemoveWorker.ForeColor = System.Drawing.Color.White;
             this.buttonRemoveWorker.Location = new System.Drawing.Point(37, 189);
             this.buttonRemoveWorker.Name = "buttonRemoveWorker";
             this.buttonRemoveWorker.Size = new System.Drawing.Size(151, 58);
             this.buttonRemoveWorker.TabIndex = 0;
             this.buttonRemoveWorker.Text = "Remove";
-            this.buttonRemoveWorker.UseVisualStyleBackColor = true;
+            this.buttonRemoveWorker.UseVisualStyleBackColor = false;
             this.buttonRemoveWorker.Click += new System.EventHandler(this.buttonRemoveWorker_Click);
             // 
             // buttonEditWorker
             // 
+            this.buttonEditWorker.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonEditWorker.ForeColor = System.Drawing.Color.White;
             this.buttonEditWorker.Location = new System.Drawing.Point(37, 101);
             this.buttonEditWorker.Name = "buttonEditWorker";
             this.buttonEditWorker.Size = new System.Drawing.Size(151, 58);
             this.buttonEditWorker.TabIndex = 0;
             this.buttonEditWorker.Text = "Edit";
-            this.buttonEditWorker.UseVisualStyleBackColor = true;
+            this.buttonEditWorker.UseVisualStyleBackColor = false;
             this.buttonEditWorker.Click += new System.EventHandler(this.buttonEditWorker_Click);
             // 
             // buttonAddWorker
             // 
+            this.buttonAddWorker.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonAddWorker.ForeColor = System.Drawing.Color.White;
             this.buttonAddWorker.Location = new System.Drawing.Point(37, 21);
             this.buttonAddWorker.Name = "buttonAddWorker";
             this.buttonAddWorker.Size = new System.Drawing.Size(151, 58);
             this.buttonAddWorker.TabIndex = 0;
             this.buttonAddWorker.Text = "Add";
-            this.buttonAddWorker.UseVisualStyleBackColor = true;
+            this.buttonAddWorker.UseVisualStyleBackColor = false;
             this.buttonAddWorker.Click += new System.EventHandler(this.buttonAddWorker_Click);
             // 
             // comboBoxGroup_Worker
@@ -920,6 +972,8 @@
             // label36
             // 
             this.label36.AutoSize = true;
+            this.label36.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label36.ForeColor = System.Drawing.Color.Black;
             this.label36.Location = new System.Drawing.Point(521, 245);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(87, 33);
@@ -938,6 +992,8 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(521, 304);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(85, 33);
@@ -946,6 +1002,8 @@
             // 
             // dateTimePickerDateStart_Worker
             // 
+            this.dateTimePickerDateStart_Worker.CalendarForeColor = System.Drawing.Color.Cornsilk;
+            this.dateTimePickerDateStart_Worker.CalendarTitleForeColor = System.Drawing.Color.Azure;
             this.dateTimePickerDateStart_Worker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDateStart_Worker.Location = new System.Drawing.Point(632, 184);
             this.dateTimePickerDateStart_Worker.Name = "dateTimePickerDateStart_Worker";
@@ -956,6 +1014,7 @@
             // dateTimePickerBDate_Worker
             // 
             this.dateTimePickerBDate_Worker.CalendarFont = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerBDate_Worker.CalendarTitleForeColor = System.Drawing.Color.Azure;
             this.dateTimePickerBDate_Worker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerBDate_Worker.Location = new System.Drawing.Point(632, 127);
             this.dateTimePickerBDate_Worker.Name = "dateTimePickerBDate_Worker";
@@ -1007,6 +1066,8 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(468, 127);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(138, 33);
@@ -1016,6 +1077,8 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(465, 184);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(141, 33);
@@ -1025,6 +1088,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(42, 248);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(115, 33);
@@ -1034,6 +1098,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(69, 192);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 33);
@@ -1043,6 +1108,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(55, 127);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(102, 33);
@@ -1052,6 +1118,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(433, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(173, 33);
@@ -1061,6 +1129,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(25, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 33);
@@ -1070,6 +1139,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(11, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 33);
@@ -1078,6 +1148,7 @@
             // 
             // tabPageWork
             // 
+            this.tabPageWork.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabPageWork.Controls.Add(this.panel17);
             this.tabPageWork.Controls.Add(this.groupBox2);
             this.tabPageWork.Controls.Add(this.groupBox1);
@@ -1091,13 +1162,13 @@
             this.tabPageWork.Location = new System.Drawing.Point(4, 42);
             this.tabPageWork.Name = "tabPageWork";
             this.tabPageWork.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWork.Size = new System.Drawing.Size(1174, 789);
+            this.tabPageWork.Size = new System.Drawing.Size(1155, 807);
             this.tabPageWork.TabIndex = 4;
             this.tabPageWork.Text = "Work";
-            this.tabPageWork.UseVisualStyleBackColor = true;
             // 
             // panel17
             // 
+            this.panel17.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel17.Controls.Add(this.dataGridViewWork);
             this.panel17.Controls.Add(this.label31);
             this.panel17.Controls.Add(this.label32);
@@ -1123,6 +1194,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Comic Sans MS", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.Bisque;
             this.label31.Location = new System.Drawing.Point(14, 5);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(207, 39);
@@ -1133,6 +1205,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Comic Sans MS", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.Bisque;
             this.label32.Location = new System.Drawing.Point(594, 5);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(163, 39);
@@ -1155,6 +1228,7 @@
             this.groupBox2.Controls.Add(this.panel14);
             this.groupBox2.Controls.Add(this.panel13);
             this.groupBox2.Controls.Add(this.panel15);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox2.Location = new System.Drawing.Point(660, 8);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(496, 360);
@@ -1164,7 +1238,8 @@
             // 
             // panel14
             // 
-            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel14.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel14.Controls.Add(this.textBoxAddGroup_work);
             this.panel14.Controls.Add(this.buttonAddGroup_work);
             this.panel14.Controls.Add(this.label34);
@@ -1185,13 +1260,15 @@
             // 
             // buttonAddGroup_work
             // 
+            this.buttonAddGroup_work.BackColor = System.Drawing.Color.Chocolate;
             this.buttonAddGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.buttonAddGroup_work.ForeColor = System.Drawing.Color.White;
             this.buttonAddGroup_work.Location = new System.Drawing.Point(105, 56);
             this.buttonAddGroup_work.Name = "buttonAddGroup_work";
             this.buttonAddGroup_work.Size = new System.Drawing.Size(334, 35);
             this.buttonAddGroup_work.TabIndex = 11;
             this.buttonAddGroup_work.Text = "Add";
-            this.buttonAddGroup_work.UseVisualStyleBackColor = true;
+            this.buttonAddGroup_work.UseVisualStyleBackColor = false;
             this.buttonAddGroup_work.Click += new System.EventHandler(this.buttonAddGroup_work_Click);
             // 
             // label34
@@ -1222,7 +1299,8 @@
             // 
             // panel13
             // 
-            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel13.Controls.Add(this.textBoxNewGroup_work);
             this.panel13.Controls.Add(this.comboBoxEditGroup_work);
             this.panel13.Controls.Add(this.label15);
@@ -1262,13 +1340,15 @@
             // 
             // buttonEditGroup_work
             // 
+            this.buttonEditGroup_work.BackColor = System.Drawing.Color.Chocolate;
             this.buttonEditGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.buttonEditGroup_work.ForeColor = System.Drawing.Color.White;
             this.buttonEditGroup_work.Location = new System.Drawing.Point(364, 16);
             this.buttonEditGroup_work.Name = "buttonEditGroup_work";
             this.buttonEditGroup_work.Size = new System.Drawing.Size(96, 46);
             this.buttonEditGroup_work.TabIndex = 11;
             this.buttonEditGroup_work.Text = "Edit";
-            this.buttonEditGroup_work.UseVisualStyleBackColor = true;
+            this.buttonEditGroup_work.UseVisualStyleBackColor = false;
             this.buttonEditGroup_work.Click += new System.EventHandler(this.buttonEditGroup_work_Click);
             // 
             // label41
@@ -1283,7 +1363,8 @@
             // 
             // panel15
             // 
-            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel15.Controls.Add(this.comboBoxRemoveGroup_work);
             this.panel15.Controls.Add(this.buttonRemoveGroup_work);
             this.panel15.Controls.Add(this.label40);
@@ -1303,13 +1384,15 @@
             // 
             // buttonRemoveGroup_work
             // 
+            this.buttonRemoveGroup_work.BackColor = System.Drawing.Color.Chocolate;
             this.buttonRemoveGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.buttonRemoveGroup_work.ForeColor = System.Drawing.Color.White;
             this.buttonRemoveGroup_work.Location = new System.Drawing.Point(105, 56);
             this.buttonRemoveGroup_work.Name = "buttonRemoveGroup_work";
             this.buttonRemoveGroup_work.Size = new System.Drawing.Size(334, 35);
             this.buttonRemoveGroup_work.TabIndex = 11;
             this.buttonRemoveGroup_work.Text = "Remove";
-            this.buttonRemoveGroup_work.UseVisualStyleBackColor = true;
+            this.buttonRemoveGroup_work.UseVisualStyleBackColor = false;
             this.buttonRemoveGroup_work.Click += new System.EventHandler(this.buttonRemoveGroup_work_Click);
             // 
             // label40
@@ -1334,6 +1417,7 @@
             this.groupBox1.Controls.Add(this.textBoxWorkID_Work);
             this.groupBox1.Controls.Add(this.textBoxWorkDetail_work);
             this.groupBox1.Controls.Add(this.panel10);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(6, 8);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(623, 360);
@@ -1430,6 +1514,8 @@
             // 
             // panel10
             // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel10.Controls.Add(this.buttonRemove_Work);
             this.panel10.Controls.Add(this.buttonEdit_Work);
             this.panel10.Controls.Add(this.buttonAdd_Work);
@@ -1440,37 +1526,43 @@
             // 
             // buttonRemove_Work
             // 
+            this.buttonRemove_Work.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonRemove_Work.ForeColor = System.Drawing.Color.White;
             this.buttonRemove_Work.Location = new System.Drawing.Point(13, 209);
             this.buttonRemove_Work.Name = "buttonRemove_Work";
             this.buttonRemove_Work.Size = new System.Drawing.Size(109, 54);
             this.buttonRemove_Work.TabIndex = 5;
             this.buttonRemove_Work.Text = "Remove";
-            this.buttonRemove_Work.UseVisualStyleBackColor = true;
+            this.buttonRemove_Work.UseVisualStyleBackColor = false;
             this.buttonRemove_Work.Click += new System.EventHandler(this.buttonRemove_Work_Click);
             // 
             // buttonEdit_Work
             // 
+            this.buttonEdit_Work.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonEdit_Work.ForeColor = System.Drawing.Color.White;
             this.buttonEdit_Work.Location = new System.Drawing.Point(13, 115);
             this.buttonEdit_Work.Name = "buttonEdit_Work";
             this.buttonEdit_Work.Size = new System.Drawing.Size(109, 54);
             this.buttonEdit_Work.TabIndex = 5;
             this.buttonEdit_Work.Text = "Edit";
-            this.buttonEdit_Work.UseVisualStyleBackColor = true;
+            this.buttonEdit_Work.UseVisualStyleBackColor = false;
             this.buttonEdit_Work.Click += new System.EventHandler(this.buttonEdit_Work_Click);
             // 
             // buttonAdd_Work
             // 
+            this.buttonAdd_Work.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonAdd_Work.ForeColor = System.Drawing.Color.White;
             this.buttonAdd_Work.Location = new System.Drawing.Point(13, 15);
             this.buttonAdd_Work.Name = "buttonAdd_Work";
             this.buttonAdd_Work.Size = new System.Drawing.Size(109, 54);
             this.buttonAdd_Work.TabIndex = 5;
             this.buttonAdd_Work.Text = "Add";
-            this.buttonAdd_Work.UseVisualStyleBackColor = true;
+            this.buttonAdd_Work.UseVisualStyleBackColor = false;
             this.buttonAdd_Work.Click += new System.EventHandler(this.buttonAdd_Work_Click);
             // 
             // panel12
             // 
-            this.panel12.BackColor = System.Drawing.Color.Wheat;
+            this.panel12.BackColor = System.Drawing.Color.Chocolate;
             this.panel12.Location = new System.Drawing.Point(635, 20);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(10, 348);
@@ -1478,27 +1570,31 @@
             // 
             // buttonStatistics_work
             // 
+            this.buttonStatistics_work.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonStatistics_work.ForeColor = System.Drawing.Color.White;
             this.buttonStatistics_work.Location = new System.Drawing.Point(720, 727);
             this.buttonStatistics_work.Name = "buttonStatistics_work";
             this.buttonStatistics_work.Size = new System.Drawing.Size(159, 54);
             this.buttonStatistics_work.TabIndex = 5;
             this.buttonStatistics_work.Text = "Statistics";
-            this.buttonStatistics_work.UseVisualStyleBackColor = true;
+            this.buttonStatistics_work.UseVisualStyleBackColor = false;
             this.buttonStatistics_work.Click += new System.EventHandler(this.buttonStatistics_work_Click);
             // 
             // buttonExport_work
             // 
+            this.buttonExport_work.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonExport_work.ForeColor = System.Drawing.Color.White;
             this.buttonExport_work.Location = new System.Drawing.Point(505, 727);
             this.buttonExport_work.Name = "buttonExport_work";
             this.buttonExport_work.Size = new System.Drawing.Size(141, 54);
             this.buttonExport_work.TabIndex = 5;
             this.buttonExport_work.Text = "Export";
-            this.buttonExport_work.UseVisualStyleBackColor = true;
+            this.buttonExport_work.UseVisualStyleBackColor = false;
             this.buttonExport_work.Click += new System.EventHandler(this.buttonExport_work_Click);
             // 
             // panel11
             // 
-            this.panel11.BackColor = System.Drawing.Color.Wheat;
+            this.panel11.BackColor = System.Drawing.Color.Chocolate;
             this.panel11.Location = new System.Drawing.Point(234, 374);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(819, 10);
@@ -1506,12 +1602,14 @@
             // 
             // buttonPrint_work
             // 
+            this.buttonPrint_work.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonPrint_work.ForeColor = System.Drawing.Color.White;
             this.buttonPrint_work.Location = new System.Drawing.Point(283, 727);
             this.buttonPrint_work.Name = "buttonPrint_work";
             this.buttonPrint_work.Size = new System.Drawing.Size(141, 54);
             this.buttonPrint_work.TabIndex = 5;
             this.buttonPrint_work.Text = "Print";
-            this.buttonPrint_work.UseVisualStyleBackColor = true;
+            this.buttonPrint_work.UseVisualStyleBackColor = false;
             this.buttonPrint_work.Click += new System.EventHandler(this.buttonPrint_work_Click);
             // 
             // textBoxSearch_work
@@ -1534,14 +1632,13 @@
             // 
             // tabPageContract
             // 
+            this.tabPageContract.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tabPageContract.Controls.Add(this.panel18);
             this.tabPageContract.Controls.Add(this.textBoxSearchContract);
             this.tabPageContract.Controls.Add(this.label6);
-            this.tabPageContract.Controls.Add(this.dataGridViewContract);
             this.tabPageContract.Controls.Add(this.buttonDeleteCustomer);
             this.tabPageContract.Controls.Add(this.buttonEditCustomer);
             this.tabPageContract.Controls.Add(this.buttonAddCustomer);
-            this.tabPageContract.Controls.Add(this.buttonShowCustomer);
-            this.tabPageContract.Controls.Add(this.buttonShowContract);
             this.tabPageContract.Controls.Add(this.buttonExportContract);
             this.tabPageContract.Controls.Add(this.buttonPrintContract);
             this.tabPageContract.Controls.Add(this.buttonStatisticsContract);
@@ -1551,21 +1648,21 @@
             this.tabPageContract.Location = new System.Drawing.Point(4, 42);
             this.tabPageContract.Name = "tabPageContract";
             this.tabPageContract.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageContract.Size = new System.Drawing.Size(1174, 789);
+            this.tabPageContract.Size = new System.Drawing.Size(1155, 807);
             this.tabPageContract.TabIndex = 2;
             this.tabPageContract.Text = "Contract";
-            this.tabPageContract.UseVisualStyleBackColor = true;
             // 
             // textBoxSearchContract
             // 
-            this.textBoxSearchContract.Location = new System.Drawing.Point(183, 25);
+            this.textBoxSearchContract.Location = new System.Drawing.Point(152, 25);
             this.textBoxSearchContract.Name = "textBoxSearchContract";
-            this.textBoxSearchContract.Size = new System.Drawing.Size(473, 41);
+            this.textBoxSearchContract.Size = new System.Drawing.Size(504, 41);
             this.textBoxSearchContract.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Brown;
             this.label6.Location = new System.Drawing.Point(45, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 33);
@@ -1575,147 +1672,149 @@
             // dataGridViewContract
             // 
             this.dataGridViewContract.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Comic Sans MS", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewContract.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewContract.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Comic Sans MS", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewContract.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewContract.Location = new System.Drawing.Point(15, 166);
+            this.dataGridViewContract.Location = new System.Drawing.Point(3, 76);
             this.dataGridViewContract.Name = "dataGridViewContract";
             this.dataGridViewContract.RowHeadersWidth = 62;
             this.dataGridViewContract.RowTemplate.Height = 28;
-            this.dataGridViewContract.Size = new System.Drawing.Size(983, 464);
+            this.dataGridViewContract.Size = new System.Drawing.Size(1002, 509);
             this.dataGridViewContract.TabIndex = 3;
             // 
             // buttonDeleteCustomer
             // 
-            this.buttonDeleteCustomer.Location = new System.Drawing.Point(1020, 449);
+            this.buttonDeleteCustomer.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonDeleteCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonDeleteCustomer.Location = new System.Drawing.Point(1030, 449);
             this.buttonDeleteCustomer.Name = "buttonDeleteCustomer";
-            this.buttonDeleteCustomer.Size = new System.Drawing.Size(134, 83);
+            this.buttonDeleteCustomer.Size = new System.Drawing.Size(119, 83);
             this.buttonDeleteCustomer.TabIndex = 2;
             this.buttonDeleteCustomer.Text = "Delete Customer";
-            this.buttonDeleteCustomer.UseVisualStyleBackColor = true;
+            this.buttonDeleteCustomer.UseVisualStyleBackColor = false;
             this.buttonDeleteCustomer.Click += new System.EventHandler(this.buttonDeleteCustomer_Click);
             // 
             // buttonEditCustomer
             // 
-            this.buttonEditCustomer.Location = new System.Drawing.Point(1020, 331);
+            this.buttonEditCustomer.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonEditCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonEditCustomer.Location = new System.Drawing.Point(1030, 335);
             this.buttonEditCustomer.Name = "buttonEditCustomer";
-            this.buttonEditCustomer.Size = new System.Drawing.Size(134, 83);
+            this.buttonEditCustomer.Size = new System.Drawing.Size(119, 83);
             this.buttonEditCustomer.TabIndex = 2;
             this.buttonEditCustomer.Text = "Edit Customer";
-            this.buttonEditCustomer.UseVisualStyleBackColor = true;
+            this.buttonEditCustomer.UseVisualStyleBackColor = false;
             this.buttonEditCustomer.Click += new System.EventHandler(this.buttonEditCustomer_Click);
             // 
             // buttonAddCustomer
             // 
-            this.buttonAddCustomer.Location = new System.Drawing.Point(1020, 212);
+            this.buttonAddCustomer.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonAddCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonAddCustomer.Location = new System.Drawing.Point(1030, 212);
             this.buttonAddCustomer.Name = "buttonAddCustomer";
-            this.buttonAddCustomer.Size = new System.Drawing.Size(134, 83);
+            this.buttonAddCustomer.Size = new System.Drawing.Size(119, 83);
             this.buttonAddCustomer.TabIndex = 2;
             this.buttonAddCustomer.Text = "Add Customer";
-            this.buttonAddCustomer.UseVisualStyleBackColor = true;
+            this.buttonAddCustomer.UseVisualStyleBackColor = false;
             this.buttonAddCustomer.Click += new System.EventHandler(this.buttonAddCustomer_Click);
             // 
             // buttonShowCustomer
             // 
-            this.buttonShowCustomer.Location = new System.Drawing.Point(714, 106);
+            this.buttonShowCustomer.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buttonShowCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonShowCustomer.Location = new System.Drawing.Point(752, 16);
             this.buttonShowCustomer.Name = "buttonShowCustomer";
             this.buttonShowCustomer.Size = new System.Drawing.Size(240, 54);
             this.buttonShowCustomer.TabIndex = 2;
             this.buttonShowCustomer.Text = "Show Customer";
-            this.buttonShowCustomer.UseVisualStyleBackColor = true;
+            this.buttonShowCustomer.UseVisualStyleBackColor = false;
             this.buttonShowCustomer.Click += new System.EventHandler(this.buttonShowCustomer_Click);
             // 
             // buttonShowContract
             // 
-            this.buttonShowContract.Location = new System.Drawing.Point(24, 106);
+            this.buttonShowContract.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buttonShowContract.ForeColor = System.Drawing.Color.White;
+            this.buttonShowContract.Location = new System.Drawing.Point(16, 16);
             this.buttonShowContract.Name = "buttonShowContract";
             this.buttonShowContract.Size = new System.Drawing.Size(214, 54);
             this.buttonShowContract.TabIndex = 2;
             this.buttonShowContract.Text = "Show Contract";
-            this.buttonShowContract.UseVisualStyleBackColor = true;
+            this.buttonShowContract.UseVisualStyleBackColor = false;
             this.buttonShowContract.Click += new System.EventHandler(this.buttonShowContract_Click);
             // 
             // buttonExportContract
             // 
+            this.buttonExportContract.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonExportContract.ForeColor = System.Drawing.Color.White;
             this.buttonExportContract.Location = new System.Drawing.Point(926, 19);
             this.buttonExportContract.Name = "buttonExportContract";
             this.buttonExportContract.Size = new System.Drawing.Size(142, 54);
             this.buttonExportContract.TabIndex = 2;
             this.buttonExportContract.Text = "Export";
-            this.buttonExportContract.UseVisualStyleBackColor = true;
+            this.buttonExportContract.UseVisualStyleBackColor = false;
             this.buttonExportContract.Click += new System.EventHandler(this.buttonExportContract_Click);
             // 
             // buttonPrintContract
             // 
+            this.buttonPrintContract.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonPrintContract.ForeColor = System.Drawing.Color.White;
             this.buttonPrintContract.Location = new System.Drawing.Point(714, 19);
             this.buttonPrintContract.Name = "buttonPrintContract";
             this.buttonPrintContract.Size = new System.Drawing.Size(148, 51);
             this.buttonPrintContract.TabIndex = 2;
             this.buttonPrintContract.Text = "Print";
-            this.buttonPrintContract.UseVisualStyleBackColor = true;
+            this.buttonPrintContract.UseVisualStyleBackColor = false;
             this.buttonPrintContract.Click += new System.EventHandler(this.buttonPrintContract_Click);
             // 
             // buttonStatisticsContract
             // 
-            this.buttonStatisticsContract.Location = new System.Drawing.Point(816, 691);
+            this.buttonStatisticsContract.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonStatisticsContract.ForeColor = System.Drawing.Color.White;
+            this.buttonStatisticsContract.Location = new System.Drawing.Point(809, 714);
             this.buttonStatisticsContract.Name = "buttonStatisticsContract";
             this.buttonStatisticsContract.Size = new System.Drawing.Size(176, 68);
             this.buttonStatisticsContract.TabIndex = 2;
             this.buttonStatisticsContract.Text = "Statistics";
-            this.buttonStatisticsContract.UseVisualStyleBackColor = true;
+            this.buttonStatisticsContract.UseVisualStyleBackColor = false;
             // 
             // buttonDeleteContract
             // 
-            this.buttonDeleteContract.Location = new System.Drawing.Point(576, 691);
+            this.buttonDeleteContract.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonDeleteContract.ForeColor = System.Drawing.Color.White;
+            this.buttonDeleteContract.Location = new System.Drawing.Point(530, 714);
             this.buttonDeleteContract.Name = "buttonDeleteContract";
-            this.buttonDeleteContract.Size = new System.Drawing.Size(176, 68);
+            this.buttonDeleteContract.Size = new System.Drawing.Size(234, 68);
             this.buttonDeleteContract.TabIndex = 2;
             this.buttonDeleteContract.Text = "Delete Contract";
-            this.buttonDeleteContract.UseVisualStyleBackColor = true;
+            this.buttonDeleteContract.UseVisualStyleBackColor = false;
             this.buttonDeleteContract.Click += new System.EventHandler(this.buttonDeleteContract_Click);
             // 
             // buttonEditContract
             // 
-            this.buttonEditContract.Location = new System.Drawing.Point(344, 691);
+            this.buttonEditContract.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonEditContract.ForeColor = System.Drawing.Color.White;
+            this.buttonEditContract.Location = new System.Drawing.Point(304, 714);
             this.buttonEditContract.Name = "buttonEditContract";
             this.buttonEditContract.Size = new System.Drawing.Size(176, 68);
             this.buttonEditContract.TabIndex = 2;
             this.buttonEditContract.Text = "Edit Contract";
-            this.buttonEditContract.UseVisualStyleBackColor = true;
+            this.buttonEditContract.UseVisualStyleBackColor = false;
             this.buttonEditContract.Click += new System.EventHandler(this.buttonEditContract_Click);
             // 
             // buttonAddContract
             // 
-            this.buttonAddContract.Location = new System.Drawing.Point(104, 691);
+            this.buttonAddContract.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonAddContract.ForeColor = System.Drawing.Color.White;
+            this.buttonAddContract.Location = new System.Drawing.Point(64, 714);
             this.buttonAddContract.Name = "buttonAddContract";
             this.buttonAddContract.Size = new System.Drawing.Size(176, 68);
             this.buttonAddContract.TabIndex = 2;
             this.buttonAddContract.Text = "Add Contract";
-            this.buttonAddContract.UseVisualStyleBackColor = true;
+            this.buttonAddContract.UseVisualStyleBackColor = false;
             this.buttonAddContract.Click += new System.EventHandler(this.buttonAddContract_Click);
             // 
             // tabPageRevenue
             // 
-            this.tabPageRevenue.Controls.Add(this.dateTimePickerTo);
-            this.tabPageRevenue.Controls.Add(this.dateTimePickerFrom);
-            this.tabPageRevenue.Controls.Add(this.comboBoxTypeRevenue);
-            this.tabPageRevenue.Controls.Add(this.label43);
-            this.tabPageRevenue.Controls.Add(this.label42);
-            this.tabPageRevenue.Controls.Add(this.label37);
+            this.tabPageRevenue.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tabPageRevenue.Controls.Add(this.panel19);
             this.tabPageRevenue.Controls.Add(this.dataGridViewRevenue);
             this.tabPageRevenue.Controls.Add(this.buttonPrintRevenue);
             this.tabPageRevenue.Controls.Add(this.buttonExportRevenue);
@@ -1723,16 +1822,17 @@
             this.tabPageRevenue.Location = new System.Drawing.Point(4, 42);
             this.tabPageRevenue.Name = "tabPageRevenue";
             this.tabPageRevenue.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRevenue.Size = new System.Drawing.Size(1174, 789);
+            this.tabPageRevenue.Size = new System.Drawing.Size(1155, 807);
             this.tabPageRevenue.TabIndex = 3;
             this.tabPageRevenue.Text = "Revenue";
-            this.tabPageRevenue.UseVisualStyleBackColor = true;
             // 
             // dateTimePickerTo
             // 
+            this.dateTimePickerTo.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
+            this.dateTimePickerTo.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dateTimePickerTo.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerTo.Location = new System.Drawing.Point(963, 17);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(941, 5);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.Size = new System.Drawing.Size(148, 30);
             this.dateTimePickerTo.TabIndex = 5;
@@ -1740,9 +1840,11 @@
             // 
             // dateTimePickerFrom
             // 
+            this.dateTimePickerFrom.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
+            this.dateTimePickerFrom.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dateTimePickerFrom.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(759, 17);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(737, 6);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(148, 30);
             this.dateTimePickerFrom.TabIndex = 5;
@@ -1754,7 +1856,7 @@
             this.comboBoxTypeRevenue.FormattingEnabled = true;
             this.comboBoxTypeRevenue.Items.AddRange(new object[] {
             "Vehicles Parking"});
-            this.comboBoxTypeRevenue.Location = new System.Drawing.Point(223, 16);
+            this.comboBoxTypeRevenue.Location = new System.Drawing.Point(219, 5);
             this.comboBoxTypeRevenue.Name = "comboBoxTypeRevenue";
             this.comboBoxTypeRevenue.Size = new System.Drawing.Size(353, 36);
             this.comboBoxTypeRevenue.TabIndex = 4;
@@ -1763,16 +1865,18 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(913, 19);
+            this.label43.ForeColor = System.Drawing.Color.Brown;
+            this.label43.Location = new System.Drawing.Point(897, 4);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(44, 33);
+            this.label43.Size = new System.Drawing.Size(38, 33);
             this.label43.TabIndex = 3;
-            this.label43.Text = "To";
+            this.label43.Text = "to";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(600, 17);
+            this.label42.ForeColor = System.Drawing.Color.Brown;
+            this.label42.Location = new System.Drawing.Point(578, 3);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(152, 33);
             this.label42.TabIndex = 3;
@@ -1781,7 +1885,8 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(10, 15);
+            this.label37.ForeColor = System.Drawing.Color.Brown;
+            this.label37.Location = new System.Drawing.Point(6, 5);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(207, 33);
             this.label37.TabIndex = 3;
@@ -1790,7 +1895,7 @@
             // dataGridViewRevenue
             // 
             this.dataGridViewRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRevenue.Location = new System.Drawing.Point(36, 80);
+            this.dataGridViewRevenue.Location = new System.Drawing.Point(41, 86);
             this.dataGridViewRevenue.Name = "dataGridViewRevenue";
             this.dataGridViewRevenue.RowHeadersWidth = 62;
             this.dataGridViewRevenue.RowTemplate.Height = 28;
@@ -1799,41 +1904,72 @@
             // 
             // buttonPrintRevenue
             // 
+            this.buttonPrintRevenue.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonPrintRevenue.ForeColor = System.Drawing.Color.White;
             this.buttonPrintRevenue.Location = new System.Drawing.Point(158, 686);
             this.buttonPrintRevenue.Name = "buttonPrintRevenue";
             this.buttonPrintRevenue.Size = new System.Drawing.Size(251, 70);
             this.buttonPrintRevenue.TabIndex = 0;
             this.buttonPrintRevenue.Text = "Print";
-            this.buttonPrintRevenue.UseVisualStyleBackColor = true;
+            this.buttonPrintRevenue.UseVisualStyleBackColor = false;
             this.buttonPrintRevenue.Click += new System.EventHandler(this.buttonPrintRevenue_Click);
             // 
             // buttonExportRevenue
             // 
+            this.buttonExportRevenue.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonExportRevenue.ForeColor = System.Drawing.Color.White;
             this.buttonExportRevenue.Location = new System.Drawing.Point(471, 686);
             this.buttonExportRevenue.Name = "buttonExportRevenue";
             this.buttonExportRevenue.Size = new System.Drawing.Size(251, 70);
             this.buttonExportRevenue.TabIndex = 0;
             this.buttonExportRevenue.Text = "Export";
-            this.buttonExportRevenue.UseVisualStyleBackColor = true;
+            this.buttonExportRevenue.UseVisualStyleBackColor = false;
             this.buttonExportRevenue.Click += new System.EventHandler(this.buttonExportRevenue_Click);
             // 
             // buttonRevenueStatistics
             // 
+            this.buttonRevenueStatistics.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonRevenueStatistics.ForeColor = System.Drawing.Color.White;
             this.buttonRevenueStatistics.Location = new System.Drawing.Point(794, 686);
             this.buttonRevenueStatistics.Name = "buttonRevenueStatistics";
             this.buttonRevenueStatistics.Size = new System.Drawing.Size(251, 70);
             this.buttonRevenueStatistics.TabIndex = 0;
             this.buttonRevenueStatistics.Text = "Statistics";
-            this.buttonRevenueStatistics.UseVisualStyleBackColor = true;
+            this.buttonRevenueStatistics.UseVisualStyleBackColor = false;
             this.buttonRevenueStatistics.Click += new System.EventHandler(this.buttonRevenueStatistics_Click);
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel18.Controls.Add(this.dataGridViewContract);
+            this.panel18.Controls.Add(this.buttonShowContract);
+            this.panel18.Controls.Add(this.buttonShowCustomer);
+            this.panel18.Location = new System.Drawing.Point(6, 97);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(1008, 588);
+            this.panel18.TabIndex = 6;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel19.Controls.Add(this.dateTimePickerTo);
+            this.panel19.Controls.Add(this.comboBoxTypeRevenue);
+            this.panel19.Controls.Add(this.label37);
+            this.panel19.Controls.Add(this.label42);
+            this.panel19.Controls.Add(this.dateTimePickerFrom);
+            this.panel19.Controls.Add(this.label43);
+            this.panel19.Location = new System.Drawing.Point(41, 15);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(1092, 48);
+            this.panel19.TabIndex = 6;
             // 
             // pictureBoxProfile
             // 
             this.pictureBoxProfile.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.Size = new System.Drawing.Size(175, 130);
-            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxProfile.TabIndex = 1;
+            this.pictureBoxProfile.TabIndex = 4;
             this.pictureBoxProfile.TabStop = false;
             // 
             // dashboardForm
@@ -1842,8 +1978,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1195, 975);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(1167, 984);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -1894,8 +2030,10 @@
             this.tabPageContract.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContract)).EndInit();
             this.tabPageRevenue.ResumeLayout(false);
-            this.tabPageRevenue.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).EndInit();
+            this.panel18.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
 
@@ -1905,7 +2043,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelWelcome;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBoxProfile;
         private System.Windows.Forms.LinkLabel linkLabelRefresh;
         private System.Windows.Forms.LinkLabel linkLabelEditInfo;
         private System.Windows.Forms.TabControl tabControl;
@@ -2054,5 +2191,8 @@
         private System.Windows.Forms.Button buttonEditCustomer;
         private System.Windows.Forms.Button buttonAddCustomer;
         private System.Windows.Forms.Button buttonShowCustomer;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.PictureBox pictureBoxProfile;
     }
 }

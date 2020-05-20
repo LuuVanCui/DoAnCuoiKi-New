@@ -40,30 +40,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(35, 240);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(22, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 26);
+            this.label1.Size = new System.Drawing.Size(155, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "User:";
+            this.label1.Text = "Username:";
             // 
             // textBoxUser
             // 
-            this.textBoxUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxUser.Location = new System.Drawing.Point(169, 240);
+            this.textBoxUser.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUser.Location = new System.Drawing.Point(183, 176);
             this.textBoxUser.Name = "textBoxUser";
-            this.textBoxUser.Size = new System.Drawing.Size(295, 30);
+            this.textBoxUser.Size = new System.Drawing.Size(295, 35);
             this.textBoxUser.TabIndex = 1;
             // 
             // buttonLogin
             // 
-            this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonLogin.Location = new System.Drawing.Point(78, 402);
+            this.buttonLogin.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonLogin.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.ForeColor = System.Drawing.Color.White;
+            this.buttonLogin.Location = new System.Drawing.Point(279, 335);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(159, 48);
+            this.buttonLogin.Size = new System.Drawing.Size(190, 75);
             this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -71,32 +71,32 @@
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxPassword.Location = new System.Drawing.Point(169, 316);
+            this.textBoxPassword.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Location = new System.Drawing.Point(183, 248);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(295, 30);
+            this.textBoxPassword.Size = new System.Drawing.Size(295, 35);
             this.textBoxPassword.TabIndex = 4;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(35, 319);
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(31, 242);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 26);
+            this.label2.Size = new System.Drawing.Size(146, 39);
             this.label2.TabIndex = 5;
             this.label2.Text = "Password:";
             // 
             // buttonExit
             // 
-            this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonExit.Location = new System.Drawing.Point(305, 402);
+            this.buttonExit.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonExit.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExit.ForeColor = System.Drawing.Color.White;
+            this.buttonExit.Location = new System.Drawing.Point(38, 335);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(159, 48);
+            this.buttonExit.Size = new System.Drawing.Size(201, 75);
             this.buttonExit.TabIndex = 6;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
@@ -105,20 +105,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(143, 156);
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(208, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(281, 46);
+            this.label3.Size = new System.Drawing.Size(160, 55);
             this.label3.TabIndex = 7;
-            this.label3.Text = "LOGIN FORM";
+            this.label3.Text = "LOGIN";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(204, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(29, 22);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(158, 132);
+            this.pictureBox1.Size = new System.Drawing.Size(134, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -126,10 +126,11 @@
             // radioButtonParking
             // 
             this.radioButtonParking.AutoSize = true;
+            this.radioButtonParking.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonParking.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButtonParking.Location = new System.Drawing.Point(232, 487);
+            this.radioButtonParking.Location = new System.Drawing.Point(234, 437);
             this.radioButtonParking.Name = "radioButtonParking";
-            this.radioButtonParking.Size = new System.Drawing.Size(87, 24);
+            this.radioButtonParking.Size = new System.Drawing.Size(95, 28);
             this.radioButtonParking.TabIndex = 8;
             this.radioButtonParking.TabStop = true;
             this.radioButtonParking.Text = "Parking";
@@ -138,10 +139,11 @@
             // radioButtonHumanResourse
             // 
             this.radioButtonHumanResourse.AutoSize = true;
+            this.radioButtonHumanResourse.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonHumanResourse.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButtonHumanResourse.Location = new System.Drawing.Point(55, 487);
+            this.radioButtonHumanResourse.Location = new System.Drawing.Point(29, 437);
             this.radioButtonHumanResourse.Name = "radioButtonHumanResourse";
-            this.radioButtonHumanResourse.Size = new System.Drawing.Size(159, 24);
+            this.radioButtonHumanResourse.Size = new System.Drawing.Size(172, 28);
             this.radioButtonHumanResourse.TabIndex = 8;
             this.radioButtonHumanResourse.TabStop = true;
             this.radioButtonHumanResourse.Text = "Human Resourse";
@@ -150,10 +152,11 @@
             // radioButtonWorker
             // 
             this.radioButtonWorker.AutoSize = true;
+            this.radioButtonWorker.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonWorker.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButtonWorker.Location = new System.Drawing.Point(350, 487);
+            this.radioButtonWorker.Location = new System.Drawing.Point(353, 437);
             this.radioButtonWorker.Name = "radioButtonWorker";
-            this.radioButtonWorker.Size = new System.Drawing.Size(85, 24);
+            this.radioButtonWorker.Size = new System.Drawing.Size(100, 28);
             this.radioButtonWorker.TabIndex = 8;
             this.radioButtonWorker.TabStop = true;
             this.radioButtonWorker.Text = "Worker";
@@ -163,8 +166,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ClientSize = new System.Drawing.Size(556, 537);
+            this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.ClientSize = new System.Drawing.Size(521, 515);
             this.Controls.Add(this.radioButtonHumanResourse);
             this.Controls.Add(this.radioButtonWorker);
             this.Controls.Add(this.radioButtonParking);

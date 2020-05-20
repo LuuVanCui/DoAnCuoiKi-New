@@ -1192,7 +1192,7 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Contract
+        #region Contract-------------------------------------------------------
         private void buttonAddContract_Click(object sender, EventArgs e)
         {
             addContractForm addContract = new addContractForm();
@@ -1390,5 +1390,30 @@ namespace QuanLyNhaXe01
         }
 
         #endregion
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDangGui_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDaRa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelStatus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
