@@ -79,6 +79,12 @@
     <Compile Include="Account\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="editMyProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editMyProfileForm.Designer.cs">
+      <DependentUpon>editMyProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Group.cs" />
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
@@ -102,6 +108,7 @@
     <Compile Include="settingForm.Designer.cs">
       <DependentUpon>settingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="USER.cs" />
     <Compile Include="Vehicle\addVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dashboardForm.resx">
       <DependentUpon>dashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editMyProfileForm.resx">
+      <DependentUpon>editMyProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>

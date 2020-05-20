@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelWelcome = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.linkLabelRefresh = new System.Windows.Forms.LinkLabel();
             this.linkLabelEditInfo = new System.Windows.Forms.LinkLabel();
             this.buttonExit = new System.Windows.Forms.Button();
@@ -171,7 +171,11 @@
             this.buttonEditContract = new System.Windows.Forms.Button();
             this.buttonAddContract = new System.Windows.Forms.Button();
             this.tabPageRevenue = new System.Windows.Forms.TabPage();
+            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.comboBoxTypeRevenue = new System.Windows.Forms.ComboBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.labelTotalRevenue = new System.Windows.Forms.Label();
@@ -180,12 +184,8 @@
             this.buttonPrintRevenue = new System.Windows.Forms.Button();
             this.buttonExportRevenue = new System.Windows.Forms.Button();
             this.buttonRevenueStatistics = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
-            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
-            this.label43 = new System.Windows.Forms.Label();
-            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPageVehicles.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -217,9 +217,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.labelWelcome);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pictureBoxProfile);
             this.panel1.Controls.Add(this.linkLabelRefresh);
             this.panel1.Controls.Add(this.linkLabelEditInfo);
             this.panel1.Controls.Add(this.buttonExit);
@@ -229,16 +229,16 @@
             this.panel1.Size = new System.Drawing.Size(1194, 130);
             this.panel1.TabIndex = 1;
             // 
-            // label7
+            // labelWelcome
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("MV Boli", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Crimson;
-            this.label7.Location = new System.Drawing.Point(181, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 37);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Welcome";
+            this.labelWelcome.AutoSize = true;
+            this.labelWelcome.Font = new System.Drawing.Font("MV Boli", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWelcome.ForeColor = System.Drawing.Color.Crimson;
+            this.labelWelcome.Location = new System.Drawing.Point(181, 14);
+            this.labelWelcome.Name = "labelWelcome";
+            this.labelWelcome.Size = new System.Drawing.Size(136, 37);
+            this.labelWelcome.TabIndex = 3;
+            this.labelWelcome.Text = "Welcome";
             // 
             // label5
             // 
@@ -250,13 +250,14 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "|";
             // 
-            // pictureBox1
+            // pictureBoxProfile
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 130);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxProfile.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.Size = new System.Drawing.Size(175, 130);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxProfile.TabIndex = 1;
+            this.pictureBoxProfile.TabStop = false;
             // 
             // linkLabelRefresh
             // 
@@ -267,7 +268,7 @@
             this.linkLabelRefresh.TabIndex = 0;
             this.linkLabelRefresh.TabStop = true;
             this.linkLabelRefresh.Text = "Refresh";
-            this.linkLabelRefresh.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRefresh_LinkClicked);
+            this.linkLabelRefresh.Click += new System.EventHandler(this.linkLabelRefresh_Click);
             // 
             // linkLabelEditInfo
             // 
@@ -278,7 +279,7 @@
             this.linkLabelEditInfo.TabIndex = 0;
             this.linkLabelEditInfo.TabStop = true;
             this.linkLabelEditInfo.Text = "Edit My Profile";
-            this.linkLabelEditInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEditInfo_LinkClicked);
+            this.linkLabelEditInfo.Click += new System.EventHandler(this.linkLabelEditInfo_Click);
             // 
             // buttonExit
             // 
@@ -1727,6 +1728,26 @@
             this.tabPageRevenue.Text = "Revenue";
             this.tabPageRevenue.UseVisualStyleBackColor = true;
             // 
+            // dateTimePickerTo
+            // 
+            this.dateTimePickerTo.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerTo.Location = new System.Drawing.Point(428, 68);
+            this.dateTimePickerTo.Name = "dateTimePickerTo";
+            this.dateTimePickerTo.Size = new System.Drawing.Size(148, 35);
+            this.dateTimePickerTo.TabIndex = 5;
+            this.dateTimePickerTo.ValueChanged += new System.EventHandler(this.dateTimePickerTo_ValueChanged);
+            // 
+            // dateTimePickerFrom
+            // 
+            this.dateTimePickerFrom.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(224, 68);
+            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(148, 35);
+            this.dateTimePickerFrom.TabIndex = 5;
+            this.dateTimePickerFrom.ValueChanged += new System.EventHandler(this.dateTimePickerFrom_ValueChanged);
+            // 
             // comboBoxTypeRevenue
             // 
             this.comboBoxTypeRevenue.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1738,6 +1759,24 @@
             this.comboBoxTypeRevenue.Size = new System.Drawing.Size(353, 36);
             this.comboBoxTypeRevenue.TabIndex = 4;
             this.comboBoxTypeRevenue.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeRevenue_SelectedIndexChanged);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(378, 70);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(44, 33);
+            this.label43.TabIndex = 3;
+            this.label43.Text = "To";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(65, 68);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(152, 33);
+            this.label42.TabIndex = 3;
+            this.label42.Text = "Range From:";
             // 
             // label37
             // 
@@ -1814,44 +1853,6 @@
             this.buttonRevenueStatistics.UseVisualStyleBackColor = true;
             this.buttonRevenueStatistics.Click += new System.EventHandler(this.buttonRevenueStatistics_Click);
             // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(65, 68);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(152, 33);
-            this.label42.TabIndex = 3;
-            this.label42.Text = "Range From:";
-            // 
-            // dateTimePickerFrom
-            // 
-            this.dateTimePickerFrom.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(224, 68);
-            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(148, 35);
-            this.dateTimePickerFrom.TabIndex = 5;
-            this.dateTimePickerFrom.ValueChanged += new System.EventHandler(this.dateTimePickerFrom_ValueChanged);
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(378, 70);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(44, 33);
-            this.label43.TabIndex = 3;
-            this.label43.Text = "To";
-            // 
-            // dateTimePickerTo
-            // 
-            this.dateTimePickerTo.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerTo.Location = new System.Drawing.Point(428, 68);
-            this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(148, 35);
-            this.dateTimePickerTo.TabIndex = 5;
-            this.dateTimePickerTo.ValueChanged += new System.EventHandler(this.dateTimePickerTo_ValueChanged);
-            // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1869,7 +1870,7 @@
             this.Load += new System.EventHandler(this.dashboardForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.tabPageVehicles.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -1919,9 +1920,9 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelWelcome;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxProfile;
         private System.Windows.Forms.LinkLabel linkLabelRefresh;
         private System.Windows.Forms.LinkLabel linkLabelEditInfo;
         private System.Windows.Forms.TabControl tabControl;

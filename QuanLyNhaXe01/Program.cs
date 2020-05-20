@@ -6,6 +6,12 @@ using System.Windows.Forms;
 
 namespace QuanLyNhaXe01
 {
+    public static class Globals
+    {
+        public static Int32 GlobalUserID; // Modifiable in Code
+    }
+
+
     static class Program
     {
         /// <summary>

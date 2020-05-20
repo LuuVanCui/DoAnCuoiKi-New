@@ -26,6 +26,15 @@ namespace QuanLyNhaXe01
 
         private void dashboardForm_Load(object sender, EventArgs e)
         {
+            #region TABAR
+            USER user = new USER();
+            System.Data.DataTable hrTable = user.getUser(new SqlCommand("SELECT * FROM login WHERE id = " + Globals.GlobalUserID));
+            byte[] bytes = (byte[])hrTable.Rows[0][5];
+            MemoryStream ms = new MemoryStream(bytes);
+            pictureBoxProfile.Image = Image.FromStream(ms);
+            labelWelcome.Text = "Welcome " + hrTable.Rows[0]["fname"].ToString().Trim() + " " + hrTable.Rows[0]["lname"].ToString();
+            #endregion
+
             #region VEHICLES
             vehicleControls();
             System.Data.DataTable table = vehicle.getVehicle(new SqlCommand("SELECT * FROM PhiGuiXeVaSlot"));
@@ -88,14 +97,15 @@ namespace QuanLyNhaXe01
             this.Close();
         }
 
-        private void linkLabelEditInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelEditInfo_Click(object sender, EventArgs e)
         {
-
+            editMyProfileForm editInfo = new editMyProfileForm();
+            editInfo.ShowDialog(this);
         }
 
-        private void linkLabelRefresh_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelRefresh_Click(object sender, EventArgs e)
         {
-
+            dashboardForm_Load(sender, e);
         }
         #endregion
 

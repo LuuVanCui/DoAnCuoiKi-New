@@ -35,6 +35,7 @@ namespace QuanLyNhaXe01
             if ((table.Rows.Count > 0))
             {
                 this.DialogResult = DialogResult.OK;
+                Globals.GlobalUserID = Convert.ToInt32(table.Rows[0]["id"].ToString());
                 //MessageBox.Show("Login successful");
             }
             else
