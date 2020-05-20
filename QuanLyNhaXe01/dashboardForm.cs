@@ -604,35 +604,42 @@ namespace QuanLyNhaXe01
         {
             try
             {
-                int id = int.Parse(dataGridViewWorker.CurrentRow.Cells[0].Value.ToString());
+                if (dataGridViewWorker.Rows.Count > 1)
+                {     
+                    int id = int.Parse(dataGridViewWorker.CurrentRow.Cells[0].Value.ToString());
 
-                Worker worker = new Worker();
+                    Worker worker = new Worker();
 
 
-                if ((MessageBox.Show("Do you want to delete this Worker", "Remove Worker", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
-                {
-                    if (worker.deleteWorker(id))
+                    if ((MessageBox.Show("Do you want to delete this Worker", "Remove Worker", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
                     {
-                        MessageBox.Show("Worker Deleted", "Remove Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //clear fields
-                        textBoxWorkerID.Text = "";
+                        if (worker.deleteWorker(id))
+                        {
+                            MessageBox.Show("Worker Deleted", "Remove Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //clear fields
+                            textBoxWorkerID.Text = "";
 
-                        textBoxFullName.Text = "";
-                        textBoxIdentityCard.Text = "";
-                        //dioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
+                            textBoxFullName.Text = "";
+                            textBoxIdentityCard.Text = "";
+                            //dioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
 
-                        textBoxPhoneWorker.Text = "";
-                        textBoxAddressWorker.Text = "";
+                            textBoxPhoneWorker.Text = "";
+                            textBoxAddressWorker.Text = "";
 
-                        radioButtonMale.Checked = false;
-                        radioButtonFeMale.Checked = false;
-                        fillDatagridWorker();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Worker not deleted", "remove Worker", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            radioButtonMale.Checked = false;
+                            radioButtonFeMale.Checked = false;
+                            fillDatagridWorker();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Worker not deleted", "remove Worker", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("You have to select data in Data GridView", "Remove Worker", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }    
             }
             catch(Exception ex)
             {
