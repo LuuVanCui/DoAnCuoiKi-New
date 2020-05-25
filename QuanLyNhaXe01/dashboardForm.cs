@@ -93,6 +93,10 @@ namespace QuanLyNhaXe01
             #region CONTRACT
             fillDatagridContract();
             #endregion
+
+            #region CUSTOMER
+            fillDatagrid_Customer();
+            #endregion
         }
 
         #region Tabar----------------------------------------------------------
@@ -389,6 +393,11 @@ namespace QuanLyNhaXe01
         #region Worker---------------------------------------------------------
         Worker worker = new Worker();
 
+        private void buttonStatisticsWorker_Click(object sender, EventArgs e)
+        {
+            statisticsWorkerForm st = new statisticsWorkerForm();
+            st.Show(this);
+        }
         void fillComboBoxWork_Worker()
         {
             comboBoxWork_Worker.DataSource = work.getWork();
@@ -788,12 +797,42 @@ namespace QuanLyNhaXe01
 
                 //NASSIM LOUCHANI
             }
+
+        }
+
+        private void buttonStatisticsWorker_Click_1(object sender, EventArgs e)
+        {
+            statisticsWorkerForm st = new statisticsWorkerForm();
+            st.Show(this);
         }
         #endregion
 
         #region Work-----------------------------------------------------------
 
         Work work = new Work();
+
+        private void buttonSelectWork_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                selectWorkForm selectWork = new selectWorkForm();
+                selectWork.ShowDialog();
+                if (selectWork.dataGridViewSelectWork.Rows.Count > 0)
+                {
+                    textBoxWorkID_Work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
+                    textBoxWorkerID_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[1].Value.ToString();
+                    textBoxWorkName_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[2].Value.ToString();
+                    textBoxWorkDetail_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[3].Value.ToString();
+                    string valueMember = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
+                    System.Data.DataTable table_Group = vehicle.getVehicle(new SqlCommand("select distinct * from Nhom where MaNhom = " + Convert.ToInt32(valueMember)));
+                    comboBoxGroupName_work.ValueMember = valueMember;
+                    comboBoxGroupName_work.DisplayMember = table_Group.Rows[0][1].ToString();
+                }
+            }
+            catch { }
+
+        }
+
         private void buttonAdd_Work_Click(object sender, EventArgs e)
         {
             try
@@ -940,7 +979,32 @@ namespace QuanLyNhaXe01
 
         private void textBoxSearch_work_TextChanged(object sender, EventArgs e)
         {
+            string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+                        "from Tho inner join Nhom on Tho.MaNhom = Nhom.MaNhom inner " +
+                        "join CongViec on Tho.MaCV = CongViec.MaCV " +
+                        "WHERE CONCAT(Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV) LIKE '%" + textBoxSearch_work.Text + "%'";
+            SqlCommand command = new SqlCommand(query_grid_work);
+            dataGridViewWork.DataSource = vehicle.getVehicle(command);
+        }
 
+        private void listBoxGroup_work_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listBoxGroup_work.SelectedIndex != -1)
+                {
+                    int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
+                    string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+                        "from Tho inner join Nhom on Tho.MaNhom = Nhom.MaNhom inner " +
+                        "join CongViec on Tho.MaCV = CongViec.MaCV " +
+                        "where Nhom.MaNhom = " + groupID;
+                    dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void buttonPrint_work_Click(object sender, EventArgs e)
@@ -1447,6 +1511,98 @@ namespace QuanLyNhaXe01
 
         #endregion
 
+        #region Customer
+        void fillDatagrid_Customer()
+        {
+            MyDB mydb = new MyDB();
+            Worker worker = new Worker();
+
+            SqlCommand command = new SqlCommand("Select * from KhachHang");
+            System.Data.DataTable tb = new System.Data.DataTable();
+            tb = worker.getWorker(command);
+            dataGridViewCustomer.DataSource = tb;
+            dataGridViewCustomer.ReadOnly = true;
+            labelTotalCustomer.Text = "Total: " + tb.Rows.Count.ToString();
+
+        }
+
+        private void buttonAddCustomer_Click_1(object sender, EventArgs e)
+        {
+            addCustomerForm add = new addCustomerForm();
+            add.Show(this);
+        }
+
+        private void buttonEditCustomer_Click_1(object sender, EventArgs e)
+        {
+            editCustomerForm editC = new editCustomerForm();
+            editC.Show(this);
+        }
+
+        private void buttonDeleteCustomer_Click_1(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Do you want to delete this customer!", "Delete Customer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (dataGridViewCustomer.Rows.Count > 1)
+                {
+                    if (dataGridViewCustomer.CurrentRow.Cells.Count == 5)
+                    {
+                        try
+                        {
+                            string id = dataGridViewCustomer.CurrentRow.Cells[0].Value.ToString();
+                            Customer customer = new Customer();
+                            if (customer.deleteCustomer(id))
+                            {
+                                MessageBox.Show("Delete successfuly", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                fillDatagrid_Customer();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Not deleted", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You have to select data in Data Grid View", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Customer not deleted", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void textBoxSearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+            SqlCommand command = new SqlCommand("select* from KhachHang Where Concat(MaKH,TenKH,CMND,DiaChi,SDT)  LIKE '%" + textBoxSearchCustomer.Text + "%' ");
+
+            dataGridViewCustomer.DataSource = contract.getTable(command);
+        }
+
+        private void buttonPrintCustomer_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.DocumentName = "Print Document";
+            printDlg.Document = printDoc;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
+
+            if (printDlg.ShowDialog() == DialogResult.OK)
+                printDoc.Print();
+        }
+        private void buttonExportCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
         private void label30_Click(object sender, EventArgs e)
         {
 
@@ -1472,10 +1628,11 @@ namespace QuanLyNhaXe01
 
         }
 
-        private void buttonStatisticsWorker_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            statisticsWorkerForm st = new statisticsWorkerForm();
-            st.Show(this);
+            
         }
+
+       
     }
 }

@@ -136,6 +136,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxGroupName_work = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.buttonSelectWork = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -163,9 +164,6 @@
             this.buttonShowCustomer = new System.Windows.Forms.Button();
             this.textBoxSearchContract = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.buttonDeleteCustomer = new System.Windows.Forms.Button();
-            this.buttonEditCustomer = new System.Windows.Forms.Button();
-            this.buttonAddCustomer = new System.Windows.Forms.Button();
             this.buttonExportContract = new System.Windows.Forms.Button();
             this.buttonPrintContract = new System.Windows.Forms.Button();
             this.buttonStatisticsContract = new System.Windows.Forms.Button();
@@ -184,6 +182,18 @@
             this.buttonPrintRevenue = new System.Windows.Forms.Button();
             this.buttonExportRevenue = new System.Windows.Forms.Button();
             this.buttonRevenueStatistics = new System.Windows.Forms.Button();
+            this.tabPageCustomer = new System.Windows.Forms.TabPage();
+            this.labelTotalCustomer = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.dataGridViewCustomer = new System.Windows.Forms.DataGridView();
+            this.textBoxSearchCustomer = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.buttonExportCustomer = new System.Windows.Forms.Button();
+            this.buttonPrintCustomer = new System.Windows.Forms.Button();
+            this.buttonStatisticsCustomer = new System.Windows.Forms.Button();
+            this.buttonDeleteCustomer = new System.Windows.Forms.Button();
+            this.buttonEditCustomer = new System.Windows.Forms.Button();
+            this.buttonAddCustomer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -215,6 +225,9 @@
             this.tabPageRevenue.SuspendLayout();
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).BeginInit();
+            this.tabPageCustomer.SuspendLayout();
+            this.panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -234,7 +247,7 @@
             // 
             // pictureBoxProfile
             // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(3, -3);
+            this.pictureBoxProfile.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.Size = new System.Drawing.Size(175, 130);
             this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -303,6 +316,7 @@
             this.tabControl.Controls.Add(this.tabPageWorker);
             this.tabControl.Controls.Add(this.tabPageWork);
             this.tabControl.Controls.Add(this.tabPageContract);
+            this.tabControl.Controls.Add(this.tabPageCustomer);
             this.tabControl.Controls.Add(this.tabPageRevenue);
             this.tabControl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(1, 135);
@@ -489,7 +503,6 @@
             this.labelDaRa.TabIndex = 0;
             this.labelDaRa.Text = "Da Ra";
             this.labelDaRa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelDaRa.Click += new System.EventHandler(this.labelDaRa_Click);
             // 
             // labelStatus
             // 
@@ -501,7 +514,6 @@
             this.labelStatus.TabIndex = 0;
             this.labelStatus.Text = "Status";
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelStatus.Click += new System.EventHandler(this.labelStatus_Click);
             // 
             // label30
             // 
@@ -512,7 +524,6 @@
             this.label30.Size = new System.Drawing.Size(191, 30);
             this.label30.TabIndex = 0;
             this.label30.Text = "Type of Vehicles:";
-            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // buttonStatisticsVehicle
             // 
@@ -546,7 +557,6 @@
             this.label29.Size = new System.Drawing.Size(91, 30);
             this.label29.TabIndex = 0;
             this.label29.Text = "Search:";
-            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // panel7
             // 
@@ -944,7 +954,7 @@
             this.buttonStatisticsWorker.TabIndex = 0;
             this.buttonStatisticsWorker.Text = "Statistics";
             this.buttonStatisticsWorker.UseVisualStyleBackColor = false;
-            this.buttonStatisticsWorker.Click += new System.EventHandler(this.buttonStatisticsWorker_Click);
+            this.buttonStatisticsWorker.Click += new System.EventHandler(this.buttonStatisticsWorker_Click_1);
             // 
             // buttonRemoveWorker
             // 
@@ -1243,7 +1253,7 @@
             this.listBoxGroup_work.Name = "listBoxGroup_work";
             this.listBoxGroup_work.Size = new System.Drawing.Size(193, 228);
             this.listBoxGroup_work.TabIndex = 3;
-            this.listBoxGroup_work.SelectedIndexChanged += new System.EventHandler(this.listBoxGroup_work_SelectedIndexChanged);
+            this.listBoxGroup_work.Click += new System.EventHandler(this.listBoxGroup_work_Click);
             // 
             // groupBox2
             // 
@@ -1269,15 +1279,15 @@
             this.panel14.Controls.Add(this.label39);
             this.panel14.Location = new System.Drawing.Point(12, 31);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(478, 96);
+            this.panel14.Size = new System.Drawing.Size(478, 113);
             this.panel14.TabIndex = 13;
             // 
             // textBoxAddGroup_work
             // 
-            this.textBoxAddGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAddGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAddGroup_work.Location = new System.Drawing.Point(105, 13);
             this.textBoxAddGroup_work.Name = "textBoxAddGroup_work";
-            this.textBoxAddGroup_work.Size = new System.Drawing.Size(166, 35);
+            this.textBoxAddGroup_work.Size = new System.Drawing.Size(166, 30);
             this.textBoxAddGroup_work.TabIndex = 10;
             // 
             // buttonAddGroup_work
@@ -1285,9 +1295,9 @@
             this.buttonAddGroup_work.BackColor = System.Drawing.Color.Chocolate;
             this.buttonAddGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.buttonAddGroup_work.ForeColor = System.Drawing.Color.White;
-            this.buttonAddGroup_work.Location = new System.Drawing.Point(105, 56);
+            this.buttonAddGroup_work.Location = new System.Drawing.Point(105, 50);
             this.buttonAddGroup_work.Name = "buttonAddGroup_work";
-            this.buttonAddGroup_work.Size = new System.Drawing.Size(334, 35);
+            this.buttonAddGroup_work.Size = new System.Drawing.Size(334, 49);
             this.buttonAddGroup_work.TabIndex = 11;
             this.buttonAddGroup_work.Text = "Add";
             this.buttonAddGroup_work.UseVisualStyleBackColor = false;
@@ -1304,10 +1314,10 @@
             // 
             // textBoxAddGroupID_work
             // 
-            this.textBoxAddGroupID_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAddGroupID_work.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAddGroupID_work.Location = new System.Drawing.Point(352, 12);
             this.textBoxAddGroupID_work.Name = "textBoxAddGroupID_work";
-            this.textBoxAddGroupID_work.Size = new System.Drawing.Size(87, 35);
+            this.textBoxAddGroupID_work.Size = new System.Drawing.Size(87, 30);
             this.textBoxAddGroupID_work.TabIndex = 10;
             // 
             // label39
@@ -1328,26 +1338,26 @@
             this.panel13.Controls.Add(this.label15);
             this.panel13.Controls.Add(this.buttonEditGroup_work);
             this.panel13.Controls.Add(this.label41);
-            this.panel13.Location = new System.Drawing.Point(12, 143);
+            this.panel13.Location = new System.Drawing.Point(12, 150);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(478, 88);
             this.panel13.TabIndex = 12;
             // 
             // textBoxNewGroup_work
             // 
-            this.textBoxNewGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNewGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNewGroup_work.Location = new System.Drawing.Point(148, 45);
             this.textBoxNewGroup_work.Name = "textBoxNewGroup_work";
-            this.textBoxNewGroup_work.Size = new System.Drawing.Size(198, 35);
+            this.textBoxNewGroup_work.Size = new System.Drawing.Size(198, 30);
             this.textBoxNewGroup_work.TabIndex = 10;
             // 
             // comboBoxEditGroup_work
             // 
-            this.comboBoxEditGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.comboBoxEditGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxEditGroup_work.FormattingEnabled = true;
             this.comboBoxEditGroup_work.Location = new System.Drawing.Point(148, 3);
             this.comboBoxEditGroup_work.Name = "comboBoxEditGroup_work";
-            this.comboBoxEditGroup_work.Size = new System.Drawing.Size(198, 36);
+            this.comboBoxEditGroup_work.Size = new System.Drawing.Size(198, 31);
             this.comboBoxEditGroup_work.TabIndex = 12;
             // 
             // label15
@@ -1365,9 +1375,9 @@
             this.buttonEditGroup_work.BackColor = System.Drawing.Color.Chocolate;
             this.buttonEditGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.buttonEditGroup_work.ForeColor = System.Drawing.Color.White;
-            this.buttonEditGroup_work.Location = new System.Drawing.Point(364, 16);
+            this.buttonEditGroup_work.Location = new System.Drawing.Point(362, 14);
             this.buttonEditGroup_work.Name = "buttonEditGroup_work";
-            this.buttonEditGroup_work.Size = new System.Drawing.Size(96, 46);
+            this.buttonEditGroup_work.Size = new System.Drawing.Size(96, 59);
             this.buttonEditGroup_work.TabIndex = 11;
             this.buttonEditGroup_work.Text = "Edit";
             this.buttonEditGroup_work.UseVisualStyleBackColor = false;
@@ -1392,16 +1402,16 @@
             this.panel15.Controls.Add(this.label40);
             this.panel15.Location = new System.Drawing.Point(12, 244);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(478, 96);
+            this.panel15.Size = new System.Drawing.Size(478, 110);
             this.panel15.TabIndex = 14;
             // 
             // comboBoxRemoveGroup_work
             // 
-            this.comboBoxRemoveGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.comboBoxRemoveGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRemoveGroup_work.FormattingEnabled = true;
-            this.comboBoxRemoveGroup_work.Location = new System.Drawing.Point(105, 14);
+            this.comboBoxRemoveGroup_work.Location = new System.Drawing.Point(105, 17);
             this.comboBoxRemoveGroup_work.Name = "comboBoxRemoveGroup_work";
-            this.comboBoxRemoveGroup_work.Size = new System.Drawing.Size(334, 36);
+            this.comboBoxRemoveGroup_work.Size = new System.Drawing.Size(334, 31);
             this.comboBoxRemoveGroup_work.TabIndex = 12;
             // 
             // buttonRemoveGroup_work
@@ -1409,9 +1419,9 @@
             this.buttonRemoveGroup_work.BackColor = System.Drawing.Color.Chocolate;
             this.buttonRemoveGroup_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.buttonRemoveGroup_work.ForeColor = System.Drawing.Color.White;
-            this.buttonRemoveGroup_work.Location = new System.Drawing.Point(105, 56);
+            this.buttonRemoveGroup_work.Location = new System.Drawing.Point(105, 54);
             this.buttonRemoveGroup_work.Name = "buttonRemoveGroup_work";
-            this.buttonRemoveGroup_work.Size = new System.Drawing.Size(334, 35);
+            this.buttonRemoveGroup_work.Size = new System.Drawing.Size(334, 49);
             this.buttonRemoveGroup_work.TabIndex = 11;
             this.buttonRemoveGroup_work.Text = "Remove";
             this.buttonRemoveGroup_work.UseVisualStyleBackColor = false;
@@ -1420,7 +1430,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(13, 8);
+            this.label40.Location = new System.Drawing.Point(13, 11);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(87, 33);
             this.label40.TabIndex = 9;
@@ -1430,6 +1440,7 @@
             // 
             this.groupBox1.Controls.Add(this.comboBoxGroupName_work);
             this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.buttonSelectWork);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label33);
             this.groupBox1.Controls.Add(this.label8);
@@ -1442,7 +1453,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(6, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(623, 360);
+            this.groupBox1.Size = new System.Drawing.Size(609, 360);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work";
@@ -1464,6 +1475,18 @@
             this.label17.Size = new System.Drawing.Size(122, 33);
             this.label17.TabIndex = 1;
             this.label17.Text = "Work ID:";
+            // 
+            // buttonSelectWork
+            // 
+            this.buttonSelectWork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonSelectWork.ForeColor = System.Drawing.Color.White;
+            this.buttonSelectWork.Location = new System.Drawing.Point(403, 47);
+            this.buttonSelectWork.Name = "buttonSelectWork";
+            this.buttonSelectWork.Size = new System.Drawing.Size(178, 54);
+            this.buttonSelectWork.TabIndex = 5;
+            this.buttonSelectWork.Text = "Select Work";
+            this.buttonSelectWork.UseVisualStyleBackColor = false;
+            this.buttonSelectWork.Click += new System.EventHandler(this.buttonSelectWork_Click);
             // 
             // label18
             // 
@@ -1541,16 +1564,16 @@
             this.panel10.Controls.Add(this.buttonRemove_Work);
             this.panel10.Controls.Add(this.buttonEdit_Work);
             this.panel10.Controls.Add(this.buttonAdd_Work);
-            this.panel10.Location = new System.Drawing.Point(475, 45);
+            this.panel10.Location = new System.Drawing.Point(467, 121);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(135, 280);
+            this.panel10.Size = new System.Drawing.Size(125, 219);
             this.panel10.TabIndex = 6;
             // 
             // buttonRemove_Work
             // 
             this.buttonRemove_Work.BackColor = System.Drawing.Color.Chocolate;
             this.buttonRemove_Work.ForeColor = System.Drawing.Color.White;
-            this.buttonRemove_Work.Location = new System.Drawing.Point(13, 209);
+            this.buttonRemove_Work.Location = new System.Drawing.Point(3, 156);
             this.buttonRemove_Work.Name = "buttonRemove_Work";
             this.buttonRemove_Work.Size = new System.Drawing.Size(109, 54);
             this.buttonRemove_Work.TabIndex = 5;
@@ -1562,7 +1585,7 @@
             // 
             this.buttonEdit_Work.BackColor = System.Drawing.Color.Chocolate;
             this.buttonEdit_Work.ForeColor = System.Drawing.Color.White;
-            this.buttonEdit_Work.Location = new System.Drawing.Point(13, 115);
+            this.buttonEdit_Work.Location = new System.Drawing.Point(3, 88);
             this.buttonEdit_Work.Name = "buttonEdit_Work";
             this.buttonEdit_Work.Size = new System.Drawing.Size(109, 54);
             this.buttonEdit_Work.TabIndex = 5;
@@ -1574,7 +1597,7 @@
             // 
             this.buttonAdd_Work.BackColor = System.Drawing.Color.Chocolate;
             this.buttonAdd_Work.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd_Work.Location = new System.Drawing.Point(13, 15);
+            this.buttonAdd_Work.Location = new System.Drawing.Point(3, 13);
             this.buttonAdd_Work.Name = "buttonAdd_Work";
             this.buttonAdd_Work.Size = new System.Drawing.Size(109, 54);
             this.buttonAdd_Work.TabIndex = 5;
@@ -1636,10 +1659,10 @@
             // 
             // textBoxSearch_work
             // 
-            this.textBoxSearch_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch_work.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSearch_work.Location = new System.Drawing.Point(376, 395);
             this.textBoxSearch_work.Name = "textBoxSearch_work";
-            this.textBoxSearch_work.Size = new System.Drawing.Size(582, 35);
+            this.textBoxSearch_work.Size = new System.Drawing.Size(582, 30);
             this.textBoxSearch_work.TabIndex = 2;
             this.textBoxSearch_work.TextChanged += new System.EventHandler(this.textBoxSearch_work_TextChanged);
             // 
@@ -1659,9 +1682,6 @@
             this.tabPageContract.Controls.Add(this.panel18);
             this.tabPageContract.Controls.Add(this.textBoxSearchContract);
             this.tabPageContract.Controls.Add(this.label6);
-            this.tabPageContract.Controls.Add(this.buttonDeleteCustomer);
-            this.tabPageContract.Controls.Add(this.buttonEditCustomer);
-            this.tabPageContract.Controls.Add(this.buttonAddCustomer);
             this.tabPageContract.Controls.Add(this.buttonExportContract);
             this.tabPageContract.Controls.Add(this.buttonPrintContract);
             this.tabPageContract.Controls.Add(this.buttonStatisticsContract);
@@ -1705,7 +1725,7 @@
             this.dataGridViewContract.Name = "dataGridViewContract";
             this.dataGridViewContract.RowHeadersWidth = 62;
             this.dataGridViewContract.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewContract.RowTemplate.Height = 32;
+            this.dataGridViewContract.RowTemplate.Height = 28;
             this.dataGridViewContract.Size = new System.Drawing.Size(1002, 509);
             this.dataGridViewContract.TabIndex = 3;
             // 
@@ -1752,45 +1772,6 @@
             this.label6.Size = new System.Drawing.Size(101, 33);
             this.label6.TabIndex = 4;
             this.label6.Text = "Search:";
-            // 
-            // buttonDeleteCustomer
-            // 
-            this.buttonDeleteCustomer.BackColor = System.Drawing.Color.Chocolate;
-            this.buttonDeleteCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDeleteCustomer.ForeColor = System.Drawing.Color.White;
-            this.buttonDeleteCustomer.Location = new System.Drawing.Point(1030, 449);
-            this.buttonDeleteCustomer.Name = "buttonDeleteCustomer";
-            this.buttonDeleteCustomer.Size = new System.Drawing.Size(119, 83);
-            this.buttonDeleteCustomer.TabIndex = 2;
-            this.buttonDeleteCustomer.Text = "Delete Customer";
-            this.buttonDeleteCustomer.UseVisualStyleBackColor = false;
-            this.buttonDeleteCustomer.Click += new System.EventHandler(this.buttonDeleteCustomer_Click);
-            // 
-            // buttonEditCustomer
-            // 
-            this.buttonEditCustomer.BackColor = System.Drawing.Color.Chocolate;
-            this.buttonEditCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonEditCustomer.ForeColor = System.Drawing.Color.White;
-            this.buttonEditCustomer.Location = new System.Drawing.Point(1030, 335);
-            this.buttonEditCustomer.Name = "buttonEditCustomer";
-            this.buttonEditCustomer.Size = new System.Drawing.Size(119, 83);
-            this.buttonEditCustomer.TabIndex = 2;
-            this.buttonEditCustomer.Text = "Edit Customer";
-            this.buttonEditCustomer.UseVisualStyleBackColor = false;
-            this.buttonEditCustomer.Click += new System.EventHandler(this.buttonEditCustomer_Click);
-            // 
-            // buttonAddCustomer
-            // 
-            this.buttonAddCustomer.BackColor = System.Drawing.Color.Chocolate;
-            this.buttonAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAddCustomer.ForeColor = System.Drawing.Color.White;
-            this.buttonAddCustomer.Location = new System.Drawing.Point(1030, 212);
-            this.buttonAddCustomer.Name = "buttonAddCustomer";
-            this.buttonAddCustomer.Size = new System.Drawing.Size(119, 83);
-            this.buttonAddCustomer.TabIndex = 2;
-            this.buttonAddCustomer.Text = "Add Customer";
-            this.buttonAddCustomer.UseVisualStyleBackColor = false;
-            this.buttonAddCustomer.Click += new System.EventHandler(this.buttonAddCustomer_Click);
             // 
             // buttonExportContract
             // 
@@ -2011,6 +1992,153 @@
             this.buttonRevenueStatistics.UseVisualStyleBackColor = false;
             this.buttonRevenueStatistics.Click += new System.EventHandler(this.buttonRevenueStatistics_Click);
             // 
+            // tabPageCustomer
+            // 
+            this.tabPageCustomer.Controls.Add(this.buttonStatisticsCustomer);
+            this.tabPageCustomer.Controls.Add(this.buttonDeleteCustomer);
+            this.tabPageCustomer.Controls.Add(this.buttonEditCustomer);
+            this.tabPageCustomer.Controls.Add(this.buttonAddCustomer);
+            this.tabPageCustomer.Controls.Add(this.textBoxSearchCustomer);
+            this.tabPageCustomer.Controls.Add(this.label35);
+            this.tabPageCustomer.Controls.Add(this.buttonExportCustomer);
+            this.tabPageCustomer.Controls.Add(this.buttonPrintCustomer);
+            this.tabPageCustomer.Controls.Add(this.labelTotalCustomer);
+            this.tabPageCustomer.Controls.Add(this.panel20);
+            this.tabPageCustomer.Location = new System.Drawing.Point(4, 42);
+            this.tabPageCustomer.Name = "tabPageCustomer";
+            this.tabPageCustomer.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCustomer.Size = new System.Drawing.Size(1155, 807);
+            this.tabPageCustomer.TabIndex = 5;
+            this.tabPageCustomer.Text = "Customer";
+            this.tabPageCustomer.UseVisualStyleBackColor = true;
+            // 
+            // labelTotalCustomer
+            // 
+            this.labelTotalCustomer.AutoSize = true;
+            this.labelTotalCustomer.Font = new System.Drawing.Font("Comic Sans MS", 11F);
+            this.labelTotalCustomer.ForeColor = System.Drawing.Color.Brown;
+            this.labelTotalCustomer.Location = new System.Drawing.Point(986, 668);
+            this.labelTotalCustomer.Name = "labelTotalCustomer";
+            this.labelTotalCustomer.Size = new System.Drawing.Size(74, 30);
+            this.labelTotalCustomer.TabIndex = 18;
+            this.labelTotalCustomer.Text = "Total:";
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel20.Controls.Add(this.dataGridViewCustomer);
+            this.panel20.Location = new System.Drawing.Point(19, 113);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(1117, 552);
+            this.panel20.TabIndex = 17;
+            // 
+            // dataGridViewCustomer
+            // 
+            this.dataGridViewCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCustomer.Location = new System.Drawing.Point(3, 56);
+            this.dataGridViewCustomer.Name = "dataGridViewCustomer";
+            this.dataGridViewCustomer.RowHeadersWidth = 62;
+            this.dataGridViewCustomer.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewCustomer.RowTemplate.Height = 32;
+            this.dataGridViewCustomer.Size = new System.Drawing.Size(1111, 496);
+            this.dataGridViewCustomer.TabIndex = 3;
+            // 
+            // textBoxSearchCustomer
+            // 
+            this.textBoxSearchCustomer.Location = new System.Drawing.Point(144, 42);
+            this.textBoxSearchCustomer.Name = "textBoxSearchCustomer";
+            this.textBoxSearchCustomer.Size = new System.Drawing.Size(504, 41);
+            this.textBoxSearchCustomer.TabIndex = 22;
+            this.textBoxSearchCustomer.TextChanged += new System.EventHandler(this.textBoxSearchCustomer_TextChanged);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.ForeColor = System.Drawing.Color.Brown;
+            this.label35.Location = new System.Drawing.Point(37, 45);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(101, 33);
+            this.label35.TabIndex = 21;
+            this.label35.Text = "Search:";
+            // 
+            // buttonExportCustomer
+            // 
+            this.buttonExportCustomer.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonExportCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonExportCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonExportCustomer.Location = new System.Drawing.Point(918, 36);
+            this.buttonExportCustomer.Name = "buttonExportCustomer";
+            this.buttonExportCustomer.Size = new System.Drawing.Size(142, 54);
+            this.buttonExportCustomer.TabIndex = 19;
+            this.buttonExportCustomer.Text = "Export";
+            this.buttonExportCustomer.UseVisualStyleBackColor = false;
+            this.buttonExportCustomer.Click += new System.EventHandler(this.buttonExportCustomer_Click);
+            // 
+            // buttonPrintCustomer
+            // 
+            this.buttonPrintCustomer.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonPrintCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPrintCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonPrintCustomer.Location = new System.Drawing.Point(706, 36);
+            this.buttonPrintCustomer.Name = "buttonPrintCustomer";
+            this.buttonPrintCustomer.Size = new System.Drawing.Size(148, 51);
+            this.buttonPrintCustomer.TabIndex = 20;
+            this.buttonPrintCustomer.Text = "Print";
+            this.buttonPrintCustomer.UseVisualStyleBackColor = false;
+            this.buttonPrintCustomer.Click += new System.EventHandler(this.buttonPrintCustomer_Click);
+            // 
+            // buttonStatisticsCustomer
+            // 
+            this.buttonStatisticsCustomer.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonStatisticsCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonStatisticsCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonStatisticsCustomer.Location = new System.Drawing.Point(722, 699);
+            this.buttonStatisticsCustomer.Name = "buttonStatisticsCustomer";
+            this.buttonStatisticsCustomer.Size = new System.Drawing.Size(137, 83);
+            this.buttonStatisticsCustomer.TabIndex = 27;
+            this.buttonStatisticsCustomer.Text = "Statistics";
+            this.buttonStatisticsCustomer.UseVisualStyleBackColor = false;
+            // 
+            // buttonDeleteCustomer
+            // 
+            this.buttonDeleteCustomer.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonDeleteCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDeleteCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonDeleteCustomer.Location = new System.Drawing.Point(520, 699);
+            this.buttonDeleteCustomer.Name = "buttonDeleteCustomer";
+            this.buttonDeleteCustomer.Size = new System.Drawing.Size(128, 83);
+            this.buttonDeleteCustomer.TabIndex = 23;
+            this.buttonDeleteCustomer.Text = "Delete Customer";
+            this.buttonDeleteCustomer.UseVisualStyleBackColor = false;
+            this.buttonDeleteCustomer.Click += new System.EventHandler(this.buttonDeleteCustomer_Click_1);
+            // 
+            // buttonEditCustomer
+            // 
+            this.buttonEditCustomer.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonEditCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEditCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonEditCustomer.Location = new System.Drawing.Point(300, 699);
+            this.buttonEditCustomer.Name = "buttonEditCustomer";
+            this.buttonEditCustomer.Size = new System.Drawing.Size(128, 83);
+            this.buttonEditCustomer.TabIndex = 24;
+            this.buttonEditCustomer.Text = "Edit Customer";
+            this.buttonEditCustomer.UseVisualStyleBackColor = false;
+            this.buttonEditCustomer.Click += new System.EventHandler(this.buttonEditCustomer_Click_1);
+            // 
+            // buttonAddCustomer
+            // 
+            this.buttonAddCustomer.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAddCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonAddCustomer.Location = new System.Drawing.Point(92, 699);
+            this.buttonAddCustomer.Name = "buttonAddCustomer";
+            this.buttonAddCustomer.Size = new System.Drawing.Size(128, 83);
+            this.buttonAddCustomer.TabIndex = 25;
+            this.buttonAddCustomer.Text = "Add Customer";
+            this.buttonAddCustomer.UseVisualStyleBackColor = false;
+            this.buttonAddCustomer.Click += new System.EventHandler(this.buttonAddCustomer_Click_1);
+            // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2074,6 +2202,10 @@
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).EndInit();
+            this.tabPageCustomer.ResumeLayout(false);
+            this.tabPageCustomer.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2226,14 +2358,24 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Button buttonDeleteCustomer;
-        private System.Windows.Forms.Button buttonEditCustomer;
-        private System.Windows.Forms.Button buttonAddCustomer;
         private System.Windows.Forms.Button buttonShowCustomer;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.PictureBox pictureBoxProfile;
         private System.Windows.Forms.Label labelTotalWorker_Worker;
         private System.Windows.Forms.Label labelTotalContract;
+        private System.Windows.Forms.Button buttonSelectWork;
+        private System.Windows.Forms.TabPage tabPageCustomer;
+        private System.Windows.Forms.Label labelTotalCustomer;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.DataGridView dataGridViewCustomer;
+        private System.Windows.Forms.Button buttonStatisticsCustomer;
+        private System.Windows.Forms.Button buttonDeleteCustomer;
+        private System.Windows.Forms.Button buttonEditCustomer;
+        private System.Windows.Forms.Button buttonAddCustomer;
+        private System.Windows.Forms.TextBox textBoxSearchCustomer;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button buttonExportCustomer;
+        private System.Windows.Forms.Button buttonPrintCustomer;
     }
 }
