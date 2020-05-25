@@ -792,6 +792,29 @@ namespace QuanLyNhaXe01
         #region Work-----------------------------------------------------------
 
         Work work = new Work();
+
+        private void buttonSelectWork_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                selectWorkForm selectWork = new selectWorkForm();
+                selectWork.ShowDialog();
+                if (selectWork.dataGridViewSelectWork.Rows.Count > 0)
+                {
+                    textBoxWorkID_Work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
+                    textBoxWorkerID_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[1].Value.ToString();
+                    textBoxWorkName_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[2].Value.ToString();
+                    textBoxWorkDetail_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[3].Value.ToString();
+                    string valueMember = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
+                    System.Data.DataTable table_Group = vehicle.getVehicle(new SqlCommand("select distinct * from Nhom where MaNhom = " + Convert.ToInt32(valueMember)));
+                    comboBoxGroupName_work.ValueMember = valueMember;
+                    comboBoxGroupName_work.DisplayMember = table_Group.Rows[0][1].ToString();
+                }
+            }
+            catch { }
+
+        }
+
         private void buttonAdd_Work_Click(object sender, EventArgs e)
         {
             try
@@ -938,7 +961,32 @@ namespace QuanLyNhaXe01
 
         private void textBoxSearch_work_TextChanged(object sender, EventArgs e)
         {
+            string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+                        "from Tho inner join Nhom on Tho.MaNhom = Nhom.MaNhom inner " +
+                        "join CongViec on Tho.MaCV = CongViec.MaCV " +
+                        "WHERE CONCAT(Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV) LIKE '%" + textBoxSearch_work.Text + "%'";
+            SqlCommand command = new SqlCommand(query_grid_work);
+            dataGridViewWork.DataSource = vehicle.getVehicle(command);
+        }
 
+        private void listBoxGroup_work_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listBoxGroup_work.SelectedIndex != -1)
+                {
+                    int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
+                    string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+                        "from Tho inner join Nhom on Tho.MaNhom = Nhom.MaNhom inner " +
+                        "join CongViec on Tho.MaCV = CongViec.MaCV " +
+                        "where Nhom.MaNhom = " + groupID;
+                    dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void buttonPrint_work_Click(object sender, EventArgs e)
@@ -1013,16 +1061,6 @@ namespace QuanLyNhaXe01
         private void buttonStatistics_work_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void listBoxGroup_work_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          //  int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
-            //string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
-            //    "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
-            //    " inner join Nhom on Tho.MaNhom = Nhom.MaNhom " +
-            //    "where MaNhom = " + groupID;
-            //dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
         }
         #endregion
 
@@ -1262,8 +1300,6 @@ namespace QuanLyNhaXe01
             if (printDlg.ShowDialog() == DialogResult.OK) printDoc.Print();
         }
 
-        
-
         private void buttonShowContract_Click(object sender, EventArgs e)
         {
             fillDatagridContract();
@@ -1388,32 +1424,6 @@ namespace QuanLyNhaXe01
                 Export_Data_To_Word(dataGridViewWorker, sfd.FileName);
             }
         }
-
         #endregion
-
-        private void label30_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label29_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelDangGui_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelDaRa_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelStatus_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
