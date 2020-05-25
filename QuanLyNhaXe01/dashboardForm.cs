@@ -85,9 +85,6 @@ namespace QuanLyNhaXe01
             #region WORKER
 
             fillDatagridWorker();
-            fillComboboxGroup_Worker();
-            fillComboBoxWork_Worker();
-
             #endregion
 
             #region CONTRACT
@@ -414,20 +411,7 @@ namespace QuanLyNhaXe01
             statisticsWorkerForm st = new statisticsWorkerForm();
             st.Show(this);
         }
-        void fillComboBoxWork_Worker()
-        {
-            comboBoxWork_Worker.DataSource = work.getWork();
-            comboBoxWork_Worker.DisplayMember = "TenCV";
-            comboBoxWork_Worker.ValueMember = "MaCV";
-        }
-
-        void fillComboboxGroup_Worker()
-        {
-            comboBoxGroup_Worker.DataSource = worker.getGroup_Worker();
-            comboBoxGroup_Worker.DisplayMember = "TenNhom";
-            comboBoxGroup_Worker.ValueMember = "MaNhom";
-        }
-
+        
         void fillDatagridWorker()
         {
 
@@ -454,10 +438,7 @@ namespace QuanLyNhaXe01
 
             string address = textBoxAddressWorker.Text;
             // string work = comboBoxWork_Worker.Text;
-            string maCV = comboBoxWork_Worker.SelectedValue.ToString();
-            int maNhom = int.Parse(comboBoxGroup_Worker.SelectedValue.ToString());
-
-
+            
             string gender = "";
 
             try
@@ -529,8 +510,6 @@ namespace QuanLyNhaXe01
             DateTime dateStart = dateTimePickerDateStart_Worker.Value;
 
             string address = textBoxAddressWorker.Text;
-            string maCV = comboBoxWork_Worker.SelectedValue.ToString();
-            int maNhom = int.Parse(comboBoxGroup_Worker.SelectedValue.ToString());
 
             string gender = "";
 
@@ -615,7 +594,6 @@ namespace QuanLyNhaXe01
 
             textBoxAddressWorker.Text = dataGridViewWorker.CurrentRow.Cells[7].Value.ToString();
 
-            comboBoxWork_Worker.Text = dataGridViewWorker.CurrentRow.Cells[8].Value.ToString();
         }
 
         private void buttonPrintWorker_Click(object sender, EventArgs e)
@@ -685,9 +663,7 @@ namespace QuanLyNhaXe01
                 || (textBoxIdentityCard.Text.Trim() == "")
                 || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
                 || (textBoxPhoneWorker.Text.Trim() == "")
-                || (textBoxAddressWorker.Text.Trim() == "")
-
-                || (comboBoxWork_Worker.Text.Trim() == ""))
+                || (textBoxAddressWorker.Text.Trim() == ""))
             {
                 return false;
             }
@@ -835,14 +811,14 @@ namespace QuanLyNhaXe01
                 selectWork.ShowDialog();
                 if (selectWork.dataGridViewSelectWork.Rows.Count > 0)
                 {
-                    textBoxWorkID_Work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
-                    textBoxWorkerID_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[1].Value.ToString();
-                    textBoxWorkName_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[2].Value.ToString();
-                    textBoxWorkDetail_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[3].Value.ToString();
-                    string valueMember = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
-                    System.Data.DataTable table_Group = vehicle.getVehicle(new SqlCommand("select distinct * from Nhom where MaNhom = " + Convert.ToInt32(valueMember)));
-                    comboBoxGroupName_work.ValueMember = valueMember;
-                    comboBoxGroupName_work.DisplayMember = table_Group.Rows[0][1].ToString();
+                    //textBoxWorkID_Work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
+                    //textBoxWorkerID_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[1].Value.ToString();
+                    //textBoxWorkName_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[2].Value.ToString();
+                    //textBoxWorkDetail_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[3].Value.ToString();
+                    //string valueMember = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
+                    //System.Data.DataTable table_Group = vehicle.getVehicle(new SqlCommand("select distinct * from Nhom where MaNhom = " + Convert.ToInt32(valueMember)));
+                    //comboBoxGroupName_work.ValueMember = valueMember;
+                    //comboBoxGroupName_work.DisplayMember = table_Group.Rows[0][1].ToString();
                 }
             }
             catch { }
@@ -854,7 +830,7 @@ namespace QuanLyNhaXe01
             try
             {
                 string workID = textBoxWorkID_Work.Text;
-                int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
+                int workerID = Convert.ToInt32(comboBoxWorkerName_work.SelectedValue.ToString());
                 string workName = textBoxWorkName_work.Text;
                 string contain = textBoxWorkDetail_work.Text;
                 int groupID = Convert.ToInt32(comboBoxGroupName_work.SelectedValue.ToString());
@@ -878,7 +854,7 @@ namespace QuanLyNhaXe01
             try
             {
                 string workID = textBoxWorkID_Work.Text;
-                int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
+                int workerID = Convert.ToInt32(comboBoxWorkerName_work.SelectedValue.ToString());
                 string workName = textBoxWorkName_work.Text;
                 string contain = textBoxWorkDetail_work.Text;
                 int groupID = Convert.ToInt32(comboBoxGroupName_work.SelectedValue.ToString());
@@ -902,7 +878,7 @@ namespace QuanLyNhaXe01
             try
             {
                 string workID = textBoxWorkID_Work.Text;
-                int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
+                int workerID = Convert.ToInt32(comboBoxWorkerName_work.SelectedValue.ToString());
 
                 if (MessageBox.Show("Do you want to remove this work?", "Delete Work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {

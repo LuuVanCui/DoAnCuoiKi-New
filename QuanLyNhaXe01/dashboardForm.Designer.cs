@@ -133,12 +133,9 @@
             this.comboBoxGroupName_work = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.buttonSelectWork = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBoxWorkerID_work = new System.Windows.Forms.TextBox();
-            this.textBoxWorkName_work = new System.Windows.Forms.TextBox();
             this.textBoxWorkID_Work = new System.Windows.Forms.TextBox();
             this.textBoxWorkDetail_work = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -198,6 +195,9 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.comboBoxUserType = new System.Windows.Forms.ComboBox();
+            this.textBoxWorkName_work = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBoxWorkerName_work = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -1424,6 +1424,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBoxWorkerName_work);
             this.groupBox1.Controls.Add(this.comboBoxGroupName_work);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.buttonSelectWork);
@@ -1431,7 +1432,6 @@
             this.groupBox1.Controls.Add(this.label33);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.textBoxWorkerID_work);
             this.groupBox1.Controls.Add(this.textBoxWorkName_work);
             this.groupBox1.Controls.Add(this.textBoxWorkID_Work);
             this.groupBox1.Controls.Add(this.textBoxWorkDetail_work);
@@ -1448,15 +1448,15 @@
             // 
             this.comboBoxGroupName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.comboBoxGroupName_work.FormattingEnabled = true;
-            this.comboBoxGroupName_work.Location = new System.Drawing.Point(167, 301);
+            this.comboBoxGroupName_work.Location = new System.Drawing.Point(184, 301);
             this.comboBoxGroupName_work.Name = "comboBoxGroupName_work";
-            this.comboBoxGroupName_work.Size = new System.Drawing.Size(294, 36);
+            this.comboBoxGroupName_work.Size = new System.Drawing.Size(270, 36);
             this.comboBoxGroupName_work.TabIndex = 12;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(32, 57);
+            this.label17.Location = new System.Drawing.Point(51, 58);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(122, 33);
             this.label17.TabIndex = 1;
@@ -1474,19 +1474,10 @@
             this.buttonSelectWork.UseVisualStyleBackColor = false;
             this.buttonSelectWork.Click += new System.EventHandler(this.buttonSelectWork_Click);
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(-1, 116);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(146, 33);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Worker ID:";
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(-1, 170);
+            this.label33.Location = new System.Drawing.Point(19, 170);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(154, 33);
             this.label33.TabIndex = 1;
@@ -1495,7 +1486,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(-3, 300);
+            this.label8.Location = new System.Drawing.Point(8, 300);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(156, 33);
             this.label8.TabIndex = 1;
@@ -1504,32 +1495,16 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(-2, 223);
+            this.label19.Location = new System.Drawing.Point(15, 223);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(158, 33);
             this.label19.TabIndex = 1;
             this.label19.Text = "Work Detail:";
             // 
-            // textBoxWorkerID_work
-            // 
-            this.textBoxWorkerID_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWorkerID_work.Location = new System.Drawing.Point(167, 116);
-            this.textBoxWorkerID_work.Name = "textBoxWorkerID_work";
-            this.textBoxWorkerID_work.Size = new System.Drawing.Size(200, 35);
-            this.textBoxWorkerID_work.TabIndex = 2;
-            // 
-            // textBoxWorkName_work
-            // 
-            this.textBoxWorkName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWorkName_work.Location = new System.Drawing.Point(166, 171);
-            this.textBoxWorkName_work.Name = "textBoxWorkName_work";
-            this.textBoxWorkName_work.Size = new System.Drawing.Size(293, 35);
-            this.textBoxWorkName_work.TabIndex = 2;
-            // 
             // textBoxWorkID_Work
             // 
             this.textBoxWorkID_Work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWorkID_Work.Location = new System.Drawing.Point(167, 59);
+            this.textBoxWorkID_Work.Location = new System.Drawing.Point(184, 59);
             this.textBoxWorkID_Work.Name = "textBoxWorkID_Work";
             this.textBoxWorkID_Work.Size = new System.Drawing.Size(200, 35);
             this.textBoxWorkID_Work.TabIndex = 2;
@@ -1537,10 +1512,10 @@
             // textBoxWorkDetail_work
             // 
             this.textBoxWorkDetail_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWorkDetail_work.Location = new System.Drawing.Point(167, 223);
+            this.textBoxWorkDetail_work.Location = new System.Drawing.Point(184, 223);
             this.textBoxWorkDetail_work.Multiline = true;
             this.textBoxWorkDetail_work.Name = "textBoxWorkDetail_work";
-            this.textBoxWorkDetail_work.Size = new System.Drawing.Size(294, 63);
+            this.textBoxWorkDetail_work.Size = new System.Drawing.Size(270, 63);
             this.textBoxWorkDetail_work.TabIndex = 2;
             // 
             // panel10
@@ -2200,10 +2175,41 @@
             // 
             this.comboBoxUserType.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxUserType.FormattingEnabled = true;
+            this.comboBoxUserType.Items.AddRange(new object[] {
+            "Trong Xe",
+            "Sua Xe",
+            "Rua Xe"});
             this.comboBoxUserType.Location = new System.Drawing.Point(139, 198);
             this.comboBoxUserType.Name = "comboBoxUserType";
             this.comboBoxUserType.Size = new System.Drawing.Size(234, 31);
             this.comboBoxUserType.TabIndex = 25;
+            this.comboBoxUserType.Text = "Trong Xe";
+            // 
+            // textBoxWorkName_work
+            // 
+            this.textBoxWorkName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxWorkName_work.Location = new System.Drawing.Point(184, 171);
+            this.textBoxWorkName_work.Name = "textBoxWorkName_work";
+            this.textBoxWorkName_work.Size = new System.Drawing.Size(270, 35);
+            this.textBoxWorkName_work.TabIndex = 2;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(-3, 117);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(178, 33);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Worker Name:";
+            // 
+            // comboBoxWorkerName_work
+            // 
+            this.comboBoxWorkerName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxWorkerName_work.FormattingEnabled = true;
+            this.comboBoxWorkerName_work.Location = new System.Drawing.Point(184, 121);
+            this.comboBoxWorkerName_work.Name = "comboBoxWorkerName_work";
+            this.comboBoxWorkerName_work.Size = new System.Drawing.Size(270, 36);
+            this.comboBoxWorkerName_work.TabIndex = 13;
             // 
             // dashboardForm
             // 
@@ -2333,7 +2339,6 @@
         private System.Windows.Forms.Button buttonAddWorker;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DataGridView dataGridViewWork;
         private System.Windows.Forms.Panel panel5;
@@ -2378,9 +2383,7 @@
         private System.Windows.Forms.Button buttonAdd_Work;
         private System.Windows.Forms.TextBox textBoxWorkDetail_work;
         private System.Windows.Forms.TextBox textBoxWorkID_Work;
-        private System.Windows.Forms.TextBox textBoxWorkName_work;
         private System.Windows.Forms.TextBox textBoxSearch_work;
-        private System.Windows.Forms.TextBox textBoxWorkerID_work;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Button buttonStatistics_work;
         private System.Windows.Forms.Button buttonExport_work;
@@ -2448,5 +2451,8 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.ComboBox comboBoxUserType;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBoxWorkName_work;
+        private System.Windows.Forms.ComboBox comboBoxWorkerName_work;
     }
 }
