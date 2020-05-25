@@ -199,6 +199,19 @@
             this.label18 = new System.Windows.Forms.Label();
             this.comboBoxWorkerName_work = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridViewSalary = new System.Windows.Forms.DataGridView();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.comboBoxTypeOfWorker_salary = new System.Windows.Forms.ComboBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.dateTimePickerFrom_salary = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTo_salary = new System.Windows.Forms.DateTimePicker();
+            this.label46 = new System.Windows.Forms.Label();
+            this.textBoxSearchSalary = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.buttonPrint_salary = new System.Windows.Forms.Button();
+            this.buttonExport_salary = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.tabControlSalary.SuspendLayout();
@@ -234,6 +247,10 @@
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).BeginInit();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1987,7 +2004,7 @@
             this.panel19.Controls.Add(this.label43);
             this.panel19.Location = new System.Drawing.Point(41, 15);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(1092, 48);
+            this.panel19.Size = new System.Drawing.Size(1092, 120);
             this.panel19.TabIndex = 6;
             // 
             // dateTimePickerTo
@@ -1998,7 +2015,7 @@
             this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerTo.Location = new System.Drawing.Point(941, 5);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(148, 30);
+            this.dateTimePickerTo.Size = new System.Drawing.Size(128, 30);
             this.dateTimePickerTo.TabIndex = 5;
             this.dateTimePickerTo.ValueChanged += new System.EventHandler(this.dateTimePickerTo_ValueChanged);
             // 
@@ -2042,7 +2059,7 @@
             this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerFrom.Location = new System.Drawing.Point(737, 6);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(148, 30);
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(126, 30);
             this.dateTimePickerFrom.TabIndex = 5;
             this.dateTimePickerFrom.ValueChanged += new System.EventHandler(this.dateTimePickerFrom_ValueChanged);
             // 
@@ -2050,7 +2067,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.ForeColor = System.Drawing.Color.Brown;
-            this.label43.Location = new System.Drawing.Point(897, 4);
+            this.label43.Location = new System.Drawing.Point(882, 5);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(38, 33);
             this.label43.TabIndex = 3;
@@ -2059,11 +2076,11 @@
             // dataGridViewRevenue
             // 
             this.dataGridViewRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRevenue.Location = new System.Drawing.Point(41, 86);
+            this.dataGridViewRevenue.Location = new System.Drawing.Point(41, 161);
             this.dataGridViewRevenue.Name = "dataGridViewRevenue";
             this.dataGridViewRevenue.RowHeadersWidth = 62;
             this.dataGridViewRevenue.RowTemplate.Height = 28;
-            this.dataGridViewRevenue.Size = new System.Drawing.Size(1092, 579);
+            this.dataGridViewRevenue.Size = new System.Drawing.Size(1092, 509);
             this.dataGridViewRevenue.TabIndex = 1;
             // 
             // buttonPrintRevenue
@@ -2215,6 +2232,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonExport_salary);
+            this.tabPage1.Controls.Add(this.buttonPrint_salary);
+            this.tabPage1.Controls.Add(this.panel22);
+            this.tabPage1.Controls.Add(this.panel21);
             this.tabPage1.Location = new System.Drawing.Point(4, 42);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -2222,6 +2243,132 @@
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "Salary";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewSalary
+            // 
+            this.dataGridViewSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSalary.Location = new System.Drawing.Point(17, 73);
+            this.dataGridViewSalary.Name = "dataGridViewSalary";
+            this.dataGridViewSalary.RowHeadersWidth = 62;
+            this.dataGridViewSalary.RowTemplate.Height = 28;
+            this.dataGridViewSalary.Size = new System.Drawing.Size(1080, 480);
+            this.dataGridViewSalary.TabIndex = 0;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.dataGridViewSalary);
+            this.panel21.Controls.Add(this.textBoxSearchSalary);
+            this.panel21.Controls.Add(this.label47);
+            this.panel21.Location = new System.Drawing.Point(22, 123);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(1115, 573);
+            this.panel21.TabIndex = 1;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(16, 23);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(170, 28);
+            this.label36.TabIndex = 2;
+            this.label36.Text = "Type of Worker:";
+            // 
+            // comboBoxTypeOfWorker_salary
+            // 
+            this.comboBoxTypeOfWorker_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTypeOfWorker_salary.FormattingEnabled = true;
+            this.comboBoxTypeOfWorker_salary.Location = new System.Drawing.Point(192, 20);
+            this.comboBoxTypeOfWorker_salary.Name = "comboBoxTypeOfWorker_salary";
+            this.comboBoxTypeOfWorker_salary.Size = new System.Drawing.Size(268, 36);
+            this.comboBoxTypeOfWorker_salary.TabIndex = 3;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(491, 20);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(127, 28);
+            this.label45.TabIndex = 2;
+            this.label45.Text = "Range From:";
+            // 
+            // dateTimePickerFrom_salary
+            // 
+            this.dateTimePickerFrom_salary.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFrom_salary.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFrom_salary.Location = new System.Drawing.Point(624, 18);
+            this.dateTimePickerFrom_salary.Name = "dateTimePickerFrom_salary";
+            this.dateTimePickerFrom_salary.Size = new System.Drawing.Size(152, 30);
+            this.dateTimePickerFrom_salary.TabIndex = 4;
+            // 
+            // dateTimePickerTo_salary
+            // 
+            this.dateTimePickerTo_salary.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerTo_salary.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerTo_salary.Location = new System.Drawing.Point(819, 16);
+            this.dateTimePickerTo_salary.Name = "dateTimePickerTo_salary";
+            this.dateTimePickerTo_salary.Size = new System.Drawing.Size(150, 30);
+            this.dateTimePickerTo_salary.TabIndex = 4;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(782, 20);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(31, 28);
+            this.label46.TabIndex = 2;
+            this.label46.Text = "to";
+            // 
+            // textBoxSearchSalary
+            // 
+            this.textBoxSearchSalary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearchSalary.Location = new System.Drawing.Point(283, 21);
+            this.textBoxSearchSalary.Name = "textBoxSearchSalary";
+            this.textBoxSearchSalary.Size = new System.Drawing.Size(657, 35);
+            this.textBoxSearchSalary.TabIndex = 5;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(180, 22);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(91, 30);
+            this.label47.TabIndex = 2;
+            this.label47.Text = "Search:";
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.dateTimePickerTo_salary);
+            this.panel22.Controls.Add(this.label36);
+            this.panel22.Controls.Add(this.label45);
+            this.panel22.Controls.Add(this.dateTimePickerFrom_salary);
+            this.panel22.Controls.Add(this.label46);
+            this.panel22.Controls.Add(this.comboBoxTypeOfWorker_salary);
+            this.panel22.Location = new System.Drawing.Point(103, 15);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(993, 84);
+            this.panel22.TabIndex = 6;
+            // 
+            // buttonPrint_salary
+            // 
+            this.buttonPrint_salary.Location = new System.Drawing.Point(328, 722);
+            this.buttonPrint_salary.Name = "buttonPrint_salary";
+            this.buttonPrint_salary.Size = new System.Drawing.Size(135, 55);
+            this.buttonPrint_salary.TabIndex = 7;
+            this.buttonPrint_salary.Text = "Print";
+            this.buttonPrint_salary.UseVisualStyleBackColor = true;
+            // 
+            // buttonExport_salary
+            // 
+            this.buttonExport_salary.Location = new System.Drawing.Point(683, 722);
+            this.buttonExport_salary.Name = "buttonExport_salary";
+            this.buttonExport_salary.Size = new System.Drawing.Size(135, 55);
+            this.buttonExport_salary.TabIndex = 7;
+            this.buttonExport_salary.Text = "Export";
+            this.buttonExport_salary.UseVisualStyleBackColor = true;
             // 
             // dashboardForm
             // 
@@ -2291,6 +2438,12 @@
             this.panel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).EndInit();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2467,5 +2620,18 @@
         private System.Windows.Forms.TextBox textBoxWorkName_work;
         private System.Windows.Forms.ComboBox comboBoxWorkerName_work;
         private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.DataGridView dataGridViewSalary;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.TextBox textBoxSearchSalary;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTo_salary;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFrom_salary;
+        private System.Windows.Forms.ComboBox comboBoxTypeOfWorker_salary;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Button buttonExport_salary;
+        private System.Windows.Forms.Button buttonPrint_salary;
     }
 }
