@@ -29,15 +29,9 @@ namespace QuanLyNhaXe01
             #region TABAR
             USER user = new USER();
             System.Data.DataTable hrTable = user.getUser(new SqlCommand("SELECT * FROM login WHERE id = " + Globals.GlobalUserID));
-<<<<<<< HEAD
             byte[] bytes = (byte[])hrTable.Rows[0][5];
             MemoryStream ms = new MemoryStream(bytes);
             pictureBoxProfile.Image = Image.FromStream(ms);
-=======
-             byte[] bytes = (byte[])hrTable.Rows[0][5];
-             MemoryStream ms = new MemoryStream(bytes);
-             pictureBoxProfile.Image = Image.FromStream(ms);
->>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
             labelWelcome.Text = "Welcome " + hrTable.Rows[0]["fname"].ToString().Trim() + " " + hrTable.Rows[0]["lname"].ToString();
             #endregion
 
@@ -100,7 +94,6 @@ namespace QuanLyNhaXe01
             fillDatagridContract();
             #endregion
 
-<<<<<<< HEAD
             #region REVENUE
             string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
@@ -119,10 +112,6 @@ namespace QuanLyNhaXe01
             table_revenue.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
             dataGridViewRevenue.DataSource = table_revenue;
             makeUpGridForAll();
-=======
-            #region CUSTOMER
-            fillDatagrid_Customer();
->>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
             #endregion
         }
 
@@ -1119,179 +1108,9 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-<<<<<<< HEAD
         #region Contract-------------------------------------------------------
-=======
-        #region Revenue -------------------------------------------------------
-        private void buttonPrintRevenue_Click(object sender, EventArgs e)
-        {
-            PrintDialog printDlg = new PrintDialog();
-            PrintDocument printDoc = new PrintDocument();
-            printDoc.DocumentName = "Print Document";
-            printDlg.Document = printDoc;
-            printDlg.AllowSelection = true;
-            printDlg.AllowSomePages = true;
-
-            if (printDlg.ShowDialog() == DialogResult.OK)
-                printDoc.Print();
-
-        }
-
-        private void buttonExportRevenue_Click(object sender, EventArgs e)
-        {
-            // Tham khảo link: https://stackoverflow.com/questions/18182029/how-to-export-datagridview-data-instantly-to-excel-on-button-click
-
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel Documents (*.xls)|*.xls";
-            sfd.FileName = "Revenue.xls";
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                // Copy DataGridView results to clipboard
-                copyAlltoClipboard();
-
-                object misValue = System.Reflection.Missing.Value;
-                Excel.Application xlexcel = new Excel.Application();
-
-                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
-                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
-                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-                // Format column D as text before pasting results, this was required for my data
-                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
-                rng.NumberFormat = "@";
-
-                // Paste clipboard results to worksheet range
-                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
-                CR.Select();
-                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
-
-                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
-                // Delete blank column A and select cell A1
-                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
-                delRng.Delete(Type.Missing);
-                xlWorkSheet.get_Range("A1").Select();
-
-                // Save the excel file under the captured location from the SaveFileDialog
-                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                xlexcel.DisplayAlerts = true;
-                xlWorkBook.Close(true, misValue, misValue);
-                xlexcel.Quit();
-
-                releaseObject(xlWorkSheet);
-                releaseObject(xlWorkBook);
-                releaseObject(xlexcel);
-
-                // Clear Clipboard and DataGridView selection
-                Clipboard.Clear();
-                dataGridViewRevenue.ClearSelection();
-
-                // Open the newly saved excel file
-                if (File.Exists(sfd.FileName))
-                    System.Diagnostics.Process.Start(sfd.FileName);
-            }
-
-        }
-
-        private void buttonRevenueStatistics_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        void makeUpGridForAll()
-        {
-            try
-            {
-                dataGridViewRevenue.ReadOnly = true;
-                dataGridViewRevenue.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
-                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
-                DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
-                DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
-
-
-                dataGridViewRevenue.RowTemplate.Height = 80;
-
-                picCol2 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[2];
-                picCol3 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[3];
-                picCol4 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[4];
-                picCol5 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[5];
-
-                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picCol4.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picCol5.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
-                dataGridViewRevenue.AllowUserToAddRows = false;
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void comboBoxTypeRevenue_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxTypeRevenue.Text == "Vehicles Parking")
-            {
-                string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
-                string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
-                string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
-                    "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
-                    "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' " +
-                    "GROUP BY LoaiXe";
-                System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
-                int tatCaXe = 0;
-                float tongDoanhThu = 0;
-                for (int i = 0; i < table.Rows.Count; i++)
-                {
-                    tatCaXe += int.Parse(table.Rows[i][1].ToString());
-                    tongDoanhThu += float.Parse(table.Rows[i][2].ToString());
-                }
-                table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
-                dataGridViewRevenue.DataSource = table;
-                makeUpGridForAll();
-            }
-        }
-
-        private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
-        {
-            comboBoxTypeRevenue_SelectedIndexChanged(sender, e);
-            makeUpGridForAll();
-        }
-
-        private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
-        {
-            comboBoxTypeRevenue_SelectedIndexChanged(sender, e);
-            makeUpGridForAll();
-        }
-
-        private void textBoxSearchRevenue_TextChanged(object sender, EventArgs e)
-        {
-            string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
-            string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
-            string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
-                "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
-                "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' AND CONCAT(LoaiXe) LIKE '%" + textBoxSearchVehicle.Text + "%' " +
-                "GROUP BY LoaiXe";
-            System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
-            int tatCaXe = 0;
-            float tongDoanhThu = 0;
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                tatCaXe += int.Parse(table.Rows[i][1].ToString());
-                tongDoanhThu += float.Parse(table.Rows[i][2].ToString());
-            }
-            table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
-            dataGridViewRevenue.DataSource = table;
-            makeUpGridForAll();
-        }
-        #endregion
-
-        #region Contract
-
         Contract contract = new Contract();
->>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
+
         private void buttonAddContract_Click(object sender, EventArgs e)
         {
             addContractForm addContract = new addContractForm();
@@ -1534,9 +1353,6 @@ namespace QuanLyNhaXe01
                     dataGridViewContract.DataSource = contract.getTable(command);
 
                 }
-
-
-
             }
         }
 
@@ -1634,7 +1450,6 @@ namespace QuanLyNhaXe01
         }
 
         #endregion
-<<<<<<< HEAD
 
         #region Revenue -------------------------------------------------------
         private void buttonPrintRevenue_Click(object sender, EventArgs e)
@@ -1707,24 +1522,10 @@ namespace QuanLyNhaXe01
         }
 
         private void buttonRevenueStatistics_Click(object sender, EventArgs e)
-=======
-        private void label30_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label29_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelDangGui_Click(object sender, EventArgs e)
->>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
-        {
-
-        }
-
-<<<<<<< HEAD
         void makeUpGridForAll()
         {
             try
@@ -1830,23 +1631,5 @@ namespace QuanLyNhaXe01
             makeUpGridForAll();
         }
         #endregion
-=======
-        private void labelDaRa_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-       
->>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
     }
 }
