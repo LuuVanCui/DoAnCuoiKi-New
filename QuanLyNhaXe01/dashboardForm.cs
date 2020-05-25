@@ -29,9 +29,9 @@ namespace QuanLyNhaXe01
             #region TABAR
             USER user = new USER();
             System.Data.DataTable hrTable = user.getUser(new SqlCommand("SELECT * FROM login WHERE id = " + Globals.GlobalUserID));
-            /* byte[] bytes = (byte[])hrTable.Rows[0][5];
+             byte[] bytes = (byte[])hrTable.Rows[0][5];
              MemoryStream ms = new MemoryStream(bytes);
-             pictureBoxProfile.Image = Image.FromStream(ms);*/
+             pictureBoxProfile.Image = Image.FromStream(ms);
             labelWelcome.Text = "Welcome " + hrTable.Rows[0]["fname"].ToString().Trim() + " " + hrTable.Rows[0]["lname"].ToString();
             #endregion
 
@@ -409,8 +409,10 @@ namespace QuanLyNhaXe01
             MyDB mydb = new MyDB();
             Worker worker = new Worker();
             SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
-
-            dataGridViewWorker.DataSource = worker.getWorker(command);
+            System.Data.DataTable tb = new System.Data.DataTable();
+            tb = worker.getWorker(command);
+            dataGridViewWorker.DataSource = tb;
+            labelTotalWorker_Worker.Text = "Total: " + tb.Rows.Count.ToString();
         }
 
         private void buttonAddWorker_Click(object sender, EventArgs e)
@@ -1239,7 +1241,11 @@ namespace QuanLyNhaXe01
             Worker worker = new Worker();
             //SqlCommand command = new SqlCommand(" select SoHD,LoaiHD,NgayKyHD,KhachHang.TenKH,SoXe,MoTaHD,GiaTriHD,NgayNhiemThu from HopDong inner join KhachHang on KhachHang.MaKH=HopDong.MaKH ");
             SqlCommand command = new SqlCommand(" Select * from HopDong");
-            dataGridViewContract.DataSource = worker.getWorker(command);
+            System.Data.DataTable tb = new System.Data.DataTable();
+            tb= worker.getWorker(command);
+            dataGridViewContract.DataSource = tb;
+            dataGridViewContract.ReadOnly = true;
+            labelTotalContract.Text = "Total: " + tb.Rows.Count.ToString();
         }
 
         void fillDatagridContract_Customer()
@@ -1248,7 +1254,12 @@ namespace QuanLyNhaXe01
             Worker worker = new Worker();
 
             SqlCommand command = new SqlCommand("Select * from KhachHang");
-            dataGridViewContract.DataSource = worker.getWorker(command);
+            System.Data.DataTable tb = new System.Data.DataTable();
+            tb = worker.getWorker(command);
+            dataGridViewContract.DataSource = tb;
+            dataGridViewContract.ReadOnly = true;
+            labelTotalContract.Text = "Total: " + tb.Rows.Count.ToString();
+
         }
 
         private void buttonPrintContract_Click(object sender, EventArgs e)
@@ -1436,6 +1447,35 @@ namespace QuanLyNhaXe01
 
         #endregion
 
+        private void label30_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDangGui_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDaRa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonStatisticsWorker_Click(object sender, EventArgs e)
+        {
+            statisticsWorkerForm st = new statisticsWorkerForm();
+            st.Show(this);
+        }
     }
 }
