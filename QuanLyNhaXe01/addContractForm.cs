@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -118,6 +119,33 @@ namespace QuanLyNhaXe01
         {
             vehiclesListForm vhcList = new vehiclesListForm();
             vhcList.Show(this);
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void addContractForm_Load(object sender, EventArgs e)
+        {
+            fillComboBoxType_Contract();
+        }
+
+        void fillComboBoxType_Contract()
+        {
+
+            MyDB mydb = new MyDB();
+            try
+            {
+                SqlCommand command = new SqlCommand("Select* from HopDong", mydb.getConnection);
+                comboBoxContractType.DataSource = contract.getTable(command);
+                comboBoxContractType.DisplayMember = "LoaiHD";
+                comboBoxContractType.ValueMember = "SoHD";
+            }
+            catch
+            {
+
+            }
         }
     }
 }

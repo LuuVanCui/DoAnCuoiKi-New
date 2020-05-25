@@ -365,6 +365,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(757, 758);
             this.panel3.TabIndex = 4;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // addContractForm
             // 
@@ -378,6 +379,7 @@
             this.Name = "addContractForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addContract";
+            this.Load += new System.EventHandler(this.addContractForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

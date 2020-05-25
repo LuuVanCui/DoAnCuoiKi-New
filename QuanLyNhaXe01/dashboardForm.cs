@@ -29,9 +29,15 @@ namespace QuanLyNhaXe01
             #region TABAR
             USER user = new USER();
             System.Data.DataTable hrTable = user.getUser(new SqlCommand("SELECT * FROM login WHERE id = " + Globals.GlobalUserID));
+<<<<<<< HEAD
             byte[] bytes = (byte[])hrTable.Rows[0][5];
             MemoryStream ms = new MemoryStream(bytes);
             pictureBoxProfile.Image = Image.FromStream(ms);
+=======
+             byte[] bytes = (byte[])hrTable.Rows[0][5];
+             MemoryStream ms = new MemoryStream(bytes);
+             pictureBoxProfile.Image = Image.FromStream(ms);
+>>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
             labelWelcome.Text = "Welcome " + hrTable.Rows[0]["fname"].ToString().Trim() + " " + hrTable.Rows[0]["lname"].ToString();
             #endregion
 
@@ -94,6 +100,7 @@ namespace QuanLyNhaXe01
             fillDatagridContract();
             #endregion
 
+<<<<<<< HEAD
             #region REVENUE
             string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
@@ -112,6 +119,10 @@ namespace QuanLyNhaXe01
             table_revenue.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
             dataGridViewRevenue.DataSource = table_revenue;
             makeUpGridForAll();
+=======
+            #region CUSTOMER
+            fillDatagrid_Customer();
+>>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
             #endregion
         }
 
@@ -151,7 +162,7 @@ namespace QuanLyNhaXe01
                 SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
 
                 dataGridViewWorker.DataSource = vehicle.getVehicle(command);
-        
+
                 dataGridViewVehicle.RowTemplate.Height = 80;
 
                 picCol2 = (DataGridViewImageColumn)dataGridViewVehicle.Columns[2];
@@ -409,6 +420,11 @@ namespace QuanLyNhaXe01
         #region Worker---------------------------------------------------------
         Worker worker = new Worker();
 
+        private void buttonStatisticsWorker_Click(object sender, EventArgs e)
+        {
+            statisticsWorkerForm st = new statisticsWorkerForm();
+            st.Show(this);
+        }
         void fillComboBoxWork_Worker()
         {
             comboBoxWork_Worker.DataSource = work.getWork();
@@ -429,8 +445,10 @@ namespace QuanLyNhaXe01
             MyDB mydb = new MyDB();
             Worker worker = new Worker();
             SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
-
-            dataGridViewWorker.DataSource = worker.getWorker(command);
+            System.Data.DataTable tb = new System.Data.DataTable();
+            tb = worker.getWorker(command);
+            dataGridViewWorker.DataSource = tb;
+            labelTotalWorker_Worker.Text = "Total: " + tb.Rows.Count.ToString();
         }
 
         private void buttonAddWorker_Click(object sender, EventArgs e)
@@ -590,7 +608,7 @@ namespace QuanLyNhaXe01
             if (dataGridViewWorker.CurrentRow.Cells[2].Value.ToString() == "Female")
             {
                 radioButtonFeMale.Checked = true;
-                
+
             }
             else
             {
@@ -629,7 +647,7 @@ namespace QuanLyNhaXe01
             try
             {
                 if (dataGridViewWorker.Rows.Count > 1)
-                {     
+                {
                     int id = int.Parse(dataGridViewWorker.CurrentRow.Cells[0].Value.ToString());
 
                     Worker worker = new Worker();
@@ -663,9 +681,9 @@ namespace QuanLyNhaXe01
                 else
                 {
                     MessageBox.Show("You have to select data in Data GridView", "Remove Worker", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }    
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -679,14 +697,14 @@ namespace QuanLyNhaXe01
                 || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
                 || (textBoxPhoneWorker.Text.Trim() == "")
                 || (textBoxAddressWorker.Text.Trim() == "")
-                
+
                 || (comboBoxWork_Worker.Text.Trim() == ""))
             {
                 return false;
             }
             else return true;
 
-            
+
         }
 
         //xuat file word
@@ -806,6 +824,13 @@ namespace QuanLyNhaXe01
 
                 //NASSIM LOUCHANI
             }
+
+        }
+
+        private void buttonStatisticsWorker_Click_1(object sender, EventArgs e)
+        {
+            statisticsWorkerForm st = new statisticsWorkerForm();
+            st.Show(this);
         }
         #endregion
 
@@ -847,11 +872,11 @@ namespace QuanLyNhaXe01
                 if (work.insertWork(workID, workerID, workName, contain, groupID))
                 {
                     MessageBox.Show("Add Successful!", "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }    
+                }
                 else
                 {
                     MessageBox.Show("Add Fail.", "Add Work", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }    
+                }
             }
             catch (Exception ex)
             {
@@ -889,7 +914,7 @@ namespace QuanLyNhaXe01
             {
                 string workID = textBoxWorkID_Work.Text;
                 int workerID = Convert.ToInt32(textBoxWorkerID_work.Text);
-                
+
                 if (MessageBox.Show("Do you want to remove this work?", "Delete Work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (work.deleteWork(workID, workerID))
@@ -1082,204 +1107,21 @@ namespace QuanLyNhaXe01
         {
 
         }
+
+        private void listBoxGroup_work_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //  int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
+            //string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+            //    "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
+            //    " inner join Nhom on Tho.MaNhom = Nhom.MaNhom " +
+            //    "where MaNhom = " + groupID;
+            //dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
+        }
         #endregion
 
+<<<<<<< HEAD
         #region Contract-------------------------------------------------------
-        private void buttonAddContract_Click(object sender, EventArgs e)
-        {
-            addContractForm addContract = new addContractForm();
-            addContract.Show(this);
-        }
-
-        private void buttonEditContract_Click(object sender, EventArgs e)
-        {
-            editContractForm edit = new editContractForm();
-
-            try
-            {
-                if (dataGridViewContract.Rows.Count > 1)
-                {
-                    if (dataGridViewContract.CurrentRow.Cells.Count == 8)
-                    {
-                        edit.textBoxContractID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
-                        edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
-                        edit.textBoxDescibe.Text = dataGridViewContract.CurrentRow.Cells[5].Value.ToString();
-                        edit.textBoxContractValue.Text = dataGridViewContract.CurrentRow.Cells[6].Value.ToString();
-                        edit.comboBoxContractType.Text = dataGridViewContract.CurrentRow.Cells[1].Value.ToString();
-                        edit.dateTimePickerSign.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[2].Value.ToString());
-                        edit.dateTimePicker_LeaseTerm.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[7].Value.ToString());
-                        edit.textBoxVehicleID.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
-                        edit.Show(this);
-                    }
-                }
-                else
-                {
-
-                }    
-            }
-            catch
-            {
-
-            }
-        }
-
-        void fillDatagridContract()
-        {
-            MyDB mydb = new MyDB();
-            Worker worker = new Worker();
-            //SqlCommand command = new SqlCommand(" select SoHD,LoaiHD,NgayKyHD,KhachHang.TenKH,SoXe,MoTaHD,GiaTriHD,NgayNhiemThu from HopDong inner join KhachHang on KhachHang.MaKH=HopDong.MaKH ");
-            SqlCommand command = new SqlCommand(" Select * from HopDong");
-            dataGridViewContract.DataSource = worker.getWorker(command);
-        }
-
-        void fillDatagridContract_Customer()
-        {
-            MyDB mydb = new MyDB();
-            Worker worker = new Worker();
-
-            SqlCommand command = new SqlCommand("Select * from KhachHang");
-            dataGridViewContract.DataSource = worker.getWorker(command);
-        }
-
-        private void buttonPrintContract_Click(object sender, EventArgs e)
-        {
-
-            PrintDialog printDlg = new PrintDialog();
-            PrintDocument printDoc = new PrintDocument();
-            printDoc.DocumentName = "Print Document";
-            printDlg.Document = printDoc;
-            printDlg.AllowSelection = true;
-            printDlg.AllowSomePages = true;
-
-            if (printDlg.ShowDialog() == DialogResult.OK) printDoc.Print();
-        }
-
-        private void buttonShowContract_Click(object sender, EventArgs e)
-        {
-            fillDatagridContract();
-        }
-
-        private void buttonShowCustomer_Click(object sender, EventArgs e)
-        {
-            fillDatagridContract_Customer();
-        }
-
-        private void buttonEditCustomer_Click(object sender, EventArgs e)
-        {
-            editCustomerForm edit = new editCustomerForm();
-
-            try
-            {
-                if (dataGridViewContract.Rows.Count > 1)
-                {
-                    if (dataGridViewContract.CurrentRow.Cells.Count == 5)
-                    {
-                        edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
-                        edit.textBoxCustomerName.Text = dataGridViewContract.CurrentRow.Cells[1].Value.ToString();
-                        edit.textBoxIdentityCard.Text = dataGridViewContract.CurrentRow.Cells[2].Value.ToString();
-                        edit.textBoxAddress.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
-                        edit.textBoxPhone.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
-                        //edit.textBoxPhone.Text=dat
-                        edit.Show(this);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("You have to select data in Data Grid View", "Edit Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }    
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void buttonDeleteCustomer_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewContract.Rows.Count > 1)
-            {
-                if (dataGridViewContract.CurrentRow.Cells.Count == 5)
-                {
-                    try
-                    {
-                        string id = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
-                        Customer customer = new Customer();
-                        if (customer.deleteCustomer(id))
-                        {
-                            MessageBox.Show("Delete successfuly", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            fillDatagridContract();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Not deleted", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    catch
-                    {
-
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("You have to select data in Data Grid View", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }    
-        }
-
-        private void buttonDeleteContract_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewContract.Rows.Count > 1)
-            {
-                if (dataGridViewContract.CurrentRow.Cells.Count == 8)
-                {
-                    try
-                    {
-                        int id = Convert.ToInt32(dataGridViewContract.CurrentRow.Cells[0].Value.ToString());
-                        Contract contract = new Contract();
-                        if (contract.delete_HopDong(id))
-                        {
-                            MessageBox.Show("Delete successfuly", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            fillDatagridContract();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Not deleted", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("You have to select data in Data Grid View", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("You have to select data in Data Grid View", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }    
-        }
-
-        private void buttonAddCustomer_Click(object sender, EventArgs e)
-        {
-            addCustomerForm add = new addCustomerForm();
-            add.Show(this);
-        }
-
-        private void buttonExportContract_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog sfd = new SaveFileDialog();
-
-            sfd.Filter = "Word Documents (*.docx)|*.docx";
-
-            sfd.FileName = "WorkerList.docx";
-
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-
-                Export_Data_To_Word(dataGridViewWorker, sfd.FileName);
-            }
-        }
-        #endregion
-
+=======
         #region Revenue -------------------------------------------------------
         private void buttonPrintRevenue_Click(object sender, EventArgs e)
         {
@@ -1390,6 +1232,534 @@ namespace QuanLyNhaXe01
 
         private void comboBoxTypeRevenue_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBoxTypeRevenue.Text == "Vehicles Parking")
+            {
+                string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
+                string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
+                string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
+                    "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
+                    "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' " +
+                    "GROUP BY LoaiXe";
+                System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
+                int tatCaXe = 0;
+                float tongDoanhThu = 0;
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    tatCaXe += int.Parse(table.Rows[i][1].ToString());
+                    tongDoanhThu += float.Parse(table.Rows[i][2].ToString());
+                }
+                table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
+                dataGridViewRevenue.DataSource = table;
+                makeUpGridForAll();
+            }
+        }
+
+        private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
+        {
+            comboBoxTypeRevenue_SelectedIndexChanged(sender, e);
+            makeUpGridForAll();
+        }
+
+        private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
+        {
+            comboBoxTypeRevenue_SelectedIndexChanged(sender, e);
+            makeUpGridForAll();
+        }
+
+        private void textBoxSearchRevenue_TextChanged(object sender, EventArgs e)
+        {
+            string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
+            string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
+            string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
+                "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
+                "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' AND CONCAT(LoaiXe) LIKE '%" + textBoxSearchVehicle.Text + "%' " +
+                "GROUP BY LoaiXe";
+            System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
+            int tatCaXe = 0;
+            float tongDoanhThu = 0;
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                tatCaXe += int.Parse(table.Rows[i][1].ToString());
+                tongDoanhThu += float.Parse(table.Rows[i][2].ToString());
+            }
+            table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
+            dataGridViewRevenue.DataSource = table;
+            makeUpGridForAll();
+        }
+        #endregion
+
+        #region Contract
+
+        Contract contract = new Contract();
+>>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
+        private void buttonAddContract_Click(object sender, EventArgs e)
+        {
+            addContractForm addContract = new addContractForm();
+            addContract.Show(this);
+        }
+
+        private void buttonEditContract_Click(object sender, EventArgs e)
+        {
+            editContractForm edit = new editContractForm();
+
+            try
+            {
+                if (dataGridViewContract.Rows.Count > 1)
+                {
+                    if (dataGridViewContract.CurrentRow.Cells.Count == 8)
+                    {
+                        edit.textBoxContractID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
+                        edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
+                        edit.textBoxDescibe.Text = dataGridViewContract.CurrentRow.Cells[5].Value.ToString();
+                        edit.textBoxContractValue.Text = dataGridViewContract.CurrentRow.Cells[6].Value.ToString();
+                        edit.comboBoxContractType.Text = dataGridViewContract.CurrentRow.Cells[1].Value.ToString();
+                        edit.dateTimePickerSign.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[2].Value.ToString());
+                        edit.dateTimePicker_LeaseTerm.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[7].Value.ToString());
+                        edit.textBoxVehicleID.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
+                        edit.Show(this);
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        void fillDatagridContract()
+        {
+            MyDB mydb = new MyDB();
+            Worker worker = new Worker();
+            //SqlCommand command = new SqlCommand(" select SoHD,LoaiHD,NgayKyHD,KhachHang.TenKH,SoXe,MoTaHD,GiaTriHD,NgayNhiemThu from HopDong inner join KhachHang on KhachHang.MaKH=HopDong.MaKH ");
+            SqlCommand command = new SqlCommand(" Select * from HopDong");
+            System.Data.DataTable tb = new System.Data.DataTable();
+            tb= worker.getWorker(command);
+            dataGridViewContract.DataSource = tb;
+            dataGridViewContract.ReadOnly = true;
+            labelTotalContract.Text = "Total: " + tb.Rows.Count.ToString();
+        }
+
+        void fillDatagridContract_Customer()
+        {
+            MyDB mydb = new MyDB();
+            Worker worker = new Worker();
+
+            SqlCommand command = new SqlCommand("Select * from KhachHang");
+            System.Data.DataTable tb = new System.Data.DataTable();
+            tb = worker.getWorker(command);
+            dataGridViewContract.DataSource = tb;
+            dataGridViewContract.ReadOnly = true;
+            labelTotalContract.Text = "Total: " + tb.Rows.Count.ToString();
+
+        }
+
+        private void buttonPrintContract_Click(object sender, EventArgs e)
+        {
+
+            PrintDialog printDlg = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.DocumentName = "Print Document";
+            printDlg.Document = printDoc;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
+
+            if (printDlg.ShowDialog() == DialogResult.OK) printDoc.Print();
+        }
+
+
+
+        private void buttonShowContract_Click(object sender, EventArgs e)
+        {
+            fillDatagridContract();
+        }
+
+        private void buttonShowCustomer_Click(object sender, EventArgs e)
+        {
+            fillDatagridContract_Customer();
+        }
+
+        private void buttonEditCustomer_Click(object sender, EventArgs e)
+        {
+            editCustomerForm edit = new editCustomerForm();
+
+            try
+            {
+                if (dataGridViewContract.Rows.Count > 1)
+                {
+                    if (dataGridViewContract.CurrentRow.Cells.Count == 5)
+                    {
+                        edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
+                        edit.textBoxCustomerName.Text = dataGridViewContract.CurrentRow.Cells[1].Value.ToString();
+                        edit.textBoxIdentityCard.Text = dataGridViewContract.CurrentRow.Cells[2].Value.ToString();
+                        edit.textBoxAddress.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
+                        edit.textBoxPhone.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
+                        //edit.textBoxPhone.Text=dat
+                        edit.Show(this);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You have to select data in Data Grid View", "Edit Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void buttonDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to delete this customer!", "Delete Customer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (dataGridViewContract.Rows.Count > 1)
+                {
+                    if (dataGridViewContract.CurrentRow.Cells.Count == 5)
+                    {
+                        try
+                        {
+                            string id = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
+                            Customer customer = new Customer();
+                            if (customer.deleteCustomer(id))
+                            {
+                                MessageBox.Show("Delete successfuly", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                fillDatagridContract();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Not deleted", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You have to select data in Data Grid View", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Customer not deleted", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+
+        }
+
+
+        private void buttonDeleteContract_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to delete this contract!", "Delete Contract", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                if (dataGridViewContract.Rows.Count > 1)
+                {
+                    if (dataGridViewContract.CurrentRow.Cells.Count == 8)
+                    {
+                        try
+                        {
+                            int id = Convert.ToInt32(dataGridViewContract.CurrentRow.Cells[0].Value.ToString());
+                            Contract contract = new Contract();
+                            if (contract.delete_HopDong(id))
+                            {
+                                MessageBox.Show("Delete successfuly", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                fillDatagridContract();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Not deleted", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch
+                        {
+                            MessageBox.Show("You have to select data in Data Grid View", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You have to select data in Data Grid View", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Contract not deleted", "Delete Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            fillDatagridContract();
+        }
+
+        private void buttonAddCustomer_Click(object sender, EventArgs e)
+        {
+            addCustomerForm add = new addCustomerForm();
+            add.Show(this);
+        }
+
+        private void buttonExportContract_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            sfd.Filter = "Word Documents (*.docx)|*.docx";
+
+            sfd.FileName = "WorkerList.docx";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+
+                Export_Data_To_Word(dataGridViewWorker, sfd.FileName);
+            }
+        }
+
+        private void textBoxSearchContract_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewContract.Rows.Count > 1)
+            {
+                if (dataGridViewContract.Columns.Count >= 8)
+                {
+                    SqlCommand command = new SqlCommand("select* from HopDong Where Concat(SoHD, NgayKyHD, MaKH, SoXe, MoTaHD, GiaTriHD, NgayNhiemThu)  LIKE '%" + textBoxSearchContract.Text + "%' ");
+
+                    dataGridViewContract.DataSource = contract.getTable(command);
+                }
+                else if (dataGridViewContract.Columns.Count == 5)
+                {
+                    SqlCommand command = new SqlCommand("select* from KhachHang Where Concat(MaKH,TenKH,CMND,DiaChi,SDT)  LIKE '%" + textBoxSearchContract.Text + "%' ");
+
+                    dataGridViewContract.DataSource = contract.getTable(command);
+
+                }
+
+
+
+            }
+        }
+
+        #endregion
+
+        #region Customer
+        void fillDatagrid_Customer()
+        {
+            MyDB mydb = new MyDB();
+            Worker worker = new Worker();
+
+            SqlCommand command = new SqlCommand("Select * from KhachHang");
+            System.Data.DataTable tb = new System.Data.DataTable();
+            tb = worker.getWorker(command);
+            dataGridViewCustomer.DataSource = tb;
+            dataGridViewCustomer.ReadOnly = true;
+            labelTotalCustomer.Text = "Total: " + tb.Rows.Count.ToString();
+
+        }
+
+        private void buttonAddCustomer_Click_1(object sender, EventArgs e)
+        {
+            addCustomerForm add = new addCustomerForm();
+            add.Show(this);
+        }
+
+        private void buttonEditCustomer_Click_1(object sender, EventArgs e)
+        {
+            editCustomerForm editC = new editCustomerForm();
+            editC.Show(this);
+        }
+
+        private void buttonDeleteCustomer_Click_1(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Do you want to delete this customer!", "Delete Customer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (dataGridViewCustomer.Rows.Count > 1)
+                {
+                    if (dataGridViewCustomer.CurrentRow.Cells.Count == 5)
+                    {
+                        try
+                        {
+                            string id = dataGridViewCustomer.CurrentRow.Cells[0].Value.ToString();
+                            Customer customer = new Customer();
+                            if (customer.deleteCustomer(id))
+                            {
+                                MessageBox.Show("Delete successfuly", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                fillDatagrid_Customer();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Not deleted", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You have to select data in Data Grid View", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Customer not deleted", "Delete Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void textBoxSearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+            SqlCommand command = new SqlCommand("select* from KhachHang Where Concat(MaKH,TenKH,CMND,DiaChi,SDT)  LIKE '%" + textBoxSearchCustomer.Text + "%' ");
+
+            dataGridViewCustomer.DataSource = contract.getTable(command);
+        }
+
+        private void buttonPrintCustomer_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.DocumentName = "Print Document";
+            printDlg.Document = printDoc;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
+
+            if (printDlg.ShowDialog() == DialogResult.OK)
+                printDoc.Print();
+        }
+        private void buttonExportCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+<<<<<<< HEAD
+
+        #region Revenue -------------------------------------------------------
+        private void buttonPrintRevenue_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.DocumentName = "Print Document";
+            printDlg.Document = printDoc;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
+
+            if (printDlg.ShowDialog() == DialogResult.OK)
+                printDoc.Print();
+
+        }
+
+        private void buttonExportRevenue_Click(object sender, EventArgs e)
+        {
+            // Tham khảo link: https://stackoverflow.com/questions/18182029/how-to-export-datagridview-data-instantly-to-excel-on-button-click
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "Revenue.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Copy DataGridView results to clipboard
+                copyAlltoClipboard();
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Format column D as text before pasting results, this was required for my data
+                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
+                rng.NumberFormat = "@";
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
+                // Delete blank column A and select cell A1
+                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
+                delRng.Delete(Type.Missing);
+                xlWorkSheet.get_Range("A1").Select();
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlexcel);
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+                dataGridViewRevenue.ClearSelection();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+
+        }
+
+        private void buttonRevenueStatistics_Click(object sender, EventArgs e)
+=======
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDangGui_Click(object sender, EventArgs e)
+>>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
+        {
+
+        }
+
+<<<<<<< HEAD
+        void makeUpGridForAll()
+        {
+            try
+            {
+                dataGridViewRevenue.ReadOnly = true;
+                dataGridViewRevenue.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
+                DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
+
+
+                dataGridViewRevenue.RowTemplate.Height = 80;
+
+                picCol2 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[2];
+                picCol3 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[3];
+                picCol4 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[4];
+                picCol5 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[5];
+
+                picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol4.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picCol5.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                dataGridViewRevenue.AllowUserToAddRows = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void comboBoxTypeRevenue_SelectedIndexChanged(object sender, EventArgs e)
+        {
             string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
             if (comboBoxTypeRevenue.Text == "Vehicles Parking")
@@ -1460,5 +1830,23 @@ namespace QuanLyNhaXe01
             makeUpGridForAll();
         }
         #endregion
+=======
+        private void labelDaRa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+       
+>>>>>>> 1aaaadafe45818f49e6589864a28f795b77d247c
     }
 }
