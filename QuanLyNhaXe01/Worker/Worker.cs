@@ -5,16 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
+
 namespace QuanLyNhaXe01
 
 {
     class Worker
     {
         MyDB mydb = new MyDB();
-        public bool insertWorker(int maTho, string name, string sex, string CMND, DateTime ngaysinh,string address, string sdt, int maNhom, string maCV, DateTime dateStart)
+        public bool insertWorker(int maTho, string name,string username, string pass,string loaiNDung, string sex, string CMND, DateTime ngaysinh,string address, string sdt, MemoryStream pic, DateTime dateStart)
         {
-            SqlCommand command = new SqlCommand("insert into Tho(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, MaNhom, MaCV, NgayBatDau) " +
-                "values(@wid,@name,@sex,@identity,@bDate,@address,@phone, @maNhom, @maCV, @dStart)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("insert into Tho(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, NgayBatDau, Username, Password, Picture, LoaiNguoiDung) " +
+                "values(@wid,@name,@sex,@identity,@bDate,@address,@phone, @dStart, @uname,@pass,@pic, @loaiND)", mydb.getConnection);
 
             command.Parameters.Add("@wid", SqlDbType.Int).Value = maTho;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
@@ -23,12 +25,11 @@ namespace QuanLyNhaXe01
             command.Parameters.Add("@identity", SqlDbType.VarChar).Value = CMND;
             command.Parameters.Add("@bDate", SqlDbType.DateTime).Value = ngaysinh;
             command.Parameters.Add("dStart", SqlDbType.DateTime).Value = dateStart;
-           
             command.Parameters.Add("@address", SqlDbType.Text).Value = address;
-
-            command.Parameters.Add("@maNhom", SqlDbType.Int).Value = maNhom;
-            command.Parameters.Add("@maCV", SqlDbType.VarChar).Value = maCV;
-
+            command.Parameters.Add("@uname", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@pass", SqlDbType.VarChar).Value = pass;
+            command.Parameters.Add("@pic", SqlDbType.Image).Value = pic.ToArray();
+            command.Parameters.Add("@loaiND", SqlDbType.NVarChar).Value = loaiNDung;
 
             mydb.openConnection();
 
@@ -44,9 +45,9 @@ namespace QuanLyNhaXe01
             }
         }
 
-        public bool updateWorker(int maTho, string name, string sex, string CMND, DateTime ngaysinh, string address, string sdt, int maNhom, string maCV, DateTime dateStart)
+        public bool updateWorker(int maTho, string name, string username, string pass, string loaiNDung, string sex, string CMND, DateTime ngaysinh, string address, string sdt, MemoryStream pic, DateTime dateStart)
         {
-            SqlCommand command = new SqlCommand("update Tho set TenTho=@name, GioiTinh=@sex, CMND=@identity, NgaySinh=@bDate, DiaChi=@address, SDT=@phone, MaNhom= @maNhom, MaCV=@maCV,NgayBatDau=@dStart where MaTho=@wid  ", mydb.getConnection);
+            SqlCommand command = new SqlCommand("update Tho set TenTho=@name, GioiTinh=@sex, CMND=@identity, NgaySinh=@bDate, DiaChi=@address, SDT=@phone, NgayBatDau=@dStart, Username=@uname, Password=@pass, Picture=@pic, LoaiNguoiDung=@loaiND where MaTho=@wid  ", mydb.getConnection);
 
             command.Parameters.Add("@wid", SqlDbType.Int).Value = maTho;
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
@@ -57,9 +58,10 @@ namespace QuanLyNhaXe01
             command.Parameters.Add("dStart", SqlDbType.DateTime).Value = dateStart;
            
             command.Parameters.Add("@address", SqlDbType.Text).Value = address;
-
-            command.Parameters.Add("@maNhom", SqlDbType.Int).Value = maNhom;
-            command.Parameters.Add("@maCV", SqlDbType.VarChar).Value = maCV;
+            command.Parameters.Add("@uname", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@pass", SqlDbType.VarChar).Value = pass;
+            command.Parameters.Add("@pic", SqlDbType.Image).Value = pic.ToArray();
+            command.Parameters.Add("@loaiND", SqlDbType.NVarChar).Value = loaiNDung;
 
 
             mydb.openConnection();

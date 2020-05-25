@@ -76,10 +76,10 @@ namespace QuanLyNhaXe01
             listBoxGroup_work.ClearSelected();
 
             // dataGid Show Data
-            string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+           /* string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
                 "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
                 " inner join Nhom on Tho.MaNhom = Nhom.MaNhom";
-            dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
+            dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));*/
             #endregion
 
             #region WORKER
@@ -145,9 +145,9 @@ namespace QuanLyNhaXe01
                 DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
                 DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
 
-                SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
+               /* SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
 
-                dataGridViewWorker.DataSource = vehicle.getVehicle(command);
+                dataGridViewWorker.DataSource = vehicle.getVehicle(command);*/
 
                 dataGridViewVehicle.RowTemplate.Height = 80;
 
@@ -417,7 +417,7 @@ namespace QuanLyNhaXe01
 
             MyDB mydb = new MyDB();
             Worker worker = new Worker();
-            SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
+            SqlCommand command = new SqlCommand(" Select * from Tho");
             System.Data.DataTable tb = new System.Data.DataTable();
             tb = worker.getWorker(command);
             dataGridViewWorker.DataSource = tb;
@@ -437,15 +437,20 @@ namespace QuanLyNhaXe01
             DateTime dateStart = dateTimePickerDateStart_Worker.Value;
 
             string address = textBoxAddressWorker.Text;
-            // string work = comboBoxWork_Worker.Text;
+            string uname = textBoxUsername.Text;
+            string password = textBoxPassword.Text;
             
             string gender = "";
 
             try
             {
+
                 if (verifyData())
                 {
+                    MemoryStream user_pic = new MemoryStream();
+                    pictureBoxImage.Image.Save(user_pic, pictureBoxImage.Image.RawFormat);
                     int w_id = int.Parse(textBoxWorkerID.Text);
+                    string loaiND = comboBoxUserType.Text;
                     if (radioButtonFeMale.Checked == true)
                     {
                         gender = "Female";
@@ -467,7 +472,7 @@ namespace QuanLyNhaXe01
 
                         else
                         {
-                            if (worker.insertWorker(w_id, name, gender, CMND, bdate, address, phone, maNhom, maCV, dateStart))
+                            if (worker.insertWorker(w_id, name,uname,password,loaiND, gender, CMND, bdate, address, phone,user_pic, dateStart))
                             {
                                 MessageBox.Show("New Worker Added", "Add Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -502,22 +507,22 @@ namespace QuanLyNhaXe01
             Worker worker = new Worker();
 
             string name = textBoxFullName.Text;
-            string CMND = textBoxIdentityCard.Text;
-            // || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
+            string CMND = textBoxIdentityCard.Text;          
             string phone = textBoxPhoneWorker.Text;
-
+            string uname = textBoxUsername.Text;
+            string password = textBoxPassword.Text;
             DateTime bdate = dateTimePickerBDate_Worker.Value;
             DateTime dateStart = dateTimePickerDateStart_Worker.Value;
-
+            string loaiND = comboBoxUserType.Text;
             string address = textBoxAddressWorker.Text;
 
             string gender = "";
-
-
             try
             {
                 if (verifyData())
                 {
+                    MemoryStream user_pic = new MemoryStream();
+                    pictureBoxImage.Image.Save(user_pic, pictureBoxImage.Image.RawFormat);
                     int w_id = int.Parse(textBoxWorkerID.Text);
                     if (radioButtonFeMale.Checked == true)
                     {
@@ -529,8 +534,6 @@ namespace QuanLyNhaXe01
                         gender = "Male";
                     }
 
-                    //if (worker.checkID(int.Parse(textBoxWorkerID.Text)) && )
-                    // {
                     // kiem tra tren 18 tuoi
                     int tuoi = DateTime.Now.Year - dateTimePickerBDate_Worker.Value.Year;
                     if (tuoi < 18)
@@ -540,7 +543,7 @@ namespace QuanLyNhaXe01
 
                     else
                     {
-                        if (worker.updateWorker(w_id, name, gender, CMND, bdate, address, phone, maNhom, maCV, dateStart))
+                        if (worker.updateWorker(w_id, name, uname, password, loaiND, gender, CMND, bdate, address, phone, user_pic, dateStart))
                         {
                             MessageBox.Show("New Worker Updated", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -663,7 +666,11 @@ namespace QuanLyNhaXe01
                 || (textBoxIdentityCard.Text.Trim() == "")
                 || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
                 || (textBoxPhoneWorker.Text.Trim() == "")
-                || (textBoxAddressWorker.Text.Trim() == ""))
+                || (textBoxAddressWorker.Text.Trim() == "")
+                ||(pictureBoxImage.Image==null)
+                ||(textBoxUsername.Text.Trim()=="")
+                ||(textBoxPassword.Text.Trim()=="")
+                ||(comboBoxUserType.Text.Trim()==""))
             {
                 return false;
             }
@@ -691,12 +698,13 @@ namespace QuanLyNhaXe01
         private void textBoxSearchWorker_TextChanged(object sender, EventArgs e)
         {
             Worker worker = new Worker();
-            SqlCommand command = new SqlCommand("Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau " +
-                " from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV " +
-                " WHERE CONCAT(T.MaTho, T." +
-                "TenTho, T.GioiTinh, T.CMND, T.NgaySinh, T.DiaChi, T.SDT, T.NgayBatDau, CV.TenCV, N.TenNhom) LIKE'%" + textBoxSearchWorker.Text + "%'");
-
+            /* SqlCommand command = new SqlCommand("Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau " +
+                 " from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV " +
+                 " WHERE CONCAT(T.MaTho, T." +
+                 "TenTho, T.GioiTinh, T.CMND, T.NgaySinh, T.DiaChi, T.SDT, T.NgayBatDau, CV.TenCV, N.TenNhom) LIKE'%" + textBoxSearchWorker.Text + "%'");*/
+            SqlCommand command = new SqlCommand("Select MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, NgayBatDau, Username, Password,LoaiNguoiDung where concat(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, NgayBatDau, Username, Password, Picture, LoaiNguoiDung) LIKE'%" + textBoxSearchWorker.Text + "%'");
             dataGridViewWorker.DataSource = worker.getWorker(command);
+
         }
 
         public void Export_Data_To_Word(DataGridView DGV, string filename)
@@ -796,6 +804,15 @@ namespace QuanLyNhaXe01
         {
             statisticsWorkerForm st = new statisticsWorkerForm();
             st.Show(this);
+        }
+        private void buttonLoadPic_Worker_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if ((opf.ShowDialog() == DialogResult.OK))
+            {
+                pictureBoxImage.Image = Image.FromFile(opf.FileName);
+            }
         }
         #endregion
 
@@ -971,17 +988,17 @@ namespace QuanLyNhaXe01
 
         private void textBoxSearch_work_TextChanged(object sender, EventArgs e)
         {
-            string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+          /*  string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
                         "from Tho inner join Nhom on Tho.MaNhom = Nhom.MaNhom inner " +
                         "join CongViec on Tho.MaCV = CongViec.MaCV " +
                         "WHERE CONCAT(Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV) LIKE '%" + textBoxSearch_work.Text + "%'";
             SqlCommand command = new SqlCommand(query_grid_work);
-            dataGridViewWork.DataSource = vehicle.getVehicle(command);
+            dataGridViewWork.DataSource = vehicle.getVehicle(command);*/
         }
 
         private void listBoxGroup_work_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 if (listBoxGroup_work.SelectedIndex != -1)
                 {
@@ -996,7 +1013,7 @@ namespace QuanLyNhaXe01
             catch
             {
 
-            }
+            }*/
         }
 
         private void buttonPrint_work_Click(object sender, EventArgs e)
@@ -1103,7 +1120,7 @@ namespace QuanLyNhaXe01
                 {
                     if (dataGridViewContract.CurrentRow.Cells.Count == 8)
                     {
-                        edit.textBoxContractID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
+                        /*edit.textBoxContractID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
                         edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
                         edit.textBoxDescibe.Text = dataGridViewContract.CurrentRow.Cells[5].Value.ToString();
                         edit.textBoxContractValue.Text = dataGridViewContract.CurrentRow.Cells[6].Value.ToString();
@@ -1111,7 +1128,7 @@ namespace QuanLyNhaXe01
                         edit.dateTimePickerSign.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[2].Value.ToString());
                         edit.dateTimePicker_LeaseTerm.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[7].Value.ToString());
                         edit.textBoxVehicleID.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
-                        edit.Show(this);
+                        edit.Show(this);*/
                     }
                 }
                 else
@@ -1606,6 +1623,9 @@ namespace QuanLyNhaXe01
             dataGridViewRevenue.DataSource = table;
             makeUpGridForAll();
         }
+
         #endregion
+
+       
     }
 }

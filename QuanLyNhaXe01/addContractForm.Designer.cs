@@ -396,7 +396,6 @@
             this.textBoxPaid.Name = "textBoxPaid";
             this.textBoxPaid.Size = new System.Drawing.Size(310, 30);
             this.textBoxPaid.TabIndex = 8;
-            this.textBoxPaid.TextChanged += new System.EventHandler(this.textBoxPaid_TextChanged);
             // 
             // labelUnpaid
             // 
