@@ -116,6 +116,9 @@ namespace QuanLyNhaXe01
             textBoxSetParking_salary.Text = table_salary.Rows[2][1].ToString();
             textBoxSetRepairer_salary.Text = table_salary.Rows[1][1].ToString();
             textBoxSetWashing_salary.Text = table_salary.Rows[0][1].ToString(); 
+
+            // fill datagidview
+
             #endregion
         }
 
@@ -1615,7 +1618,7 @@ namespace QuanLyNhaXe01
         }
         #endregion
 
-        #region Salary
+        #region Salary---------------------------------------------------------
 
 
 
