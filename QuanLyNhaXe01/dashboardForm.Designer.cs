@@ -182,6 +182,7 @@
             this.buttonExportRevenue = new System.Windows.Forms.Button();
             this.buttonRevenueStatistics = new System.Windows.Forms.Button();
             this.buttonSelectWork = new System.Windows.Forms.Button();
+            this.panel20 = new System.Windows.Forms.Panel();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -213,6 +214,7 @@
             this.tabPageRevenue.SuspendLayout();
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).BeginInit();
+            this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1822,8 +1824,8 @@
             // tabPageRevenue
             // 
             this.tabPageRevenue.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tabPageRevenue.Controls.Add(this.panel20);
             this.tabPageRevenue.Controls.Add(this.panel19);
-            this.tabPageRevenue.Controls.Add(this.dataGridViewRevenue);
             this.tabPageRevenue.Controls.Add(this.buttonPrintRevenue);
             this.tabPageRevenue.Controls.Add(this.buttonExportRevenue);
             this.tabPageRevenue.Controls.Add(this.buttonRevenueStatistics);
@@ -1866,11 +1868,13 @@
             this.comboBoxTypeRevenue.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTypeRevenue.FormattingEnabled = true;
             this.comboBoxTypeRevenue.Items.AddRange(new object[] {
-            "Vehicles Parking"});
+            "Vehicles Parking",
+            "Contract"});
             this.comboBoxTypeRevenue.Location = new System.Drawing.Point(219, 5);
             this.comboBoxTypeRevenue.Name = "comboBoxTypeRevenue";
             this.comboBoxTypeRevenue.Size = new System.Drawing.Size(353, 36);
             this.comboBoxTypeRevenue.TabIndex = 4;
+            this.comboBoxTypeRevenue.Text = "Vehicles Parking";
             this.comboBoxTypeRevenue.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeRevenue_SelectedIndexChanged);
             // 
             // label37
@@ -1918,18 +1922,18 @@
             // dataGridViewRevenue
             // 
             this.dataGridViewRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRevenue.Location = new System.Drawing.Point(41, 86);
+            this.dataGridViewRevenue.Location = new System.Drawing.Point(14, 16);
             this.dataGridViewRevenue.Name = "dataGridViewRevenue";
             this.dataGridViewRevenue.RowHeadersWidth = 62;
             this.dataGridViewRevenue.RowTemplate.Height = 28;
-            this.dataGridViewRevenue.Size = new System.Drawing.Size(1092, 579);
+            this.dataGridViewRevenue.Size = new System.Drawing.Size(1112, 581);
             this.dataGridViewRevenue.TabIndex = 1;
             // 
             // buttonPrintRevenue
             // 
             this.buttonPrintRevenue.BackColor = System.Drawing.Color.Chocolate;
             this.buttonPrintRevenue.ForeColor = System.Drawing.Color.White;
-            this.buttonPrintRevenue.Location = new System.Drawing.Point(158, 686);
+            this.buttonPrintRevenue.Location = new System.Drawing.Point(153, 710);
             this.buttonPrintRevenue.Name = "buttonPrintRevenue";
             this.buttonPrintRevenue.Size = new System.Drawing.Size(251, 70);
             this.buttonPrintRevenue.TabIndex = 0;
@@ -1941,7 +1945,7 @@
             // 
             this.buttonExportRevenue.BackColor = System.Drawing.Color.Chocolate;
             this.buttonExportRevenue.ForeColor = System.Drawing.Color.White;
-            this.buttonExportRevenue.Location = new System.Drawing.Point(471, 686);
+            this.buttonExportRevenue.Location = new System.Drawing.Point(466, 710);
             this.buttonExportRevenue.Name = "buttonExportRevenue";
             this.buttonExportRevenue.Size = new System.Drawing.Size(251, 70);
             this.buttonExportRevenue.TabIndex = 0;
@@ -1953,7 +1957,7 @@
             // 
             this.buttonRevenueStatistics.BackColor = System.Drawing.Color.Chocolate;
             this.buttonRevenueStatistics.ForeColor = System.Drawing.Color.White;
-            this.buttonRevenueStatistics.Location = new System.Drawing.Point(794, 686);
+            this.buttonRevenueStatistics.Location = new System.Drawing.Point(789, 710);
             this.buttonRevenueStatistics.Name = "buttonRevenueStatistics";
             this.buttonRevenueStatistics.Size = new System.Drawing.Size(251, 70);
             this.buttonRevenueStatistics.TabIndex = 0;
@@ -1973,11 +1977,22 @@
             this.buttonSelectWork.UseVisualStyleBackColor = false;
             this.buttonSelectWork.Click += new System.EventHandler(this.buttonSelectWork_Click);
             // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel20.Controls.Add(this.dataGridViewRevenue);
+            this.panel20.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel20.Location = new System.Drawing.Point(7, 69);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(1142, 614);
+            this.panel20.TabIndex = 7;
+            // 
             // pictureBoxProfile
             // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxProfile.Location = new System.Drawing.Point(1, 0);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(175, 130);
+            this.pictureBoxProfile.Size = new System.Drawing.Size(174, 130);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxProfile.TabIndex = 4;
             this.pictureBoxProfile.TabStop = false;
             // 
@@ -2043,6 +2058,7 @@
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).EndInit();
+            this.panel20.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
 
@@ -2204,5 +2220,6 @@
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.PictureBox pictureBoxProfile;
         private System.Windows.Forms.Button buttonSelectWork;
+        private System.Windows.Forms.Panel panel20;
     }
 }

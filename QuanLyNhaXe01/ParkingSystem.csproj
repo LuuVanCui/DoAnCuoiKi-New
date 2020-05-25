@@ -122,6 +122,12 @@
     <Compile Include="revenueForm.Designer.cs">
       <DependentUpon>revenueForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="statisticsWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statisticsWorkForm.Designer.cs">
+      <DependentUpon>statisticsWorkForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Work\selectWorkForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </Compile>
     <EmbeddedResource Include="revenueForm.resx">
       <DependentUpon>revenueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statisticsWorkForm.resx">
+      <DependentUpon>statisticsWorkForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Work\selectWorkForm.resx">
       <DependentUpon>selectWorkForm.cs</DependentUpon>
