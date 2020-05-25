@@ -35,7 +35,7 @@
             this.linkLabelRefresh = new System.Windows.Forms.LinkLabel();
             this.linkLabelEditInfo = new System.Windows.Forms.LinkLabel();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabControlSalary = new System.Windows.Forms.TabControl();
             this.tabPageVehicles = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -198,9 +198,10 @@
             this.textBoxWorkName_work = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.comboBoxWorkerName_work = new System.Windows.Forms.ComboBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
-            this.tabControl.SuspendLayout();
+            this.tabControlSalary.SuspendLayout();
             this.tabPageVehicles.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -315,20 +316,21 @@
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // tabControl
+            // tabControlSalary
             // 
-            this.tabControl.Controls.Add(this.tabPageVehicles);
-            this.tabControl.Controls.Add(this.tabPageWorker);
-            this.tabControl.Controls.Add(this.tabPageWork);
-            this.tabControl.Controls.Add(this.tabPageContract);
-            this.tabControl.Controls.Add(this.tabPageCustomer);
-            this.tabControl.Controls.Add(this.tabPageRevenue);
-            this.tabControl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(1, 135);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1163, 853);
-            this.tabControl.TabIndex = 0;
+            this.tabControlSalary.Controls.Add(this.tabPageVehicles);
+            this.tabControlSalary.Controls.Add(this.tabPageWorker);
+            this.tabControlSalary.Controls.Add(this.tabPageWork);
+            this.tabControlSalary.Controls.Add(this.tabPageContract);
+            this.tabControlSalary.Controls.Add(this.tabPageCustomer);
+            this.tabControlSalary.Controls.Add(this.tabPageRevenue);
+            this.tabControlSalary.Controls.Add(this.tabPage1);
+            this.tabControlSalary.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlSalary.Location = new System.Drawing.Point(1, 135);
+            this.tabControlSalary.Name = "tabControlSalary";
+            this.tabControlSalary.SelectedIndex = 0;
+            this.tabControlSalary.Size = new System.Drawing.Size(1163, 853);
+            this.tabControlSalary.TabIndex = 0;
             // 
             // tabPageVehicles
             // 
@@ -2211,6 +2213,16 @@
             this.comboBoxWorkerName_work.Size = new System.Drawing.Size(270, 36);
             this.comboBoxWorkerName_work.TabIndex = 13;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 42);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1155, 807);
+            this.tabPage1.TabIndex = 6;
+            this.tabPage1.Text = "Salary";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2219,7 +2231,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1167, 984);
-            this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.tabControlSalary);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "dashboardForm";
@@ -2229,7 +2241,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
-            this.tabControl.ResumeLayout(false);
+            this.tabControlSalary.ResumeLayout(false);
             this.tabPageVehicles.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -2289,7 +2301,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.LinkLabel linkLabelRefresh;
         private System.Windows.Forms.LinkLabel linkLabelEditInfo;
-        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabControl tabControlSalary;
         private System.Windows.Forms.TabPage tabPageVehicles;
         private System.Windows.Forms.Button buttonStatisticsVehicle;
         private System.Windows.Forms.TabPage tabPageWorker;
@@ -2454,5 +2466,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBoxWorkName_work;
         private System.Windows.Forms.ComboBox comboBoxWorkerName_work;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
