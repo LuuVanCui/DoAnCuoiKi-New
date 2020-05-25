@@ -122,6 +122,7 @@
     <Compile Include="revenueForm.Designer.cs">
       <DependentUpon>revenueForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Salary.cs" />
     <Compile Include="statisticsWorkForm.cs">
       <SubType>Form</SubType>
     </Compile>

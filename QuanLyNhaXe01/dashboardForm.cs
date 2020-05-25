@@ -110,6 +110,13 @@ namespace QuanLyNhaXe01
             dataGridViewRevenue.DataSource = table_revenue;
             makeUpGridForAll();
             #endregion
+
+            #region SALARY
+            System.Data.DataTable table_salary = vehicle.getVehicle(new SqlCommand("SELECT * FROM MucLuong"));
+            textBoxSetParking_salary.Text = table_salary.Rows[2][1].ToString();
+            textBoxSetRepairer_salary.Text = table_salary.Rows[1][1].ToString();
+            textBoxSetWashing_salary.Text = table_salary.Rows[0][1].ToString(); 
+            #endregion
         }
 
         #region Tabar----------------------------------------------------------
@@ -1334,7 +1341,7 @@ namespace QuanLyNhaXe01
 
         #endregion
 
-        #region Customer
+        #region Customer-------------------------------------------------------
         void fillDatagrid_Customer()
         {
             MyDB mydb = new MyDB();
@@ -1606,6 +1613,12 @@ namespace QuanLyNhaXe01
             dataGridViewRevenue.DataSource = table;
             makeUpGridForAll();
         }
+        #endregion
+
+        #region Salary
+
+
+
         #endregion
     }
 }

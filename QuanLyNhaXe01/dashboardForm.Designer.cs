@@ -76,6 +76,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageWorker = new System.Windows.Forms.TabPage();
+            this.comboBoxUserType = new System.Windows.Forms.ComboBox();
+            this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelTotalWorker_Worker = new System.Windows.Forms.Label();
             this.buttonExportWorker = new System.Windows.Forms.Button();
@@ -91,18 +93,24 @@
             this.buttonRemoveWorker = new System.Windows.Forms.Button();
             this.buttonEditWorker = new System.Windows.Forms.Button();
             this.buttonAddWorker = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
             this.dateTimePickerDateStart_Worker = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerBDate_Worker = new System.Windows.Forms.DateTimePicker();
             this.textBoxIdentityCard = new System.Windows.Forms.TextBox();
             this.textBoxAddressWorker = new System.Windows.Forms.TextBox();
             this.textBoxPhoneWorker = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.textBoxWorkerID = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -130,12 +138,15 @@
             this.buttonRemoveGroup_work = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxWorkerName_work = new System.Windows.Forms.ComboBox();
             this.comboBoxGroupName_work = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.buttonSelectWork = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.textBoxWorkName_work = new System.Windows.Forms.TextBox();
             this.textBoxWorkID_Work = new System.Windows.Forms.TextBox();
             this.textBoxWorkDetail_work = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -187,31 +198,35 @@
             this.buttonPrintRevenue = new System.Windows.Forms.Button();
             this.buttonExportRevenue = new System.Windows.Forms.Button();
             this.buttonRevenueStatistics = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBoxUsername = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.pictureBoxImage = new System.Windows.Forms.PictureBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBoxUserType = new System.Windows.Forms.ComboBox();
-            this.textBoxWorkName_work = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBoxWorkerName_work = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridViewSalary = new System.Windows.Forms.DataGridView();
-            this.panel21 = new System.Windows.Forms.Panel();
+            this.buttonExport_salary = new System.Windows.Forms.Button();
+            this.buttonPrint_salary = new System.Windows.Forms.Button();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.dateTimePickerTo_salary = new System.Windows.Forms.DateTimePicker();
             this.label36 = new System.Windows.Forms.Label();
-            this.comboBoxTypeOfWorker_salary = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
             this.dateTimePickerFrom_salary = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerTo_salary = new System.Windows.Forms.DateTimePicker();
             this.label46 = new System.Windows.Forms.Label();
+            this.comboBoxTypeOfWorker_salary = new System.Windows.Forms.ComboBox();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.dataGridViewSalary = new System.Windows.Forms.DataGridView();
             this.textBoxSearchSalary = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.buttonPrint_salary = new System.Windows.Forms.Button();
-            this.buttonExport_salary = new System.Windows.Forms.Button();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.label48 = new System.Windows.Forms.Label();
+            this.textBoxSetParking_salary = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.buttonSetParking_salary = new System.Windows.Forms.Button();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.buttonSetRepairer_salary = new System.Windows.Forms.Button();
+            this.textBoxSetRepairer_salary = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.buttonSetWashing_salary = new System.Windows.Forms.Button();
+            this.textBoxSetWashing_salary = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.tabControlSalary.SuspendLayout();
@@ -224,6 +239,7 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabPageWorker.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorker)).BeginInit();
             this.panel3.SuspendLayout();
@@ -246,11 +262,13 @@
             this.tabPageRevenue.SuspendLayout();
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).BeginInit();
-            this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
+            this.panel21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).BeginInit();
+            this.panel23.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel25.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -844,6 +862,30 @@
             this.tabPageWorker.TabIndex = 1;
             this.tabPageWorker.Text = "Worker";
             // 
+            // comboBoxUserType
+            // 
+            this.comboBoxUserType.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxUserType.FormattingEnabled = true;
+            this.comboBoxUserType.Items.AddRange(new object[] {
+            "Trong Xe",
+            "Sua Xe",
+            "Rua Xe"});
+            this.comboBoxUserType.Location = new System.Drawing.Point(139, 198);
+            this.comboBoxUserType.Name = "comboBoxUserType";
+            this.comboBoxUserType.Size = new System.Drawing.Size(234, 31);
+            this.comboBoxUserType.TabIndex = 25;
+            this.comboBoxUserType.Text = "Trong Xe";
+            // 
+            // pictureBoxImage
+            // 
+            this.pictureBoxImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxImage.Location = new System.Drawing.Point(598, 253);
+            this.pictureBoxImage.Name = "pictureBoxImage";
+            this.pictureBoxImage.Size = new System.Drawing.Size(199, 126);
+            this.pictureBoxImage.TabIndex = 24;
+            this.pictureBoxImage.TabStop = false;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -1027,6 +1069,18 @@
             this.buttonAddWorker.UseVisualStyleBackColor = false;
             this.buttonAddWorker.Click += new System.EventHandler(this.buttonAddWorker_Click);
             // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label44.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.Black;
+            this.label44.Location = new System.Drawing.Point(504, 253);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(83, 28);
+            this.label44.TabIndex = 16;
+            this.label44.Text = "Picture:";
+            // 
             // dateTimePickerDateStart_Worker
             // 
             this.dateTimePickerDateStart_Worker.CalendarForeColor = System.Drawing.Color.Cornsilk;
@@ -1075,6 +1129,22 @@
             this.textBoxPhoneWorker.Name = "textBoxPhoneWorker";
             this.textBoxPhoneWorker.Size = new System.Drawing.Size(232, 30);
             this.textBoxPhoneWorker.TabIndex = 8;
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Location = new System.Drawing.Point(139, 148);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(234, 30);
+            this.textBoxPassword.TabIndex = 7;
+            // 
+            // textBoxUsername
+            // 
+            this.textBoxUsername.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsername.Location = new System.Drawing.Point(139, 102);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(234, 30);
+            this.textBoxUsername.TabIndex = 7;
             // 
             // textBoxFullName
             // 
@@ -1127,6 +1197,17 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "Address:";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(29, 197);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(116, 28);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "User Type:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -1138,6 +1219,17 @@
             this.label10.TabIndex = 5;
             this.label10.Text = "Phone:";
             // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.Black;
+            this.label38.Location = new System.Drawing.Point(27, 147);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(105, 28);
+            this.label38.TabIndex = 5;
+            this.label38.Text = "Password:";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -1148,6 +1240,17 @@
             this.label9.Size = new System.Drawing.Size(86, 28);
             this.label9.TabIndex = 5;
             this.label9.Text = "Gender:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(25, 101);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 28);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Username:";
             // 
             // label4
             // 
@@ -1463,6 +1566,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work";
             // 
+            // comboBoxWorkerName_work
+            // 
+            this.comboBoxWorkerName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxWorkerName_work.FormattingEnabled = true;
+            this.comboBoxWorkerName_work.Location = new System.Drawing.Point(184, 121);
+            this.comboBoxWorkerName_work.Name = "comboBoxWorkerName_work";
+            this.comboBoxWorkerName_work.Size = new System.Drawing.Size(270, 36);
+            this.comboBoxWorkerName_work.TabIndex = 13;
+            // 
             // comboBoxGroupName_work
             // 
             this.comboBoxGroupName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F);
@@ -1493,6 +1605,15 @@
             this.buttonSelectWork.UseVisualStyleBackColor = false;
             this.buttonSelectWork.Click += new System.EventHandler(this.buttonSelectWork_Click);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(-3, 117);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(178, 33);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Worker Name:";
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -1519,6 +1640,14 @@
             this.label19.Size = new System.Drawing.Size(158, 33);
             this.label19.TabIndex = 1;
             this.label19.Text = "Work Detail:";
+            // 
+            // textBoxWorkName_work
+            // 
+            this.textBoxWorkName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxWorkName_work.Location = new System.Drawing.Point(184, 171);
+            this.textBoxWorkName_work.Name = "textBoxWorkName_work";
+            this.textBoxWorkName_work.Size = new System.Drawing.Size(270, 35);
+            this.textBoxWorkName_work.TabIndex = 2;
             // 
             // textBoxWorkID_Work
             // 
@@ -2119,119 +2248,11 @@
             this.buttonRevenueStatistics.UseVisualStyleBackColor = false;
             this.buttonRevenueStatistics.Click += new System.EventHandler(this.buttonRevenueStatistics_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(25, 101);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 28);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Username:";
-            // 
-            // textBoxUsername
-            // 
-            this.textBoxUsername.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUsername.Location = new System.Drawing.Point(139, 102);
-            this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(234, 30);
-            this.textBoxUsername.TabIndex = 7;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.Black;
-            this.label38.Location = new System.Drawing.Point(27, 147);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(105, 28);
-            this.label38.TabIndex = 5;
-            this.label38.Text = "Password:";
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(139, 148);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(234, 30);
-            this.textBoxPassword.TabIndex = 7;
-            // 
-            // pictureBoxImage
-            // 
-            this.pictureBoxImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxImage.Location = new System.Drawing.Point(598, 253);
-            this.pictureBoxImage.Name = "pictureBoxImage";
-            this.pictureBoxImage.Size = new System.Drawing.Size(199, 126);
-            this.pictureBoxImage.TabIndex = 24;
-            this.pictureBoxImage.TabStop = false;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label44.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.ForeColor = System.Drawing.Color.Black;
-            this.label44.Location = new System.Drawing.Point(504, 253);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(83, 28);
-            this.label44.TabIndex = 16;
-            this.label44.Text = "Picture:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(29, 197);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(116, 28);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "User Type:";
-            // 
-            // comboBoxUserType
-            // 
-            this.comboBoxUserType.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxUserType.FormattingEnabled = true;
-            this.comboBoxUserType.Items.AddRange(new object[] {
-            "Trong Xe",
-            "Sua Xe",
-            "Rua Xe"});
-            this.comboBoxUserType.Location = new System.Drawing.Point(139, 198);
-            this.comboBoxUserType.Name = "comboBoxUserType";
-            this.comboBoxUserType.Size = new System.Drawing.Size(234, 31);
-            this.comboBoxUserType.TabIndex = 25;
-            this.comboBoxUserType.Text = "Trong Xe";
-            // 
-            // textBoxWorkName_work
-            // 
-            this.textBoxWorkName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWorkName_work.Location = new System.Drawing.Point(184, 171);
-            this.textBoxWorkName_work.Name = "textBoxWorkName_work";
-            this.textBoxWorkName_work.Size = new System.Drawing.Size(270, 35);
-            this.textBoxWorkName_work.TabIndex = 2;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(-3, 117);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(178, 33);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Worker Name:";
-            // 
-            // comboBoxWorkerName_work
-            // 
-            this.comboBoxWorkerName_work.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxWorkerName_work.FormattingEnabled = true;
-            this.comboBoxWorkerName_work.Location = new System.Drawing.Point(184, 121);
-            this.comboBoxWorkerName_work.Name = "comboBoxWorkerName_work";
-            this.comboBoxWorkerName_work.Size = new System.Drawing.Size(270, 36);
-            this.comboBoxWorkerName_work.TabIndex = 13;
-            // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.panel25);
+            this.tabPage1.Controls.Add(this.panel24);
+            this.tabPage1.Controls.Add(this.panel23);
             this.tabPage1.Controls.Add(this.buttonExport_salary);
             this.tabPage1.Controls.Add(this.buttonPrint_salary);
             this.tabPage1.Controls.Add(this.panel22);
@@ -2244,25 +2265,45 @@
             this.tabPage1.Text = "Salary";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewSalary
+            // buttonExport_salary
             // 
-            this.dataGridViewSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSalary.Location = new System.Drawing.Point(17, 73);
-            this.dataGridViewSalary.Name = "dataGridViewSalary";
-            this.dataGridViewSalary.RowHeadersWidth = 62;
-            this.dataGridViewSalary.RowTemplate.Height = 28;
-            this.dataGridViewSalary.Size = new System.Drawing.Size(1080, 480);
-            this.dataGridViewSalary.TabIndex = 0;
+            this.buttonExport_salary.Location = new System.Drawing.Point(683, 722);
+            this.buttonExport_salary.Name = "buttonExport_salary";
+            this.buttonExport_salary.Size = new System.Drawing.Size(135, 55);
+            this.buttonExport_salary.TabIndex = 7;
+            this.buttonExport_salary.Text = "Export";
+            this.buttonExport_salary.UseVisualStyleBackColor = true;
             // 
-            // panel21
+            // buttonPrint_salary
             // 
-            this.panel21.Controls.Add(this.dataGridViewSalary);
-            this.panel21.Controls.Add(this.textBoxSearchSalary);
-            this.panel21.Controls.Add(this.label47);
-            this.panel21.Location = new System.Drawing.Point(22, 123);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(1115, 573);
-            this.panel21.TabIndex = 1;
+            this.buttonPrint_salary.Location = new System.Drawing.Point(328, 722);
+            this.buttonPrint_salary.Name = "buttonPrint_salary";
+            this.buttonPrint_salary.Size = new System.Drawing.Size(135, 55);
+            this.buttonPrint_salary.TabIndex = 7;
+            this.buttonPrint_salary.Text = "Print";
+            this.buttonPrint_salary.UseVisualStyleBackColor = true;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.dateTimePickerTo_salary);
+            this.panel22.Controls.Add(this.label36);
+            this.panel22.Controls.Add(this.label45);
+            this.panel22.Controls.Add(this.dateTimePickerFrom_salary);
+            this.panel22.Controls.Add(this.label46);
+            this.panel22.Controls.Add(this.comboBoxTypeOfWorker_salary);
+            this.panel22.Location = new System.Drawing.Point(103, 15);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(993, 84);
+            this.panel22.TabIndex = 6;
+            // 
+            // dateTimePickerTo_salary
+            // 
+            this.dateTimePickerTo_salary.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerTo_salary.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerTo_salary.Location = new System.Drawing.Point(819, 18);
+            this.dateTimePickerTo_salary.Name = "dateTimePickerTo_salary";
+            this.dateTimePickerTo_salary.Size = new System.Drawing.Size(150, 30);
+            this.dateTimePickerTo_salary.TabIndex = 4;
             // 
             // label36
             // 
@@ -2273,15 +2314,6 @@
             this.label36.Size = new System.Drawing.Size(170, 28);
             this.label36.TabIndex = 2;
             this.label36.Text = "Type of Worker:";
-            // 
-            // comboBoxTypeOfWorker_salary
-            // 
-            this.comboBoxTypeOfWorker_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxTypeOfWorker_salary.FormattingEnabled = true;
-            this.comboBoxTypeOfWorker_salary.Location = new System.Drawing.Point(192, 20);
-            this.comboBoxTypeOfWorker_salary.Name = "comboBoxTypeOfWorker_salary";
-            this.comboBoxTypeOfWorker_salary.Size = new System.Drawing.Size(268, 36);
-            this.comboBoxTypeOfWorker_salary.TabIndex = 3;
             // 
             // label45
             // 
@@ -2302,15 +2334,6 @@
             this.dateTimePickerFrom_salary.Size = new System.Drawing.Size(152, 30);
             this.dateTimePickerFrom_salary.TabIndex = 4;
             // 
-            // dateTimePickerTo_salary
-            // 
-            this.dateTimePickerTo_salary.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerTo_salary.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerTo_salary.Location = new System.Drawing.Point(819, 16);
-            this.dateTimePickerTo_salary.Name = "dateTimePickerTo_salary";
-            this.dateTimePickerTo_salary.Size = new System.Drawing.Size(150, 30);
-            this.dateTimePickerTo_salary.TabIndex = 4;
-            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -2321,10 +2344,44 @@
             this.label46.TabIndex = 2;
             this.label46.Text = "to";
             // 
+            // comboBoxTypeOfWorker_salary
+            // 
+            this.comboBoxTypeOfWorker_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTypeOfWorker_salary.FormattingEnabled = true;
+            this.comboBoxTypeOfWorker_salary.Items.AddRange(new object[] {
+            "Parking",
+            "Repairer",
+            "Washing"});
+            this.comboBoxTypeOfWorker_salary.Location = new System.Drawing.Point(192, 20);
+            this.comboBoxTypeOfWorker_salary.Name = "comboBoxTypeOfWorker_salary";
+            this.comboBoxTypeOfWorker_salary.Size = new System.Drawing.Size(268, 36);
+            this.comboBoxTypeOfWorker_salary.TabIndex = 3;
+            this.comboBoxTypeOfWorker_salary.Text = "Parking";
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.dataGridViewSalary);
+            this.panel21.Controls.Add(this.textBoxSearchSalary);
+            this.panel21.Controls.Add(this.label47);
+            this.panel21.Location = new System.Drawing.Point(22, 314);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(1115, 382);
+            this.panel21.TabIndex = 1;
+            // 
+            // dataGridViewSalary
+            // 
+            this.dataGridViewSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSalary.Location = new System.Drawing.Point(17, 69);
+            this.dataGridViewSalary.Name = "dataGridViewSalary";
+            this.dataGridViewSalary.RowHeadersWidth = 62;
+            this.dataGridViewSalary.RowTemplate.Height = 28;
+            this.dataGridViewSalary.Size = new System.Drawing.Size(1080, 296);
+            this.dataGridViewSalary.TabIndex = 0;
+            // 
             // textBoxSearchSalary
             // 
             this.textBoxSearchSalary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchSalary.Location = new System.Drawing.Point(283, 21);
+            this.textBoxSearchSalary.Location = new System.Drawing.Point(316, 15);
             this.textBoxSearchSalary.Name = "textBoxSearchSalary";
             this.textBoxSearchSalary.Size = new System.Drawing.Size(657, 35);
             this.textBoxSearchSalary.TabIndex = 5;
@@ -2333,42 +2390,161 @@
             // 
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(180, 22);
+            this.label47.Location = new System.Drawing.Point(213, 16);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(91, 30);
             this.label47.TabIndex = 2;
             this.label47.Text = "Search:";
             // 
-            // panel22
+            // panel23
             // 
-            this.panel22.Controls.Add(this.dateTimePickerTo_salary);
-            this.panel22.Controls.Add(this.label36);
-            this.panel22.Controls.Add(this.label45);
-            this.panel22.Controls.Add(this.dateTimePickerFrom_salary);
-            this.panel22.Controls.Add(this.label46);
-            this.panel22.Controls.Add(this.comboBoxTypeOfWorker_salary);
-            this.panel22.Location = new System.Drawing.Point(103, 15);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(993, 84);
-            this.panel22.TabIndex = 6;
+            this.panel23.Controls.Add(this.buttonSetParking_salary);
+            this.panel23.Controls.Add(this.textBoxSetParking_salary);
+            this.panel23.Controls.Add(this.label49);
+            this.panel23.Controls.Add(this.label48);
+            this.panel23.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel23.Location = new System.Drawing.Point(39, 115);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(283, 182);
+            this.panel23.TabIndex = 8;
             // 
-            // buttonPrint_salary
+            // label48
             // 
-            this.buttonPrint_salary.Location = new System.Drawing.Point(328, 722);
-            this.buttonPrint_salary.Name = "buttonPrint_salary";
-            this.buttonPrint_salary.Size = new System.Drawing.Size(135, 55);
-            this.buttonPrint_salary.TabIndex = 7;
-            this.buttonPrint_salary.Text = "Print";
-            this.buttonPrint_salary.UseVisualStyleBackColor = true;
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(90, 11);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(99, 35);
+            this.label48.TabIndex = 2;
+            this.label48.Text = "Parking";
             // 
-            // buttonExport_salary
+            // textBoxSetParking_salary
             // 
-            this.buttonExport_salary.Location = new System.Drawing.Point(683, 722);
-            this.buttonExport_salary.Name = "buttonExport_salary";
-            this.buttonExport_salary.Size = new System.Drawing.Size(135, 55);
-            this.buttonExport_salary.TabIndex = 7;
-            this.buttonExport_salary.Text = "Export";
-            this.buttonExport_salary.UseVisualStyleBackColor = true;
+            this.textBoxSetParking_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSetParking_salary.Location = new System.Drawing.Point(120, 63);
+            this.textBoxSetParking_salary.Name = "textBoxSetParking_salary";
+            this.textBoxSetParking_salary.Size = new System.Drawing.Size(149, 35);
+            this.textBoxSetParking_salary.TabIndex = 3;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(14, 66);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(100, 28);
+            this.label49.TabIndex = 2;
+            this.label49.Text = "Salary/h:";
+            // 
+            // buttonSetParking_salary
+            // 
+            this.buttonSetParking_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSetParking_salary.Location = new System.Drawing.Point(73, 120);
+            this.buttonSetParking_salary.Name = "buttonSetParking_salary";
+            this.buttonSetParking_salary.Size = new System.Drawing.Size(141, 44);
+            this.buttonSetParking_salary.TabIndex = 4;
+            this.buttonSetParking_salary.Text = "Set";
+            this.buttonSetParking_salary.UseVisualStyleBackColor = true;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.buttonSetRepairer_salary);
+            this.panel24.Controls.Add(this.textBoxSetRepairer_salary);
+            this.panel24.Controls.Add(this.label50);
+            this.panel24.Controls.Add(this.label51);
+            this.panel24.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel24.Location = new System.Drawing.Point(453, 115);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(283, 182);
+            this.panel24.TabIndex = 8;
+            // 
+            // buttonSetRepairer_salary
+            // 
+            this.buttonSetRepairer_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSetRepairer_salary.Location = new System.Drawing.Point(73, 120);
+            this.buttonSetRepairer_salary.Name = "buttonSetRepairer_salary";
+            this.buttonSetRepairer_salary.Size = new System.Drawing.Size(141, 44);
+            this.buttonSetRepairer_salary.TabIndex = 4;
+            this.buttonSetRepairer_salary.Text = "Set";
+            this.buttonSetRepairer_salary.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSetRepairer_salary
+            // 
+            this.textBoxSetRepairer_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSetRepairer_salary.Location = new System.Drawing.Point(120, 63);
+            this.textBoxSetRepairer_salary.Name = "textBoxSetRepairer_salary";
+            this.textBoxSetRepairer_salary.Size = new System.Drawing.Size(149, 35);
+            this.textBoxSetRepairer_salary.TabIndex = 3;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(14, 66);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(100, 28);
+            this.label50.TabIndex = 2;
+            this.label50.Text = "Salary/h:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(90, 11);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(113, 35);
+            this.label51.TabIndex = 2;
+            this.label51.Text = "Repairer";
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.buttonSetWashing_salary);
+            this.panel25.Controls.Add(this.textBoxSetWashing_salary);
+            this.panel25.Controls.Add(this.label52);
+            this.panel25.Controls.Add(this.label53);
+            this.panel25.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel25.Location = new System.Drawing.Point(836, 115);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(283, 182);
+            this.panel25.TabIndex = 8;
+            // 
+            // buttonSetWashing_salary
+            // 
+            this.buttonSetWashing_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSetWashing_salary.Location = new System.Drawing.Point(73, 120);
+            this.buttonSetWashing_salary.Name = "buttonSetWashing_salary";
+            this.buttonSetWashing_salary.Size = new System.Drawing.Size(141, 44);
+            this.buttonSetWashing_salary.TabIndex = 4;
+            this.buttonSetWashing_salary.Text = "Set";
+            this.buttonSetWashing_salary.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSetWashing_salary
+            // 
+            this.textBoxSetWashing_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSetWashing_salary.Location = new System.Drawing.Point(120, 63);
+            this.textBoxSetWashing_salary.Name = "textBoxSetWashing_salary";
+            this.textBoxSetWashing_salary.Size = new System.Drawing.Size(149, 35);
+            this.textBoxSetWashing_salary.TabIndex = 3;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(14, 66);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(100, 28);
+            this.label52.TabIndex = 2;
+            this.label52.Text = "Salary/h:";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(90, 11);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(112, 35);
+            this.label53.TabIndex = 2;
+            this.label53.Text = "Washing";
             // 
             // dashboardForm
             // 
@@ -2404,6 +2580,7 @@
             this.panel5.PerformLayout();
             this.tabPageWorker.ResumeLayout(false);
             this.tabPageWorker.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorker)).EndInit();
@@ -2437,13 +2614,18 @@
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRevenue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).EndInit();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).EndInit();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2633,5 +2815,20 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Button buttonExport_salary;
         private System.Windows.Forms.Button buttonPrint_salary;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Button buttonSetWashing_salary;
+        private System.Windows.Forms.TextBox textBoxSetWashing_salary;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Button buttonSetRepairer_salary;
+        private System.Windows.Forms.TextBox textBoxSetRepairer_salary;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Button buttonSetParking_salary;
+        private System.Windows.Forms.TextBox textBoxSetParking_salary;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label48;
     }
 }
