@@ -118,7 +118,13 @@ namespace QuanLyNhaXe01
             textBoxSetWashing_salary.Text = table_salary.Rows[0][1].ToString();
 
             // fill datagidview
-
+            string query_salary = "select Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong as 'MucLuong', sum(DATEDIFF(hour, checkin_time, checkout_time)) as 'Total Time',  sum((DATEDIFF(hour, checkin_time, checkout_time) * MucLuong.Luong)) as 'Tong Luong' " +
+                "from Tho inner join Luong on Tho.MaTho = Luong.MaTho " +
+                "inner join MucLuong on MucLuong.LoaiTho = Tho.LoaiNguoiDung " +
+                "group by Tho.MaTho, Tho.TenTho, Tho.SDT, Tho.CMND, Tho.DiaChi, MucLuong.Luong";
+            dataGridViewSalary.DataSource = vehicle.getVehicle(new SqlCommand(query_salary));
+            dataGridViewSalary.ReadOnly = true;
+            dataGridViewSalary.AllowUserToAddRows = false;
             #endregion
         }
 
@@ -1640,17 +1646,23 @@ namespace QuanLyNhaXe01
 
         private void comboBoxTypeOfWorker_salary_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void dateTimePickerFrom_salary_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePickerTo_salary_ValueChanged(object sender, EventArgs e)
-        {
-
+            string typeUser = "Trong Xe";
+            if (comboBoxTypeOfWorker_salary.Text == "Repairer")
+            {
+                typeUser = "Sua Xe";
+            }
+            else if (comboBoxTypeOfWorker_salary.Text == "Washing")
+            {
+                typeUser = "Rua Xe";
+            }    
+            string query_salary = "select Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong as 'MucLuong', sum(DATEDIFF(hour, checkin_time, checkout_time)) as 'Total Time',  sum((DATEDIFF(hour, checkin_time, checkout_time) * MucLuong.Luong)) as 'Tong Luong' " +
+                "from Tho inner join Luong on Tho.MaTho = Luong.MaTho " +
+                "inner join MucLuong on MucLuong.LoaiTho = Tho.LoaiNguoiDung " +
+                " where Tho.LoaiNguoiDung = '" + typeUser +
+                "' group by Tho.MaTho, Tho.TenTho, Tho.SDT, Tho.CMND, Tho.DiaChi, MucLuong.Luong";
+            dataGridViewSalary.DataSource = vehicle.getVehicle(new SqlCommand(query_salary));
+            dataGridViewSalary.ReadOnly = true;
+            dataGridViewSalary.AllowUserToAddRows = false;
         }
 
         private void buttonSetParking_salary_Click(object sender, EventArgs e)
@@ -1718,7 +1730,13 @@ namespace QuanLyNhaXe01
 
         private void textBoxSearchSalary_TextChanged(object sender, EventArgs e)
         {
-
+            string query = "select Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong as 'MucLuong', sum(DATEDIFF(hour, checkin_time, checkout_time)) as 'Total Time',  sum((DATEDIFF(hour, checkin_time, checkout_time) * MucLuong.Luong)) as 'Tong Luong' " +
+                "from Tho inner join Luong on Tho.MaTho = Luong.MaTho " +
+                "inner join MucLuong on MucLuong.LoaiTho = Tho.LoaiNguoiDung " +
+                "where concat(Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong, 'Tong Luong', 'Total Time') LIKE '%" + textBoxSearchSalary.Text + "%'" +
+                "group by Tho.MaTho, Tho.TenTho, Tho.SDT, Tho.CMND, Tho.DiaChi, MucLuong.Luong";
+            SqlCommand command = new SqlCommand(query);
+            dataGridViewSalary.DataSource = vehicle.getVehicle(command);
         }
 
         private void buttonPrint_salary_Click(object sender, EventArgs e)
@@ -1786,6 +1804,16 @@ namespace QuanLyNhaXe01
                 // Open the newly saved excel file
                 if (File.Exists(sfd.FileName))
                     System.Diagnostics.Process.Start(sfd.FileName);
+            }
+        }
+
+        private void dataGridViewSalary_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewSalary.Rows.Count > 0)
+            {
+                string id = dataGridViewSalary.CurrentRow.Cells[0].Value.ToString();
+                salaryDetailForm salaryDetail = new salaryDetailForm(id);
+                salaryDetail.ShowDialog();
             }
         }
         #endregion

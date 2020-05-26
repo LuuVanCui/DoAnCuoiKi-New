@@ -68,6 +68,12 @@
       <DependentUpon>addCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Calculate.cs" />
+    <Compile Include="Salary\salaryDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\salaryDetailForm.Designer.cs">
+      <DependentUpon>salaryDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Salary\Checkin_out.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="Customer.cs" />
@@ -236,6 +242,9 @@
     </Compile>
     <EmbeddedResource Include="revenueForm.resx">
       <DependentUpon>revenueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\salaryDetailForm.resx">
+      <DependentUpon>salaryDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="statisticsWorkForm.resx">
       <DependentUpon>statisticsWorkForm.cs</DependentUpon>
