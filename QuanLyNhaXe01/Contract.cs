@@ -12,11 +12,11 @@ namespace QuanLyNhaXe01
     {
         MyDB mydb = new MyDB();
 
-        public bool insert_table_HopDong(int soHD, string loaiHD, DateTime ngayKy, string maKH, string soXe, string moTaHD, float giaTriHD,
-            DateTime NgayNhiemThu)
+        public bool insert_table_HopDong(int soHD, string loaiHD, DateTime ngayKy, string maKH, string soXe, string moTaHD, double giaTriHD,
+            DateTime NgayNhiemThu, double thanhToan, string trangthai)
         {
-            SqlCommand command = new SqlCommand(" insert into HopDong(SoHD, LoaiHD, NgayKyHD, MaKH, SoXe, MoTaHD, GiaTriHD, NgayNhiemThu) values(@id, @loai, " +
-                "@ngayKy, @idKhach, @soXe, @mota, @gia, @nThu)", mydb.getConnection);
+            SqlCommand command = new SqlCommand(" insert into HopDong(SoHD, LoaiHD, NgayKyHD, MaKH, SoXe, MoTaHD, GiaTriHD, NgayNhiemThu, ThanhToan,TrangThai) values(@id, @loai, " +
+                "@ngayKy, @idKhach, @soXe, @mota, @gia, @nThu, @pay, @trangthai)", mydb.getConnection);
 
             command.Parameters.Add("@id", SqlDbType.Int).Value = soHD;
             command.Parameters.Add("@loai", SqlDbType.NVarChar).Value = loaiHD;
@@ -26,6 +26,8 @@ namespace QuanLyNhaXe01
             command.Parameters.Add("@mota", SqlDbType.NVarChar).Value = moTaHD;
             command.Parameters.Add("@gia", SqlDbType.Float).Value = giaTriHD;
             command.Parameters.Add("@nThu", SqlDbType.DateTime).Value = NgayNhiemThu;
+            command.Parameters.Add("@pay", SqlDbType.Float).Value = thanhToan;
+            command.Parameters.Add("@trangthai", SqlDbType.NVarChar).Value = trangthai;
 
             mydb.openConnection();
 
@@ -42,10 +44,10 @@ namespace QuanLyNhaXe01
         }
 
         public bool update_table_HopDong(int soHD, string loaiHD, DateTime ngayKy, string maKH, string soXe, string moTaHD, float giaTriHD,
-            DateTime NgayNhiemThu)
+            DateTime NgayNhiemThu, double thanhToan)
         {
             SqlCommand command = new SqlCommand(" update HopDong set LoaiHD=@loai, NgayKyHD=@ngayKy, MaKH=@idKhach, SoXe=@soXe," +
-                " MoTaHD=@mota, GiaTriHD=@gia, NgayNhiemThu=@nThu where soHD=@id ", mydb.getConnection);
+                " MoTaHD=@mota, GiaTriHD=@gia, NgayNhiemThu=@nThu, ThanhToan=@pay where soHD=@id ", mydb.getConnection);
 
 
             command.Parameters.Add("@id", SqlDbType.Int).Value = soHD;
@@ -56,7 +58,8 @@ namespace QuanLyNhaXe01
             command.Parameters.Add("@mota", SqlDbType.NVarChar).Value = moTaHD;
             command.Parameters.Add("@gia", SqlDbType.Float).Value = giaTriHD;
             command.Parameters.Add("@nThu", SqlDbType.DateTime).Value = NgayNhiemThu;
-
+            command.Parameters.Add("@pay", SqlDbType.Float).Value = thanhToan;
+         
             mydb.openConnection();
 
             if (command.ExecuteNonQuery() == 1)

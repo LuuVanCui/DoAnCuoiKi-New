@@ -76,10 +76,10 @@ namespace QuanLyNhaXe01
             listBoxGroup_work.ClearSelected();
 
             // dataGid Show Data
-            string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
-                "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
-                " inner join Nhom on Tho.MaNhom = Nhom.MaNhom";
-            dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
+            /* string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+                 "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
+                 " inner join Nhom on Tho.MaNhom = Nhom.MaNhom";
+             dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));*/
             #endregion
 
             #region WORKER
@@ -115,7 +115,7 @@ namespace QuanLyNhaXe01
             System.Data.DataTable table_salary = vehicle.getVehicle(new SqlCommand("SELECT * FROM MucLuong"));
             textBoxSetParking_salary.Text = table_salary.Rows[2][1].ToString();
             textBoxSetRepairer_salary.Text = table_salary.Rows[1][1].ToString();
-            textBoxSetWashing_salary.Text = table_salary.Rows[0][1].ToString(); 
+            textBoxSetWashing_salary.Text = table_salary.Rows[0][1].ToString();
 
             // fill datagidview
 
@@ -155,9 +155,9 @@ namespace QuanLyNhaXe01
                 DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
                 DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
 
-                SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
+                /* SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
 
-                dataGridViewWorker.DataSource = vehicle.getVehicle(command);
+                 dataGridViewWorker.DataSource = vehicle.getVehicle(command);*/
 
                 dataGridViewVehicle.RowTemplate.Height = 80;
 
@@ -421,13 +421,13 @@ namespace QuanLyNhaXe01
             statisticsWorkerForm st = new statisticsWorkerForm();
             st.Show(this);
         }
-        
+
         void fillDatagridWorker()
         {
 
             MyDB mydb = new MyDB();
             Worker worker = new Worker();
-            SqlCommand command = new SqlCommand(" Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau  from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV  ");
+            SqlCommand command = new SqlCommand(" Select * from Tho");
             System.Data.DataTable tb = new System.Data.DataTable();
             tb = worker.getWorker(command);
             dataGridViewWorker.DataSource = tb;
@@ -447,15 +447,20 @@ namespace QuanLyNhaXe01
             DateTime dateStart = dateTimePickerDateStart_Worker.Value;
 
             string address = textBoxAddressWorker.Text;
-            // string work = comboBoxWork_Worker.Text;
-            
+            string uname = textBoxUsername.Text;
+            string password = textBoxPassword.Text;
+
             string gender = "";
 
             try
             {
+
                 if (verifyData())
                 {
+                    MemoryStream user_pic = new MemoryStream();
+                    pictureBoxImage.Image.Save(user_pic, pictureBoxImage.Image.RawFormat);
                     int w_id = int.Parse(textBoxWorkerID.Text);
+                    string loaiND = comboBoxUserType.Text;
                     if (radioButtonFeMale.Checked == true)
                     {
                         gender = "Female";
@@ -477,7 +482,7 @@ namespace QuanLyNhaXe01
 
                         else
                         {
-                            if (worker.insertWorker(w_id, name, gender, CMND, bdate, address, phone, maNhom, maCV, dateStart))
+                            if (worker.insertWorker(w_id, name, uname, password, loaiND, gender, CMND, bdate, address, phone, user_pic, dateStart))
                             {
                                 MessageBox.Show("New Worker Added", "Add Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -513,21 +518,21 @@ namespace QuanLyNhaXe01
 
             string name = textBoxFullName.Text;
             string CMND = textBoxIdentityCard.Text;
-            // || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
             string phone = textBoxPhoneWorker.Text;
-
+            string uname = textBoxUsername.Text;
+            string password = textBoxPassword.Text;
             DateTime bdate = dateTimePickerBDate_Worker.Value;
             DateTime dateStart = dateTimePickerDateStart_Worker.Value;
-
+            string loaiND = comboBoxUserType.Text;
             string address = textBoxAddressWorker.Text;
 
             string gender = "";
-
-
             try
             {
                 if (verifyData())
                 {
+                    MemoryStream user_pic = new MemoryStream();
+                    pictureBoxImage.Image.Save(user_pic, pictureBoxImage.Image.RawFormat);
                     int w_id = int.Parse(textBoxWorkerID.Text);
                     if (radioButtonFeMale.Checked == true)
                     {
@@ -539,8 +544,6 @@ namespace QuanLyNhaXe01
                         gender = "Male";
                     }
 
-                    //if (worker.checkID(int.Parse(textBoxWorkerID.Text)) && )
-                    // {
                     // kiem tra tren 18 tuoi
                     int tuoi = DateTime.Now.Year - dateTimePickerBDate_Worker.Value.Year;
                     if (tuoi < 18)
@@ -550,7 +553,7 @@ namespace QuanLyNhaXe01
 
                     else
                     {
-                        if (worker.updateWorker(w_id, name, gender, CMND, bdate, address, phone, maNhom, maCV, dateStart))
+                        if (worker.updateWorker(w_id, name, uname, password, loaiND, gender, CMND, bdate, address, phone, user_pic, dateStart))
                         {
                             MessageBox.Show("New Worker Updated", "Update Worker", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -673,7 +676,11 @@ namespace QuanLyNhaXe01
                 || (textBoxIdentityCard.Text.Trim() == "")
                 || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
                 || (textBoxPhoneWorker.Text.Trim() == "")
-                || (textBoxAddressWorker.Text.Trim() == ""))
+                || (textBoxAddressWorker.Text.Trim() == "")
+                || (pictureBoxImage.Image == null)
+                || (textBoxUsername.Text.Trim() == "")
+                || (textBoxPassword.Text.Trim() == "")
+                || (comboBoxUserType.Text.Trim() == ""))
             {
                 return false;
             }
@@ -701,12 +708,13 @@ namespace QuanLyNhaXe01
         private void textBoxSearchWorker_TextChanged(object sender, EventArgs e)
         {
             Worker worker = new Worker();
-            SqlCommand command = new SqlCommand("Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau " +
-                " from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV " +
-                " WHERE CONCAT(T.MaTho, T." +
-                "TenTho, T.GioiTinh, T.CMND, T.NgaySinh, T.DiaChi, T.SDT, T.NgayBatDau, CV.TenCV, N.TenNhom) LIKE'%" + textBoxSearchWorker.Text + "%'");
-
+            /* SqlCommand command = new SqlCommand("Select distinct T.MaTho , T.TenTho , T.GioiTinh ,T.CMND, T.NgaySinh, T.SDT, T.DiaChi, N.TenNhom, CV.TenCV, T.NgayBatDau " +
+                 " from Tho T inner join Nhom N on T.MaNhom = N.MaNhom inner join CongViec CV on T.MaCV = CV.MaCV " +
+                 " WHERE CONCAT(T.MaTho, T." +
+                 "TenTho, T.GioiTinh, T.CMND, T.NgaySinh, T.DiaChi, T.SDT, T.NgayBatDau, CV.TenCV, N.TenNhom) LIKE'%" + textBoxSearchWorker.Text + "%'");*/
+            SqlCommand command = new SqlCommand("Select MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, NgayBatDau, Username, Password,LoaiNguoiDung where concat(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, NgayBatDau, Username, Password, Picture, LoaiNguoiDung) LIKE'%" + textBoxSearchWorker.Text + "%'");
             dataGridViewWorker.DataSource = worker.getWorker(command);
+
         }
 
         public void Export_Data_To_Word(DataGridView DGV, string filename)
@@ -806,6 +814,15 @@ namespace QuanLyNhaXe01
         {
             statisticsWorkerForm st = new statisticsWorkerForm();
             st.Show(this);
+        }
+        private void buttonLoadPic_Worker_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if ((opf.ShowDialog() == DialogResult.OK))
+            {
+                pictureBoxImage.Image = Image.FromFile(opf.FileName);
+            }
         }
         #endregion
 
@@ -981,17 +998,17 @@ namespace QuanLyNhaXe01
 
         private void textBoxSearch_work_TextChanged(object sender, EventArgs e)
         {
-            string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
-                        "from Tho inner join Nhom on Tho.MaNhom = Nhom.MaNhom inner " +
-                        "join CongViec on Tho.MaCV = CongViec.MaCV " +
-                        "WHERE CONCAT(Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV) LIKE '%" + textBoxSearch_work.Text + "%'";
-            SqlCommand command = new SqlCommand(query_grid_work);
-            dataGridViewWork.DataSource = vehicle.getVehicle(command);
+            /*  string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
+                          "from Tho inner join Nhom on Tho.MaNhom = Nhom.MaNhom inner " +
+                          "join CongViec on Tho.MaCV = CongViec.MaCV " +
+                          "WHERE CONCAT(Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV) LIKE '%" + textBoxSearch_work.Text + "%'";
+              SqlCommand command = new SqlCommand(query_grid_work);
+              dataGridViewWork.DataSource = vehicle.getVehicle(command);*/
         }
 
         private void listBoxGroup_work_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 if (listBoxGroup_work.SelectedIndex != -1)
                 {
@@ -1006,7 +1023,7 @@ namespace QuanLyNhaXe01
             catch
             {
 
-            }
+            }*/
         }
 
         private void buttonPrint_work_Click(object sender, EventArgs e)
@@ -1113,7 +1130,7 @@ namespace QuanLyNhaXe01
                 {
                     if (dataGridViewContract.CurrentRow.Cells.Count == 8)
                     {
-                        edit.textBoxContractID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
+                        /*edit.textBoxContractID.Text = dataGridViewContract.CurrentRow.Cells[0].Value.ToString();
                         edit.textBoxCustomerID.Text = dataGridViewContract.CurrentRow.Cells[3].Value.ToString();
                         edit.textBoxDescibe.Text = dataGridViewContract.CurrentRow.Cells[5].Value.ToString();
                         edit.textBoxContractValue.Text = dataGridViewContract.CurrentRow.Cells[6].Value.ToString();
@@ -1121,7 +1138,7 @@ namespace QuanLyNhaXe01
                         edit.dateTimePickerSign.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[2].Value.ToString());
                         edit.dateTimePicker_LeaseTerm.Value = Convert.ToDateTime(dataGridViewContract.CurrentRow.Cells[7].Value.ToString());
                         edit.textBoxVehicleID.Text = dataGridViewContract.CurrentRow.Cells[4].Value.ToString();
-                        edit.Show(this);
+                        edit.Show(this);*/
                     }
                 }
                 else
@@ -1142,7 +1159,7 @@ namespace QuanLyNhaXe01
             //SqlCommand command = new SqlCommand(" select SoHD,LoaiHD,NgayKyHD,KhachHang.TenKH,SoXe,MoTaHD,GiaTriHD,NgayNhiemThu from HopDong inner join KhachHang on KhachHang.MaKH=HopDong.MaKH ");
             SqlCommand command = new SqlCommand(" Select * from HopDong");
             System.Data.DataTable tb = new System.Data.DataTable();
-            tb= worker.getWorker(command);
+            tb = worker.getWorker(command);
             dataGridViewContract.DataSource = tb;
             dataGridViewContract.ReadOnly = true;
             labelTotalContract.Text = "Total: " + tb.Rows.Count.ToString();
@@ -1616,12 +1633,161 @@ namespace QuanLyNhaXe01
             dataGridViewRevenue.DataSource = table;
             makeUpGridForAll();
         }
+
         #endregion
 
         #region Salary---------------------------------------------------------
 
+        private void comboBoxTypeOfWorker_salary_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void dateTimePickerFrom_salary_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerTo_salary_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSetParking_salary_Click(object sender, EventArgs e)
+        {
+            Salary salary = new Salary();
+            try
+            {
+                float price = float.Parse(textBoxSetParking_salary.Text);
+                if (salary.updateSalary("Trong Xe", price))
+                {
+                    MessageBox.Show("Set successful!", "Set Parking Salary", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Parking Salary", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Parking Salary", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonSetRepairer_salary_Click(object sender, EventArgs e)
+        {
+            Salary salary = new Salary();
+            try
+            {
+                float price = float.Parse(textBoxSetParking_salary.Text);
+                if (salary.updateSalary("Sua Xe", price))
+                {
+                    MessageBox.Show("Set successful!", "Set Repairer Salary", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Repairer Salary", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Repairer Salary", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonSetWashing_salary_Click(object sender, EventArgs e)
+        {
+            Salary salary = new Salary();
+            try
+            {
+                float price = float.Parse(textBoxSetParking_salary.Text);
+                if (salary.updateSalary("Rua Xe", price))
+                {
+                    MessageBox.Show("Set successful!", "Set Washing Salary", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Set fail", "Set Washing Salary", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Set Washing Salary", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxSearchSalary_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPrint_salary_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.DocumentName = "Print Document";
+            printDlg.Document = printDoc;
+            printDlg.AllowSelection = true;
+            printDlg.AllowSomePages = true;
+
+            if (printDlg.ShowDialog() == DialogResult.OK)
+                printDoc.Print();
+
+        }
+
+        private void buttonExport_salary_Click(object sender, EventArgs e)
+        {
+            // Tham khảo link: https://stackoverflow.com/questions/18182029/how-to-export-datagridview-data-instantly-to-excel-on-button-click
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "Salary_Export.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Copy DataGridView results to clipboard
+                copyAlltoClipboard();
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Format column D as text before pasting results, this was required for my data
+                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
+                rng.NumberFormat = "@";
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
+                // Delete blank column A and select cell A1
+                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
+                delRng.Delete(Type.Missing);
+                xlWorkSheet.get_Range("A1").Select();
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlexcel);
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+                dataGridViewSalary.ClearSelection();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+        }
         #endregion
     }
 }

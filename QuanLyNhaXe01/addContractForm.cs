@@ -49,15 +49,15 @@ namespace QuanLyNhaXe01
                         if (customer.Check_Customer(maKH))
                         {
                             //them cai kiem tra xe co ton tai trong ds xe hop dong chua
-
-                            if (contract.insert_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu))
-                            {
-                                MessageBox.Show("New Contract Added", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            
+                            //if (contract.insert_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu))
+                            //{
+                            //    MessageBox.Show("New Contract Added", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //}
+                            //else
+                            //{
+                            //    MessageBox.Show("Error", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //}
 
                         }
                         else

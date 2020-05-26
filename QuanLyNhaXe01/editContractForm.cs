@@ -41,6 +41,7 @@ namespace QuanLyNhaXe01
                 {
                     int soHD = int.Parse(textBoxContractID.Text);
                     float giaTriHD = float.Parse(textBoxContractValue.Text);
+                    double thanhToan = double.Parse(textBoxPaid.Text);
 
                     // kiem tra ma hop dong co bi trung ko
                     /*if (contract.check_ID(soHD))
@@ -50,7 +51,7 @@ namespace QuanLyNhaXe01
                         {
                             //them cai kiem tra xe co ton tai trong ds xe hop dong chua
 
-                            if (contract.update_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu))
+                            if (contract.update_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu,thanhToan))
                             {
                                 MessageBox.Show("Update Successfully", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
