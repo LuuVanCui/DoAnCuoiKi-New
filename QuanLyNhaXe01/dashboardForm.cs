@@ -1647,19 +1647,30 @@ namespace QuanLyNhaXe01
         private void comboBoxTypeOfWorker_salary_SelectedIndexChanged(object sender, EventArgs e)
         {
             string typeUser = "Trong Xe";
-            if (comboBoxTypeOfWorker_salary.Text == "Repairer")
+            string query_salary = "";
+            if (comboBoxTypeOfWorker_salary.Text == "All")
             {
-                typeUser = "Sua Xe";
-            }
-            else if (comboBoxTypeOfWorker_salary.Text == "Washing")
-            {
-                typeUser = "Rua Xe";
-            }    
-            string query_salary = "select Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong as 'MucLuong', sum(DATEDIFF(hour, checkin_time, checkout_time)) as 'Total Time',  sum((DATEDIFF(hour, checkin_time, checkout_time) * MucLuong.Luong)) as 'Tong Luong' " +
+                query_salary = "select Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong as 'MucLuong', sum(DATEDIFF(hour, checkin_time, checkout_time)) as 'Total Time',  sum((DATEDIFF(hour, checkin_time, checkout_time) * MucLuong.Luong)) as 'Tong Luong' " +
                 "from Tho inner join Luong on Tho.MaTho = Luong.MaTho " +
                 "inner join MucLuong on MucLuong.LoaiTho = Tho.LoaiNguoiDung " +
-                " where Tho.LoaiNguoiDung = '" + typeUser +
-                "' group by Tho.MaTho, Tho.TenTho, Tho.SDT, Tho.CMND, Tho.DiaChi, MucLuong.Luong";
+                "group by Tho.MaTho, Tho.TenTho, Tho.SDT, Tho.CMND, Tho.DiaChi, MucLuong.Luong";
+            }
+            else
+            {
+                if (comboBoxTypeOfWorker_salary.Text == "Repairer")
+                {
+                    typeUser = "Sua Xe";
+                }
+                else if (comboBoxTypeOfWorker_salary.Text == "Washing")
+                {
+                    typeUser = "Rua Xe";
+                }
+                query_salary = "select Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong as 'MucLuong', sum(DATEDIFF(hour, checkin_time, checkout_time)) as 'Total Time',  sum((DATEDIFF(hour, checkin_time, checkout_time) * MucLuong.Luong)) as 'Tong Luong' " +
+                    "from Tho inner join Luong on Tho.MaTho = Luong.MaTho " +
+                    "inner join MucLuong on MucLuong.LoaiTho = Tho.LoaiNguoiDung " +
+                    " where Tho.LoaiNguoiDung = '" + typeUser +
+                    "' group by Tho.MaTho, Tho.TenTho, Tho.SDT, Tho.CMND, Tho.DiaChi, MucLuong.Luong";
+            }
             dataGridViewSalary.DataSource = vehicle.getVehicle(new SqlCommand(query_salary));
             dataGridViewSalary.ReadOnly = true;
             dataGridViewSalary.AllowUserToAddRows = false;
@@ -1691,7 +1702,7 @@ namespace QuanLyNhaXe01
             Salary salary = new Salary();
             try
             {
-                float price = float.Parse(textBoxSetParking_salary.Text);
+                float price = float.Parse(textBoxSetRepairer_salary.Text);
                 if (salary.updateSalary("Sua Xe", price))
                 {
                     MessageBox.Show("Set successful!", "Set Repairer Salary", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1712,7 +1723,7 @@ namespace QuanLyNhaXe01
             Salary salary = new Salary();
             try
             {
-                float price = float.Parse(textBoxSetParking_salary.Text);
+                float price = float.Parse(textBoxSetWashing_salary.Text);
                 if (salary.updateSalary("Rua Xe", price))
                 {
                     MessageBox.Show("Set successful!", "Set Washing Salary", MessageBoxButtons.OK, MessageBoxIcon.Information);

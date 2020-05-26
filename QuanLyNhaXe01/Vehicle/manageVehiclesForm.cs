@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace QuanLyNhaXe01
 {
@@ -49,8 +50,15 @@ namespace QuanLyNhaXe01
             labelDaRa.Text = "Leave: " + vehicle.totalVehicle_out();
             labelStatus.Text = "Total Vehicle: " + vehicle.totalVehicle();
 
-            // timer
-         //   timerWoking.Enabled = timerWoking.Enabled;
+            // upload image
+            DataTable table = vehicle.getVehicle(new SqlCommand("select * from Tho where MaTho = " + Globals.GlobalUserID));
+            if (table.Rows[0][11].ToString() != "")
+            {
+                byte[] bytes = (byte[])table.Rows[0][11];
+                MemoryStream ms = new MemoryStream(bytes);
+                pictureBoxProfile.Image = Image.FromStream(ms);
+            }
+            labelWelcome.Text = "Welcome " + table.Rows[0][1].ToString();
         }
 
         void fillGrid()
@@ -204,23 +212,39 @@ namespace QuanLyNhaXe01
 
         }
 
-        int tt = 0; // giây
+        int ss = 0; // giây
         int mm = 0; // phút
         int hh = 0; // giờ
 
         private void timerWoking_Tick(object sender, EventArgs e)
         {
-            tt++;
-            labelSecond.Text = tt.ToString();
-            if (tt > 59)
+            ss++;
+            if (ss > 59)
             {
+                ss = 0;
                 labelSecond.Text = "00";
                 mm++;
-                labelMinute.Text = mm.ToString();
                 if (mm > 59)
                 {
-
+                    mm = 0;
+                    labelMinute.Text = "00";
+                    hh++;
+                    labelHour.Text = hh.ToString();
                 }    
+                else
+                {
+                    if (mm < 10)
+                        labelMinute.Text = "0" + mm.ToString();
+                    else
+                        labelMinute.Text = mm.ToString();
+                }   
+            }    
+            else
+            {
+                if (ss < 10)
+                    labelSecond.Text = "0" + ss.ToString();
+                else
+                    labelSecond.Text = ss.ToString();
             }    
         }
 

@@ -66,6 +66,8 @@ namespace QuanLyNhaXe01
                     if (check_time.insert_Checkin(Globals.GlobalUserID, Globals.time_in))
                     {
                         MessageBox.Show("Check in Sucessfully!", "Check in", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        wokerDashBoardForm woker = new wokerDashBoardForm();
+                        woker.ShowDialog(this);
                     }
                 }
             }

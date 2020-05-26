@@ -136,6 +136,12 @@
     <Compile Include="statisticsWorkForm.Designer.cs">
       <DependentUpon>statisticsWorkForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="wokerDashBoardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wokerDashBoardForm.Designer.cs">
+      <DependentUpon>wokerDashBoardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Work\selectWorkForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="statisticsWorkForm.resx">
       <DependentUpon>statisticsWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wokerDashBoardForm.resx">
+      <DependentUpon>wokerDashBoardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Work\selectWorkForm.resx">
       <DependentUpon>selectWorkForm.cs</DependentUpon>

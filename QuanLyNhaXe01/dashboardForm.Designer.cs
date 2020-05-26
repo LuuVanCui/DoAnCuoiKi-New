@@ -2484,6 +2484,7 @@
             this.comboBoxTypeOfWorker_salary.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTypeOfWorker_salary.FormattingEnabled = true;
             this.comboBoxTypeOfWorker_salary.Items.AddRange(new object[] {
+            "All",
             "Parking",
             "Repairer",
             "Washing"});
@@ -2491,7 +2492,7 @@
             this.comboBoxTypeOfWorker_salary.Name = "comboBoxTypeOfWorker_salary";
             this.comboBoxTypeOfWorker_salary.Size = new System.Drawing.Size(268, 36);
             this.comboBoxTypeOfWorker_salary.TabIndex = 3;
-            this.comboBoxTypeOfWorker_salary.Text = "Parking";
+            this.comboBoxTypeOfWorker_salary.Text = "All";
             this.comboBoxTypeOfWorker_salary.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeOfWorker_salary_SelectedIndexChanged);
             // 
             // buttonExport_salary
