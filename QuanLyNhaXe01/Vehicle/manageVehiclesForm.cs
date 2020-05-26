@@ -48,8 +48,10 @@ namespace QuanLyNhaXe01
             labelDangGui.Text = "Existing: " + vehicle.totalVehicle_in();
             labelDaRa.Text = "Leave: " + vehicle.totalVehicle_out();
             labelStatus.Text = "Total Vehicle: " + vehicle.totalVehicle();
-        }
 
+            // timer
+         //   timerWoking.Enabled = timerWoking.Enabled;
+        }
 
         void fillGrid()
         {
@@ -200,6 +202,38 @@ namespace QuanLyNhaXe01
         private void labelStatus_Click(object sender, EventArgs e)
         {
 
+        }
+
+        int tt = 0; // giây
+        int mm = 0; // phút
+        int hh = 0; // giờ
+
+        private void timerWoking_Tick(object sender, EventArgs e)
+        {
+            tt++;
+            labelSecond.Text = tt.ToString();
+            if (tt > 59)
+            {
+                labelSecond.Text = "00";
+                mm++;
+                labelMinute.Text = mm.ToString();
+                if (mm > 59)
+                {
+
+                }    
+            }    
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Checkin_out check_time = new Checkin_out();
+            if (MessageBox.Show("Do you want to Check-out and Exit", "Check out and Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (check_time.update_time_out(Globals.GlobalUserID, Globals.time_in, DateTime.Now))
+                {
+                    this.Close();
+                }                    
+            }    
         }
     }
 }

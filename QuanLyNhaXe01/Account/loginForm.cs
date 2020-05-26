@@ -24,14 +24,14 @@ namespace QuanLyNhaXe01
             SqlDataAdapter adapter = new SqlDataAdapter();
 
             DataTable table = new DataTable();
-            string query = "SELECT * FROM Login WHERE username=@User AND password=@Pass AND user_type = 'admin'";
+            string query = "SELECT * FROM Login WHERE username=@User AND password=@Pass";
             if (radioButtonParking.Checked == true)
             {
-                query = "SELECT * FROM Login WHERE username=@User AND password=@Pass AND user_type = 'parking'";
+                query = "SELECT * FROM Tho WHERE Username=@User AND Password=@Pass AND LoaiNguoiDung = 'Trong Xe'";
             }
             else if (radioButtonWorker.Checked)
             {
-                query = "SELECT * FROM Login WHERE username=@User AND password=@Pass AND user_type = 'worker'";
+                query = "SELECT * FROM Tho WHERE Username=@User AND Password=@Pass AND (LoaiNguoiDung = 'Rua Xe' OR LoaiNguoiDung = 'Sua Xe')";
             }    
             SqlCommand cmd = new SqlCommand(query, db.getConnection);
             cmd.Parameters.Add("@User", SqlDbType.VarChar).Value = textBoxUser.Text;
@@ -43,7 +43,9 @@ namespace QuanLyNhaXe01
 
             if ((table.Rows.Count > 0))
             {
-                Globals.GlobalUserID = Convert.ToInt32(table.Rows[0]["id"].ToString());
+                Checkin_out check_time = new Checkin_out();
+                Globals.GlobalUserID = Convert.ToInt32(table.Rows[0][0].ToString());
+                Globals.time_in = DateTime.Now;
                 this.Close();
                 if (radioButtonHumanResourse.Checked)
                 {
@@ -52,12 +54,19 @@ namespace QuanLyNhaXe01
                 }    
                 else if (radioButtonParking.Checked)
                 {
-                    manageVehiclesForm manageVehicles = new manageVehiclesForm();
-                    manageVehicles.ShowDialog(this);
+                    if (check_time.insert_Checkin(Globals.GlobalUserID, Globals.time_in))
+                    {
+                        MessageBox.Show("Check in Sucessfully!", "Check in", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        manageVehiclesForm manageVehicles = new manageVehiclesForm();
+                        manageVehicles.ShowDialog(this);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Check in Sucessfully!", "Check in", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (check_time.insert_Checkin(Globals.GlobalUserID, Globals.time_in))
+                    {
+                        MessageBox.Show("Check in Sucessfully!", "Check in", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             else

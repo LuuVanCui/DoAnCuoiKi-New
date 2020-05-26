@@ -68,6 +68,7 @@
       <DependentUpon>addCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Calculate.cs" />
+    <Compile Include="Salary\Checkin_out.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="dashboardForm.cs">

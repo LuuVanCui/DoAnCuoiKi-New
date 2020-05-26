@@ -9,8 +9,9 @@ namespace QuanLyNhaXe01
     public static class Globals
     {
         public static Int32 GlobalUserID; // Modifiable in Code
+        public static DateTime time_in;
+        public static DateTime time_out;
     }
-
 
     static class Program
     {
