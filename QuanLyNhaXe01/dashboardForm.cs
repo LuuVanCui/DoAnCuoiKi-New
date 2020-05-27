@@ -29,9 +29,12 @@ namespace QuanLyNhaXe01
             #region TABAR
             USER user = new USER();
             System.Data.DataTable hrTable = user.getUser(new SqlCommand("SELECT * FROM login WHERE id = " + Globals.GlobalUserID));
-            byte[] bytes = (byte[])hrTable.Rows[0][5];
-            MemoryStream ms = new MemoryStream(bytes);
-            pictureBoxProfile.Image = Image.FromStream(ms);
+            if (hrTable.Rows[0][5].ToString() != "")
+            {
+                byte[] bytes = (byte[])hrTable.Rows[0][5];
+                MemoryStream ms = new MemoryStream(bytes);
+                pictureBoxProfile.Image = Image.FromStream(ms);
+            }
             labelWelcome.Text = "Welcome " + hrTable.Rows[0]["fname"].ToString().Trim() + " " + hrTable.Rows[0]["lname"].ToString();
             #endregion
 
@@ -83,7 +86,6 @@ namespace QuanLyNhaXe01
             #endregion
 
             #region WORKER
-
             fillDatagridWorker();
             #endregion
 
@@ -92,23 +94,18 @@ namespace QuanLyNhaXe01
             #endregion
 
             #region REVENUE
-            string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
-            string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
-            string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
-                "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
-                "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' " +
-                "GROUP BY LoaiXe";
+            string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi " +
+                "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe";
             System.Data.DataTable table_revenue = vehicle.getVehicle(new SqlCommand(query));
-            int tatCaXe = 0;
+            dataGridViewRevenue.DataSource = table_revenue;
+            makeUpGridForAll();
             float tongDoanhThu = 0;
             for (int i = 0; i < table_revenue.Rows.Count; i++)
             {
-                tatCaXe += int.Parse(table_revenue.Rows[i][1].ToString());
-                tongDoanhThu += float.Parse(table_revenue.Rows[i][2].ToString());
+                tongDoanhThu += float.Parse(table_revenue.Rows[i][7].ToString());
             }
-            table_revenue.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
-            dataGridViewRevenue.DataSource = table_revenue;
-            makeUpGridForAll();
+            textBoxTotalRevenue.ReadOnly = true;
+            textBoxTotalRevenue.Text = tongDoanhThu.ToString();
             #endregion
 
             #region SALARY
@@ -131,7 +128,10 @@ namespace QuanLyNhaXe01
         #region Tabar----------------------------------------------------------
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Do you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void linkLabelEditInfo_Click(object sender, EventArgs e)
@@ -437,6 +437,8 @@ namespace QuanLyNhaXe01
             System.Data.DataTable tb = new System.Data.DataTable();
             tb = worker.getWorker(command);
             dataGridViewWorker.DataSource = tb;
+            dataGridViewWorker.ReadOnly = true;
+            dataGridViewWorker.AllowUserToAddRows = false;
             labelTotalWorker_Worker.Text = "Total: " + tb.Rows.Count.ToString();
         }
 
@@ -602,16 +604,19 @@ namespace QuanLyNhaXe01
                 radioButtonMale.Checked = true;
             }
 
-            textBoxFullName.Text = dataGridViewWorker.CurrentRow.Cells[1].Value.ToString();
-            textBoxWorkerID.Text = dataGridViewWorker.CurrentRow.Cells[0].Value.ToString();
-            textBoxIdentityCard.Text = dataGridViewWorker.CurrentRow.Cells[3].Value.ToString();
-            // || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
-            textBoxPhoneWorker.Text = dataGridViewWorker.CurrentRow.Cells[6].Value.ToString();
+            if (dataGridViewWorker.Rows.Count > 0)
+            {
+                textBoxFullName.Text = dataGridViewWorker.CurrentRow.Cells[1].Value.ToString();
+                textBoxWorkerID.Text = dataGridViewWorker.CurrentRow.Cells[0].Value.ToString();
+                textBoxIdentityCard.Text = dataGridViewWorker.CurrentRow.Cells[3].Value.ToString();
+                // || (radioButtonMale.Checked == false && radioButtonFeMale.Checked == false)
+                textBoxPhoneWorker.Text = dataGridViewWorker.CurrentRow.Cells[6].Value.ToString();
 
-            dateTimePickerBDate_Worker.Value = Convert.ToDateTime(dataGridViewWorker.CurrentRow.Cells[4].Value);
-            dateTimePickerDateStart_Worker.Value = Convert.ToDateTime(dataGridViewWorker.CurrentRow.Cells[5].Value);
+                dateTimePickerBDate_Worker.Value = Convert.ToDateTime(dataGridViewWorker.CurrentRow.Cells[4].Value);
+                dateTimePickerDateStart_Worker.Value = Convert.ToDateTime(dataGridViewWorker.CurrentRow.Cells[5].Value);
 
-            textBoxAddressWorker.Text = dataGridViewWorker.CurrentRow.Cells[7].Value.ToString();
+                textBoxAddressWorker.Text = dataGridViewWorker.CurrentRow.Cells[7].Value.ToString();
+            }
 
         }
 
@@ -1544,21 +1549,15 @@ namespace QuanLyNhaXe01
 
                 DataGridViewImageColumn picCol2 = new DataGridViewImageColumn();
                 DataGridViewImageColumn picCol3 = new DataGridViewImageColumn();
-                DataGridViewImageColumn picCol4 = new DataGridViewImageColumn();
-                DataGridViewImageColumn picCol5 = new DataGridViewImageColumn();
 
 
                 dataGridViewRevenue.RowTemplate.Height = 80;
 
                 picCol2 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[2];
                 picCol3 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[3];
-                picCol4 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[4];
-                picCol5 = (DataGridViewImageColumn)dataGridViewRevenue.Columns[5];
 
                 picCol2.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 picCol3.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picCol4.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picCol5.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
                 dataGridViewRevenue.AllowUserToAddRows = false;
             }
@@ -1568,44 +1567,72 @@ namespace QuanLyNhaXe01
             }
         }
 
+        private void buttonCheck_revenue_Click(object sender, EventArgs e)
+        {
+            string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
+            string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
+            string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi " +
+                    "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe " +
+                    "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "'";
+            float tongDoanhThu = 0;
+            System.Data.DataTable table_revenue = null;
+            if (comboBoxTypeRevenue.Text == "Vehicles Parking")
+            {
+                makeUpGridForAll();
+                table_revenue = vehicle.getVehicle(new SqlCommand(query));
+                for (int i = 0; i < table_revenue.Rows.Count; i++)
+                {
+                    tongDoanhThu += float.Parse(table_revenue.Rows[i][7].ToString());
+                }
+            }
+            else
+            {
+                query = "select SoHD, LoaiHD, NgayKyHD, MaKH, SoXe, GiaTriHD, ThanhToan from HopDong " +
+                    "WHERE NgayKyHD BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "'";
+                table_revenue = vehicle.getVehicle(new SqlCommand(query));
+                for (int i = 0; i < table_revenue.Rows.Count; i++)
+                {
+                    tongDoanhThu += float.Parse(table_revenue.Rows[i][6].ToString());
+                }
+            }
+            dataGridViewRevenue.DataSource = table_revenue;
+            textBoxTotalRevenue.ReadOnly = true;
+            textBoxTotalRevenue.Text = tongDoanhThu.ToString();
+        }
+
         private void comboBoxTypeRevenue_SelectedIndexChanged(object sender, EventArgs e)
         {
             string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
+            float tongDoanhThu = 0;
             if (comboBoxTypeRevenue.Text == "Vehicles Parking")
             {
-                string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
-                    "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
-                    "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' " +
-                    "GROUP BY LoaiXe";
-                System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
-                int tatCaXe = 0;
-                float tongDoanhThu = 0;
-                for (int i = 0; i < table.Rows.Count; i++)
-                {
-                    tatCaXe += int.Parse(table.Rows[i][1].ToString());
-                    tongDoanhThu += float.Parse(table.Rows[i][2].ToString());
-                }
-                table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
-                dataGridViewRevenue.DataSource = table;
+                string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi " +
+                    "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe";
+                System.Data.DataTable table_revenue = vehicle.getVehicle(new SqlCommand(query));
+                dataGridViewRevenue.DataSource = table_revenue;
                 makeUpGridForAll();
+                for (int i = 0; i < table_revenue.Rows.Count; i++)
+                {
+                    tongDoanhThu += float.Parse(table_revenue.Rows[i][7].ToString());
+                }
             }
             else
             {
-                string query = "SELECT DISTINCT * FROM HopDong " +
-                    "WHERE NgayKyHD BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "'";
+                string query = "select SoHD, LoaiHD, NgayKyHD, MaKH, SoXe, GiaTriHD, ThanhToan from HopDong";
                 System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
-                //int tatCaXe = 0;
-                //float tongDoanhThu = 0;
-                //for (int i = 0; i < table.Rows.Count; i++)
-                //{
-                //    tatCaXe += int.Parse(table.Rows[i][1].ToString());
-                //    tongDoanhThu += float.Parse(table.Rows[i][2].ToString());
-                //}
-                //table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
                 dataGridViewRevenue.DataSource = table;
+                dataGridViewRevenue.ReadOnly = true;
+                dataGridViewRevenue.AllowUserToAddRows = false;
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    tongDoanhThu += float.Parse(table.Rows[i][6].ToString());
+                }
             }
-        }
+            
+            textBoxTotalRevenue.ReadOnly = true;
+            textBoxTotalRevenue.Text = tongDoanhThu.ToString();
+        } 
 
         private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
         {
