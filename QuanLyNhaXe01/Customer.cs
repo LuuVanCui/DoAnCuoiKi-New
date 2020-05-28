@@ -40,7 +40,7 @@ namespace QuanLyNhaXe01
 
         public bool updateCustomer(string maKH, string ten, string CMND, string diachi, string sdt)
         {
-            SqlCommand command = new SqlCommand("update KhachHang set MaKH=@id, TenKH=@ten, CMND=@cmnd, DiaChi=@diachi, SDT=@sdt) ", mydb.getConnection);
+            SqlCommand command = new SqlCommand("update KhachHang set TenKH=@ten, CMND=@cmnd, DiaChi=@diachi, SDT=@sdt where  MaKH=@id ", mydb.getConnection);
 
             command.Parameters.Add("@id", SqlDbType.Char).Value = maKH;
             command.Parameters.Add("@ten", SqlDbType.NVarChar).Value = ten;

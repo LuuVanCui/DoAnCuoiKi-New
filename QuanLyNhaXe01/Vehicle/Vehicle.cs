@@ -319,13 +319,13 @@ namespace QuanLyNhaXe01
                 mydb.closeConnection();
                 return false;
             }
-            
+
 
         }
 
         public bool updateVehicleOut_DoanhThu(string maTheXe, float total)
         {
-            
+
             SqlCommand command = new SqlCommand("insert INTO DoanhThu(MaTheXe, Total) values (@ma, @total)", mydb.getConnection);
 
             command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = maTheXe;
@@ -340,6 +340,72 @@ namespace QuanLyNhaXe01
             else
             {
                 mydb.closeConnection();
+                return false;
+            }
+        }
+
+        public bool updateTrangThai(string maTheXe, string trangThai)
+        {
+            SqlCommand command = new SqlCommand("update Xe set TrangThaiGui=@th, HinhThucGui=@ht where MaTheXe=@ma", mydb.getConnection);
+            command.Parameters.Add("@th", SqlDbType.NVarChar).Value = trangThai;
+            command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = maTheXe;
+
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
+
+        public bool checkTrangThai(string mathe)
+        {
+
+            SqlCommand command = new SqlCommand("SELECT * From Xe Where MaTheXe=@ma and TrangThaiGui='DangHD'", mydb.getConnection);
+
+            command.Parameters.Add("@ma", SqlDbType.VarChar).Value = mathe;
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            adapter.SelectCommand = command;
+
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public bool checkXe_Contract(string mathe)
+        {
+
+            SqlCommand command = new SqlCommand("SELECT * From Xe Where MaTheXe=@ma and HinhThucGui='Contract'", mydb.getConnection);
+
+            command.Parameters.Add("@ma", SqlDbType.VarChar).Value = mathe;
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            adapter.SelectCommand = command;
+
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
                 return false;
             }
         }

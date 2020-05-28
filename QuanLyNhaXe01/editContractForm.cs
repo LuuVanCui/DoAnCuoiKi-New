@@ -25,64 +25,6 @@ namespace QuanLyNhaXe01
 
         Customer customer = new Customer();
         Contract contract = new Contract();
-
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            string loaiHd = comboBoxContractType.Text;
-            DateTime ngayKy = dateTimePickerSign.Value;
-            string maKH = textBoxCustomerID.Text;
-            string soXe = textBoxVehicleID.Text;
-            string moTa = textBoxDescibe.Text;
-            DateTime ngayNhiemThu = dateTimePicker_LeaseTerm.Value;
-
-            try
-            {
-                if (verifyData())
-                {
-                    int soHD = int.Parse(textBoxContractID.Text);
-                    float giaTriHD = float.Parse(textBoxContractValue.Text);
-                    double thanhToan = double.Parse(textBoxPaid.Text);
-
-                    // kiem tra ma hop dong co bi trung ko
-                    /*if (contract.check_ID(soHD))
-                    {*/
-                        //kiem tra xem thong tin khach hang da co chua
-                        if (customer.Check_Customer(maKH))
-                        {
-                            //them cai kiem tra xe co ton tai trong ds xe hop dong chua
-
-                            if (contract.update_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu,thanhToan))
-                            {
-                                MessageBox.Show("Update Successfully", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Customer does not exist, please add new customer", "Invalid Customer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                   /* }
-                    else
-                    {
-                        MessageBox.Show("This Contract ID Already Exists, Try Another One", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }*/
-
-                }
-                else
-                {
-                    MessageBox.Show("Empty Field, please enter the data! ", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            catch
-            {
-
-            }
-        }
-
         bool verifyData()
         {
             if ((textBoxContractID.Text.Trim() == "")
@@ -104,21 +46,48 @@ namespace QuanLyNhaXe01
 
         }
 
-        private void editContractForm_Load(object sender, EventArgs e)
+        private void buttonEdit_Click_1(object sender, EventArgs e)
         {
-            fillComboBoxType_Contract();
-        }
+            string loaiHd = comboBoxContractType.Text;
+            DateTime ngayKy = dateTimePickerSign.Value;
+            string maKH = textBoxCustomerID.Text;
+            string soXe = textBoxVehicleID.Text;
+            string moTa = textBoxDescibe.Text;
+            DateTime ngayNhiemThu = dateTimePicker_LeaseTerm.Value;
 
-        void fillComboBoxType_Contract()
-        {
-
-            MyDB mydb = new MyDB();
             try
             {
-                SqlCommand command = new SqlCommand("Select* from HopDong", mydb.getConnection);
-                comboBoxContractType.DataSource = contract.getTable(command);
-                comboBoxContractType.DisplayMember = "LoaiHD";
-                comboBoxContractType.ValueMember = "SoHD";
+                if (verifyData())
+                {
+                    int soHD = int.Parse(textBoxContractID.Text);
+                    float giaTriHD = float.Parse(textBoxContractValue.Text);
+                    double thanhToan = double.Parse(textBoxPaid.Text);
+
+                    //kiem tra xem thong tin khach hang da co chua
+                    if (customer.Check_Customer(maKH))
+                    {
+                        //them cai kiem tra xe co ton tai trong ds xe hop dong chua
+
+                        if (contract.update_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu, thanhToan, "DangHD"))
+                        {
+                            MessageBox.Show("Update Successfully", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Customer does not exist, please add new customer", "Invalid Customer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Empty Field, please enter the data! ", "Update Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             catch
             {
@@ -126,5 +95,9 @@ namespace QuanLyNhaXe01
             }
         }
 
+        private void editContractForm_Load_1(object sender, EventArgs e)
+        {
+            textBoxUnpaid.Text = (double.Parse(textBoxContractValue.Text) - double.Parse(textBoxPaid.Text)).ToString();
+        }
     }
 }

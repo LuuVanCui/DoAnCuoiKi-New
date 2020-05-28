@@ -119,19 +119,6 @@ namespace QuanLyNhaXe01
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                if (MessageBox.Show("Do you want to detele this vehicle", "Delete Vehicle", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    vehicle.deleteVehicle(id);
-                    fillGrid();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Delete Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void comboBoxTypeVehicle_SelectedIndexChanged(object sender, EventArgs e)

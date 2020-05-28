@@ -25,7 +25,7 @@ namespace QuanLyNhaXe01
 
         Contract contract = new Contract();
         Customer customer = new Customer();
-
+        Vehicle vehicle = new Vehicle();
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             string loaiHd = comboBoxContractType.Text;
@@ -34,52 +34,71 @@ namespace QuanLyNhaXe01
             string soXe = textBoxVehicleID.Text;
             string moTa = textBoxDescibe.Text;
             DateTime ngayNhiemThu = dateTimePicker_LeaseTerm.Value;
+            string trangthaixe = "DangHD";
 
-            try
+            /* try
+             {*/
+            if (verifyData())
             {
-                if (verifyData())
+                int soHD = int.Parse(textBoxContractID.Text);
+                double giaTriHD = double.Parse(textBoxContractValue.Text);
+                double thanhtoan = double.Parse(textBoxPaid.Text);
+
+                if (loaiHd == "Ky Gui")
                 {
-                    int soHD = int.Parse(textBoxContractID.Text);
-                    float giaTriHD = float.Parse(textBoxContractValue.Text);
+                    trangthaixe = "Dang Gui";
+                }
 
-                    // kiem tra ma hop dong co bi trung ko
-                    if (contract.check_ID(soHD))
+                // kiem tra ma hop dong co bi trung ko
+                if (contract.check_ID(soHD))
+                {
+                    //kiem tra xem thong tin khach hang da co chua
+                    if (customer.Check_Customer(maKH))
                     {
-                        //kiem tra xem thong tin khach hang da co chua
-                        if (customer.Check_Customer(maKH))
+                        if (vehicle.checkXe_Contract(soXe) == false)
                         {
-                            //them cai kiem tra xe co ton tai trong ds xe hop dong chua
-                            
-                            //if (contract.insert_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu))
-                            //{
-                            //    MessageBox.Show("New Contract Added", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            //}
-                            //else
-                            //{
-                            //    MessageBox.Show("Error", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            //}
 
+                            MessageBox.Show("This vehicle is not on the list of contract vehicles, Please add or edit it before you add contract", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
-                            MessageBox.Show("Customer does not exist, please add new customer", "Invalid Customer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            if (vehicle.checkTrangThai(soXe) == false)
+
+                            {
+                                MessageBox.Show("This Vehicle Was Busy, Try Another One", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            //them cai kiem tra xe co ton tai trong ds xe hop dong chua
+                            else if (contract.insert_table_HopDong(soHD, loaiHd, ngayKy, maKH, soXe, moTa, giaTriHD, ngayNhiemThu, thanhtoan, "DangHD") && vehicle.updateTrangThai(soXe, trangthaixe))
+                            {
+                                MessageBox.Show("New Contract Added", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
                         }
                     }
                     else
                     {
-                        MessageBox.Show("This Contract ID Already Exists, Try Another One", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Customer does not exist, please add new customer", "Invalid Customer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-
                 }
                 else
                 {
-                    MessageBox.Show("Empty Field, please enter the data! ", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("This Contract ID Already Exists, Try Another One", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
-            catch
-            {
 
             }
+            else
+            {
+                MessageBox.Show("Empty Field, please enter the data! ", "Add Contract", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            /* }
+             catch
+             {
+
+             }*/
         }
 
         bool verifyData()
@@ -89,8 +108,9 @@ namespace QuanLyNhaXe01
                 || (textBoxCustomerID.Text.Trim() == "")
                 || (textBoxVehicleID.Text.Trim() == "")
                 || (textBoxDescibe.Text.Trim() == "")
-                || (textBoxContractValue.Text.Trim() == ""))
-
+                || (textBoxContractValue.Text.Trim() == "")
+                || (textBoxPaid.Text.Trim() == "")
+                || (textBoxUnpaid.Text.Trim() == ""))
             {
                 return false;
             }
@@ -100,7 +120,8 @@ namespace QuanLyNhaXe01
 
         private void buttonFindCustomer_Click(object sender, EventArgs e)
         {
-
+            showCustomerForm show = new showCustomerForm();
+            show.ShowDialog();
         }
 
         private void buttonAddCustomer_Click(object sender, EventArgs e)
@@ -117,8 +138,8 @@ namespace QuanLyNhaXe01
 
         private void buttonFindVehicle_Click(object sender, EventArgs e)
         {
-            vehiclesListForm vhcList = new vehiclesListForm();
-            vhcList.Show(this);
+            showVehicleForm vhc = new showVehicleForm();
+            vhc.ShowDialog();
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -128,7 +149,7 @@ namespace QuanLyNhaXe01
 
         private void addContractForm_Load(object sender, EventArgs e)
         {
-            fillComboBoxType_Contract();
+
         }
 
         void fillComboBoxType_Contract()
@@ -146,6 +167,27 @@ namespace QuanLyNhaXe01
             {
 
             }
+        }
+
+        private void textBoxPaid_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxContractValue.Text.Trim() != "")
+            {
+                try
+                {
+                    double tien = double.Parse(textBoxContractValue.Text) - double.Parse(textBoxPaid.Text);
+                    textBoxUnpaid.Text = tien.ToString();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private void comboBoxContractType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -305,7 +305,7 @@
             this.comboBoxCardID.Size = new System.Drawing.Size(166, 28);
             this.comboBoxCardID.TabIndex = 24;
             this.comboBoxCardID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCardID_SelectedIndexChanged);
-           // 
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -321,7 +321,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe Script", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label6.ForeColor = System.Drawing.Color.LemonChiffon;
             this.label6.Location = new System.Drawing.Point(424, 2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(311, 67);
@@ -439,7 +439,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonLoadLicensePlate;
-        private System.Windows.Forms.RadioButton radioButtonMoto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -447,25 +446,26 @@
         private System.Windows.Forms.Label labelInTime;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton radioButtonBike;
-        private System.Windows.Forms.RadioButton radioButtonCar;
-        private System.Windows.Forms.PictureBox pictureBoxLicensePlate;
-        private System.Windows.Forms.PictureBox pictureBoxModel;
-        private System.Windows.Forms.PictureBox pictureBoxVehiclePicture;
         private System.Windows.Forms.Button buttonLoadModel;
-        private System.Windows.Forms.PictureBox pictureBoxUser;
         private System.Windows.Forms.Button buttonLoadUser;
         private System.Windows.Forms.Button buttonLoadVehiclePictrue;
-        private System.Windows.Forms.DateTimePicker dateTimePickerInTime;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.ComboBox comboBoxCardID;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBoxShape;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBoxStatus;
+        public System.Windows.Forms.RadioButton radioButtonMoto;
+        public System.Windows.Forms.RadioButton radioButtonBike;
+        public System.Windows.Forms.RadioButton radioButtonCar;
+        public System.Windows.Forms.PictureBox pictureBoxLicensePlate;
+        public System.Windows.Forms.PictureBox pictureBoxModel;
+        public System.Windows.Forms.PictureBox pictureBoxVehiclePicture;
+        public System.Windows.Forms.PictureBox pictureBoxUser;
+        public System.Windows.Forms.DateTimePicker dateTimePickerInTime;
+        public System.Windows.Forms.ComboBox comboBoxCardID;
+        public System.Windows.Forms.ComboBox comboBoxShape;
     }
 }

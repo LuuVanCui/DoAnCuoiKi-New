@@ -54,7 +54,7 @@ namespace QuanLyNhaXe01
             DataTable table = vehicle.getVehicle(new SqlCommand("select * from Tho where MaTho = " + Globals.GlobalUserID));
             if (table.Rows[0][11].ToString() != "")
             {
-                byte[] bytes = (byte[])table.Rows[0][11];
+                byte[] bytes = (byte[])table.Rows[0][10];
                 MemoryStream ms = new MemoryStream(bytes);
                 pictureBoxProfile.Image = Image.FromStream(ms);
             }
@@ -81,6 +81,11 @@ namespace QuanLyNhaXe01
             else if (comboBoxTypeVehicle.Text == "Tat Ca")
             {
                 dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
+                makeUpGridForAllAndXeHoi();
+            }
+            else if (comboBoxTypeVehicle.Text == "Contract")
+            {
+                dataGridVManageVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe Where TrangThaiGui='Contract'"));
                 makeUpGridForAllAndXeHoi();
             }
 

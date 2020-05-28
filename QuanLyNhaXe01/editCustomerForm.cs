@@ -20,35 +20,7 @@ namespace QuanLyNhaXe01
         Customer customer = new Customer();
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            string maKH = textBoxCustomerID.Text;
-            string tenKH = textBoxCustomerName.Text;
-            string cmnd = textBoxIdentityCard.Text;
-            string diachi = textBoxAddress.Text;
-            string sdt = textBoxPhone.Text;
 
-            if (verify())
-            {
-                /* if (customer.Check_Customer(maKH))
-                 {
-                     MessageBox.Show("Customer Already Exist, Try Another One", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 }*/
-
-
-                if (customer.insertCustomer(maKH, tenKH, cmnd, diachi, sdt))
-                {
-                    MessageBox.Show("New Customer Added", "Edit Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Error", "Edit Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Empty Field, please enter the data! ", "Edit Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            }
         }
 
         bool verify()
@@ -70,6 +42,40 @@ namespace QuanLyNhaXe01
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+
+            string maKH = textBoxCustomerID.Text;
+            string tenKH = textBoxCustomerName.Text;
+            string cmnd = textBoxIdentityCard.Text;
+            string diachi = textBoxAddress.Text;
+            string sdt = textBoxPhone.Text;
+
+            if (verify())
+            {
+                
+                if (customer.updateCustomer(maKH, tenKH, cmnd, diachi, sdt))
+                {
+                    MessageBox.Show("New Customer Updated", "Edit Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Edit Customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Empty Field, please enter the data! ", "Edit Customer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
+
+        private void editCustomerForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

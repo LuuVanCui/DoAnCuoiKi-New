@@ -13,7 +13,7 @@ namespace QuanLyNhaXe01
     class Worker
     {
         MyDB mydb = new MyDB();
-        public bool insertWorker(int maTho, string name,string username, string pass,string loaiNDung, string sex, string CMND, DateTime ngaysinh,string address, string sdt, MemoryStream pic, DateTime dateStart)
+        public bool insertWorker(int maTho, string name, string username, string pass, string loaiNDung, string sex, string CMND, DateTime ngaysinh, string address, string sdt, MemoryStream pic, DateTime dateStart)
         {
             SqlCommand command = new SqlCommand("insert into Tho(MaTho, TenTho, GioiTinh, CMND, NgaySinh, DiaChi, SDT, NgayBatDau, Username, Password, Picture, LoaiNguoiDung) " +
                 "values(@wid,@name,@sex,@identity,@bDate,@address,@phone, @dStart, @uname,@pass,@pic, @loaiND)", mydb.getConnection);
@@ -56,7 +56,7 @@ namespace QuanLyNhaXe01
             command.Parameters.Add("@identity", SqlDbType.VarChar).Value = CMND;
             command.Parameters.Add("@bDate", SqlDbType.DateTime).Value = ngaysinh;
             command.Parameters.Add("dStart", SqlDbType.DateTime).Value = dateStart;
-           
+
             command.Parameters.Add("@address", SqlDbType.Text).Value = address;
             command.Parameters.Add("@uname", SqlDbType.VarChar).Value = username;
             command.Parameters.Add("@pass", SqlDbType.VarChar).Value = pass;
@@ -148,16 +148,35 @@ namespace QuanLyNhaXe01
             }
 
         }
+        public bool checkUser(string username)
+        {
+            SqlCommand command = new SqlCommand("SELECT * From Tho Where Username = @uname", mydb.getConnection);
+
+            command.Parameters.Add("@uname", SqlDbType.VarChar).Value = username;
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            adapter.SelectCommand = command;
+
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
 
         public DataTable getGroup_Worker()
         {
 
             MyDB mydb = new MyDB();
             SqlCommand command = new SqlCommand("Select * From Nhom", mydb.getConnection);
-
-
-
-
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = command;
 
@@ -166,5 +185,6 @@ namespace QuanLyNhaXe01
             adapter.Fill(table);
             return table;
         }
+
     }
 }

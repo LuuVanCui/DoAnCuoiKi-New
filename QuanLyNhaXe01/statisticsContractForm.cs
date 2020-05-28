@@ -2,56 +2,52 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace QuanLyNhaXe01
 {
-    public partial class statisticsWorkerForm : Form
+    public partial class statisticsContractForm : Form
     {
-        public statisticsWorkerForm()
+        public statisticsContractForm()
         {
             InitializeComponent();
         }
-
         MyDB mydb = new MyDB();
-
-        private void statisticsWorkerForm_Load(object sender, EventArgs e)
+        private void statisticsContractForm_Load(object sender, EventArgs e)
         {
             DataTable tb = getTable();
             chart1.DataSource = tb;
-            chart1.Series["Amount of people"].XValueMember = "LoaiNguoiDung";
-            chart1.Series["Amount of people"].YValueMembers = "tong";
+            chart1.Series["Contract"].XValueMember = "LoaiHD";
+            chart1.Series["Contract"].YValueMembers = "tong";
             Title title = new Title();
             title.Font = new Font("Arial", 16, FontStyle.Bold);
-            title.Text = "Employee Statistics For Each Job";
+            title.Text = "Contract type statistics";
             chart1.Titles.Add(title);
         }
-
-
         DataTable getTable()//lay ra tb cong viec va so nguoi lam cong viec do
         {
             Worker worker = new Worker();
-            SqlCommand command = new SqlCommand(" select Count(LoaiNguoiDung) as tong, LoaiNguoiDung from Tho group by LoaiNguoiDung", mydb.getConnection);
+            SqlCommand command = new SqlCommand(" select Count(LoaiHD) as tong, LoaiHD from HopDong group by LoaiHD", mydb.getConnection);
             return worker.getWorker(command);
         }
 
-        private void buttonColumn_Click(object sender, EventArgs e)
+        private void buttonColumn_Click_1(object sender, EventArgs e)
         {
             chart1.Series[0].ChartType = SeriesChartType.Column;
         }
 
-        private void buttonPie_Click(object sender, EventArgs e)
+        private void buttonPie_Click_1(object sender, EventArgs e)
         {
             chart1.Series[0].ChartType = SeriesChartType.Pie;
         }
 
-        private void buttonBar_Click(object sender, EventArgs e)
+        private void buttonBar_Click_1(object sender, EventArgs e)
         {
             chart1.Series[0].ChartType = SeriesChartType.Bar;
         }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.textBoxIdentityCard = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -43,18 +43,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // buttonAdd
+            // buttonEdit
             // 
-            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(369, 456);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(158, 53);
-            this.buttonAdd.TabIndex = 18;
-            this.buttonAdd.Text = "Edit";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEdit.Location = new System.Drawing.Point(369, 456);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(158, 53);
+            this.buttonEdit.TabIndex = 18;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonCancel
             // 
@@ -177,7 +177,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 541);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxIdentityCard);
             this.Controls.Add(this.label13);
@@ -192,6 +192,7 @@
             this.Controls.Add(this.label4);
             this.Name = "editCustomerForm";
             this.Text = "editCustomerForm";
+            this.Load += new System.EventHandler(this.editCustomerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,7 +200,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;

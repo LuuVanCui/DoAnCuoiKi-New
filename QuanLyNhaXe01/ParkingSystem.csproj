@@ -68,6 +68,12 @@
       <DependentUpon>addCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Calculate.cs" />
+    <Compile Include="payContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="payContractForm.Designer.cs">
+      <DependentUpon>payContractForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Salary\salaryDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,24 @@
       <DependentUpon>revenueForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Salary.cs" />
+    <Compile Include="showCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="showCustomerForm.Designer.cs">
+      <DependentUpon>showCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="showVehicleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="showVehicleForm.Designer.cs">
+      <DependentUpon>showVehicleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statisticsContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statisticsContractForm.Designer.cs">
+      <DependentUpon>statisticsContractForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="statisticsWorkForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +260,9 @@
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="payContractForm.resx">
+      <DependentUpon>payContractForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -251,6 +278,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Salary\salaryDetailForm.resx">
       <DependentUpon>salaryDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="showCustomerForm.resx">
+      <DependentUpon>showCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="showVehicleForm.resx">
+      <DependentUpon>showVehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statisticsContractForm.resx">
+      <DependentUpon>statisticsContractForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="statisticsWorkForm.resx">
       <DependentUpon>statisticsWorkForm.cs</DependentUpon>

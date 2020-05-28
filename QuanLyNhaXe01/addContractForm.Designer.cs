@@ -41,6 +41,8 @@
             this.buttonFindVehicle = new System.Windows.Forms.Button();
             this.buttonAddCustomer = new System.Windows.Forms.Button();
             this.buttonFindCustomer = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxVehicleID = new System.Windows.Forms.TextBox();
             this.textBoxCustomerID = new System.Windows.Forms.TextBox();
@@ -49,18 +51,16 @@
             this.dateTimePickerSign = new System.Windows.Forms.DateTimePicker();
             this.comboBoxContractType = new System.Windows.Forms.ComboBox();
             this.textBoxDescibe = new System.Windows.Forms.TextBox();
+            this.textBoxUnpaid = new System.Windows.Forms.TextBox();
+            this.textBoxPaid = new System.Windows.Forms.TextBox();
             this.textBoxContractValue = new System.Windows.Forms.TextBox();
             this.textBoxContractID = new System.Windows.Forms.TextBox();
+            this.labelUnpaid = new System.Windows.Forms.Label();
+            this.labelPaid = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.labelPaid = new System.Windows.Forms.Label();
-            this.textBoxPaid = new System.Windows.Forms.TextBox();
-            this.labelUnpaid = new System.Windows.Forms.Label();
-            this.textBoxUnpaid = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -132,7 +132,7 @@
             this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(425, 12);
+            this.buttonAdd.Location = new System.Drawing.Point(431, 12);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(204, 55);
             this.buttonAdd.TabIndex = 10;
@@ -248,6 +248,28 @@
             this.buttonFindCustomer.UseVisualStyleBackColor = false;
             this.buttonFindCustomer.Click += new System.EventHandler(this.buttonFindCustomer_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label14.Location = new System.Drawing.Point(526, 479);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(66, 29);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "VNĐ";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label13.Location = new System.Drawing.Point(526, 526);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 29);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "VNĐ";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -307,6 +329,9 @@
             // 
             this.comboBoxContractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxContractType.FormattingEnabled = true;
+            this.comboBoxContractType.Items.AddRange(new object[] {
+            "Ky Gui",
+            "Cty Cho Thue"});
             this.comboBoxContractType.Location = new System.Drawing.Point(200, 182);
             this.comboBoxContractType.Name = "comboBoxContractType";
             this.comboBoxContractType.Size = new System.Drawing.Size(256, 33);
@@ -320,6 +345,22 @@
             this.textBoxDescibe.Name = "textBoxDescibe";
             this.textBoxDescibe.Size = new System.Drawing.Size(310, 83);
             this.textBoxDescibe.TabIndex = 7;
+            // 
+            // textBoxUnpaid
+            // 
+            this.textBoxUnpaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnpaid.Location = new System.Drawing.Point(200, 525);
+            this.textBoxUnpaid.Name = "textBoxUnpaid";
+            this.textBoxUnpaid.Size = new System.Drawing.Size(310, 30);
+            this.textBoxUnpaid.TabIndex = 8;
+            // 
+            // textBoxPaid
+            // 
+            this.textBoxPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPaid.Location = new System.Drawing.Point(200, 478);
+            this.textBoxPaid.Name = "textBoxPaid";
+            this.textBoxPaid.Size = new System.Drawing.Size(310, 30);
+            this.textBoxPaid.TabIndex = 8;
             // 
             // textBoxContractValue
             // 
@@ -336,6 +377,26 @@
             this.textBoxContractID.Name = "textBoxContractID";
             this.textBoxContractID.Size = new System.Drawing.Size(189, 30);
             this.textBoxContractID.TabIndex = 1;
+            // 
+            // labelUnpaid
+            // 
+            this.labelUnpaid.AutoSize = true;
+            this.labelUnpaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUnpaid.Location = new System.Drawing.Point(103, 525);
+            this.labelUnpaid.Name = "labelUnpaid";
+            this.labelUnpaid.Size = new System.Drawing.Size(96, 29);
+            this.labelUnpaid.TabIndex = 0;
+            this.labelUnpaid.Text = "Unpaid:";
+            // 
+            // labelPaid
+            // 
+            this.labelPaid.AutoSize = true;
+            this.labelPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPaid.Location = new System.Drawing.Point(19, 479);
+            this.labelPaid.Name = "labelPaid";
+            this.labelPaid.Size = new System.Drawing.Size(180, 29);
+            this.labelPaid.TabIndex = 0;
+            this.labelPaid.Text = "Deposit Money:";
             // 
             // label7
             // 
@@ -378,64 +439,6 @@
             this.panel3.Size = new System.Drawing.Size(757, 758);
             this.panel3.TabIndex = 4;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // labelPaid
-            // 
-            this.labelPaid.AutoSize = true;
-            this.labelPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPaid.Location = new System.Drawing.Point(119, 478);
-            this.labelPaid.Name = "labelPaid";
-            this.labelPaid.Size = new System.Drawing.Size(68, 29);
-            this.labelPaid.TabIndex = 0;
-            this.labelPaid.Text = "Paid:";
-            // 
-            // textBoxPaid
-            // 
-            this.textBoxPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPaid.Location = new System.Drawing.Point(200, 478);
-            this.textBoxPaid.Name = "textBoxPaid";
-            this.textBoxPaid.Size = new System.Drawing.Size(310, 30);
-            this.textBoxPaid.TabIndex = 8;
-            // 
-            // labelUnpaid
-            // 
-            this.labelUnpaid.AutoSize = true;
-            this.labelUnpaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUnpaid.Location = new System.Drawing.Point(98, 526);
-            this.labelUnpaid.Name = "labelUnpaid";
-            this.labelUnpaid.Size = new System.Drawing.Size(96, 29);
-            this.labelUnpaid.TabIndex = 0;
-            this.labelUnpaid.Text = "Unpaid:";
-            // 
-            // textBoxUnpaid
-            // 
-            this.textBoxUnpaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnpaid.Location = new System.Drawing.Point(200, 525);
-            this.textBoxUnpaid.Name = "textBoxUnpaid";
-            this.textBoxUnpaid.Size = new System.Drawing.Size(310, 30);
-            this.textBoxUnpaid.TabIndex = 8;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label13.Location = new System.Drawing.Point(526, 526);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 29);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "VNĐ";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label14.Location = new System.Drawing.Point(526, 479);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(66, 29);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "VNĐ";
             // 
             // addContractForm
             // 
