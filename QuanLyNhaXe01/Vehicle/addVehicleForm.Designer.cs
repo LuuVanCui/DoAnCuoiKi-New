@@ -263,7 +263,8 @@
             resources.GetString("comboBoxShape.Items"),
             resources.GetString("comboBoxShape.Items1"),
             resources.GetString("comboBoxShape.Items2"),
-            resources.GetString("comboBoxShape.Items3")});
+            resources.GetString("comboBoxShape.Items3"),
+            resources.GetString("comboBoxShape.Items4")});
             resources.ApplyResources(this.comboBoxShape, "comboBoxShape");
             this.comboBoxShape.Name = "comboBoxShape";
             // 

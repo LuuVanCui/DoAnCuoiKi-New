@@ -43,6 +43,11 @@ namespace QuanLyNhaXe01
                 dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe"));
                 makeUpGridForAllAndXeHoi();
             }
+            else if (comboBoxTypeVehicle.Text == "Tat Ca")
+            {
+                dataGridViewVehicle.DataSource = vehicle.getVehicle(new SqlCommand("SELECT * FROM Xe where HinhThucGui"));
+                makeUpGridForAllAndXeHoi();
+            }
 
         }
 

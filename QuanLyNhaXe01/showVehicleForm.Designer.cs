@@ -62,7 +62,7 @@
             // 
             this.comboBoxTypeVehicle.FormattingEnabled = true;
             this.comboBoxTypeVehicle.Items.AddRange(new object[] {
-            "",
+            "Contract",
             "Xe May",
             "Xe Dap",
             "Xe Hoi",

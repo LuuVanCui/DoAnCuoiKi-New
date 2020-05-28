@@ -1932,7 +1932,9 @@
             this.comboBoxTypeContract_Contract.FormattingEnabled = true;
             this.comboBoxTypeContract_Contract.Items.AddRange(new object[] {
             "Ky Gui",
-            "Thue Xe Cty"});
+            "Thue Xe Cty",
+            "DangHD",
+            "Ket Thuc"});
             this.comboBoxTypeContract_Contract.Location = new System.Drawing.Point(217, 150);
             this.comboBoxTypeContract_Contract.Name = "comboBoxTypeContract_Contract";
             this.comboBoxTypeContract_Contract.Size = new System.Drawing.Size(214, 36);

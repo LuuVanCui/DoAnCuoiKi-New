@@ -1320,9 +1320,19 @@ namespace QuanLyNhaXe01
                     SqlCommand command = new SqlCommand("Select * From HopDong Where LoaiHD='Ky Gui'", mydb.getConnection);
                     dataGridViewContract.DataSource = contract.getTable(command);
                 }
-                else
+                else if(comboBoxTypeContract_Contract.Text == "Thue Xe Cty")
                 {
                     SqlCommand command = new SqlCommand("Select * From HopDong Where LoaiHD <>'Ky Gui'", mydb.getConnection);
+                    dataGridViewContract.DataSource = contract.getTable(command);
+                }
+                else if(comboBoxTypeContract_Contract.Text == "DangHD")
+                {
+                    SqlCommand command = new SqlCommand("Select * From HopDong Where TrangThai='DangHD'", mydb.getConnection);
+                    dataGridViewContract.DataSource = contract.getTable(command);
+                }
+                else
+                {
+                    SqlCommand command = new SqlCommand("Select * From HopDong Where TrangThai='Ket Thuc'", mydb.getConnection);
                     dataGridViewContract.DataSource = contract.getTable(command);
                 }
             }

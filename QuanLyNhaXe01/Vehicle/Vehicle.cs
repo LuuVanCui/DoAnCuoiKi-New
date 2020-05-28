@@ -346,7 +346,7 @@ namespace QuanLyNhaXe01
 
         public bool updateTrangThai(string maTheXe, string trangThai)
         {
-            SqlCommand command = new SqlCommand("update Xe set TrangThaiGui=@th, HinhThucGui=@ht where MaTheXe=@ma", mydb.getConnection);
+            SqlCommand command = new SqlCommand("update Xe set TrangThaiGui=@th where MaTheXe=@ma", mydb.getConnection);
             command.Parameters.Add("@th", SqlDbType.NVarChar).Value = trangThai;
             command.Parameters.Add("@ma", System.Data.SqlDbType.VarChar).Value = maTheXe;
 

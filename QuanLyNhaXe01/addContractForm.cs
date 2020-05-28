@@ -168,8 +168,7 @@ namespace QuanLyNhaXe01
 
             }
         }
-
-        private void textBoxPaid_TextChanged(object sender, EventArgs e)
+        private void textBoxPaid_TextChanged_1(object sender, EventArgs e)
         {
             if (textBoxContractValue.Text.Trim() != "")
             {
@@ -183,11 +182,6 @@ namespace QuanLyNhaXe01
 
                 }
             }
-        }
-
-        private void comboBoxContractType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

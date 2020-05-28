@@ -99,5 +99,21 @@ namespace QuanLyNhaXe01
         {
             textBoxUnpaid.Text = (double.Parse(textBoxContractValue.Text) - double.Parse(textBoxPaid.Text)).ToString();
         }
+
+        private void textBoxPaid_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxContractValue.Text.Trim() != "")
+            {
+                try
+                {
+                    double tien = double.Parse(textBoxContractValue.Text) - double.Parse(textBoxPaid.Text);
+                    textBoxUnpaid.Text = tien.ToString();
+                }
+                catch
+                {
+
+                }
+            }
+        }
     }
 }
