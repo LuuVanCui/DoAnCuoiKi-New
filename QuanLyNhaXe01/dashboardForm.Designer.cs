@@ -1394,6 +1394,7 @@
             this.listBoxGroup_work.Size = new System.Drawing.Size(193, 228);
             this.listBoxGroup_work.TabIndex = 3;
             this.listBoxGroup_work.Click += new System.EventHandler(this.listBoxGroup_work_Click);
+            this.listBoxGroup_work.SelectedIndexChanged += new System.EventHandler(this.listBoxGroup_work_SelectedIndexChanged_1);
             // 
             // groupBox2
             // 

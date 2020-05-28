@@ -78,6 +78,10 @@ namespace QuanLyNhaXe01
             listBoxGroup_work.SelectedItem = null;
             listBoxGroup_work.ClearSelected();
 
+            comboBoxWorkerName_work.DataSource= vehicle.getVehicle(new SqlCommand("SELECT * FROM Tho"));
+            comboBoxWorkerName_work.DisplayMember = "TenTho";
+            comboBoxWorkerName_work.ValueMember = "MaTho";
+
             // dataGid Show Data
             /* string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
                  "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
@@ -868,14 +872,16 @@ namespace QuanLyNhaXe01
                 selectWork.ShowDialog();
                 if (selectWork.dataGridViewSelectWork.Rows.Count > 0)
                 {
-                    //textBoxWorkID_Work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
-                    //textBoxWorkerID_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[1].Value.ToString();
-                    //textBoxWorkName_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[2].Value.ToString();
-                    //textBoxWorkDetail_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[3].Value.ToString();
-                    //string valueMember = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
-                    //System.Data.DataTable table_Group = vehicle.getVehicle(new SqlCommand("select distinct * from Nhom where MaNhom = " + Convert.ToInt32(valueMember)));
-                    //comboBoxGroupName_work.ValueMember = valueMember;
-                    //comboBoxGroupName_work.DisplayMember = table_Group.Rows[0][1].ToString();
+                    textBoxWorkID_Work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
+
+                    comboBoxWorkerName_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[1].Value.ToString();
+                    textBoxWorkName_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[2].Value.ToString();
+                    textBoxWorkDetail_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[3].Value.ToString();
+                    string valueMember = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
+
+                    System.Data.DataTable table_Group = vehicle.getVehicle(new SqlCommand("select distinct * from Nhom where MaNhom = " + Convert.ToInt32(valueMember)));
+                    comboBoxGroupName_work.ValueMember = valueMember;
+                    comboBoxGroupName_work.DisplayMember = table_Group.Rows[0][1].ToString();
                 }
             }
             catch { }
@@ -915,7 +921,7 @@ namespace QuanLyNhaXe01
                 string workName = textBoxWorkName_work.Text;
                 string contain = textBoxWorkDetail_work.Text;
                 int groupID = Convert.ToInt32(comboBoxGroupName_work.SelectedValue.ToString());
-                if (work.insertWork(workID, workerID, workName, contain, groupID))
+                if (work.updateWork(workID, workerID, workName, contain, groupID))
                 {
                     MessageBox.Show("Update Successful!", "Edit Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -942,6 +948,10 @@ namespace QuanLyNhaXe01
                     if (work.deleteWork(workID, workerID))
                     {
                         MessageBox.Show("This work deleted", "Delete Work", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Delete Fail.", "Delete Work", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -1038,22 +1048,21 @@ namespace QuanLyNhaXe01
 
         private void listBoxGroup_work_Click(object sender, EventArgs e)
         {
-            /*try
+            try
             {
                 if (listBoxGroup_work.SelectedIndex != -1)
                 {
                     int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
                     string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
-                        "from Tho inner join Nhom on Tho.MaNhom = Nhom.MaNhom inner " +
-                        "join CongViec on Tho.MaCV = CongViec.MaCV " +
-                        "where Nhom.MaNhom = " + groupID;
+                        " from Tho inner join CongViec on Tho.MaTho = CongViec.MaTho inner " +
+                        "join Nhom on CongViec.MaNhom = Nhom.MaNhom";
                     dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
                 }
             }
             catch
             {
 
-            }*/
+            }
         }
 
         private void buttonPrint_work_Click(object sender, EventArgs e)
@@ -1130,15 +1139,23 @@ namespace QuanLyNhaXe01
 
         }
 
-        private void listBoxGroup_work_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void listBoxGroup_work_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            //  int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
-            //string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
-            //    "from Tho inner join CongViec on Tho.MaCV = CongViec.MaCV" +
-            //    " inner join Nhom on Tho.MaNhom = Nhom.MaNhom " +
-            //    "where MaNhom = " + groupID;
-            //dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
+           /* Vehicle vehicle = new Vehicle();
+            if (listBoxGroup_work.SelectedIndex != -1)
+            {
+                MessageBox.Show(listBoxGroup_work.SelectedValue.ToString());
+                int groupid = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
+
+                string query = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV  from Tho" +
+                    " inner join CongViec on Tho.MaTho = CongViec.MaTho " +
+                    " inner join Nhom on CongViec.MaNhom = Nhom.MaNhom where CongViec.MaNhom = " + groupid;
+
+                dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query));
+            }*/
         }
+      
         #endregion
 
         #region Contract-------------------------------------------------------
@@ -2033,6 +2050,7 @@ namespace QuanLyNhaXe01
                 salaryDetail.ShowDialog();
             }
         }
+
 
 
         #endregion
