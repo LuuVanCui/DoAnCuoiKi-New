@@ -216,7 +216,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(455, 33);
+            this.label2.Location = new System.Drawing.Point(681, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 29);
             this.label2.TabIndex = 12;
@@ -227,7 +227,7 @@
             this.labelSecond.AutoSize = true;
             this.labelSecond.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSecond.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelSecond.Location = new System.Drawing.Point(782, 33);
+            this.labelSecond.Location = new System.Drawing.Point(1008, 33);
             this.labelSecond.Name = "labelSecond";
             this.labelSecond.Size = new System.Drawing.Size(39, 29);
             this.labelSecond.TabIndex = 12;
@@ -244,7 +244,7 @@
             this.labelMinute.AutoSize = true;
             this.labelMinute.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMinute.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelMinute.Location = new System.Drawing.Point(712, 33);
+            this.labelMinute.Location = new System.Drawing.Point(938, 33);
             this.labelMinute.Name = "labelMinute";
             this.labelMinute.Size = new System.Drawing.Size(39, 29);
             this.labelMinute.TabIndex = 12;
@@ -255,7 +255,7 @@
             this.labelHour.AutoSize = true;
             this.labelHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelHour.Location = new System.Drawing.Point(642, 33);
+            this.labelHour.Location = new System.Drawing.Point(868, 33);
             this.labelHour.Name = "labelHour";
             this.labelHour.Size = new System.Drawing.Size(39, 29);
             this.labelHour.TabIndex = 12;
@@ -266,7 +266,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(757, 33);
+            this.label5.Location = new System.Drawing.Point(983, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(19, 29);
             this.label5.TabIndex = 12;
@@ -277,7 +277,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(687, 33);
+            this.label7.Location = new System.Drawing.Point(913, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 29);
             this.label7.TabIndex = 12;
@@ -303,11 +303,11 @@
             // labelWelcome
             // 
             this.labelWelcome.AutoSize = true;
-            this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWelcome.ForeColor = System.Drawing.Color.AliceBlue;
             this.labelWelcome.Location = new System.Drawing.Point(153, 33);
             this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(133, 32);
+            this.labelWelcome.Size = new System.Drawing.Size(115, 29);
             this.labelWelcome.TabIndex = 1;
             this.labelWelcome.Text = "Welcome";
             // 
@@ -316,6 +316,7 @@
             this.pictureBoxProfile.Location = new System.Drawing.Point(4, 0);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.Size = new System.Drawing.Size(122, 97);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxProfile.TabIndex = 0;
             this.pictureBoxProfile.TabStop = false;
             // 

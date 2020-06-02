@@ -233,6 +233,7 @@
             this.textBoxSearchSalary = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.comboBoxTypeOfWorker_salary = new System.Windows.Forms.ComboBox();
+            this.buttonStatistic = new System.Windows.Forms.Button();
             this.buttonExport_salary = new System.Windows.Forms.Button();
             this.buttonPrint_salary = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -880,13 +881,14 @@
             // 
             // buttonLoadPic_Worker
             // 
-            this.buttonLoadPic_Worker.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonLoadPic_Worker.BackColor = System.Drawing.Color.RosyBrown;
+            this.buttonLoadPic_Worker.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLoadPic_Worker.ForeColor = System.Drawing.Color.White;
-            this.buttonLoadPic_Worker.Location = new System.Drawing.Point(803, 258);
+            this.buttonLoadPic_Worker.Location = new System.Drawing.Point(598, 328);
             this.buttonLoadPic_Worker.Name = "buttonLoadPic_Worker";
-            this.buttonLoadPic_Worker.Size = new System.Drawing.Size(76, 107);
+            this.buttonLoadPic_Worker.Size = new System.Drawing.Size(151, 31);
             this.buttonLoadPic_Worker.TabIndex = 26;
-            this.buttonLoadPic_Worker.Text = "Load";
+            this.buttonLoadPic_Worker.Text = "Load Image";
             this.buttonLoadPic_Worker.UseVisualStyleBackColor = false;
             this.buttonLoadPic_Worker.Click += new System.EventHandler(this.buttonLoadPic_Worker_Click);
             // 
@@ -1313,7 +1315,7 @@
             this.pictureBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxImage.Location = new System.Drawing.Point(598, 253);
             this.pictureBoxImage.Name = "pictureBoxImage";
-            this.pictureBoxImage.Size = new System.Drawing.Size(199, 126);
+            this.pictureBoxImage.Size = new System.Drawing.Size(151, 89);
             this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImage.TabIndex = 24;
             this.pictureBoxImage.TabStop = false;
@@ -1394,7 +1396,6 @@
             this.listBoxGroup_work.Size = new System.Drawing.Size(193, 228);
             this.listBoxGroup_work.TabIndex = 3;
             this.listBoxGroup_work.Click += new System.EventHandler(this.listBoxGroup_work_Click);
-            this.listBoxGroup_work.SelectedIndexChanged += new System.EventHandler(this.listBoxGroup_work_SelectedIndexChanged_1);
             // 
             // groupBox2
             // 
@@ -1806,7 +1807,6 @@
             this.textBoxSearch_work.Name = "textBoxSearch_work";
             this.textBoxSearch_work.Size = new System.Drawing.Size(582, 30);
             this.textBoxSearch_work.TabIndex = 2;
-            this.textBoxSearch_work.TextChanged += new System.EventHandler(this.textBoxSearch_work_TextChanged);
             // 
             // label20
             // 
@@ -2364,6 +2364,7 @@
             this.textBoxSearchRevenue.Name = "textBoxSearchRevenue";
             this.textBoxSearchRevenue.Size = new System.Drawing.Size(561, 35);
             this.textBoxSearchRevenue.TabIndex = 6;
+            this.textBoxSearchRevenue.TextChanged += new System.EventHandler(this.textBoxSearchRevenue_TextChanged_1);
             // 
             // comboBoxTypeRevenue
             // 
@@ -2442,6 +2443,7 @@
             this.tabPage1.Controls.Add(this.panel24);
             this.tabPage1.Controls.Add(this.panel23);
             this.tabPage1.Controls.Add(this.panel22);
+            this.tabPage1.Controls.Add(this.buttonStatistic);
             this.tabPage1.Controls.Add(this.buttonExport_salary);
             this.tabPage1.Controls.Add(this.buttonPrint_salary);
             this.tabPage1.Controls.Add(this.panel21);
@@ -2671,11 +2673,22 @@
             this.comboBoxTypeOfWorker_salary.Text = "All";
             this.comboBoxTypeOfWorker_salary.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeOfWorker_salary_SelectedIndexChanged);
             // 
+            // buttonStatistic
+            // 
+            this.buttonStatistic.BackColor = System.Drawing.Color.Chocolate;
+            this.buttonStatistic.ForeColor = System.Drawing.Color.White;
+            this.buttonStatistic.Location = new System.Drawing.Point(785, 722);
+            this.buttonStatistic.Name = "buttonStatistic";
+            this.buttonStatistic.Size = new System.Drawing.Size(135, 55);
+            this.buttonStatistic.TabIndex = 7;
+            this.buttonStatistic.Text = "Statistics";
+            this.buttonStatistic.UseVisualStyleBackColor = false;
+            // 
             // buttonExport_salary
             // 
             this.buttonExport_salary.BackColor = System.Drawing.Color.Chocolate;
             this.buttonExport_salary.ForeColor = System.Drawing.Color.White;
-            this.buttonExport_salary.Location = new System.Drawing.Point(683, 722);
+            this.buttonExport_salary.Location = new System.Drawing.Point(512, 722);
             this.buttonExport_salary.Name = "buttonExport_salary";
             this.buttonExport_salary.Size = new System.Drawing.Size(135, 55);
             this.buttonExport_salary.TabIndex = 7;
@@ -2687,7 +2700,7 @@
             // 
             this.buttonPrint_salary.BackColor = System.Drawing.Color.Chocolate;
             this.buttonPrint_salary.ForeColor = System.Drawing.Color.White;
-            this.buttonPrint_salary.Location = new System.Drawing.Point(328, 722);
+            this.buttonPrint_salary.Location = new System.Drawing.Point(242, 722);
             this.buttonPrint_salary.Name = "buttonPrint_salary";
             this.buttonPrint_salary.Size = new System.Drawing.Size(135, 55);
             this.buttonPrint_salary.TabIndex = 7;
@@ -2699,7 +2712,7 @@
             // 
             this.panel21.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel21.Controls.Add(this.dataGridViewSalary);
-            this.panel21.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel21.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel21.Location = new System.Drawing.Point(22, 346);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(1115, 350);
@@ -3018,5 +3031,6 @@
         private System.Windows.Forms.Button buttonAddContract;
         private System.Windows.Forms.Panel panel29;
         public System.Windows.Forms.TextBox textBoxWorkID_Work;
+        private System.Windows.Forms.Button buttonStatistic;
     }
 }

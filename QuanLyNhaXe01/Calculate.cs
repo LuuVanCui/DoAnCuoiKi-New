@@ -26,7 +26,7 @@ namespace QuanLyNhaXe01
         public (float, float) parkingFeeAndFine(string LoaiXe, string HinhThucGui, TimeSpan ThoiGianGui)
         {
             Calculate calculate = new Calculate();
-            DataTable table = calculate.getData(new SqlCommand("SELECT * FROM PhiGuiXe"));
+            DataTable table = calculate.getData(new SqlCommand("SELECT * FROM PhiGuiXeVaSlot"));
             float PhiGuiXe = 0;
             float TienPhat = 0;
             float cost;

@@ -30,8 +30,7 @@ namespace QuanLyNhaXe01
 
         private void paymentForm_Load(object sender, EventArgs e)
         {
-            paymentForm pay = new paymentForm();
-            SqlCommand command = new SqlCommand("SELECT MaTheXe, LoaiXe, ThoiGianVao, AnhXe, BienSo, HinhThucGui FROM Xe WHERE MaTheXe = " + id);
+            SqlCommand command = new SqlCommand("SELECT * FROM Xe WHERE MaTheXe = " + Convert.ToInt32(id));
             DataTable table = vehicle.getVehicle(command);
             Calculate calculate = new Calculate();
             
@@ -80,11 +79,11 @@ namespace QuanLyNhaXe01
         {
             try
             {
-                   string CardID = labelCardID.Text.Trim();
+                string CardID = labelCardID.Text.Trim();
                 float total = float.Parse(labelTotal.Text);
                 if (MessageBox.Show("Do you want to pay this vehicle?", "Pay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (vehicle.updateVehicleOut_Xe(CardID) && vehicle.updateVehicleOut_DoanhThu(CardID, total))
+                    if (vehicle.updateVehicleOut_Xe(CardID))
                     {
                         MessageBox.Show("Pay sucessful!", "Pay", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

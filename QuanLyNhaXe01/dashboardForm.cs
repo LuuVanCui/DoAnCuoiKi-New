@@ -104,7 +104,8 @@ namespace QuanLyNhaXe01
 
             #region REVENUE
             string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi " +
-                "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe";
+                "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe " +
+                "where ThoiGianRa is not null";
             System.Data.DataTable table_revenue = vehicle.getVehicle(new SqlCommand(query));
             dataGridViewRevenue.DataSource = table_revenue;
             makeUpGridForAll();
@@ -333,7 +334,7 @@ namespace QuanLyNhaXe01
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Excel Documents (*.xls)|*.xls";
-            sfd.FileName = "Inventory_Adjustment_Export.xls";
+            sfd.FileName = "Vehicles.xls";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Copy DataGridView results to clipboard
@@ -873,7 +874,6 @@ namespace QuanLyNhaXe01
                 if (selectWork.dataGridViewSelectWork.Rows.Count > 0)
                 {
                     textBoxWorkID_Work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[0].Value.ToString();
-
                     comboBoxWorkerName_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[1].Value.ToString();
                     textBoxWorkName_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[2].Value.ToString();
                     textBoxWorkDetail_work.Text = selectWork.dataGridViewSelectWork.CurrentRow.Cells[3].Value.ToString();
@@ -1036,16 +1036,6 @@ namespace QuanLyNhaXe01
             }
         }
 
-        private void textBoxSearch_work_TextChanged(object sender, EventArgs e)
-        {
-            /*  string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
-                          "from Tho inner join Nhom on Tho.MaNhom = Nhom.MaNhom inner " +
-                          "join CongViec on Tho.MaCV = CongViec.MaCV " +
-                          "WHERE CONCAT(Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV) LIKE '%" + textBoxSearch_work.Text + "%'";
-              SqlCommand command = new SqlCommand(query_grid_work);
-              dataGridViewWork.DataSource = vehicle.getVehicle(command);*/
-        }
-
         private void listBoxGroup_work_Click(object sender, EventArgs e)
         {
             try
@@ -1053,9 +1043,9 @@ namespace QuanLyNhaXe01
                 if (listBoxGroup_work.SelectedIndex != -1)
                 {
                     int groupID = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
-                    string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV " +
-                        " from Tho inner join CongViec on Tho.MaTho = CongViec.MaTho inner " +
-                        "join Nhom on CongViec.MaNhom = Nhom.MaNhom";
+                    string query_grid_work = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV  from Tho" +
+                            " inner join CongViec on Tho.MaTho = CongViec.MaTho " +
+                            " inner join Nhom on CongViec.MaNhom = Nhom.MaNhom where CongViec.MaNhom = " + groupID;
                     dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query_grid_work));
                 }
             }
@@ -1089,7 +1079,7 @@ namespace QuanLyNhaXe01
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Copy DataGridView results to clipboard
-                copyAlltoClipboard();
+                copyAlltoClipboard_Work();
 
                 object misValue = System.Reflection.Missing.Value;
                 Excel.Application xlexcel = new Excel.Application();
@@ -1134,28 +1124,20 @@ namespace QuanLyNhaXe01
 
         }
 
+        private void copyAlltoClipboard_Work()
+        {
+            dataGridViewWork.SelectAll();
+            DataObject dataObj = dataGridViewWork.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
+
         private void buttonStatistics_work_Click(object sender, EventArgs e)
         {
 
         }
 
-
-        private void listBoxGroup_work_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-           /* Vehicle vehicle = new Vehicle();
-            if (listBoxGroup_work.SelectedIndex != -1)
-            {
-                MessageBox.Show(listBoxGroup_work.SelectedValue.ToString());
-                int groupid = Convert.ToInt32(listBoxGroup_work.SelectedValue.ToString());
-
-                string query = "select distinct Tho.MaTho, TenTho, GioiTinh, SDT, TenNhom, TenCV  from Tho" +
-                    " inner join CongViec on Tho.MaTho = CongViec.MaTho " +
-                    " inner join Nhom on CongViec.MaNhom = Nhom.MaNhom where CongViec.MaNhom = " + groupid;
-
-                dataGridViewWork.DataSource = vehicle.getVehicle(new SqlCommand(query));
-            }*/
-        }
-      
         #endregion
 
         #region Contract-------------------------------------------------------
@@ -1686,7 +1668,7 @@ namespace QuanLyNhaXe01
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Copy DataGridView results to clipboard
-                copyAlltoClipboard();
+                copyAlltoClipboard_Revenue();
 
                 object misValue = System.Reflection.Missing.Value;
                 Excel.Application xlexcel = new Excel.Application();
@@ -1730,6 +1712,15 @@ namespace QuanLyNhaXe01
             }
 
         }
+
+        private void copyAlltoClipboard_Revenue()
+        {
+            dataGridViewRevenue.SelectAll();
+            DataObject dataObj = dataGridViewRevenue.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
 
         private void buttonRevenueStatistics_Click(object sender, EventArgs e)
         {
@@ -1842,25 +1833,38 @@ namespace QuanLyNhaXe01
             makeUpGridForAll();
         }
 
-        private void textBoxSearchRevenue_TextChanged(object sender, EventArgs e)
+        private void textBoxSearchRevenue_TextChanged_1(object sender, EventArgs e)
         {
-            string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
-            string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
-            string query = "SELECT LoaiXe, COUNT(Xe.MaTheXe) AS SoLuong, SUM(Total) AS TongDoanhThu " +
-                "FROM Xe INNER JOIN DoanhThu ON Xe.MaTheXe = DoanhThu.MaTheXe " +
-                "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "' AND CONCAT(LoaiXe) LIKE '%" + textBoxSearchVehicle.Text + "%' " +
-                "GROUP BY LoaiXe";
-            System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
-            int tatCaXe = 0;
-            double tongDoanhThu = 0;
-            for (int i = 0; i < table.Rows.Count; i++)
+            if (comboBoxTypeRevenue.Text == "Vehicles Parking")
             {
-                tatCaXe += int.Parse(table.Rows[i][1].ToString());
-                tongDoanhThu += double.Parse(table.Rows[i][2].ToString());
+                string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi " +
+                    "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe " +
+                    "where ThoiGianRa is not null and CONCAT(MaTheXe, Xe.LoaiXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi) LIKE '%" + textBoxSearchRevenue.Text + "%'";
+                System.Data.DataTable table_revenue = vehicle.getVehicle(new SqlCommand(query));
+                dataGridViewRevenue.DataSource = table_revenue;
+                makeUpGridForAll();
+                double tongDoanhThu = 0;
+                for (int i = 0; i < table_revenue.Rows.Count; i++)
+                {
+                    tongDoanhThu += double.Parse(table_revenue.Rows[i][7].ToString());
+                }
+                textBoxTotalRevenue.ReadOnly = true;
+                textBoxTotalRevenue.Text = tongDoanhThu.ToString();
             }
-            table.Rows.Add(new object[] { "Tong Doanh Thu", tatCaXe, tongDoanhThu });
-            dataGridViewRevenue.DataSource = table;
-            makeUpGridForAll();
+            else
+            {
+                string query = "select SoHD, LoaiHD, NgayKyHD, MaKH, SoXe, GiaTriHD, ThanhToan from HopDong " +
+                    "Where CONCAT(SoHD, LoaiHD, NgayKyHD, MaKH, SoXe, GiaTriHD, ThanhToan) LIKE '%" + textBoxSearchRevenue.Text + "%'";
+                System.Data.DataTable table = vehicle.getVehicle(new SqlCommand(query));
+                dataGridViewRevenue.DataSource = table;
+                dataGridViewRevenue.ReadOnly = true;
+                dataGridViewRevenue.AllowUserToAddRows = false;
+                double tongDoanhThu = 0;
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    tongDoanhThu += double.Parse(table.Rows[i][6].ToString());
+                }
+            }    
         }
 
         #endregion
@@ -1967,7 +1971,7 @@ namespace QuanLyNhaXe01
             string query = "select Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong as 'MucLuong', sum(DATEDIFF(hour, checkin_time, checkout_time)) as 'Total Time',  sum((DATEDIFF(hour, checkin_time, checkout_time) * MucLuong.Luong)) as 'Tong Luong' " +
                 "from Tho inner join Luong on Tho.MaTho = Luong.MaTho " +
                 "inner join MucLuong on MucLuong.LoaiTho = Tho.LoaiNguoiDung " +
-                "where concat(Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong, 'Tong Luong', 'Total Time') LIKE '%" + textBoxSearchSalary.Text + "%'" +
+                "where concat(Tho.MaTho, Tho.TenTho, Tho.CMND, Tho.SDT, Tho.DiaChi, MucLuong.Luong) LIKE '%" + textBoxSearchSalary.Text + "%'" +
                 "group by Tho.MaTho, Tho.TenTho, Tho.SDT, Tho.CMND, Tho.DiaChi, MucLuong.Luong";
             SqlCommand command = new SqlCommand(query);
             dataGridViewSalary.DataSource = vehicle.getVehicle(command);
@@ -1993,11 +1997,11 @@ namespace QuanLyNhaXe01
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Excel Documents (*.xls)|*.xls";
-            sfd.FileName = "Salary_Export.xls";
+            sfd.FileName = "Salary.xls";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Copy DataGridView results to clipboard
-                copyAlltoClipboard();
+                copyAlltoClipboard_Salary();
 
                 object misValue = System.Reflection.Missing.Value;
                 Excel.Application xlexcel = new Excel.Application();
@@ -2041,6 +2045,15 @@ namespace QuanLyNhaXe01
             }
         }
 
+        private void copyAlltoClipboard_Salary()
+        {
+            dataGridViewSalary.SelectAll();
+            DataObject dataObj = dataGridViewSalary.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
+
         private void dataGridViewSalary_Click(object sender, EventArgs e)
         {
             if (dataGridViewSalary.Rows.Count > 0)
@@ -2054,6 +2067,5 @@ namespace QuanLyNhaXe01
 
 
         #endregion
-
     }
 }

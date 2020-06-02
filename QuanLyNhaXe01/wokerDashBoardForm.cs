@@ -37,9 +37,9 @@ namespace QuanLyNhaXe01
                 Vehicle vehicle = new Vehicle();
                 string query = "select * from Tho where MaTho = " + Globals.GlobalUserID;
                 DataTable table = vehicle.getVehicle(new System.Data.SqlClient.SqlCommand(query));
-                if (table.Rows[0][11].ToString() != "")
+                if (table.Rows[0][10].ToString() != "")
                 {
-                    byte[] bytes = (byte[])table.Rows[0][11];
+                    byte[] bytes = (byte[])table.Rows[0][10];
                     MemoryStream ms = new MemoryStream(bytes);
                     pictureBoxProfile.Image = Image.FromStream(ms);
                 }

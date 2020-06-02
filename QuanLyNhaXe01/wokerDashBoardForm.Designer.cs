@@ -60,7 +60,7 @@
             this.buttonCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(205)))), ((int)(((byte)(224)))));
             this.buttonCheckout.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCheckout.ForeColor = System.Drawing.Color.Black;
-            this.buttonCheckout.Location = new System.Drawing.Point(455, 38);
+            this.buttonCheckout.Location = new System.Drawing.Point(439, 37);
             this.buttonCheckout.Name = "buttonCheckout";
             this.buttonCheckout.Size = new System.Drawing.Size(157, 66);
             this.buttonCheckout.TabIndex = 3;
@@ -73,6 +73,7 @@
             this.pictureBoxProfile.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.Size = new System.Drawing.Size(181, 137);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxProfile.TabIndex = 2;
             this.pictureBoxProfile.TabStop = false;
             // 
@@ -158,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 345);
+            this.ClientSize = new System.Drawing.Size(612, 345);
             this.Controls.Add(this.labelSecond);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelMinute);
