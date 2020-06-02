@@ -103,15 +103,16 @@ namespace QuanLyNhaXe01
             #endregion
 
             #region REVENUE
-            string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi " +
-                "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe " +
-                "where ThoiGianRa is not null";
+            string query = "select Xe.MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Total as 'Phi' "+
+                "from Xe inner join DoanhThu on DoanhThu.MaTheXe = Xe.MaTheXe "+
+                "where ThoiGianRa is not null ";
             System.Data.DataTable table_revenue = vehicle.getVehicle(new SqlCommand(query));
             dataGridViewRevenue.DataSource = table_revenue;
             makeUpGridForAll();
             double tongDoanhThu = 0;
             for (int i = 0; i < table_revenue.Rows.Count; i++)
             {
+              
                 tongDoanhThu += double.Parse(table_revenue.Rows[i][7].ToString());
             }
             textBoxTotalRevenue.ReadOnly = true;
@@ -1724,7 +1725,8 @@ namespace QuanLyNhaXe01
 
         private void buttonRevenueStatistics_Click(object sender, EventArgs e)
         {
-
+            statisticsRevenueForm st = new statisticsRevenueForm();
+            st.ShowDialog();
         }
 
         void makeUpGridForAll()
@@ -1758,8 +1760,8 @@ namespace QuanLyNhaXe01
         {
             string dateFrom = dateTimePickerFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dateTimePickerTo.Value.ToString("yyyy-MM-dd");
-            string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi " +
-                    "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe " +
+            string query = "select Xe.MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Total as 'Phi' " +
+                    "from Xe inner join PhiGuiXeVaSlot on DoanhThu.MaTheXe = Xe.MaTheXe " +
                     "WHERE ThoiGianRa BETWEEN '" + dateFrom + " 00:00:00.000" + "' AND '" + dateTo + " 23:59:59.997" + "'";
             double tongDoanhThu = 0;
             System.Data.DataTable table_revenue = null;
@@ -1779,7 +1781,14 @@ namespace QuanLyNhaXe01
                 table_revenue = vehicle.getVehicle(new SqlCommand(query));
                 for (int i = 0; i < table_revenue.Rows.Count; i++)
                 {
-                    tongDoanhThu += double.Parse(table_revenue.Rows[i][6].ToString());
+                    if (table_revenue.Rows[i][1].ToString() != "Ky Gui")
+                    {
+                        tongDoanhThu += double.Parse(table_revenue.Rows[i][6].ToString());
+                    }
+                    else if(table_revenue.Rows[i][1].ToString() == "Ky Gui")
+                    {
+                        tongDoanhThu -= double.Parse(table_revenue.Rows[i][6].ToString());
+                    }
                 }
             }
             dataGridViewRevenue.DataSource = table_revenue;
@@ -1794,8 +1803,9 @@ namespace QuanLyNhaXe01
             double tongDoanhThu = 0;
             if (comboBoxTypeRevenue.Text == "Vehicles Parking")
             {
-                string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi " +
-                    "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe";
+                string query = "select Xe.MaTheXe, LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Total as 'Phi' "+
+                "from Xe inner join DoanhThu on DoanhThu.MaTheXe = Xe.MaTheXe"+
+               " where ThoiGianRa is not null ";
                 System.Data.DataTable table_revenue = vehicle.getVehicle(new SqlCommand(query));
                 dataGridViewRevenue.DataSource = table_revenue;
                 makeUpGridForAll();
@@ -1837,9 +1847,9 @@ namespace QuanLyNhaXe01
         {
             if (comboBoxTypeRevenue.Text == "Vehicles Parking")
             {
-                string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi " +
-                    "from Xe inner join PhiGuiXeVaSlot on PhiGuiXeVaSlot.LoaiXe = Xe.LoaiXe " +
-                    "where ThoiGianRa is not null and CONCAT(MaTheXe, Xe.LoaiXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Phi) LIKE '%" + textBoxSearchRevenue.Text + "%'";
+                string query = "select MaTheXe, Xe.LoaiXe, NguoiGui, AnhXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Total as Phi " +
+                    "from Xe inner join DoanhThu on DoanhThu.MaTheXe= Xe.MaTheXe " +
+                    "where ThoiGianRa is not null and CONCAT(MaTheXe, Xe.LoaiXe, ThoiGianVao, ThoiGianRa, HinhThucGui, Total) LIKE '%" + textBoxSearchRevenue.Text + "%'";
                 System.Data.DataTable table_revenue = vehicle.getVehicle(new SqlCommand(query));
                 dataGridViewRevenue.DataSource = table_revenue;
                 makeUpGridForAll();
@@ -2064,8 +2074,14 @@ namespace QuanLyNhaXe01
             }
         }
 
-
+        private void buttonStatistic_Click(object sender, EventArgs e)
+        {
+            statisticsSalaryForm st = new statisticsSalaryForm();
+            st.ShowDialog();
+        }
 
         #endregion
+
+
     }
 }

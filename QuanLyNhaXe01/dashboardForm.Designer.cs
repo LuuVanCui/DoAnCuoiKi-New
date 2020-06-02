@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.linkLabelRefresh = new System.Windows.Forms.LinkLabel();
@@ -114,7 +113,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.tabPageWork = new System.Windows.Forms.TabPage();
             this.panel17 = new System.Windows.Forms.Panel();
             this.dataGridViewWork = new System.Windows.Forms.DataGridView();
@@ -238,8 +236,9 @@
             this.buttonPrint_salary = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
             this.dataGridViewSalary = new System.Windows.Forms.DataGridView();
+            this.pictureBoxImage = new System.Windows.Forms.PictureBox();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.tabControlSalary.SuspendLayout();
             this.tabPageVehicles.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -254,7 +253,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorker)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.tabPageWork.SuspendLayout();
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWork)).BeginInit();
@@ -284,6 +282,8 @@
             this.panel22.SuspendLayout();
             this.panel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -300,15 +300,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1164, 130);
             this.panel1.TabIndex = 1;
-            // 
-            // pictureBoxProfile
-            // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(175, 130);
-            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxProfile.TabIndex = 4;
-            this.pictureBoxProfile.TabStop = false;
             // 
             // labelWelcome
             // 
@@ -1308,17 +1299,6 @@
             this.label2.Size = new System.Drawing.Size(122, 28);
             this.label2.TabIndex = 5;
             this.label2.Text = "Worker ID:";
-            // 
-            // pictureBoxImage
-            // 
-            this.pictureBoxImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxImage.Location = new System.Drawing.Point(598, 253);
-            this.pictureBoxImage.Name = "pictureBoxImage";
-            this.pictureBoxImage.Size = new System.Drawing.Size(151, 89);
-            this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxImage.TabIndex = 24;
-            this.pictureBoxImage.TabStop = false;
             // 
             // tabPageWork
             // 
@@ -2683,6 +2663,7 @@
             this.buttonStatistic.TabIndex = 7;
             this.buttonStatistic.Text = "Statistics";
             this.buttonStatistic.UseVisualStyleBackColor = false;
+            this.buttonStatistic.Click += new System.EventHandler(this.buttonStatistic_Click);
             // 
             // buttonExport_salary
             // 
@@ -2730,6 +2711,26 @@
             this.dataGridViewSalary.TabIndex = 0;
             this.dataGridViewSalary.Click += new System.EventHandler(this.dataGridViewSalary_Click);
             // 
+            // pictureBoxImage
+            // 
+            this.pictureBoxImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxImage.Location = new System.Drawing.Point(598, 253);
+            this.pictureBoxImage.Name = "pictureBoxImage";
+            this.pictureBoxImage.Size = new System.Drawing.Size(151, 89);
+            this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxImage.TabIndex = 24;
+            this.pictureBoxImage.TabStop = false;
+            // 
+            // pictureBoxProfile
+            // 
+            this.pictureBoxProfile.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.Size = new System.Drawing.Size(175, 130);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxProfile.TabIndex = 4;
+            this.pictureBoxProfile.TabStop = false;
+            // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2747,7 +2748,6 @@
             this.Load += new System.EventHandler(this.dashboardForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.tabControlSalary.ResumeLayout(false);
             this.tabPageVehicles.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -2770,7 +2770,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.tabPageWork.ResumeLayout(false);
             this.tabPageWork.PerformLayout();
             this.panel17.ResumeLayout(false);
@@ -2817,6 +2816,8 @@
             this.panel22.PerformLayout();
             this.panel21.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
 
         }

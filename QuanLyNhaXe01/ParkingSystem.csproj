@@ -154,6 +154,18 @@
     <Compile Include="statisticsContractForm.Designer.cs">
       <DependentUpon>statisticsContractForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="statisticsRevenueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statisticsRevenueForm.Designer.cs">
+      <DependentUpon>statisticsRevenueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="statisticsSalaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="statisticsSalaryForm.Designer.cs">
+      <DependentUpon>statisticsSalaryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="statisticsWorkForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +299,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="statisticsContractForm.resx">
       <DependentUpon>statisticsContractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statisticsRevenueForm.resx">
+      <DependentUpon>statisticsRevenueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statisticsSalaryForm.resx">
+      <DependentUpon>statisticsSalaryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="statisticsWorkForm.resx">
       <DependentUpon>statisticsWorkForm.cs</DependentUpon>

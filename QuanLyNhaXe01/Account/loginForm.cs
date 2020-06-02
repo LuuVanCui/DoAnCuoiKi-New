@@ -27,11 +27,11 @@ namespace QuanLyNhaXe01
             string query = "SELECT * FROM Login WHERE username=@User AND password=@Pass";
             if (radioButtonParking.Checked == true)
             {
-                query = "SELECT * FROM Tho WHERE Username=@User AND Password=@Pass AND LoaiNguoiDung = 'Trong Xe'";
+                query = "SELECT * FROM Tho WHERE Username=@User AND Password=@Pass AND LoaiNguoiDung = 'Parking'";
             }
             else if (radioButtonWorker.Checked)
             {
-                query = "SELECT * FROM Tho WHERE Username=@User AND Password=@Pass AND (LoaiNguoiDung = 'Rua Xe' OR LoaiNguoiDung = 'Sua Xe')";
+                query = "SELECT * FROM Tho WHERE Username=@User AND Password=@Pass AND (LoaiNguoiDung = 'Worker')";
             }    
             SqlCommand cmd = new SqlCommand(query, db.getConnection);
             cmd.Parameters.Add("@User", SqlDbType.VarChar).Value = textBoxUser.Text;

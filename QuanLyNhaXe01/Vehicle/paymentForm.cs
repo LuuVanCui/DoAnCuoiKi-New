@@ -79,11 +79,12 @@ namespace QuanLyNhaXe01
         {
             try
             {
+                
                 string CardID = labelCardID.Text.Trim();
                 float total = float.Parse(labelTotal.Text);
                 if (MessageBox.Show("Do you want to pay this vehicle?", "Pay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (vehicle.updateVehicleOut_Xe(CardID))
+                    if (vehicle.updateVehicleOut_Xe(CardID) && vehicle.updateVehicleOut_DoanhThu(CardID,total))
                     {
                         MessageBox.Show("Pay sucessful!", "Pay", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

@@ -308,6 +308,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "addVehicleForm";
+            this.Load += new System.EventHandler(this.addVehicleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVehiclePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModel)).EndInit();

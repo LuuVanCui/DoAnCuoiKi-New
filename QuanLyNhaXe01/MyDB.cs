@@ -1,4 +1,5 @@
 ﻿
+
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -12,8 +13,8 @@ namespace QuanLyNhaXe01
     {
 
        
-       SqlConnection con = new SqlConnection(@"Data Source=ADMIN;Initial Catalog=QuanLyNhaXe;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-      //  SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=QuanLyNhaXe;Integrated Security=True");
+       //SqlConnection con = new SqlConnection(@"Data Source=ADMIN;Initial Catalog=QuanLyNhaXe;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+       SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=QuanLyNhaXe;Integrated Security=True");
         public SqlConnection getConnection
         {
             get

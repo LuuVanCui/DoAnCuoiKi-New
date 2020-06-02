@@ -116,17 +116,17 @@ namespace QuanLyNhaXe01
         bool slot(string loaiXe)
         {
             Vehicle vehicle = new Vehicle();
-            DataTable table = vehicle.getVehicle(new SqlCommand("SELECT * FROM Slot"));
+            DataTable table = vehicle.getVehicle(new SqlCommand("select * from PhiGuiXeVaSlot"));
             int soXeDangGui = int.Parse(vehicle.execCount("SELECT COUNT(*) FROM Xe WHERE TrangThaiGui = 'Dang Gui'"));
-            if (loaiXe == "Xe Dap" && soXeDangGui < int.Parse(table.Rows[0][1].ToString()))
+            if (loaiXe == "Xe Dap" && soXeDangGui < int.Parse(table.Rows[1][2].ToString()))
             {
                 return true;
             }   
-            else if (loaiXe == "Xe Hoi" && soXeDangGui < int.Parse(table.Rows[1][1].ToString()))
+            else if (loaiXe == "Xe Hoi" && soXeDangGui < int.Parse(table.Rows[2][3].ToString()))
             {
                 return true;
             }    
-            else if (loaiXe == "Xe May" && soXeDangGui < int.Parse(table.Rows[2][1].ToString()))
+            else if (loaiXe == "Xe May" && soXeDangGui < int.Parse(table.Rows[0][2].ToString()))
             {
                 return true;
             }
@@ -136,8 +136,8 @@ namespace QuanLyNhaXe01
         private void buttonAddVehicle_Click(object sender, EventArgs e)
         {
             Vehicle vehicle = new Vehicle();
-            try
-            { 
+           /* try
+            {*/
                 string id = textBoxCardID.Text;
                 string type = "Xe May";
                 string shape = comboBoxShape.Text;
@@ -147,7 +147,7 @@ namespace QuanLyNhaXe01
                     {
                         MessageBox.Show("Out of Slot", "Add Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
-                    }    
+                    }
                     MemoryStream user_pic = new MemoryStream();
                     MemoryStream license_pic = new MemoryStream();
                     pictureBoxUser.Image.Save(user_pic, pictureBoxUser.Image.RawFormat);
@@ -193,11 +193,11 @@ namespace QuanLyNhaXe01
                 }
 
                 MessageBox.Show("New Vehicle Added", "Add Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+           /* }
             catch
             {
                 MessageBox.Show("Card ID is already exists.", "Add Vehice", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
 
         }
 
@@ -250,6 +250,11 @@ namespace QuanLyNhaXe01
             pictureBoxUser.Image = null;
             pictureBoxVehiclePicture.Image = null;
             pictureBoxLicensePlate.Image = null;
+        }
+
+        private void addVehicleForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
